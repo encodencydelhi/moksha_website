@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, ReactElement } from "react";
 
 interface CustomIconProps {
@@ -34,7 +33,6 @@ const CustomIcon = ({ name, className = "w-6 h-6" }: CustomIconProps) => {
         <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
       </svg>
     ),
-    // یہاں FaHandHoldingHeart کو FaHeart سے تبدیل کیا گیا ہے
     FaHeart: (
       <svg className={className} fill="currentColor" viewBox="0 0 24 24">
         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
@@ -112,7 +110,7 @@ export default function HowWeCanHelp() {
     { icon: "FaClock", value: "24/7", label: "Available Support" },
     { icon: "FaUsers", value: "500+", label: "Families Served" },
     {
-      icon: "FaHeart", // یہاں بھی FaHandHoldingHeart کو FaHeart سے تبدیل کیا گیا ہے
+      icon: "FaHeart",
       value: "100%",
       label: "Compassionate Care",
     },
@@ -121,64 +119,64 @@ export default function HowWeCanHelp() {
 
   const circleStyles = [
     {
-      width: "100px",
-      height: "100px",
+      width: "80px",
+      height: "80px",
       left: "10%",
       top: "20%",
       background:
         "radial-gradient(circle at 30% 30%, #E8DBC520, transparent 70%)",
     },
     {
-      width: "120px",
-      height: "120px",
+      width: "100px",
+      height: "100px",
       left: "20%",
       top: "70%",
       background:
         "radial-gradient(circle at 30% 30%, #D4C1A620, transparent 70%)",
     },
     {
-      width: "80px",
-      height: "80px",
+      width: "60px",
+      height: "60px",
       left: "40%",
       top: "30%",
       background:
         "radial-gradient(circle at 30% 30%, #8B6A3E20, transparent 70%)",
     },
     {
-      width: "110px",
-      height: "110px",
+      width: "90px",
+      height: "90px",
       left: "60%",
       top: "10%",
       background:
         "radial-gradient(circle at 30% 30%, #E8DBC520, transparent 70%)",
     },
     {
-      width: "90px",
-      height: "90px",
+      width: "70px",
+      height: "70px",
       left: "70%",
       top: "60%",
       background:
         "radial-gradient(circle at 30% 30%, #D4C1A620, transparent 70%)",
     },
     {
-      width: "130px",
-      height: "130px",
+      width: "110px",
+      height: "110px",
       left: "85%",
       top: "40%",
       background:
         "radial-gradient(circle at 30% 30%, #8B6A3E20, transparent 70%)",
     },
     {
-      width: "95px",
-      height: "95px",
+      width: "75px",
+      height: "75px",
       left: "5%",
       top: "50%",
       background:
         "radial-gradient(circle at 30% 30%, #E8DBC520, transparent 70%)",
     },
     {
-      width: "105px",
-      height: "105px",
+      width: "85px",
+      height: "85px",
       left: "90%",
       top: "80%",
       background:
@@ -187,7 +185,7 @@ export default function HowWeCanHelp() {
   ];
 
   return (
-    <section className="w-full relative py-10 md:py-10 overflow-hidden">
+    <section className="w-full relative py-8 md:py-12 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-[#FCF9F3] via-white to-[#F8F4EC]"></div>
 
@@ -197,56 +195,56 @@ export default function HowWeCanHelp() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-4 mb-8">
-            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#8B6A3E] to-transparent"></div>
-            <span className="text-[#8B6A3E] font-medium tracking-widest uppercase text-sm">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center space-x-3 mb-6">
+            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#8B6A3E] to-transparent"></div>
+            <span className="text-[#8B6A3E] font-medium tracking-widest uppercase text-xs">
               Our Services
             </span>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#8B6A3E] to-transparent"></div>
+            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#8B6A3E] to-transparent"></div>
           </div>
 
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-[#3A2A1F] leading-tight mb-6">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-light text-[#3A2A1F] leading-tight mb-4">
             <span className="block">Comprehensive</span>
             <span className="relative inline-block">
               Compassionate Care
               <svg
-                className="absolute -bottom-3 left-0 w-full h-3 text-[#E8DBC5]/70"
+                className="absolute -bottom-2 left-0 w-full h-2.5 text-[#E8DBC5]/70"
                 viewBox="0 0 100 10"
                 preserveAspectRatio="none"
               >
                 <path
                   d="M0,5 Q25,0 50,5 T100,5"
                   stroke="currentColor"
-                  strokeWidth="2"
+                  strokeWidth="1.5"
                   fill="none"
                 />
               </svg>
             </span>
           </h2>
 
-          <p className="text-xl md:text-2xl text-[#6E4B3A]/80 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-lg md:text-xl text-[#6E4B3A]/80 max-w-3xl mx-auto font-light leading-relaxed">
             We provide end-to-end support through every aspect of the
             end-of-life journey, ensuring cultural sensitivity, dignity, and
             peace of mind.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {stats.map((stat, index) => (
             <div key={index} className="relative">
-              <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-[#E8DBC5]">
-                <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#E8DBC5] to-[#F8F4EC] flex items-center justify-center">
+              <div className="bg-white/50 backdrop-blur-sm rounded-lg p-3 border border-[#E8DBC5]">
+                <div className="flex flex-col items-center justify-center space-y-2">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#E8DBC5] to-[#F8F4EC] flex items-center justify-center">
                     <div className="text-[#8B6A3E]">
-                      <CustomIcon name={stat.icon} className="w-5 h-5" />
+                      <CustomIcon name={stat.icon} className="w-4 h-4" />
                     </div>
                   </div>
-                  <div className="text-center sm:text-left">
-                    <div className="text-2xl sm:text-3xl font-light text-[#8B6A3E]">
+                  <div className="text-center">
+                    <div className="text-xl font-light text-[#8B6A3E]">
                       {stat.value}
                     </div>
-                    <div className="text-sm text-[#6E4B3A] whitespace-normal">
+                    <div className="text-xs text-[#6E4B3A] whitespace-normal">
                       {stat.label}
                     </div>
                   </div>
@@ -256,7 +254,7 @@ export default function HowWeCanHelp() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
           {cards.map((card, index) => (
             <div
               key={index}
@@ -264,53 +262,45 @@ export default function HowWeCanHelp() {
               onMouseEnter={() => setActiveCard(index)}
               onMouseLeave={() => setActiveCard(null)}
             >
-              <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-[#E8DBC5] h-full overflow-hidden">
-                <div className="relative mb-6 md:mb-8">
-                  <div className="relative w-16 h-16 md:w-20 md:h-20 mx-auto">
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-xl p-5 border border-[#E8DBC5] h-full flex flex-col overflow-hidden">
+                <div className="relative mb-4">
+                  <div className="relative w-14 h-14 mx-auto">
                     <div className="relative w-full h-full rounded-full bg-gradient-to-br from-white to-[#F8F4EC] border-4 border-white flex items-center justify-center shadow-lg">
-                      <div className="text-2xl md:text-3xl text-[#8B6A3E]">
-                        <CustomIcon
-                          name={card.icon}
-                          className="w-6 h-6 md:w-8 md:h-8"
-                        />
+                      <div className="text-[#8B6A3E]">
+                        <CustomIcon name={card.icon} className="w-5 h-5" />
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <h3 className="text-lg md:text-xl font-light text-[#3A2A1F] mb-4 text-center">
+                <h3 className="text-base font-light text-[#3A2A1F] mb-3 text-center">
                   {card.title}
                 </h3>
 
-                <p className="text-[#6E4B3A] leading-relaxed mb-6 text-center text-sm md:text-base">
+                <p className="text-[#6E4B3A] leading-relaxed mb-4 text-center text-sm flex-grow">
                   {card.desc}
                 </p>
 
-                <div className="space-y-3 mb-6 md:mb-8">
+                <div className="space-y-2 mb-4">
                   {card.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center space-x-3">
+                    <div key={idx} className="flex items-center space-x-2">
                       <div
-                        className={`w-2 h-2 rounded-full bg-gradient-to-br ${card.color} flex-shrink-0`}
+                        className={`w-1.5 h-1.5 rounded-full bg-gradient-to-br ${card.color} flex-shrink-0`}
                       ></div>
-                      <span className="text-sm text-[#6E4B3A]">{feature}</span>
+                      <span className="text-xs text-[#6E4B3A]">{feature}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="text-center">
-                  <button className="inline-flex items-center justify-center space-x-2 text-[#8B6A3E] px-4 py-2 md:px-6 md:py-3 rounded-lg border border-[#E8DBC5] w-full sm:w-auto">
-                    <span className="font-medium text-sm md:text-base">
-                      Learn More
-                    </span>
-                    <CustomIcon
-                      name="FaArrowRight"
-                      className="w-3 h-3 md:w-4 md:h-4"
-                    />
+                <div className="text-center mt-auto">
+                  <button className="inline-flex items-center justify-center space-x-1 text-[#8B6A3E] px-3 py-1.5 rounded-lg border border-[#E8DBC5] w-full text-xs hover:bg-[#F8F4EC] transition-colors">
+                    <span>Learn More</span>
+                    <CustomIcon name="FaArrowRight" className="w-2.5 h-2.5" />
                   </button>
                 </div>
 
-                <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-[#E8DBC5] rounded-tr-lg opacity-0 group-hover:opacity-100"></div>
-                <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-[#E8DBC5] rounded-bl-lg opacity-0 group-hover:opacity-100"></div>
+                <div className="absolute top-3 right-3 w-3 h-3 border-t border-r border-[#E8DBC5] rounded-tr-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute bottom-3 left-3 w-3 h-3 border-b border-l border-[#E8DBC5] rounded-bl-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
             </div>
           ))}
@@ -318,20 +308,17 @@ export default function HowWeCanHelp() {
 
         <div className="text-center">
           <div className="relative inline-block">
-            <button className="relative px-8 py-4 md:px-12 md:py-6 bg-gradient-to-br from-[#8B6A3E] to-[#A88B5E] text-white rounded-2xl overflow-hidden shadow-xl">
-              <div className="relative z-10 flex items-center justify-center space-x-4">
-                <span className="text-lg md:text-xl font-medium">
+            <button className="relative px-6 py-3 md:px-8 md:py-4 bg-gradient-to-br from-[#8B6A3E] to-[#A88B5E] text-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="relative z-10 flex items-center justify-center space-x-2">
+                <span className="text-base font-medium">
                   Explore All Services
                 </span>
-                <CustomIcon
-                  name="FaArrowRight"
-                  className="w-4 h-4 md:w-5 md:h-5"
-                />
+                <CustomIcon name="FaArrowRight" className="w-3.5 h-3.5" />
               </div>
             </button>
           </div>
 
-          <p className="text-[#6E4B3A] mt-8 text-base md:text-lg font-light">
+          <p className="text-[#6E4B3A] mt-6 text-sm md:text-base font-light">
             Need immediate assistance?{" "}
             <a
               href="tel:+9118001234567"
