@@ -50,17 +50,15 @@ export default function Navbar() {
             : "bg-gradient-to-b from-white/90 via-white/80 to-transparent py-1"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4">
+        <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="relative">
-                <div className=" w-16 h-16 rounded-full overflow-hidden border-4 border-white shadow-lg ">
-                  <img
-                    src="/assets/logoreal.jpeg"
-                    alt="Moksha Voyage Logo"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+            <div className="flex items-center space-x-3">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden border-3 sm:border-4 border-white shadow-lg">
+                <img
+                  src="/assets/logoreal.jpeg"
+                  alt="Moksha Voyage Logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
@@ -91,66 +89,73 @@ export default function Navbar() {
               </div>
             </div>
 
-            <button
-              onClick={() => setOpen(!open)}
-              className="lg:hidden w-12 h-12 rounded-xl bg-gradient-to-br from-[#F8F4EC] to-white border border-[#E8DBC5] flex items-center justify-center text-[#4A2F2A] shadow-sm"
-            >
-              {open ? (
-                <HiX className="w-6 h-6" />
-              ) : (
-                <>
-                  <HiMenu className="w-6 h-6" />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#8B6A3E] rounded-full"></div>
-                </>
-              )}
-            </button>
+            <div className="flex items-center space-x-4">
+              <div className="lg:hidden flex items-center space-x-2 bg-white/60 backdrop-blur-sm rounded-full px-3 py-2 border border-[#E8DBC5] shadow-sm">
+                <HiOutlineCalendar className="w-4 h-4 text-[#8B6A3E]" />
+                <span className="text-xs font-medium text-[#5A4030] hidden sm:block">
+                  {dateString}
+                </span>
+              </div>
+              <button
+                onClick={() => setOpen(!open)}
+                className="lg:hidden w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#F8F4EC] to-white border border-[#E8DBC5] flex items-center justify-center text-[#4A2F2A] shadow-sm"
+                aria-label="Menu"
+              >
+                {open ? (
+                  <HiX className="w-5 h-5 sm:w-6 sm:h-6" />
+                ) : (
+                  <HiMenu className="w-5 h-5 sm:w-6 sm:h-6" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
 
         {open && (
-          <div className="lg:hidden bg-gradient-to-b from-white to-[#F8F4EC] border-t border-[#E8DBC5] shadow-xl">
-            <div className="px-4 sm:px-6 py-6">
-              <div className="space-y-3 mb-8">
-                {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => {
-                      setOpen(false);
-                      setActiveLink(item.name.toLowerCase());
-                    }}
-                    className={`flex items-center space-x-4 px-4 py-4 rounded-xl ${
-                      activeLink === item.name.toLowerCase()
-                        ? "bg-gradient-to-br from-[#8B6A3E] to-[#A88B5E] text-white shadow-md"
-                        : "bg-white/80 border border-[#E8DBC5] text-[#6E4B3A]"
-                    }`}
-                  >
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#F8F4EC] to-white flex items-center justify-center">
-                      <span
-                        className={`text-xl ${activeLink === item.name.toLowerCase() ? "text-white" : "text-[#8B6A3E]"}`}
-                      >
-                        {item.icon}
-                      </span>
-                    </div>
-                    <span className="font-medium">{item.name}</span>
-                  </a>
-                ))}
+          <div className="lg:hidden bg-white border-t border-[#E8DBC5] shadow-xl">
+            <div className="px-3 sm:px-6 py-4">
+              <div className="mb-4">
+                <div className="text-sm font-medium text-[#6E4B3A] mb-2 px-1">
+                  Navigation
+                </div>
+                <div className="space-y-1">
+                  {navItems.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => {
+                        setOpen(false);
+                        setActiveLink(item.name.toLowerCase());
+                      }}
+                      className={`flex items-center space-x-3 px-3 py-3 rounded-lg ${
+                        activeLink === item.name.toLowerCase()
+                          ? "bg-gradient-to-r from-[#8B6A3E] to-[#A88B5E] text-white"
+                          : "text-[#5A4030] hover:bg-[#F8F4EC]"
+                      }`}
+                    >
+                      <span className="text-lg">{item.icon}</span>
+                      <span className="font-medium">{item.name}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-[#E8DBC5] shadow-sm">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center">
-                      <HiOutlineCalendar className="w-5 h-5 text-[#8B6A3E]" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-[#6E4B3A]">Today's Date</div>
-                      <div className="text-sm font-medium text-[#5A4030]">
-                        {dateString}
-                      </div>
-                    </div>
-                  </div>
+              <div className="pt-4 border-t border-[#E8DBC5]">
+                <div className="text-sm font-medium text-[#6E4B3A] mb-2 px-1">
+                  Today's Date
                 </div>
+                <div className="flex items-center space-x-3 px-3 py-2 bg-[#F8F4EC] rounded-lg">
+                  <HiOutlineCalendar className="w-5 h-5 text-[#8B6A3E]" />
+                  <span className="text-[#5A4030] font-medium">
+                    {dateString}
+                  </span>
+                </div>
+              </div>
+
+              <div className="pt-4">
+                <button className="w-full py-3 bg-gradient-to-r from-[#8B6A3E] to-[#A88B5E] text-white rounded-lg font-medium">
+                  Contact Us
+                </button>
               </div>
             </div>
           </div>
@@ -166,7 +171,7 @@ export default function Navbar() {
         />
       </div>
 
-      <div className="h-20 md:h-18"></div>
+      <div className="h-16 sm:h-20 lg:h-24"></div>
     </>
   );
 }
