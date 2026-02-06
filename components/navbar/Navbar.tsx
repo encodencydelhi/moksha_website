@@ -115,9 +115,6 @@ export default function Navbar() {
           <div className="lg:hidden bg-white border-t border-[#E8DBC5] shadow-xl">
             <div className="px-3 sm:px-6 py-4">
               <div className="mb-4">
-                <div className="text-sm font-medium text-[#6E4B3A] mb-2 px-1">
-                  Navigation
-                </div>
                 <div className="space-y-1">
                   {navItems.map((item) => (
                     <a
