@@ -18,11 +18,9 @@ export default function CompassionSection() {
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#D4C1A6] rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 lg:py-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div
-            className={`transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
-          >
+          <div className={`${isVisible ? "opacity-100" : "opacity-0"}`}>
             <div className="inline-flex items-center space-x-2 mb-6">
               <div className="w-12 h-0.5 bg-[#8B6A3E]"></div>
               <span className="text-[#8B6A3E] font-medium tracking-wide uppercase text-sm">
@@ -94,18 +92,17 @@ export default function CompassionSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="group relative px-8 py-4 bg-[#8B6A3E] text-white rounded-lg overflow-hidden transition-all duration-300 hover:bg-[#755735] hover:shadow-2xl hover:-translate-y-1">
-                <span className="relative z-10 font-medium">Learn More</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              <button className="px-8 py-4 bg-[#8B6A3E] text-white rounded-lg font-medium">
+                Learn More
               </button>
-              <button className="px-8 py-4 border border-[#8B6A3E] text-[#8B6A3E] rounded-lg transition-all duration-300 hover:bg-[#8B6A3E]/5 hover:shadow-lg font-medium">
+              <button className="px-8 py-4 border border-[#8B6A3E] text-[#8B6A3E] rounded-lg font-medium">
                 Contact Our Team
               </button>
             </div>
           </div>
 
           <div
-            className={`relative transition-all duration-1000 delay-300 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`}
+            className={`relative ${isVisible ? "opacity-100" : "opacity-0"}`}
           >
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">

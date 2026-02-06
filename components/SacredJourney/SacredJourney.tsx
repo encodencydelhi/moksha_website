@@ -1,39 +1,42 @@
 "use client";
-import {
-  FaPhoneAlt,
-  FaEnvelope,
-  FaCalendarAlt,
-  FaHandHoldingHeart,
-  FaPrayingHands,
-  FaPeace,
-} from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaCalendarAlt } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
-export default function SacredJourney(e: any) {
-  const [activeCard, setActiveCard] = useState(null);
+export default function SacredJourney() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
+  const circleStyles = [
+    { width: "45px", height: "45px", left: "10%", top: "20%" },
+    { width: "60px", height: "35px", left: "30%", top: "70%" },
+    { width: "35px", height: "55px", left: "50%", top: "30%" },
+    { width: "55px", height: "40px", left: "70%", top: "50%" },
+    { width: "40px", height: "60px", left: "85%", top: "10%" },
+    { width: "50px", height: "50px", left: "5%", top: "60%" },
+    { width: "65px", height: "35px", left: "25%", top: "15%" },
+    { width: "35px", height: "65px", left: "65%", top: "75%" },
+    { width: "55px", height: "45px", left: "40%", top: "85%" },
+    { width: "45px", height: "55px", left: "90%", top: "40%" },
+    { width: "60px", height: "40px", left: "15%", top: "90%" },
+    { width: "40px", height: "60px", left: "75%", top: "25%" },
+    { width: "50px", height: "50px", left: "55%", top: "65%" },
+    { width: "30px", height: "70px", left: "95%", top: "80%" },
+    { width: "70px", height: "30px", left: "20%", top: "45%" },
+  ];
+
   return (
-    <section className="w-full relative py-20 md:py-12 overflow-hidden">
+    <section className="w-full relative py-4 md:py-10 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-[#FCF9F3] via-[#F8F4EC] to-[#F5F1E9]"></div>
 
-        {[...Array(15)].map((_, i) => (
+        {circleStyles.map((style, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-[#8B6A3E]/10 animate-float"
-            style={{
-              width: Math.random() * 60 + 20 + "px",
-              height: Math.random() * 60 + 20 + "px",
-              left: Math.random() * 100 + "%",
-              top: Math.random() * 100 + "%",
-              animationDelay: Math.random() * 5 + "s",
-              animationDuration: Math.random() * 10 + 15 + "s",
-            }}
+            className="absolute rounded-full bg-[#8B6A3E]/10"
+            style={style}
           />
         ))}
 
@@ -60,7 +63,7 @@ export default function SacredJourney(e: any) {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+          className={`text-center mb-16 ${isVisible ? "opacity-100" : "opacity-0"}`}
         >
           <div className="inline-flex items-center space-x-3 mb-6">
             <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#8B6A3E] to-transparent"></div>
@@ -81,9 +84,7 @@ export default function SacredJourney(e: any) {
           </p>
         </div>
 
-        <div
-          className={`relative transition-all duration-1000 delay-500 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
-        >
+        <div className={`relative ${isVisible ? "opacity-100" : "opacity-0"}`}>
           <div className="max-w-4xl mx-auto">
             <div className="bg-gradient-to-br from-white/90 to-[#F8F4EC]/90 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-[#E8DBC5] shadow-2xl relative overflow-hidden">
               <div className="absolute inset-0 opacity-10">
@@ -97,22 +98,21 @@ export default function SacredJourney(e: any) {
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-[#8B6A3E] to-[#A88B5E] p-1 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-[#8B6A3E] to-[#A88B5E] p-1">
                     <div className="relative bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center">
-                      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 mb-4">
                         <FaPhoneAlt className="text-2xl text-white" />
                       </div>
                       <p className="text-white text-lg font-medium mb-2">
                         Call Now
                       </p>
                       <p className="text-white/80 text-sm">Immediate Support</p>
-                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                     </div>
                   </div>
 
-                  <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-[#5C4033] to-[#7A5B46] p-1 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-[#5C4033] to-[#7A5B46] p-1">
                     <div className="relative bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center">
-                      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 mb-4">
                         <FaEnvelope className="text-2xl text-white" />
                       </div>
                       <p className="text-white text-lg font-medium mb-2">
@@ -121,20 +121,18 @@ export default function SacredJourney(e: any) {
                       <p className="text-white/80 text-sm">
                         Private Consultation
                       </p>
-                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                     </div>
                   </div>
 
-                  <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-[#4A716C] to-[#5E8B83] p-1 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-[#4A716C] to-[#5E8B83] p-1">
                     <div className="relative bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center">
-                      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 mb-4">
                         <FaCalendarAlt className="text-2xl text-white" />
                       </div>
                       <p className="text-white text-lg font-medium mb-2">
                         Schedule Call
                       </p>
                       <p className="text-white/80 text-sm">Plan Ahead</p>
-                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                     </div>
                   </div>
                 </div>
@@ -154,7 +152,7 @@ export default function SacredJourney(e: any) {
         </div>
 
         <div
-          className={`text-center mt-16 transition-all duration-1000 delay-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+          className={`text-center mt-16 ${isVisible ? "opacity-100" : "opacity-0"}`}
         >
           <div className="inline-block max-w-2xl">
             <div className="relative">
@@ -180,21 +178,6 @@ export default function SacredJourney(e: any) {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-20px) rotate(180deg);
-          }
-        }
-        .animate-float {
-          animation: float infinite ease-in-out;
-        }
-      `}</style>
     </section>
   );
 }

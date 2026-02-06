@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, ReactElement } from "react";
-import { motion } from "framer-motion";
 
 interface CustomIconProps {
   name: string;
@@ -60,7 +59,6 @@ const CustomIcon = ({ name, className = "w-6 h-6" }: CustomIconProps) => {
   return icons[name] || <div className={className}>●</div>;
 };
 
-// Type definitions for card and stat items
 interface CardItem {
   icon: string;
   title: string;
@@ -120,38 +118,86 @@ export default function HowWeCanHelp() {
     { icon: "FaStar", value: "15+", label: "Years Experience" },
   ];
 
+  // Fixed circle styles (no random values)
+  const circleStyles = [
+    {
+      width: "100px",
+      height: "100px",
+      left: "10%",
+      top: "20%",
+      background:
+        "radial-gradient(circle at 30% 30%, #E8DBC520, transparent 70%)",
+    },
+    {
+      width: "120px",
+      height: "120px",
+      left: "20%",
+      top: "70%",
+      background:
+        "radial-gradient(circle at 30% 30%, #D4C1A620, transparent 70%)",
+    },
+    {
+      width: "80px",
+      height: "80px",
+      left: "40%",
+      top: "30%",
+      background:
+        "radial-gradient(circle at 30% 30%, #8B6A3E20, transparent 70%)",
+    },
+    {
+      width: "110px",
+      height: "110px",
+      left: "60%",
+      top: "10%",
+      background:
+        "radial-gradient(circle at 30% 30%, #E8DBC520, transparent 70%)",
+    },
+    {
+      width: "90px",
+      height: "90px",
+      left: "70%",
+      top: "60%",
+      background:
+        "radial-gradient(circle at 30% 30%, #D4C1A620, transparent 70%)",
+    },
+    {
+      width: "130px",
+      height: "130px",
+      left: "85%",
+      top: "40%",
+      background:
+        "radial-gradient(circle at 30% 30%, #8B6A3E20, transparent 70%)",
+    },
+    {
+      width: "95px",
+      height: "95px",
+      left: "5%",
+      top: "50%",
+      background:
+        "radial-gradient(circle at 30% 30%, #E8DBC520, transparent 70%)",
+    },
+    {
+      width: "105px",
+      height: "105px",
+      left: "90%",
+      top: "80%",
+      background:
+        "radial-gradient(circle at 30% 30%, #D4C1A620, transparent 70%)",
+    },
+  ];
+
   return (
-    <section className="w-full relative py-20 md:py-10 overflow-hidden">
+    <section className="w-full relative py-10 md:py-10 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-[#FCF9F3] via-white to-[#F8F4EC]"></div>
 
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full animate-float-slow"
-            style={{
-              width: Math.random() * 100 + 50 + "px",
-              height: Math.random() * 100 + 50 + "px",
-              left: Math.random() * 100 + "%",
-              top: Math.random() * 100 + "%",
-              background: `radial-gradient(circle at 30% 30%, ${
-                ["#E8DBC5", "#D4C1A6", "#8B6A3E"][i % 3]
-              }20, transparent 70%)`,
-              animationDelay: Math.random() * 5 + "s",
-              animationDuration: Math.random() * 20 + 20 + "s",
-            }}
-          />
+        {circleStyles.map((style, i) => (
+          <div key={i} className="absolute rounded-full" style={style} />
         ))}
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-4 mb-8">
             <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#8B6A3E] to-transparent"></div>
             <span className="text-[#8B6A3E] font-medium tracking-widest uppercase text-sm">
@@ -184,18 +230,12 @@ export default function HowWeCanHelp() {
             end-of-life journey, ensuring cultural sensitivity, dignity, and
             peace of mind.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6"
-        >
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
           {stats.map((stat, index) => (
-            <div key={index} className="relative group">
-              <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-[#E8DBC5] ">
+            <div key={index} className="relative">
+              <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-[#E8DBC5]">
                 <div className="flex items-center justify-center space-x-4">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#E8DBC5] to-[#F8F4EC] flex items-center justify-center">
                     <div className="text-[#8B6A3E]">
@@ -209,47 +249,31 @@ export default function HowWeCanHelp() {
                     <div className="text-sm text-[#6E4B3A]">{stat.label}</div>
                   </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#8B6A3E]/20 to-transparent -translate-x-full  transition-transform duration-700"></div>
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {cards.map((card, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              className="relative group"
               onMouseEnter={() => setActiveCard(index)}
               onMouseLeave={() => setActiveCard(null)}
-              className="relative group"
             >
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${card.color} rounded-2xl opacity-0  transition-opacity duration-500 blur-xl`}
-              ></div>
-
-              <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-[#E8DBC5] h-full overflow-hidden group-hover:border-transparent transition-all duration-500 ">
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-0  transition-opacity duration-500`}
-                ></div>
-
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-[#E8DBC5] h-full overflow-hidden">
                 <div className="relative mb-8">
                   <div className="relative w-20 h-20 mx-auto">
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${card.color} rounded-full blur-md opacity-0  transition-opacity duration-500`}
-                    ></div>
                     <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-white to-[#F8F4EC] border-4 border-white flex items-center justify-center shadow-lg">
-                      <div className="text-3xl text-[#8B6A3E]  transition-all duration-500">
+                      <div className="text-3xl text-[#8B6A3E]">
                         <CustomIcon name={card.icon} className="w-8 h-8" />
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <h3 className="text-xl font-light text-[#3A2A1F] mb-4 text-center group-hover:text-[#3A2A1F] transition-colors duration-300">
+                <h3 className="text-xl font-light text-[#3A2A1F] mb-4 text-center">
                   {card.title}
                 </h3>
 
@@ -261,69 +285,37 @@ export default function HowWeCanHelp() {
                   {card.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center space-x-3">
                       <div
-                        className={`w-2 h-2 rounded-full bg-gradient-to-br ${card.color} duration-500`}
+                        className={`w-2 h-2 rounded-full bg-gradient-to-br ${card.color}`}
                       ></div>
-                      <span className="text-sm text-[#6E4B3A] group-hover:text-[#5A4030] transition-colors duration-300">
-                        {feature}
-                      </span>
+                      <span className="text-sm text-[#6E4B3A]">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 <div className="text-center">
-                  <button className="inline-flex items-center space-x-2 text-[#8B6A3E] group-hover:text-white group-hover:bg-gradient-to-br group-hover:from-[#8B6A3E] group-hover:to-[#A88B5E] px-6 py-3 rounded-lg border border-[#E8DBC5] group-hover:border-transparent transition-all duration-300">
+                  <button className="inline-flex items-center space-x-2 text-[#8B6A3E] px-6 py-3 rounded-lg border border-[#E8DBC5]">
                     <span className="font-medium">Learn More</span>
-                    <CustomIcon
-                      name="FaArrowRight"
-                      className="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300"
-                    />
+                    <CustomIcon name="FaArrowRight" className="w-4 h-4" />
                   </button>
                 </div>
 
-                <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-[#E8DBC5] rounded-tr-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-[#E8DBC5] rounded-bl-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-[#E8DBC5] rounded-tr-lg opacity-0 group-hover:opacity-100"></div>
+                <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-[#E8DBC5] rounded-bl-lg opacity-0 group-hover:opacity-100"></div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
+        <div className="text-center">
           <div className="relative inline-block">
-            <button className="group relative px-12 py-6 bg-gradient-to-br from-[#8B6A3E] to-[#A88B5E] text-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            <button className="relative px-12 py-6 bg-gradient-to-br from-[#8B6A3E] to-[#A88B5E] text-white rounded-2xl overflow-hidden shadow-xl">
               <div className="relative z-10 flex items-center space-x-4">
                 <span className="text-xl font-medium">
                   Explore All Services
                 </span>
-                <CustomIcon
-                  name="FaArrowRight"
-                  className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300"
-                />
+                <CustomIcon name="FaArrowRight" className="w-5 h-5" />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-
-              <div className="absolute -top-2 -left-2 w-4 h-4 bg-white rounded-full opacity-0 group-hover:opacity-100 animate-bounce"></div>
-              <div
-                className="absolute -top-2 -right-2 w-4 h-4 bg-white rounded-full opacity-0 group-hover:opacity-100 animate-bounce"
-                style={{ animationDelay: "0.2s" }}
-              ></div>
-              <div
-                className="absolute -bottom-2 -left-2 w-4 h-4 bg-white rounded-full opacity-0 group-hover:opacity-100 animate-bounce"
-                style={{ animationDelay: "0.4s" }}
-              ></div>
-              <div
-                className="absolute -bottom-2 -right-2 w-4 h-4 bg-white rounded-full opacity-0 group-hover:opacity-100 animate-bounce"
-                style={{ animationDelay: "0.6s" }}
-              ></div>
             </button>
-
-            <div className="absolute -top-4 -right-4 w-8 h-8 border-2 border-[#8B6A3E]/30 rounded-full animate-spin-slow"></div>
-            <div className="absolute -bottom-4 -left-4 w-8 h-8 border-2 border-[#8B6A3E]/30 rounded-full animate-spin-slow-reverse"></div>
           </div>
 
           <p className="text-[#6E4B3A] mt-8 text-lg font-light">
@@ -335,7 +327,7 @@ export default function HowWeCanHelp() {
               Call our 24/7 support line
             </a>
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

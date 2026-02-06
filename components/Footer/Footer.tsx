@@ -353,7 +353,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 w-[500px] p-4 bg-gradient-to-r from-[#8B6A3E] to-[#A88B5E] rounded-xl text-white text-center flex items-center justify-center mx-auto">
+        <div className="mt-8 w-[300px] p-2 bg-gradient-to-r from-[#8B6A3E] to-[#A88B5E] rounded-xl text-white text-center flex items-center justify-center mx-auto lg:w-[500] lg:p-4">
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6">
             <div className="flex items-center space-x-3">
               <Phone className="w-5 h-5" />

@@ -14,40 +14,17 @@ export default function Serving() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#FCF9F3] to-white"></div>
         <div className="absolute top-1/4 -left-20 w-80 h-80 bg-[#E8DBC5] rounded-full opacity-20 blur-3xl"></div>
         <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#D4C1A6] rounded-full opacity-15 blur-3xl"></div>
-
-        <div className="absolute inset-0 opacity-5">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern
-                id="pattern"
-                x="0"
-                y="0"
-                width="40"
-                height="40"
-                patternUnits="userSpaceOnUse"
-              >
-                <path
-                  d="M20,0 L40,20 L20,40 L0,20 Z"
-                  fill="none"
-                  stroke="#8B6A3E"
-                  strokeWidth="0.5"
-                />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#pattern)" />
-          </svg>
-        </div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div
-            className={`relative transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
+            className={`relative ${isVisible ? "opacity-100" : "opacity-0"}`}
           >
             <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div
-                  className="aspect-[5/5] bg-cover bg-center transform transition-transform duration-700 group-hover:scale-105"
+                  className="aspect-[5/5] bg-cover bg-center"
                   style={{ backgroundImage: "url('/assets/p.jpg')" }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
@@ -118,9 +95,7 @@ export default function Serving() {
             </div>
           </div>
 
-          <div
-            className={`transition-all duration-1000 delay-300 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`}
-          >
+          <div className={`${isVisible ? "opacity-100" : "opacity-0"}`}>
             <div className="mb-6">
               <div className="inline-flex items-center space-x-2 mb-4">
                 <div className="w-10 h-0.5 bg-[#8B6A3E]"></div>
@@ -162,7 +137,7 @@ export default function Serving() {
               </p>
 
               <div className="space-y-4">
-                <div className="flex items-start space-x-3 p-4 bg-white/50 rounded-xl border border-[#E8DBC5] hover:border-[#8B6A3E]/30 transition-all duration-300">
+                <div className="flex items-start space-x-3 p-4 bg-white/50 rounded-xl border border-[#E8DBC5]">
                   <div className="flex-shrink-0 mt-1">
                     <div className="w-6 h-6 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center">
                       <svg
@@ -184,7 +159,7 @@ export default function Serving() {
                   </p>
                 </div>
 
-                <div className="flex items-start space-x-3 p-4 bg-white/50 rounded-xl border border-[#E8DBC5] hover:border-[#8B6A3E]/30 transition-all duration-300">
+                <div className="flex items-start space-x-3 p-4 bg-white/50 rounded-xl border border-[#E8DBC5]">
                   <div className="flex-shrink-0 mt-1">
                     <div className="w-6 h-6 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center">
                       <svg
@@ -206,7 +181,7 @@ export default function Serving() {
                   </p>
                 </div>
 
-                <div className="flex items-start space-x-3 p-4 bg-white/50 rounded-xl border border-[#E8DBC5] hover:border-[#8B6A3E]/30 transition-all duration-300">
+                <div className="flex items-start space-x-3 p-4 bg-white/50 rounded-xl border border-[#E8DBC5]">
                   <div className="flex-shrink-0 mt-1">
                     <div className="w-6 h-6 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center">
                       <svg
@@ -229,13 +204,10 @@ export default function Serving() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <button className="group relative px-8 py-3 bg-[#8B6A3E] text-white rounded-lg overflow-hidden transition-all duration-300 hover:bg-[#755735] hover:shadow-xl">
-                  <span className="relative z-10 font-medium">
-                    Our Services
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                <button className="px-8 py-3 bg-[#8B6A3E] text-white rounded-lg font-medium">
+                  Our Services
                 </button>
-                <button className="px-8 py-3 border border-[#8B6A3E] text-[#8B6A3E] rounded-lg transition-all duration-300 hover:bg-[#8B6A3E]/5 font-medium">
+                <button className="px-8 py-3 border border-[#8B6A3E] text-[#8B6A3E] rounded-lg font-medium">
                   Contact Us
                 </button>
               </div>
@@ -243,17 +215,17 @@ export default function Serving() {
           </div>
         </div>
 
-        <div className="mt-20 pt-8 border-t border-[#E8DBC5]">
+        <div className="mt-20  border-t border-[#E8DBC5]">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6 bg-white/50 rounded-xl border border-[#E8DBC5] hover:border-[#8B6A3E]/30 transition-all duration-300">
+            <div className="text-center p-6 bg-white/50 rounded-xl border border-[#E8DBC5]">
               <div className="text-3xl font-light text-[#8B6A3E] mb-2">15+</div>
               <div className="text-[#6E4B3A]">Years of Trusted Service</div>
             </div>
-            <div className="text-center p-6 bg-white/50 rounded-xl border border-[#E8DBC5] hover:border-[#8B6A3E]/30 transition-all duration-300">
+            <div className="text-center p-6 bg-white/50 rounded-xl border border-[#E8DBC5]">
               <div className="text-3xl font-light text-[#8B6A3E] mb-2">50+</div>
               <div className="text-[#6E4B3A]">Cities Across India</div>
             </div>
-            <div className="text-center p-6 bg-white/50 rounded-xl border border-[#E8DBC5] hover:border-[#8B6A3E]/30 transition-all duration-300">
+            <div className="text-center p-6 bg-white/50 rounded-xl border border-[#E8DBC5]">
               <div className="text-3xl font-light text-[#8B6A3E] mb-2">98%</div>
               <div className="text-[#6E4B3A]">Family Satisfaction Rate</div>
             </div>

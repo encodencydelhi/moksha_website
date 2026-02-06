@@ -42,7 +42,7 @@ export default function Hero() {
   }, [currentIndex, images]);
 
   return (
-    <section className="relative w-full  overflow-hidden">
+    <section className="relative w-full h-140 overflow-hidden">
       <div className="absolute inset-0">
         {images.map((img, i) => (
           <div
