@@ -34,9 +34,10 @@ const CustomIcon = ({ name, className = "w-6 h-6" }: CustomIconProps) => {
         <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
       </svg>
     ),
-    FaHandHoldingHeart: (
+    // یہاں FaHandHoldingHeart کو FaHeart سے تبدیل کیا گیا ہے
+    FaHeart: (
       <svg className={className} fill="currentColor" viewBox="0 0 24 24">
-        <path d="M16 3c-2.76 0-5 2.24-5 5 0 1.06.39 2.32 1 3.62V21l6-4 6 4V11.62c.61-1.3 1-2.56 1-3.62 0-2.76-2.24-5-5-5zm0 2c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3z" />
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
       </svg>
     ),
     FaUsers: (
@@ -111,14 +112,13 @@ export default function HowWeCanHelp() {
     { icon: "FaClock", value: "24/7", label: "Available Support" },
     { icon: "FaUsers", value: "500+", label: "Families Served" },
     {
-      icon: "FaHandHoldingHeart",
+      icon: "FaHeart", // یہاں بھی FaHandHoldingHeart کو FaHeart سے تبدیل کیا گیا ہے
       value: "100%",
       label: "Compassionate Care",
     },
     { icon: "FaStar", value: "15+", label: "Years Experience" },
   ];
 
-  // Fixed circle styles (no random values)
   const circleStyles = [
     {
       width: "100px",
@@ -232,21 +232,23 @@ export default function HowWeCanHelp() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-6">
           {stats.map((stat, index) => (
             <div key={index} className="relative">
-              <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-[#E8DBC5]">
-                <div className="flex items-center justify-center space-x-4">
+              <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-[#E8DBC5]">
+                <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#E8DBC5] to-[#F8F4EC] flex items-center justify-center">
                     <div className="text-[#8B6A3E]">
                       <CustomIcon name={stat.icon} className="w-5 h-5" />
                     </div>
                   </div>
-                  <div className="text-left">
-                    <div className="text-3xl font-light text-[#8B6A3E]">
+                  <div className="text-center sm:text-left">
+                    <div className="text-2xl sm:text-3xl font-light text-[#8B6A3E]">
                       {stat.value}
                     </div>
-                    <div className="text-sm text-[#6E4B3A]">{stat.label}</div>
+                    <div className="text-sm text-[#6E4B3A] whitespace-normal">
+                      {stat.label}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -262,30 +264,33 @@ export default function HowWeCanHelp() {
               onMouseEnter={() => setActiveCard(index)}
               onMouseLeave={() => setActiveCard(null)}
             >
-              <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-[#E8DBC5] h-full overflow-hidden">
-                <div className="relative mb-8">
-                  <div className="relative w-20 h-20 mx-auto">
-                    <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-white to-[#F8F4EC] border-4 border-white flex items-center justify-center shadow-lg">
-                      <div className="text-3xl text-[#8B6A3E]">
-                        <CustomIcon name={card.icon} className="w-8 h-8" />
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-[#E8DBC5] h-full overflow-hidden">
+                <div className="relative mb-6 md:mb-8">
+                  <div className="relative w-16 h-16 md:w-20 md:h-20 mx-auto">
+                    <div className="relative w-full h-full rounded-full bg-gradient-to-br from-white to-[#F8F4EC] border-4 border-white flex items-center justify-center shadow-lg">
+                      <div className="text-2xl md:text-3xl text-[#8B6A3E]">
+                        <CustomIcon
+                          name={card.icon}
+                          className="w-6 h-6 md:w-8 md:h-8"
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <h3 className="text-xl font-light text-[#3A2A1F] mb-4 text-center">
+                <h3 className="text-lg md:text-xl font-light text-[#3A2A1F] mb-4 text-center">
                   {card.title}
                 </h3>
 
-                <p className="text-[#6E4B3A] leading-relaxed mb-6 text-center">
+                <p className="text-[#6E4B3A] leading-relaxed mb-6 text-center text-sm md:text-base">
                   {card.desc}
                 </p>
 
-                <div className="space-y-3 mb-8">
+                <div className="space-y-3 mb-6 md:mb-8">
                   {card.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center space-x-3">
                       <div
-                        className={`w-2 h-2 rounded-full bg-gradient-to-br ${card.color}`}
+                        className={`w-2 h-2 rounded-full bg-gradient-to-br ${card.color} flex-shrink-0`}
                       ></div>
                       <span className="text-sm text-[#6E4B3A]">{feature}</span>
                     </div>
@@ -293,9 +298,14 @@ export default function HowWeCanHelp() {
                 </div>
 
                 <div className="text-center">
-                  <button className="inline-flex items-center space-x-2 text-[#8B6A3E] px-6 py-3 rounded-lg border border-[#E8DBC5]">
-                    <span className="font-medium">Learn More</span>
-                    <CustomIcon name="FaArrowRight" className="w-4 h-4" />
+                  <button className="inline-flex items-center justify-center space-x-2 text-[#8B6A3E] px-4 py-2 md:px-6 md:py-3 rounded-lg border border-[#E8DBC5] w-full sm:w-auto">
+                    <span className="font-medium text-sm md:text-base">
+                      Learn More
+                    </span>
+                    <CustomIcon
+                      name="FaArrowRight"
+                      className="w-3 h-3 md:w-4 md:h-4"
+                    />
                   </button>
                 </div>
 
@@ -308,17 +318,20 @@ export default function HowWeCanHelp() {
 
         <div className="text-center">
           <div className="relative inline-block">
-            <button className="relative px-12 py-6 bg-gradient-to-br from-[#8B6A3E] to-[#A88B5E] text-white rounded-2xl overflow-hidden shadow-xl">
-              <div className="relative z-10 flex items-center space-x-4">
-                <span className="text-xl font-medium">
+            <button className="relative px-8 py-4 md:px-12 md:py-6 bg-gradient-to-br from-[#8B6A3E] to-[#A88B5E] text-white rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative z-10 flex items-center justify-center space-x-4">
+                <span className="text-lg md:text-xl font-medium">
                   Explore All Services
                 </span>
-                <CustomIcon name="FaArrowRight" className="w-5 h-5" />
+                <CustomIcon
+                  name="FaArrowRight"
+                  className="w-4 h-4 md:w-5 md:h-5"
+                />
               </div>
             </button>
           </div>
 
-          <p className="text-[#6E4B3A] mt-8 text-lg font-light">
+          <p className="text-[#6E4B3A] mt-8 text-base md:text-lg font-light">
             Need immediate assistance?{" "}
             <a
               href="tel:+9118001234567"
