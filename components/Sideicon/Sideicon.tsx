@@ -44,6 +44,7 @@ const SocialSidebar = () => {
 
   return (
     <>
+      {/* Desktop View - Vertical on Right */}
       <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-2">
         {socialLinks.map((social, index) => (
           <a
@@ -64,7 +65,7 @@ const SocialSidebar = () => {
         ))}
       </div>
 
-      <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 md:hidden flex gap-3 px-3 py-2 rounded-full bg-white shadow-xl border border-gray-200">
+      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 md:hidden flex flex-col gap-3 py-3 px-2 rounded-full bg-white shadow-xl border border-gray-200">
         {socialLinks.map((social, index) => (
           <a
             key={index}
