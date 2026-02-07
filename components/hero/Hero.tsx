@@ -101,7 +101,7 @@ export default function Hero() {
 
           <div className="space-y-2 sm:space-y-3">
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-serif font-bold text-white leading-tight">
-              मोक्ष यात्रा
+              Moksha Voyage
             </h1>
             <div className="h-px w-16 sm:w-20 bg-amber-200/50 mx-auto" />
             <h2 className="text-lg sm:text-2xl md:text-3xl font-light text-white/90 leading-snug">

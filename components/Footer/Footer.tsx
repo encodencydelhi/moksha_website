@@ -37,7 +37,7 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row gap-8 mb-10">
           <div className="lg:w-2/5">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="relative w-14 h-14 rounded-full overflow-hidden">
+              <div className="relative w-14 h-14  overflow-hidden">
                 <Image
                   src={mokshalogo}
                   alt="Moksha Voyage"
@@ -86,7 +86,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Newsletter */}
           <div className="lg:w-3/5">
             <div className="bg-white/10 rounded-xl p-5 backdrop-blur-sm">
               <div className="flex items-center space-x-3 mb-4">
@@ -118,7 +117,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Links */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 text-sm">
           <div>
             <h3 className="text-sm font-medium text-white mb-3">Quick Links</h3>

@@ -6,10 +6,12 @@ import HowWeHelp from "../components/HowWeHelp/HowWeHelp";
 import Serving from "../components/Serving/Serving";
 import SacredJourney from "../components/SacredJourney/SacredJourney";
 import Footer from "../components/Footer/Footer";
+import Sideicon from "../components/Sideicon/Sideicon";
 
 export default function Page() {
   return (
     <div>
+      <Sideicon />
       <Topbar />
       <Navbar />
       <Hero />

@@ -230,30 +230,6 @@ export default function HowWeCanHelp() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          {stats.map((stat, index) => (
-            <div key={index} className="relative">
-              <div className="bg-white/50 backdrop-blur-sm rounded-lg p-3 border border-[#E8DBC5]">
-                <div className="flex flex-col items-center justify-center space-y-2">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#E8DBC5] to-[#F8F4EC] flex items-center justify-center">
-                    <div className="text-[#8B6A3E]">
-                      <CustomIcon name={stat.icon} className="w-4 h-4" />
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-xl font-light text-[#8B6A3E]">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs text-[#6E4B3A] whitespace-normal">
-                      {stat.label}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
           {cards.map((card, index) => (
             <div
@@ -305,10 +281,33 @@ export default function HowWeCanHelp() {
             </div>
           ))}
         </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          {stats.map((stat, index) => (
+            <div key={index} className="relative">
+              <div className="bg-white/50 backdrop-blur-sm rounded-lg p-3 border border-[#E8DBC5]">
+                <div className="flex flex-col items-center justify-center space-y-2">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#E8DBC5] to-[#F8F4EC] flex items-center justify-center">
+                    <div className="text-[#8B6A3E]">
+                      <CustomIcon name={stat.icon} className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-xl font-light text-[#8B6A3E]">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs text-[#6E4B3A] whitespace-normal">
+                      {stat.label}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
 
         <div className="text-center">
           <div className="relative inline-block">
-            <button className="relative px-6 py-3 md:px-8 md:py-4 bg-gradient-to-br from-[#8B6A3E] to-[#A88B5E] text-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <button className="relative px-6 py-3 md:px-8 md:py-3 bg-gradient-to-br from-[#8B6A3E] to-[#A88B5E] text-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="relative z-10 flex items-center justify-center space-x-2">
                 <span className="text-base font-medium">
                   Explore All Services
@@ -322,7 +321,7 @@ export default function HowWeCanHelp() {
             Need immediate assistance?{" "}
             <a
               href="tel:+9118001234567"
-              className="text-[#8B6A3E] font-medium hover:underline"
+              className="text-[#8B6A3E] font-normal hover:underline"
             >
               Call our 24/7 support line
             </a>

@@ -10,7 +10,6 @@ export default function TopInfoBar() {
       className="fixed top-0 left-0 w-full bg-[#2A1A0F] text-white z-[60] border-b border-white/10"
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-1.5 flex items-center justify-between">
-        {/* Left Section - Contact Info */}
         <div className="flex items-center gap-2 md:gap-4">
           <div className="flex items-center gap-1.5 group">
             <Mail size={12} className="text-[#D4B996] flex-shrink-0" />
@@ -32,13 +31,12 @@ export default function TopInfoBar() {
           </div>
         </div>
 
-        {/* Right Section - Login Buttons */}
         <div className="flex items-center gap-2">
           <Link
             href="/login"
             className="text-xs bg-[#8B6A3E] hover:bg-[#755735] text-white px-2 py-1 rounded transition-colors whitespace-nowrap"
           >
-            Customer
+            Customer Login
           </Link>
 
           <div className="hidden md:block w-px h-3 bg-white/20"></div>
@@ -47,7 +45,7 @@ export default function TopInfoBar() {
             href="/vendor-login"
             className="text-xs bg-[#8B6A3E] hover:bg-[#755735] text-white px-2 py-1 rounded transition-colors whitespace-nowrap"
           >
-            Vendor
+            Vendor Login
           </Link>
         </div>
       </div>
