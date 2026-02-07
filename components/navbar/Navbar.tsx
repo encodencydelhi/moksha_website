@@ -15,10 +15,10 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
   const [hideTopBar, setHideTopBar] = useState(false);
-  const [navTop, setNavTop] = useState(0);
 
   useEffect(() => {
     let lastScroll = 0;
+
     const handleScroll = () => {
       const currentScroll = window.scrollY;
       setScrolled(currentScroll > 20);
@@ -29,6 +29,7 @@ export default function Navbar() {
       }
       lastScroll = currentScroll;
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -44,19 +45,6 @@ export default function Navbar() {
     }
   }, [hideTopBar]);
 
-  useEffect(() => {
-    const updateNavPosition = () => {
-      const bar = document.getElementById("topbar");
-      if (!bar) return;
-      const height = bar.offsetHeight;
-      setNavTop(hideTopBar ? 0 : height);
-    };
-
-    updateNavPosition();
-    window.addEventListener("resize", updateNavPosition);
-    return () => window.removeEventListener("resize", updateNavPosition);
-  }, [hideTopBar]);
-
   const navItems = [
     { name: "Home", href: "#home", icon: <FaHandHoldingHeart /> },
     { name: "Services", href: "#services", icon: <FaStar /> },
@@ -68,11 +56,12 @@ export default function Navbar() {
   return (
     <>
       <nav
-        style={{ top: navTop }}
-        className={`fixed left-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed ${
+          hideTopBar ? "top-0" : "top-8"
+        } left-0 w-full z-50 transition-all duration-50 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-lg shadow-sm py-2"
-            : "bg-white py-2"
+            ? "bg-white/95 backdrop-blur-lg shadow-sm py-1"
+            : "bg-white py-1"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,7 +74,7 @@ export default function Navbar() {
               />
             </div>
 
-            <div className="hidden lg:flex items-center space-x-1">
+            <div className="hidden lg:flex items-center -space-x-4">
               {navItems.map((item) => (
                 <a
                   key={item.name}
@@ -117,7 +106,7 @@ export default function Navbar() {
 
         {open && (
           <div className="lg:hidden bg-white shadow-lg">
-            <div className="px-4 py-6 space-y-2">
+            <div className="px-4 py-6 space-y-1">
               {navItems.map((item) => (
                 <a
                   key={item.name}
@@ -137,7 +126,7 @@ export default function Navbar() {
         )}
       </nav>
 
-      <div className="h-[110px] md:h-[95px]"></div>
+      <div className="h-20"></div>
     </>
   );
 }
