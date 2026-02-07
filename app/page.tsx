@@ -6,9 +6,11 @@ import Serving from "../components/Serving/Serving";
 import SacredJourney from "../components/SacredJourney/SacredJourney";
 
 import Footer from "../components/Footer/Footer";
+import Topbar from "../components/topbar/Topbar";
 export default function Page() {
   return (
     <div>
+      <Topbar />
       <Navbar />
       <Hero />
       <CompassionSection />

@@ -204,7 +204,7 @@ export default function HowWeCanHelp() {
             <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#8B6A3E] to-transparent"></div>
           </div>
 
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-light text-[#3A2A1F] leading-tight mb-4">
+          <h2 className="text-3xl md:text-5xl lg:text-3xl font-light text-[#3A2A1F] leading-tight mb-4">
             <span className="block">Comprehensive</span>
             <span className="relative inline-block">
               Compassionate Care
@@ -223,7 +223,7 @@ export default function HowWeCanHelp() {
             </span>
           </h2>
 
-          <p className="text-lg md:text-xl text-[#6E4B3A]/80 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-lg md:text-sm text-[#6E4B3A]/80 max-w-3xl mx-auto font-light leading-relaxed">
             We provide end-to-end support through every aspect of the
             end-of-life journey, ensuring cultural sensitivity, dignity, and
             peace of mind.

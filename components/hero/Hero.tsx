@@ -77,18 +77,6 @@ export default function Hero() {
         <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
       </button>
 
-      <button
-        onClick={() => setIsPlaying(!isPlaying)}
-        className="absolute top-3 sm:top-4 right-3 sm:right-4 z-30 p-2 sm:p-2.5 rounded-full bg-black/30 hover:bg-black/50 transition-colors duration-200"
-        aria-label={isPlaying ? "Pause slideshow" : "Play slideshow"}
-      >
-        {isPlaying ? (
-          <Pause className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
-        ) : (
-          <Play className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
-        )}
-      </button>
-
       <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-30 flex gap-1.5 sm:gap-2">
         {images.map((_, i) => (
           <button
