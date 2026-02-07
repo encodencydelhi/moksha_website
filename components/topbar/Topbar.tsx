@@ -93,53 +93,50 @@ export default function TopInfoBar() {
             <button
               onClick={toggleMusic}
               disabled={!isAudioReady}
-              className={`relative w-14 h-7 rounded-full transition-all duration-300 flex items-center border ${
-                !isAudioReady
-                  ? "bg-gray-700/50 border-gray-600/50 cursor-not-allowed"
-                  : isMusicOn
-                    ? "bg-green-600 border-green-500"
-                    : "bg-gray-700 border-gray-600"
-              }`}
+              className="flex items-center justify-center w-8 h-8 rounded-full bg-[#8B6A3E] hover:bg-[#755735] transition-all duration-300 disabled:bg-gray-700/50 disabled:cursor-not-allowed"
               aria-label={isMusicOn ? "Turn music off" : "Turn music on"}
             >
-              <div
-                className={`absolute w-5 h-5 rounded-full bg-white shadow-md transition-all duration-300 flex items-center justify-center ${
-                  isMusicOn ? "left-8" : "left-1"
-                }`}
-              >
-                {/* Music Note Icon */}
+              {isMusicOn ? (
                 <svg
-                  className={`w-3 h-3 transition-colors duration-300 ${
-                    isMusicOn ? "text-green-600" : "text-gray-700"
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+                    d="M9 9l6 6M15 9l-6 6"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 5L6 9H3v6h3l5 4V5z"
                   />
                 </svg>
-              </div>
-
-              <span
-                className={`absolute text-xs font-medium transition-opacity duration-200 ${
-                  isMusicOn ? "opacity-0" : "opacity-70"
-                } left-2 text-white`}
-              >
-                OFF
-              </span>
-              <span
-                className={`absolute text-xs font-medium transition-opacity duration-200 ${
-                  isMusicOn ? "opacity-70" : "opacity-0"
-                } right-2 text-white`}
-              >
-                ON
-              </span>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 5L6 9H3v6h3l5 4V5z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 9a3 3 0 010 6m3-8a7 7 0 010 10"
+                  />
+                </svg>
+              )}
             </button>
 
             <Link
