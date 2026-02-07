@@ -11,7 +11,6 @@ export default function TopInfoBar() {
 
   useEffect(() => {
     audioRef.current = new Audio();
-
     const canPlayHandler = () => {
       setIsAudioReady(true);
     };
@@ -23,9 +22,7 @@ export default function TopInfoBar() {
 
     audioRef.current.addEventListener("canplaythrough", canPlayHandler);
     audioRef.current.addEventListener("error", errorHandler);
-
     audioRef.current.src = "/audio/om.mp3";
-
     audioRef.current.loop = true;
     audioRef.current.volume = 0.3;
     audioRef.current.preload = "auto";

@@ -174,7 +174,7 @@ export default function Navbar() {
               </div>
             </div>
 
-            <div className="hidden lg:flex items-center space-x-2 dropdown-container ml-auto">
+            <div className="hidden lg:flex items-center -space-x-2 dropdown-container ml-auto">
               {navItems.map((item) => (
                 <div key={item.name} className="relative group">
                   <button
@@ -194,7 +194,7 @@ export default function Navbar() {
                   </button>
 
                   <div
-                    className={`absolute right-0 mt-2 w-64 bg-white/10 border border-white/20 transition-all duration-200 z-50 rounded-lg shadow-2xl ${
+                    className={`absolute right-0 mt-2 w-64 bg-white border border-gray-200 transition-all duration-200 z-50 rounded-lg shadow-2xl ${
                       openDropdown === item.name
                         ? "opacity-100 visible translate-y-0"
                         : "opacity-0 invisible -translate-y-2"
@@ -209,10 +209,12 @@ export default function Navbar() {
                             setActiveLink(item.name.toLowerCase());
                             setOpenDropdown(null);
                           }}
-                          className="flex items-center space-x-3 px-4 py-3 text-white hover:bg-white/20 transition-all duration-150 backdrop-blur-sm hover:backdrop-blur-md mx-2 rounded-md"
+                          className="flex items-center space-x-3 px-4 py-3 text-[#5A4030] hover:bg-gray-50 transition-all duration-150 mx-2 rounded-md"
                         >
-                          <span className="text-white/80">{subItem.icon}</span>
-                          <span className="font-medium text-white">
+                          <span className="text-[#5A4030]/80">
+                            {subItem.icon}
+                          </span>
+                          <span className="font-medium text-[#5A4030]">
                             {subItem.name}
                           </span>
                         </a>
@@ -250,7 +252,7 @@ export default function Navbar() {
                         setActiveLink(item.name.toLowerCase());
                       }
                     }}
-                    className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-[#5A4030] hover:bg-white/50"
+                    className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-[#5A4030] hover:bg-gray-50"
                   >
                     <div className="flex items-center space-x-3">
                       <span className="text-lg">{item.icon}</span>
@@ -266,7 +268,7 @@ export default function Navbar() {
                   </button>
 
                   {openDropdown === item.name && item.dropdown.length > 0 && (
-                    <div className="ml-8 mt-1 space-y-1 bg-white/20 backdrop-blur-md rounded-lg p-2">
+                    <div className="ml-8 mt-1 space-y-1 bg-white rounded-lg p-2 border border-gray-100">
                       {item.dropdown.map((subItem) => (
                         <a
                           key={subItem.name}
@@ -276,7 +278,7 @@ export default function Navbar() {
                             setActiveLink(item.name.toLowerCase());
                             setOpenDropdown(null);
                           }}
-                          className="flex items-center space-x-3 px-4 py-2 rounded-md text-[#5A4030] hover:bg-white/40 transition-all duration-150"
+                          className="flex items-center space-x-3 px-4 py-2 rounded-md text-[#5A4030] hover:bg-gray-100 transition-all duration-150"
                         >
                           <span className="text-[#5A4030]/70">
                             {subItem.icon}
