@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
+import Link from "next/link";
 import {
   FaHandHoldingHeart,
   FaStar,
@@ -108,7 +109,7 @@ export default function Navbar() {
         { name: "moksha inventions", href: "#inventions", icon: <FaHistory /> },
       ],
     },
-    { name: "Contact", href: "#contact", icon: <FaUserCircle /> },
+    { name: "Contact", href: "/contact", icon: <FaUserCircle /> },
   ];
 
   const toggleDropdown = (itemName: string) => {
