@@ -64,7 +64,7 @@ const SocialSidebar = () => {
         ))}
       </div>
 
-      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 md:hidden flex flex-col gap-3 py-3 px-2 rounded-full bg-white shadow-xl border border-gray-200">
+      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 md:hidden flex flex-col gap-3 py-3 px-2 rounded-full  shadow-xl border border-gray-200">
         {socialLinks.map((social, index) => (
           <a
             key={index}
@@ -72,10 +72,10 @@ const SocialSidebar = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={social.label}
-            className="active:scale-95 transition-transform duration-150"
+            className="group"
           >
             <div
-              className="w-10 h-10 rounded-full flex items-center justify-center"
+              className="w-12 h-12 rounded-full flex items-center justify-center bg-white shadow-xl border border-gray-200 transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl"
               style={{ color: social.color }}
             >
               {social.icon}

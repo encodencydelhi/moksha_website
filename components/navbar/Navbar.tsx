@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
 import {
@@ -32,7 +31,6 @@ export default function Navbar() {
 
   useEffect(() => {
     let lastScroll = 0;
-
     const handleScroll = () => {
       const currentScroll = window.scrollY;
       setScrolled(currentScroll > 20);
@@ -165,7 +163,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="absolute left-4 sm:left-30 z-10 top-1">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 overflow-hidden rounded">
+              <div className="w-20 h-20 sm:w-20 sm:h-20 overflow-hidden rounded-md">
                 <img
                   src="/assets/logoreal.jpeg"
                   alt="Moksha Voyage Logo"

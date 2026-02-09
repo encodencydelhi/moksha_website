@@ -41,7 +41,7 @@ export default function Footer() {
                 <Image
                   src={mokshalogo}
                   alt="Moksha Voyage"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded"
                   priority
                 />
               </div>

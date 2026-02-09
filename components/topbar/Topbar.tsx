@@ -135,21 +135,25 @@ export default function TopInfoBar() {
                 </svg>
               )}
             </button>
-
             <Link
               href="/login"
               className="text-xs bg-[#8B6A3E] hover:bg-[#755735] text-white px-2 py-1 rounded transition-colors whitespace-nowrap"
             >
-              Customer Login
+              User Login
             </Link>
-
             <div className="hidden md:block w-px h-3 bg-white/20"></div>
-
             <Link
               href="/vendor-login"
               className="text-xs bg-[#8B6A3E] hover:bg-[#755735] text-white px-2 py-1 rounded transition-colors whitespace-nowrap"
             >
               Vendor Login
+            </Link>
+            <div className="hidden md:block w-px h-3 bg-white/20"></div>
+            <Link
+              href="/login"
+              className="text-xs bg-[#8B6A3E] hover:bg-[#755735] text-white px-2 py-1 rounded transition-colors whitespace-nowrap"
+            >
+              Moksha Seva
             </Link>
           </div>
         </div>
