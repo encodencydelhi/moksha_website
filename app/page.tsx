@@ -19,7 +19,6 @@ export default function Page() {
       <HowWeHelp />
       <Serving />
       <SacredJourney />
-
       <Footer />
     </div>
   );

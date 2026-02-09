@@ -7,19 +7,12 @@ import {
   FaPrayingHands,
   FaLeaf,
   FaUserCircle,
-  FaHome,
-  FaTachometerAlt,
-  FaHandsHelping,
   FaBookOpen,
   FaLaptopCode,
-  FaUsers,
   FaHistory,
   FaHeart,
   FaMedal,
   FaTools,
-  FaPhoneAlt,
-  FaEnvelope,
-  FaMapMarkerAlt,
 } from "react-icons/fa";
 
 export default function Navbar() {
@@ -72,16 +65,8 @@ export default function Navbar() {
   }, [openDropdown]);
 
   const navItems = [
-    {
-      name: "Home",
-      href: "#home",
-      icon: <FaHandHoldingHeart />,
-      dropdown: [
-        { name: "Main Home", href: "#home", icon: <FaHome /> },
-        { name: "Dashboard", href: "#dashboard", icon: <FaTachometerAlt /> },
-        { name: "Welcome Section", href: "#welcome", icon: <FaHandsHelping /> },
-      ],
-    },
+    { name: "Home", href: "#home", icon: <FaHandHoldingHeart /> },
+    { name: "About", href: "#about", icon: <FaPrayingHands /> },
     {
       name: "Services",
       href: "#services",
@@ -99,17 +84,6 @@ export default function Navbar() {
       ],
     },
     {
-      name: "About",
-      href: "#about",
-      icon: <FaPrayingHands />,
-      dropdown: [
-        { name: "Our Story", href: "#story", icon: <FaHistory /> },
-        { name: "Mission & Vision", href: "#mission", icon: <FaStar /> },
-        { name: "Our Team", href: "#team", icon: <FaUsers /> },
-        { name: "Testimonials", href: "#testimonials", icon: <FaBookOpen /> },
-      ],
-    },
-    {
       name: "Resources",
       href: "#resources",
       icon: <FaLeaf />,
@@ -124,25 +98,17 @@ export default function Navbar() {
         { name: "Video Library", href: "#videos", icon: <FaLeaf /> },
       ],
     },
+    { name: "Blog", href: "#blog", icon: <FaBookOpen /> },
     {
-      name: "Contact",
-      href: "#contact",
-      icon: <FaUserCircle />,
+      name: "Moksha Gallery",
+      href: "#mokshagallery",
+      icon: <FaHeart />,
       dropdown: [
-        { name: "Get in Touch", href: "#contact", icon: <FaPhoneAlt /> },
-        {
-          name: "Email Us",
-          href: "mailto:info@example.com",
-          icon: <FaEnvelope />,
-        },
-        { name: "Visit Center", href: "#location", icon: <FaMapMarkerAlt /> },
-        {
-          name: "Book Consultation",
-          href: "#consultation",
-          icon: <FaHandHoldingHeart />,
-        },
+        { name: "galley", href: "#gallery", icon: <FaLeaf /> },
+        { name: "moksha inventions", href: "#inventions", icon: <FaHistory /> },
       ],
     },
+    { name: "Contact", href: "#contact", icon: <FaUserCircle /> },
   ];
 
   const toggleDropdown = (itemName: string) => {
@@ -152,18 +118,16 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed ${
-          hideTopBar ? "top-0" : "top-8"
-        } left-0 w-full z-50 transition-all duration-50 ${
+        className={`fixed ${hideTopBar ? "top-0" : "top-11"} left-0 w-full z-50 transition-all duration-50 ${
           scrolled
             ? "bg-white/95 backdrop-blur-lg shadow-sm py-0"
-            : "bg-white py-0"
+            : "bg-white py-0 "
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="absolute left-4 sm:left-30 z-10 top-1">
-              <div className="w-20 h-20 sm:w-20 sm:h-20 overflow-hidden rounded-md">
+          <div className="flex items-center h-12">
+            <div className="absolute top-1 left-4 sm:left-30 z-10">
+              <div className="w-14 h-14 sm:w-30 sm:h-30 overflow-hidden rounded-md">
                 <img
                   src="/assets/logoreal.jpeg"
                   alt="Moksha Voyage Logo"
@@ -172,53 +136,73 @@ export default function Navbar() {
               </div>
             </div>
 
-            <div className="hidden lg:flex items-center -space-x-2 dropdown-container ml-auto">
+            <div className="hidden lg:flex items-center space-x-0 dropdown-container ml-auto h-full">
               {navItems.map((item) => (
-                <div key={item.name} className="relative group">
-                  <button
-                    onClick={() => toggleDropdown(item.name)}
-                    className={`px-4 py-2 transition-colors duration-200 flex items-center gap-1 ${
-                      activeLink === item.name.toLowerCase()
-                        ? "text-[#8B6A3E]"
-                        : "text-[#5A4030] hover:text-[#8B6A3E]"
-                    }`}
-                  >
-                    <span className="font-medium">{item.name}</span>
-                    <HiChevronDown
-                      className={`transition-transform duration-200 ${
-                        openDropdown === item.name ? "rotate-180" : ""
+                <div
+                  key={item.name}
+                  className="relative group flex items-center h-full"
+                >
+                  {item.dropdown ? (
+                    <button
+                      onClick={() => toggleDropdown(item.name)}
+                      className={`px-4 py-2 transition-colors duration-200 flex items-center gap-1 h-full ${
+                        activeLink === item.name.toLowerCase()
+                          ? "text-[#8B6A3E]"
+                          : "text-[#5A4030] hover:text-[#8B6A3E]"
                       }`}
-                    />
-                  </button>
+                    >
+                      <span className="font-medium">{item.name}</span>
+                      <HiChevronDown
+                        className={`transition-transform duration-200 ${openDropdown === item.name ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                  ) : (
+                    <a
+                      href={item.href}
+                      onClick={() => {
+                        setActiveLink(item.name.toLowerCase());
+                        setOpenDropdown(null);
+                      }}
+                      className={`px-4 py-2 transition-colors duration-200 flex items-center gap-1 h-full ${
+                        activeLink === item.name.toLowerCase()
+                          ? "text-[#8B6A3E]"
+                          : "text-[#5A4030] hover:text-[#8B6A3E]"
+                      }`}
+                    >
+                      <span className="font-medium">{item.name}</span>
+                    </a>
+                  )}
 
-                  <div
-                    className={`absolute right-0 mt-2 w-64 bg-white border border-gray-200 transition-all duration-200 z-50 rounded-lg shadow-2xl ${
-                      openDropdown === item.name
-                        ? "opacity-100 visible translate-y-0"
-                        : "opacity-0 invisible -translate-y-2"
-                    }`}
-                  >
-                    <div className="py-2">
-                      {item.dropdown.map((subItem, index) => (
-                        <a
-                          key={subItem.name}
-                          href={subItem.href}
-                          onClick={() => {
-                            setActiveLink(item.name.toLowerCase());
-                            setOpenDropdown(null);
-                          }}
-                          className="flex items-center space-x-3 px-4 py-3 text-[#5A4030] hover:bg-gray-50 transition-all duration-150 mx-2 rounded-md"
-                        >
-                          <span className="text-[#5A4030]/80">
-                            {subItem.icon}
-                          </span>
-                          <span className="font-medium text-[#5A4030]">
-                            {subItem.name}
-                          </span>
-                        </a>
-                      ))}
+                  {item.dropdown && (
+                    <div
+                      className={`absolute left-0 top-[100%] w-52 bg-white border border-gray-200 transition-all duration-200 z-50 rounded-lg shadow-2xl ${
+                        openDropdown === item.name
+                          ? "opacity-100 visible translate-y-0"
+                          : "opacity-0 invisible -translate-y-2"
+                      }`}
+                    >
+                      <div className="py-2">
+                        {item.dropdown.map((subItem) => (
+                          <a
+                            key={subItem.name}
+                            href={subItem.href}
+                            onClick={() => {
+                              setActiveLink(item.name.toLowerCase());
+                              setOpenDropdown(null);
+                            }}
+                            className="flex items-center space-x-2 px-1 py-1.5 text-[#5A4030] hover:bg-gray-50 transition-all duration-150 mx-2 rounded-md"
+                          >
+                            <span className="text-[#5A4030]/80">
+                              {subItem.icon}
+                            </span>
+                            <span className="font-medium text-[#5A4030]">
+                              {subItem.name}
+                            </span>
+                          </a>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -235,67 +219,74 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-
-        {open && (
-          <div className="lg:hidden bg-white/95 backdrop-blur-xl shadow-lg">
-            <div className="px-4 py-6 space-y-1">
-              {navItems.map((item) => (
-                <div key={item.name} className="dropdown-container">
-                  <button
-                    onClick={() => {
-                      if (item.dropdown.length > 0) {
-                        toggleDropdown(item.name);
-                      } else {
-                        setOpen(false);
-                        setActiveLink(item.name.toLowerCase());
-                      }
-                    }}
-                    className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-[#5A4030] hover:bg-gray-50"
-                  >
-                    <div className="flex items-center space-x-3">
-                      <span className="text-lg">{item.icon}</span>
-                      <span className="font-medium">{item.name}</span>
-                    </div>
-                    {item.dropdown.length > 0 && (
-                      <HiChevronDown
-                        className={`transition-transform duration-200 ${
-                          openDropdown === item.name ? "rotate-180" : ""
-                        }`}
-                      />
-                    )}
-                  </button>
-
-                  {openDropdown === item.name && item.dropdown.length > 0 && (
-                    <div className="ml-8 mt-1 space-y-1 bg-white rounded-lg p-2 border border-gray-100">
-                      {item.dropdown.map((subItem) => (
-                        <a
-                          key={subItem.name}
-                          href={subItem.href}
-                          onClick={() => {
-                            setOpen(false);
-                            setActiveLink(item.name.toLowerCase());
-                            setOpenDropdown(null);
-                          }}
-                          className="flex items-center space-x-3 px-4 py-2 rounded-md text-[#5A4030] hover:bg-gray-100 transition-all duration-150"
-                        >
-                          <span className="text-[#5A4030]/70">
-                            {subItem.icon}
-                          </span>
-                          <span className="font-medium text-sm">
-                            {subItem.name}
-                          </span>
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </nav>
 
-      <div className="h-20"></div>
+      {open && (
+        <div
+          className={`lg:hidden fixed left-0 ${
+            hideTopBar ? "top-12" : "top-22"
+          } w-full max-h-[calc(100vh-48px)] overflow-y-auto bg-white/95 backdrop-blur-xl shadow-lg z-40`}
+        >
+          <div className="px-3 py-3 space-y-0.5">
+            {navItems.map((item) => (
+              <div key={item.name} className="dropdown-container">
+                {item.dropdown ? (
+                  <button
+                    onClick={() => toggleDropdown(item.name)}
+                    className="flex items-center justify-between w-full px-3 py-2 rounded-lg text-[#5A4030] hover:bg-gray-50"
+                  >
+                    <div className="flex items-center space-x-2">
+                      <span className="text-base">{item.icon}</span>
+                      <span className="text-[15px] font-medium">
+                        {item.name}
+                      </span>
+                    </div>
+                    <HiChevronDown
+                      className={`transition-transform duration-200 ${
+                        openDropdown === item.name ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                ) : (
+                  <a
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center space-x-2 w-full px-3 py-2 rounded-lg text-[#5A4030] hover:bg-gray-50"
+                  >
+                    <span className="text-base">{item.icon}</span>
+                    <span className="text-[15px] font-medium">{item.name}</span>
+                  </a>
+                )}
+
+                {openDropdown === item.name && item.dropdown && (
+                  <div className="ml-5 mt-1 space-y-0.5 bg-white rounded-lg p-1.5 border border-gray-100">
+                    {item.dropdown.map((subItem) => (
+                      <a
+                        key={subItem.name}
+                        href={subItem.href}
+                        onClick={() => {
+                          setOpen(false);
+                          setOpenDropdown(null);
+                        }}
+                        className="flex items-center space-x-2 px-3 py-1.5 rounded-md text-[#5A4030] hover:bg-gray-100 transition-all duration-150"
+                      >
+                        <span className="text-[#5A4030]/70">
+                          {subItem.icon}
+                        </span>
+                        <span className="text-[14px] font-medium">
+                          {subItem.name}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div className="h-12 lg:h-14"></div>
     </>
   );
 }
