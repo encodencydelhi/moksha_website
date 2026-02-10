@@ -66,8 +66,8 @@ export default function Navbar() {
   }, [openDropdown]);
 
   const navItems = [
-    { name: "Home", href: "#home", icon: <FaHandHoldingHeart /> },
-    { name: "About", href: "#about", icon: <FaPrayingHands /> },
+    { name: "Home", href: "/", icon: <FaHandHoldingHeart /> },
+    { name: "About", href: "/about", icon: <FaPrayingHands /> },
     {
       name: "Services",
       href: "#services",

@@ -1,463 +1,276 @@
+"use client";
 import React from "react";
 import Topbar from "@/components/topbar/Topbar";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import {
+  FaBuilding,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaFacebook,
+  FaTwitter,
+  FaLinkedin,
+  FaYoutube,
+  FaPaperPlane,
+} from "react-icons/fa";
 
 function Contact() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
-      <Topbar />
-      <Navbar />
-
-      <div className="max-w-4xl mx-auto px-4 py-16">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Contact <span className="text-blue-600">Us</span>
+    <div className="min-h-screen bg-white">
+      {" "}
+      <Topbar /> <Navbar />
+      <div className="bg-[#8B6A3E] py-16">
+        <div className="w-full px-4 md:px-10">
+          <h1 className="text-4xl md:text-5xl font-bold text-white text-center mb-3">
+            Contact Us
           </h1>
-          <p className="text-gray-600 text-sm max-w-md mx-auto">
-            Have questions? We're here to help. Reach out anytime.
-          </p>
-          <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto mt-3 rounded-full"></div>
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-6">
-          <div className="lg:w-2/5">
-            <div className="space-y-4">
-              <div className="bg-white rounded-xl shadow-md p-4 border border-gray-100 hover:shadow-sm transition">
-                <div className="flex items-center">
-                  <div className="bg-blue-50 p-2 rounded-lg mr-3">
-                    <svg
-                      className="w-5 h-5 text-blue-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 text-sm">
-                      Call Us
-                    </h3>
-                    <p className="text-gray-600 text-xs">+92 123 456 7890</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-xl shadow-md p-4 border border-gray-100 hover:shadow-sm transition">
-                <div className="flex items-center">
-                  <div className="bg-purple-50 p-2 rounded-lg mr-3">
-                    <svg
-                      className="w-5 h-5 text-purple-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 text-sm">
-                      Email Us
-                    </h3>
-                    <p className="text-gray-600 text-xs">support@company.com</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-xl shadow-md p-4 border border-gray-100 hover:shadow-sm transition">
-                <div className="flex items-center">
-                  <div className="bg-green-50 p-2 rounded-lg mr-3">
-                    <svg
-                      className="w-5 h-5 text-green-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 text-sm">
-                      Visit Us
-                    </h3>
-                    <p className="text-gray-600 text-xs">123 Street, Karachi</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-xl shadow-md p-4 border border-gray-100 hover:shadow-sm transition">
-                <div className="flex items-center">
-                  <div className="bg-orange-50 p-2 rounded-lg mr-3">
-                    <svg
-                      className="w-5 h-5 text-orange-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 text-sm">
-                      Business Hours
-                    </h3>
-                    <p className="text-gray-600 text-xs">Mon-Fri: 9AM-6PM</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="lg:w-3/5">
-            <div className="bg-white rounded-2xl shadow-lg p-5 border border-gray-100">
-              <h2 className="text-xl font-bold text-gray-900 mb-1">
-                Send Message
-              </h2>
-              <p className="text-gray-500 text-xs mb-4">Fill the form below</p>
-
-              <form className="space-y-4">
-                <div className="space-y-3">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    <div>
-                      <label className="block text-xs font-medium text-gray-700 mb-1">
-                        First Name
-                      </label>
-                      <div className="relative">
-                        <svg
-                          className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M5.121 17.804A9 9 0 1118.88 6.197M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                          />
-                        </svg>
-                        <input
-                          type="text"
-                          className="pl-8 w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                          placeholder="John"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-medium text-gray-700 mb-1">
-                        Last Name
-                      </label>
-                      <div className="relative">
-                        <svg
-                          className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                          />
-                        </svg>
-                        <input
-                          type="text"
-                          className="pl-8 w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                          placeholder="Doe"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-medium text-gray-700 mb-1">
-                        Company
-                      </label>
-                      <div className="relative">
-                        <svg
-                          className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                          />
-                        </svg>
-                        <input
-                          type="text"
-                          className="pl-8 w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                          placeholder="Company Name"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-xs font-medium text-gray-700 mb-1">
-                      Email Address
-                    </label>
-                    <div className="relative">
-                      <svg
-                        className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        />
-                      </svg>
-                      <input
-                        type="email"
-                        className="pl-8 w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-purple-500 focus:border-purple-500 outline-none"
-                        placeholder="john@example.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium text-gray-700 mb-1">
-                      Phone Number
-                    </label>
-                    <div className="relative">
-                      <svg
-                        className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                        />
-                      </svg>
-                      <input
-                        type="tel"
-                        className="pl-8 w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-green-500 focus:border-green-500 outline-none"
-                        placeholder="+92 123 456 7890"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                  <div>
-                    <label className="block text-xs font-medium text-gray-700 mb-1">
-                      Country
-                    </label>
-                    <div className="relative">
-                      <svg
-                        className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                      <select className="pl-8 w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none appearance-none">
-                        <option value="">Select Country</option>
-                        <option value="PK">Pakistan</option>
-                        <option value="US">United States</option>
-                        <option value="UK">United Kingdom</option>
-                        <option value="CA">Canada</option>
-                        <option value="AU">Australia</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium text-gray-700 mb-1">
-                      City
-                    </label>
-                    <div className="relative">
-                      <svg
-                        className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                        />
-                      </svg>
-                      <input
-                        type="text"
-                        className="pl-8 w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                        placeholder="City"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium text-gray-700 mb-1">
-                      Subject
-                    </label>
-                    <div className="relative">
-                      <svg
-                        className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                        />
-                      </svg>
-                      <select className="pl-8 w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none appearance-none">
-                        <option value="">Select Subject</option>
-                        <option value="support">Technical Support</option>
-                        <option value="sales">Sales Inquiry</option>
-                        <option value="billing">Billing Issue</option>
-                        <option value="feedback">Feedback</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-medium text-gray-700 mb-1">
-                    Message
-                  </label>
-                  <div className="relative">
-                    <svg
-                      className="absolute left-2 top-2 w-4 h-4 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M8 10h8M8 14h5M21 12.79A9 9 0 1111.21 3L3 21l8.21-2.21A9 9 0 0021 12.79z"
-                      />
-                    </svg>
-                    <textarea
-                      rows={3}
-                      className="pl-8 w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 outline-none resize-none"
-                      placeholder="Your detailed message here..."
-                    ></textarea>
-                  </div>
-                </div>
-
-                {/* Row 5 - Checkboxes */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <div className="flex items-center">
-                    <input
-                      id="newsletter"
-                      type="checkbox"
-                      className="h-3 w-3 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                    />
-                    <label
-                      htmlFor="newsletter"
-                      className="ml-2 text-xs text-gray-600"
-                    >
-                      Subscribe to newsletter
-                    </label>
-                  </div>
-
-                  <div className="flex items-center">
-                    <input
-                      id="terms"
-                      type="checkbox"
-                      className="h-3 w-3 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                    />
-                    <label
-                      htmlFor="terms"
-                      className="ml-2 text-xs text-gray-600"
-                    >
-                      I agree to terms & conditions
-                    </label>
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium text-sm py-2.5 px-4 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition shadow-md hover:shadow"
-                >
-                  Send Message
-                  <svg
-                    className="inline-block ml-2 w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-6 text-center">
-          <p className="text-xs text-gray-500">
-            Need immediate help? Call us at{" "}
-            <span className="text-blue-600 font-medium">+92 123 456 7890</span>{" "}
-            or email at{" "}
-            <span className="text-blue-600 font-medium">
-              support@company.com
-            </span>
+          <p className="text-white text-center text-lg md:text-xl max-w-3xl mx-auto">
+            We'd love to hear from you. Reach out for queries, partnerships, or
+            participation details.
           </p>
         </div>
       </div>
+      <div className="max-w-7xl mx-auto px-4 md:px-10 pb-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-4 gap-6">
+          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 group min-h-0">
+            <div className="flex items-start justify-between mb-4">
+              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#8B6A3E]/10 group-hover:bg-[#8B6A3E]/15 transition-all duration-300">
+                <FaBuilding className="text-[#8B6A3E] text-xl" />
+              </div>
+              <span className="text-xs font-normal px-2 py-1 rounded-full bg-[#8B6A3E]/5 text-[#8B6A3E] border border-[#8B6A3E]/10">
+                Main
+              </span>
+            </div>
+            <h3 className="font-semibold text-lg text-gray-900 mb-2 group-hover:text-[#8B6A3E] transition-colors duration-300">
+              Head Office
+            </h3>
+            <div className="space-y-3">
+              <p className="text-gray-700 text-sm leading-relaxed">
+                12/52 Sunrise Industrial Area, Mohan Nagar, Ghaziabad, Uttar
+                Pradesh
+              </p>
+              <div className="pt-2 border-t border-gray-100">
+                <p className="text-gray-500 text-sm font-normal">
+                  Pin Code: 201007
+                </p>
+              </div>
+            </div>
+          </div>
 
+          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 group min-h-0">
+            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#8B6A3E]/10 group-hover:bg-[#8B6A3E]/15 transition-all duration-300 mb-4">
+              <FaBuilding className="text-[#8B6A3E] text-xl" />
+            </div>
+            <h3 className="font-semibold text-lg text-gray-900 mb-2 group-hover:text-[#8B6A3E] transition-colors duration-300">
+              Branch Office
+            </h3>
+            <p className="text-gray-600 text-sm font-normal mb-1">Ghaziabad</p>
+            <div className="space-y-3">
+              <p className="text-gray-700 text-sm leading-relaxed">
+                KK-1, Surdas Marg, Sector 17A, Kavi Nagar Industrial Area,
+                Ghaziabad
+              </p>
+              <div className="pt-2 border-t border-gray-100">
+                <p className="text-gray-500 text-sm font-normal">
+                  Pin Code: 201001
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 group min-h-0">
+            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#8B6A3E]/10 group-hover:bg-[#8B6A3E]/15 transition-all duration-300 mb-4">
+              <FaBuilding className="text-[#8B6A3E] text-xl" />
+            </div>
+            <h3 className="font-semibold text-lg text-gray-900 mb-2 group-hover:text-[#8B6A3E] transition-colors duration-300">
+              Branch Office
+            </h3>
+            <p className="text-gray-600 text-sm font-normal mb-1">Delhi</p>
+            <div className="space-y-3">
+              <p className="text-gray-700 text-sm leading-relaxed">
+                Ground Floor, Main Market, E-1, opposite KFC, Kalkaji
+              </p>
+              <div className="pt-2 border-t border-gray-100">
+                <p className="text-gray-500 text-sm font-normal">
+                  Pin Code: 110019
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Mumbai Branch */}
+          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 group min-h-0">
+            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#8B6A3E]/10 group-hover:bg-[#8B6A3E]/15 transition-all duration-300 mb-4">
+              <FaBuilding className="text-[#8B6A3E] text-xl" />
+            </div>
+            <h3 className="font-semibold text-lg text-gray-900 mb-2 group-hover:text-[#8B6A3E] transition-colors duration-300">
+              Branch Office
+            </h3>
+            <p className="text-gray-600 text-sm font-normal mb-1">Mumbai</p>
+            <div className="space-y-3">
+              <p className="text-gray-700 text-sm leading-relaxed">
+                212 Bussa Industrial Estate, Lower Parel, Mumbai
+              </p>
+              <div className="pt-2 border-t border-gray-100">
+                <p className="text-gray-500 text-sm font-normal">
+                  Pin Code: 400013
+                </p>
+                <p className="text-gray-500 text-xs mt-0.5">Maharashtra</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="max-w-7xl px-4 md:px-10 py-12 mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 mb-16">
+          <div>
+            <h2 className="text-3xl font-bold text-gray-800 mb-6">
+              Get in touch
+            </h2>
+            <p className="text-gray-600 mb-8">
+              Our team will respond within 1-2 business days.
+            </p>
+
+            <div className="space-y-8">
+              <div className="flex items-start space-x-4">
+                <div className="bg-[#8B6A3E]/10 p-3 rounded-full shrink-0">
+                  <FaBuilding className="text-[#8B6A3E] text-xl" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 text-lg mb-2">
+                    Venue
+                  </h3>
+                  <p className="text-gray-600">
+                    Hall No. 11, Bharat Mandapam (Pragati Maidan)
+                    <br />
+                    New Delhi, India
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="bg-[#8B6A3E]/10 p-3 rounded-full shrink-0">
+                  <FaMapMarkerAlt className="text-[#8B6A3E] text-xl" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 text-lg mb-2">
+                    Location
+                  </h3>
+                  <p className="text-gray-600">New Delhi, India</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="bg-[#8B6A3E]/10 p-3 rounded-full shrink-0">
+                  <FaPhoneAlt className="text-[#8B6A3E] text-xl" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 text-lg mb-2">
+                    Phone
+                  </h3>
+                  <p className="text-gray-600">+91-9654900525</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="bg-[#8B6A3E]/10 p-3 rounded-full shrink-0">
+                  <FaEnvelope className="text-[#8B6A3E] text-xl" />
+                </div>
+
+                <div className="flex-1">
+                  <h3 className="font-semibold text-gray-800 text-lg mb-1">
+                    Email
+                  </h3>
+                  <p className="text-gray-600 mb-4">info@organicexpo.in</p>
+
+                  <div className="flex items-center gap-4 pt-2 border-t border-gray-200">
+                    {[FaFacebook, FaTwitter, FaLinkedin, FaYoutube].map(
+                      (Icon, i) => (
+                        <a
+                          key={i}
+                          href="#"
+                          className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-[#8B6A3E] hover:text-white text-gray-600 transition-all duration-300"
+                        >
+                          <Icon />
+                        </a>
+                      ),
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gray-50 p-6 rounded-xl shadow-xl border border-gray-200">
+            <h3 className="text-xl font-bold text-gray-800 mb-4">
+              Send us a message
+            </h3>
+
+            <form className="space-y-4">
+              <div className="grid md:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  required
+                  placeholder="First Name"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B6A3E]"
+                />
+                <input
+                  type="text"
+                  required
+                  placeholder="Last Name"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B6A3E]"
+                />
+              </div>
+
+              <input
+                type="email"
+                required
+                placeholder="Email Address"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B6A3E]"
+              />
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B6A3E]"
+              />
+              <input
+                type="text"
+                required
+                placeholder="Subject"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B6A3E]"
+              />
+
+              <textarea
+                rows={4}
+                required
+                placeholder="Your Message"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B6A3E]"
+              />
+
+              <button
+                type="submit"
+                className="w-full bg-[#8B6A3E] hover:bg-[#755732] text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2"
+              >
+                <FaPaperPlane size={14} />
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div className="w-full">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.534949739743!2d77.24169897530307!3d28.635675075660614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd4ef652492d%3A0x30a0a03d7b1764f5!2sBharat%20Mandapam%20(Pragati%20Maidan)!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+          width="100%"
+          height="500"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          className="w-full"
+          title="Bharat Mandapam Location"
+        ></iframe>
+      </div>
       <Footer />
     </div>
   );
