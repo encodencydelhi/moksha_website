@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import Topbar from "@/components/topbar/Topbar";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
@@ -10,9 +10,13 @@ interface GalleryVideo {
   alt: string;
   category: string;
   title: string;
+  thumbnail?: string;
 }
 
-function mokshavediogallery() {
+function MokshaVideoGallery() {
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [pageLoaded, setPageLoaded] = useState(false);
+
   const [videos] = useState<GalleryVideo[]>([
     {
       id: 1,
@@ -130,11 +134,56 @@ function mokshavediogallery() {
 
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [selectedVideo, setSelectedVideo] = useState<GalleryVideo | null>(null);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [videoErrors, setVideoErrors] = useState<number[]>([]);
 
-  const filteredVideos =
-    selectedCategory === "all"
+  const filteredVideos = useMemo(() => {
+    return selectedCategory === "all"
       ? videos
       : videos.filter((video) => video.category === selectedCategory);
+  }, [selectedCategory, videos]);
+
+  useEffect(() => {
+    setPageLoaded(true);
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            video.play().catch((e) => console.log("Auto-play prevented:", e));
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
+
+    videoRefs.current.forEach((video) => {
+      if (video) observer.observe(video);
+    });
+
+    return () => {
+      videoRefs.current.forEach((video) => {
+        if (video) observer.unobserve(video);
+      });
+    };
+  }, [filteredVideos]);
+
+  const handleVideoError = (id: number) => {
+    if (!videoErrors.includes(id)) {
+      setVideoErrors((prev) => [...prev, id]);
+    }
+  };
 
   const categories = [
     { id: "all", name: "All Videos" },
@@ -143,6 +192,15 @@ function mokshavediogallery() {
     { id: "meetings", name: "Business Meetings" },
   ];
 
+  if (!pageLoaded) {
+    return (
+      <div
+        className="min-h-screen flex items-center justify-center"
+        style={{ backgroundColor: "#F5E9D9" }}
+      ></div>
+    );
+  }
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#F5E9D9" }}>
       <Topbar />
@@ -150,11 +208,11 @@ function mokshavediogallery() {
 
       <div className="container mx-auto px-3 sm:px-4 py-16 md:py-14">
         <div className="text-center mb-6">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2 tracking-tight">
+          <h1 className="text-2xl md:text-4xl font-bold text-black mb-2 tracking-tight">
             Moksha Video Gallery
           </h1>
-          <div className="w-12 h-0.5 bg-gray-800 mx-auto mb-3"></div>
-          <p className="text-gray-700 text-sm max-w-xl mx-auto">
+          <div className="w-12 h-0.5 bg-[#8B6A3E] mx-auto mb-3"></div>
+          <p className="text-[#8B6A3E] text-sm max-w-xl mx-auto">
             Curated collection of corporate video productions
           </p>
         </div>
@@ -166,8 +224,8 @@ function mokshavediogallery() {
               onClick={() => setSelectedCategory(category.id)}
               className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 border ${
                 selectedCategory === category.id
-                  ? "bg-[#8B6A3E] text-white border-gray-900"
-                  : "text-gray-700 border-gray-300 hover:border-gray-800 hover:bg-gray-50"
+                  ? "bg-[#8B6A3E] text-white border-[#8B6A3E]"
+                  : "text-[#8B6A3E] border-[#8B6A3E] hover:bg-[#8B6A3E] hover:text-white"
               }`}
             >
               {category.name}
@@ -176,44 +234,84 @@ function mokshavediogallery() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-          {filteredVideos.map((video) => (
+          {filteredVideos.map((video, index) => (
             <div
               key={video.id}
-              className="group relative overflow-hidden rounded-md shadow-sm hover:shadow transition-all duration-200 bg-white"
+              className="group relative overflow-hidden rounded-md shadow-sm hover:shadow transition-all duration-200 bg-[#8B6A3E]"
             >
-              <div className="relative h-36 w-full overflow-hidden">
-                <video
-                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-400"
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                >
-                  <source src={video.src} type="video/mp4" />
-                </video>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
+              <div className="relative w-full h-36 sm:h-40 md:h-44 overflow-hidden">
+                {videoErrors.includes(video.id) ? (
+                  <div className="w-full h-full flex flex-col items-center justify-center bg-[#8B6A3E] text-white p-4">
                     <svg
-                      className="w-5 h-5 text-gray-800 ml-0.5"
-                      fill="currentColor"
+                      className="w-12 h-12 mb-2 text-white"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path d="M8 5v14l11-7z" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1}
+                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      />
                     </svg>
+                    <p className="text-xs text-center">Video unavailable</p>
                   </div>
+                ) : (
+                  <>
+                    <video
+                      ref={(el: any) => (videoRefs.current[index] = el)}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      onError={() => handleVideoError(video.id)}
+                    >
+                      <source src={video.src} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#8B6A3E]/70 via-transparent to-transparent opacity-60"></div>
+
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white transition-colors group-hover:scale-110">
+                        <svg
+                          className="w-5 h-5 text-[#8B6A3E] ml-0.5"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-[#8B6A3E]/80 to-transparent">
+                  <p className="text-white text-xs font-medium truncate">
+                    {video.title}
+                  </p>
                 </div>
               </div>
 
-              <div className="p-2">
+              <div className="p-2 bg-white">
                 <div className="flex items-center justify-between mb-1">
-                  <span className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded-full text-sm">
+                  <span
+                    className={`px-2 py-0.5 rounded-full text-xs font-medium ${
+                      video.category === "events"
+                        ? "bg-[#8B6A3E] text-white"
+                        : video.category === "workspace"
+                          ? "bg-[#8B6A3E] text-white"
+                          : "bg-[#8B6A3E] text-white"
+                    }`}
+                  >
                     {video.category.charAt(0).toUpperCase() +
-                      video.category.slice(1).substring(0, 3)}
+                      video.category.slice(1)}
                   </span>
                   <button
                     onClick={() => setSelectedVideo(video)}
-                    className="text-gray-500 hover:text-gray-800 transition-colors p-0.5"
+                    className="text-[#8B6A3E] hover:text-[#6B4F2E] transition-colors p-0.5"
                     title="View Video"
                   >
                     <svg
@@ -237,7 +335,7 @@ function mokshavediogallery() {
                     </svg>
                   </button>
                 </div>
-                <h3 className="text-sm font-medium text-gray-800 line-clamp-1">
+                <h3 className="text-sm font-medium text-[#8B6A3E] line-clamp-1">
                   {video.title}
                 </h3>
               </div>
@@ -246,18 +344,18 @@ function mokshavediogallery() {
         </div>
 
         <div className="text-center mt-8">
-          <button className="px-5 py-2 bg-[#8B6A3E] text-white text-sm font-medium rounded-full hover:bg-gray-900 transition-all duration-200 shadow-sm hover:shadow">
+          <button className="px-5 py-2 bg-[#8B6A3E] text-white text-sm font-medium rounded-full hover:bg-[#6B4F2E] transition-all duration-200 shadow-sm hover:shadow">
             View Complete Video Portfolio
           </button>
         </div>
       </div>
 
       {selectedVideo && (
-        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-2">
-          <div className="relative max-w-3xl w-full max-h-[80vh] bg-black rounded-lg overflow-hidden">
+        <div className="fixed inset-0 bg-[#8B6A3E]/95 z-50 flex items-center justify-center p-2 md:p-4">
+          <div className="relative w-full max-w-4xl h-auto max-h-[90vh] bg-[#8B6A3E] rounded-lg overflow-hidden">
             <button
               onClick={() => setSelectedVideo(null)}
-              className="absolute top-2 right-2 z-10 text-white bg-black/50 hover:bg-black/70 w-8 h-8 rounded-full flex items-center justify-center transition-all"
+              className="absolute top-2 right-2 z-10 text-white bg-[#8B6A3E]/60 hover:bg-[#8B6A3E]/80 w-8 h-8 rounded-full flex items-center justify-center transition-all"
             >
               <svg
                 className="w-4 h-4"
@@ -273,21 +371,25 @@ function mokshavediogallery() {
                 />
               </svg>
             </button>
-            <div className="relative h-[45vh]">
+
+            <div className="relative w-full h-[40vh] sm:h-[50vh] md:h-[60vh] bg-[#8B6A3E]">
               <video
-                className="object-contain w-full h-full"
+                className="w-full h-full object-contain"
                 controls
                 autoPlay
+                playsInline
+                controlsList="nodownload"
                 src={selectedVideo.src}
               >
                 Your browser does not support the video tag.
               </video>
             </div>
-            <div className="p-3 bg-white">
-              <h2 className="text-lg font-bold text-gray-800 mb-1">
+
+            <div className="p-3 sm:p-4 bg-white">
+              <h2 className="text-base sm:text-lg font-bold text-[#8B6A3E] mb-1">
                 {selectedVideo.title}
               </h2>
-              <p className="text-gray-600 text-xs">
+              <p className="text-[#8B6A3E] text-xs sm:text-sm">
                 Professional {selectedVideo.category} video production
               </p>
             </div>
@@ -300,4 +402,4 @@ function mokshavediogallery() {
   );
 }
 
-export default mokshavediogallery;
+export default MokshaVideoGallery;

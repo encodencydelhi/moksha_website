@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+
 import Topbar from "@/components/topbar/Topbar";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
@@ -20,7 +20,7 @@ function Contact() {
     <div className="min-h-screen bg-white">
       {" "}
       <Topbar /> <Navbar />
-      <div className="bg-[#8B6A3E] py-12 md:py-16">
+      <div className="bg-[#8B6A3E] py-16 md:py-16">
         <div className="w-full px-3 sm:px-4 md:px-10">
           <h1 className="text-2xl md:text-3xl font-bold text-white text-center mb-2 tracking-tight">
             Contact Us
