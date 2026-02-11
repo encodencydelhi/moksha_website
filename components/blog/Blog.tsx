@@ -139,7 +139,7 @@ function Blog() {
       <Navbar />
 
       <section
-        className="relative py-10 md:py-14"
+        className="relative py-16 md:py-14"
         style={{ backgroundColor: themeColorLight }}
       >
         <div className="container mx-auto px-4">

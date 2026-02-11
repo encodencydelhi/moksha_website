@@ -192,15 +192,6 @@ function MokshaVideoGallery() {
     { id: "meetings", name: "Business Meetings" },
   ];
 
-  if (!pageLoaded) {
-    return (
-      <div
-        className="min-h-screen flex items-center justify-center"
-        style={{ backgroundColor: "#F5E9D9" }}
-      ></div>
-    );
-  }
-
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#F5E9D9" }}>
       <Topbar />
