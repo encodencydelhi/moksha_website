@@ -23,7 +23,7 @@ function About() {
       <Navbar />
 
       <section
-        className="py-6 md:py-14 px-4 sm:px-6 lg:px-8"
+        className="py-18 md:py-14 px-4 sm:px-6 lg:px-8"
         style={{ backgroundColor: "#F5E9D9" }}
       >
         <div className="max-w-7xl mx-auto text-center">

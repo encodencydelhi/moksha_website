@@ -148,7 +148,7 @@ function mokshavediogallery() {
       <Topbar />
       <Navbar />
 
-      <div className="container mx-auto px-3 sm:px-4 py-6 md:py-14">
+      <div className="container mx-auto px-3 sm:px-4 py-16 md:py-14">
         <div className="text-center mb-6">
           <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2 tracking-tight">
             Moksha Video Gallery
