@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
 import Link from "next/link";
+
 import {
   FaHandHoldingHeart,
   FaStar,
@@ -99,13 +100,13 @@ export default function Navbar() {
         { name: "Video Library", href: "#videos", icon: <FaLeaf /> },
       ],
     },
-    { name: "Blog", href: "#blog", icon: <FaBookOpen /> },
+    { name: "Blog", href: "/blog", icon: <FaBookOpen /> },
     {
       name: "Moksha Gallery",
-      href: "#mokshagallery",
+      href: "/mokshagallery",
       icon: <FaHeart />,
       dropdown: [
-        { name: "galley", href: "#gallery", icon: <FaLeaf /> },
+        { name: "galley", href: "/mokshagallery", icon: <FaLeaf /> },
         { name: "moksha inventions", href: "#inventions", icon: <FaHistory /> },
       ],
     },
@@ -128,13 +129,16 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center h-12">
             <div className="absolute top-1 left-4 sm:left-30 z-10">
-              <div className="w-14 h-14 sm:w-30 sm:h-30 overflow-hidden rounded-md">
-                <img
-                  src="/assets/logoreal.jpeg"
-                  alt="Moksha Voyage Logo"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <a href="/">
+                {" "}
+                <div className="w-14 h-14 sm:w-30 sm:h-30 overflow-hidden rounded-md">
+                  <img
+                    src="/assets/logoreal.jpeg"
+                    alt="Moksha Voyage Logo"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </a>
             </div>
 
             <div className="hidden lg:flex items-center space-x-0 dropdown-container ml-auto h-full">
