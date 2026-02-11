@@ -3,9 +3,8 @@ import React, { useState } from "react";
 import Topbar from "@/components/topbar/Topbar";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
-import Image from "next/image";
 
-interface GalleryImage {
+interface GalleryVideo {
   id: number;
   src: string;
   alt: string;
@@ -13,134 +12,134 @@ interface GalleryImage {
   title: string;
 }
 
-function mokshagallery() {
-  const [images] = useState<GalleryImage[]>([
+function mokshavediogallery() {
+  const [videos] = useState<GalleryVideo[]>([
     {
       id: 1,
-      src: "/assets/four.jpg",
+      src: "/vedio/vedio.mp4",
       alt: "Corporate Event",
       category: "events",
       title: "Corporate Conference",
     },
     {
       id: 2,
-      src: "/assets/one.jpg",
+      src: "/vedio/vedio.mp4",
       alt: "Office Workspace",
       category: "workspace",
-      title: "Modern Office",
+      title: "Modern Office Tour",
     },
     {
       id: 3,
-      src: "/assets/two.jpg",
+      src: "/vedio/vedio.mp4",
       alt: "Business Meeting",
       category: "meetings",
-      title: "Team Strategy",
+      title: "Team Strategy Session",
     },
     {
       id: 4,
-      src: "/assets/two.jpg",
+      src: "/vedio/vedio.mp4",
       alt: "Product Launch",
       category: "events",
-      title: "Product Launch",
+      title: "Product Launch Event",
     },
     {
       id: 5,
-      src: "/assets/two.jpg",
+      src: "/vedio/vedio.mp4",
       alt: "Design Studio",
       category: "workspace",
-      title: "Creative Studio",
+      title: "Creative Studio Walkthrough",
     },
     {
       id: 6,
-      src: "/assets/one.jpg",
+      src: "/vedio/vedio.mp4",
       alt: "Client Presentation",
       category: "meetings",
       title: "Client Presentation",
     },
     {
       id: 7,
-      src: "/assets/b.jpg",
+      src: "/vedio/vedio.mp4",
       alt: "Networking Event",
       category: "events",
       title: "Industry Networking",
     },
     {
       id: 8,
-      src: "/assets/a.jpg",
+      src: "/vedio/vedio.mp4",
       alt: "Executive Office",
       category: "workspace",
-      title: "Executive Suite",
+      title: "Executive Suite Tour",
     },
     {
       id: 9,
-      src: "/assets/four.jpg",
-      alt: "Corporate Event",
+      src: "/vedio/vedio.mp4",
+      alt: "Annual Conference",
       category: "events",
-      title: "Corporate Conference",
+      title: "Annual Corporate Conference",
     },
     {
       id: 10,
-      src: "/assets/one.jpg",
-      alt: "Office Workspace",
+      src: "/vedio/vedio.mp4",
+      alt: "Workspace Design",
       category: "workspace",
-      title: "Modern Office",
+      title: "Workspace Design Concept",
     },
     {
       id: 11,
-      src: "/assets/two.jpg",
-      alt: "Business Meeting",
+      src: "/vedio/vedio.mp4",
+      alt: "Board Meeting",
       category: "meetings",
-      title: "Team Strategy",
+      title: "Board Meeting Highlights",
     },
     {
       id: 12,
-      src: "/assets/two.jpg",
-      alt: "Product Launch",
+      src: "/vedio/vedio.mp4",
+      alt: "Company Party",
       category: "events",
-      title: "Product Launch",
+      title: "Company Annual Party",
     },
     {
       id: 13,
-      src: "/assets/two.jpg",
-      alt: "Design Studio",
+      src: "/vedio/vedio.mp4",
+      alt: "Coworking Space",
       category: "workspace",
-      title: "Creative Studio",
+      title: "Coworking Space Tour",
     },
     {
       id: 14,
-      src: "/assets/one.jpg",
-      alt: "Client Presentation",
+      src: "/vedio/vedio.mp4",
+      alt: "Team Brainstorming",
       category: "meetings",
-      title: "Client Presentation",
+      title: "Team Brainstorming Session",
     },
     {
       id: 15,
-      src: "/assets/b.jpg",
-      alt: "Networking Event",
+      src: "/vedio/vedio.mp4",
+      alt: "Award Ceremony",
       category: "events",
-      title: "Industry Networking",
+      title: "Employee Award Ceremony",
     },
     {
       id: 16,
-      src: "/assets/a.jpg",
-      alt: "Executive Office",
+      src: "/vedio/vedio.mp4",
+      alt: "Reception Area",
       category: "workspace",
-      title: "Executive Suite",
+      title: "Reception Area Showcase",
     },
   ]);
 
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<GalleryVideo | null>(null);
 
-  const filteredImages =
+  const filteredVideos =
     selectedCategory === "all"
-      ? images
-      : images.filter((img) => img.category === selectedCategory);
+      ? videos
+      : videos.filter((video) => video.category === selectedCategory);
 
   const categories = [
-    { id: "all", name: "All Projects" },
+    { id: "all", name: "All Videos" },
     { id: "events", name: "Corporate Events" },
-    { id: "workspace", name: "Workspace Design" },
+    { id: "workspace", name: "Workspace Tours" },
     { id: "meetings", name: "Business Meetings" },
   ];
 
@@ -152,11 +151,11 @@ function mokshagallery() {
       <div className="container mx-auto px-3 sm:px-4 py-6 md:py-14">
         <div className="text-center mb-6">
           <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2 tracking-tight">
-            Moksha Portfolio
+            Moksha Video Gallery
           </h1>
           <div className="w-12 h-0.5 bg-gray-800 mx-auto mb-3"></div>
           <p className="text-gray-700 text-sm max-w-xl mx-auto">
-            Curated collection of corporate photography
+            Curated collection of corporate video productions
           </p>
         </div>
 
@@ -177,32 +176,45 @@ function mokshagallery() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-          {filteredImages.map((image) => (
+          {filteredVideos.map((video) => (
             <div
-              key={image.id}
+              key={video.id}
               className="group relative overflow-hidden rounded-md shadow-sm hover:shadow transition-all duration-200 bg-white"
             >
               <div className="relative h-36 w-full overflow-hidden">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-400"
-                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
-                />
+                <video
+                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-400"
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                >
+                  <source src={video.src} type="video/mp4" />
+                </video>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
+                    <svg
+                      className="w-5 h-5 text-gray-800 ml-0.5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
               </div>
 
               <div className="p-2">
                 <div className="flex items-center justify-between mb-1">
                   <span className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded-full text-sm">
-                    {image.category.charAt(0).toUpperCase() +
-                      image.category.slice(1).substring(0, 3)}
+                    {video.category.charAt(0).toUpperCase() +
+                      video.category.slice(1).substring(0, 3)}
                   </span>
                   <button
-                    onClick={() => setSelectedImage(image)}
+                    onClick={() => setSelectedVideo(video)}
                     className="text-gray-500 hover:text-gray-800 transition-colors p-0.5"
-                    title="View"
+                    title="View Video"
                   >
                     <svg
                       className="w-4 h-4"
@@ -226,7 +238,7 @@ function mokshagallery() {
                   </button>
                 </div>
                 <h3 className="text-sm font-medium text-gray-800 line-clamp-1">
-                  {image.title}
+                  {video.title}
                 </h3>
               </div>
             </div>
@@ -235,20 +247,20 @@ function mokshagallery() {
 
         <div className="text-center mt-8">
           <button className="px-5 py-2 bg-[#8B6A3E] text-white text-sm font-medium rounded-full hover:bg-gray-900 transition-all duration-200 shadow-sm hover:shadow">
-            View Complete Portfolio
+            View Complete Video Portfolio
           </button>
         </div>
       </div>
 
-      {selectedImage && (
+      {selectedVideo && (
         <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-2">
-          <div className="relative max-w-3xl w-full max-h-[80vh] bg-white rounded-lg overflow-hidden">
+          <div className="relative max-w-3xl w-full max-h-[80vh] bg-black rounded-lg overflow-hidden">
             <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-2 right-2 z-10 text-gray-700 bg-white/90 hover:bg-white w-7 h-7 rounded-full flex items-center justify-center transition-all shadow-sm"
+              onClick={() => setSelectedVideo(null)}
+              className="absolute top-2 right-2 z-10 text-white bg-black/50 hover:bg-black/70 w-8 h-8 rounded-full flex items-center justify-center transition-all"
             >
               <svg
-                className="w-3.5 h-3.5"
+                className="w-4 h-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -262,20 +274,21 @@ function mokshagallery() {
               </svg>
             </button>
             <div className="relative h-[45vh]">
-              <Image
-                src={selectedImage.src}
-                alt={selectedImage.alt}
-                fill
-                className="object-contain"
-                sizes="85vw"
-              />
+              <video
+                className="object-contain w-full h-full"
+                controls
+                autoPlay
+                src={selectedVideo.src}
+              >
+                Your browser does not support the video tag.
+              </video>
             </div>
             <div className="p-3 bg-white">
               <h2 className="text-lg font-bold text-gray-800 mb-1">
-                {selectedImage.title}
+                {selectedVideo.title}
               </h2>
               <p className="text-gray-600 text-xs">
-                Professional {selectedImage.category} photography
+                Professional {selectedVideo.category} video production
               </p>
             </div>
           </div>
@@ -287,4 +300,4 @@ function mokshagallery() {
   );
 }
 
-export default mokshagallery;
+export default mokshavediogallery;

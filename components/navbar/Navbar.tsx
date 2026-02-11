@@ -106,8 +106,12 @@ export default function Navbar() {
       href: "/mokshagallery",
       icon: <FaHeart />,
       dropdown: [
-        { name: "galley", href: "/mokshagallery", icon: <FaLeaf /> },
-        { name: "moksha inventions", href: "#inventions", icon: <FaHistory /> },
+        { name: "Moksha Galley", href: "/mokshagallery", icon: <FaLeaf /> },
+        {
+          name: "Moksha Vedio Gallery",
+          href: "/mokshavediogallery",
+          icon: <FaHistory />,
+        },
       ],
     },
     { name: "Contact", href: "/contact", icon: <FaUserCircle /> },

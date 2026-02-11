@@ -23,14 +23,15 @@ function About() {
       <Navbar />
 
       <section
-        className="py-16 md:py-20 px-4 sm:px-6 lg:px-8"
+        className="py-6 md:py-14 px-4 sm:px-6 lg:px-8"
         style={{ backgroundColor: "#F5E9D9" }}
       >
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 tracking-tight">
             About <span className="text-[#8B6A3E]">Moksha Voyage</span>
           </h1>
-          <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto">
+          <div className="w-12 h-0.5 bg-gray-800 mx-auto mb-3"></div>
+          <p className="text-gray-700 text-sm max-w-xl mx-auto">
             "Journey to Enlightenment: Transforming Souls Through Spiritual
             Travel"
           </p>
@@ -41,7 +42,7 @@ function About() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 tracking-tight">
                 Welcome to <span className="text-[#8B6A3E]">Moksha Voyage</span>
               </h2>
               <div className="space-y-3 text-gray-700">
@@ -57,7 +58,7 @@ function About() {
                 </p>
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
-                <div className="flex items-center bg-[#8B6A3E]/10 px-3 py-2 rounded-lg border border-[#8B6A3E]/20">
+                <div className="flex items-center bg-[#8B6A3E]/10 px-3 py-1.5 rounded-lg border border-[#8B6A3E]/20">
                   <div className="w-6 h-6 bg-[#8B6A3E] rounded-full flex items-center justify-center mr-2">
                     <Globe className="w-3 h-3 text-white" />
                   </div>
@@ -65,7 +66,7 @@ function About() {
                     Sacred Journeys
                   </span>
                 </div>
-                <div className="flex items-center bg-[#8B6A3E]/10 px-3 py-2 rounded-lg border border-[#8B6A3E]/20">
+                <div className="flex items-center bg-[#8B6A3E]/10 px-3 py-1.5 rounded-lg border border-[#8B6A3E]/20">
                   <div className="w-6 h-6 bg-[#8B6A3E] rounded-full flex items-center justify-center mr-2">
                     <Heart className="w-3 h-3 text-white" />
                   </div>
@@ -82,7 +83,7 @@ function About() {
                 alt="Welcome to Moksha Voyage"
                 width={400}
                 height={250}
-                className="w-full h-[40vh] object-cover"
+                className="w-full h-40 md:h-56 object-cover"
               />
             </div>
           </div>
@@ -92,25 +93,26 @@ function About() {
       <section className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8">
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 tracking-tight">
               Our <span className="text-[#8B6A3E]">Purpose</span>
             </h2>
-            <p className="text-gray-600">
+            <div className="w-12 h-0.5 bg-gray-800 mx-auto mb-3"></div>
+            <p className="text-gray-600 text-sm">
               Guiding souls towards inner peace and spiritual awakening
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4">
             {[
               {
-                icon: <Target className="w-8 h-8" />,
+                icon: <Target className="w-6 h-6" />,
                 title: "Our Mission",
                 description:
                   "To facilitate transformative spiritual journeys that connect individuals with ancient wisdom, sacred spaces, and inner peace.",
                 bgColor: "bg-[#8B6A3E]",
               },
               {
-                icon: <Sparkles className="w-8 h-8" />,
+                icon: <Sparkles className="w-6 h-6" />,
                 title: "Our Vision",
                 description:
                   "To become the world's most trusted spiritual travel companion, making sacred journeys accessible to every seeker.",
@@ -119,14 +121,14 @@ function About() {
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm"
+                className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm"
               >
                 <div
-                  className={`w-12 h-12 ${item.bgColor} rounded-lg flex items-center justify-center mb-4`}
+                  className={`w-10 h-10 ${item.bgColor} rounded-lg flex items-center justify-center mb-3`}
                 >
                   <div className="text-white">{item.icon}</div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                <h3 className="text-lg font-bold text-gray-900 mb-2 tracking-tight">
                   {item.title}
                 </h3>
                 <p className="text-gray-700 text-sm">{item.description}</p>
@@ -140,7 +142,7 @@ function About() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-6 items-center">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 tracking-tight">
                 Our <span className="text-[#8B6A3E]">Story</span>
               </h2>
               <div className="space-y-3 text-gray-700 mb-4">
@@ -155,7 +157,7 @@ function About() {
                   through authentic travel experiences.
                 </p>
               </div>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-2">
                 {[
                   { value: "8+", label: "Years of Service" },
                   { value: "200+", label: "Spiritual Guides" },
@@ -163,7 +165,7 @@ function About() {
                 ].map((stat, index) => (
                   <div
                     key={index}
-                    className="text-center p-3 bg-[#8B6A3E]/10 rounded-lg border border-[#8B6A3E]/20"
+                    className="text-center p-2 bg-[#8B6A3E]/10 rounded-lg border border-[#8B6A3E]/20"
                   >
                     <div className="text-lg font-bold text-[#8B6A3E] mb-1">
                       {stat.value}
@@ -180,55 +182,57 @@ function About() {
                 alt="Our Story"
                 width={400}
                 height={250}
-                className="w-full h-[40vh] object-cover rounded-lg shadow-lg"
+                className="w-full h-40 md:h-56 object-cover rounded-lg shadow-lg"
               />
             </div>
           </div>
         </div>
       </section>
+
       <section className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8">
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 tracking-tight">
               Journey <span className="text-[#8B6A3E]">Highlights</span>
             </h2>
-            <p className="text-gray-600">
+            <div className="w-12 h-0.5 bg-gray-800 mx-auto mb-3"></div>
+            <p className="text-gray-600 text-sm">
               Transforming lives through sacred travel experiences
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
               {
-                icon: <MapPin className="w-5 h-5" />,
+                icon: <MapPin className="w-4 h-4" />,
                 value: "50+",
                 label: "Sacred Destinations",
               },
               {
-                icon: <Users2 className="w-5 h-5" />,
+                icon: <Users2 className="w-4 h-4" />,
                 value: "5,000+",
                 label: "Happy Travelers",
               },
               {
-                icon: <Mountain className="w-5 h-5" />,
+                icon: <Mountain className="w-4 h-4" />,
                 value: "100+",
                 label: "Retreats Conducted",
               },
               {
-                icon: <Award className="w-5 h-5" />,
+                icon: <Award className="w-4 h-4" />,
                 value: "98%",
                 label: "Satisfaction Rate",
               },
             ].map((stat, index) => (
               <div
                 key={index}
-                className="relative overflow-hidden rounded-lg p-4 text-center bg-white shadow-sm border border-gray-100"
+                className="relative overflow-hidden rounded-lg p-3 text-center bg-white shadow-sm border border-gray-100"
               >
                 <div className="relative z-10">
-                  <div className="w-10 h-10 bg-[#8B6A3E]/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <div className="w-8 h-8 bg-[#8B6A3E]/10 rounded-full flex items-center justify-center mx-auto mb-2">
                     <div className="text-[#8B6A3E]">{stat.icon}</div>
                   </div>
-                  <div className="text-xl font-bold text-gray-900 mb-1">
+                  <div className="text-lg font-bold text-gray-900 mb-1 tracking-tight">
                     {stat.value}
                   </div>
                   <div className="text-gray-600 text-xs font-medium">
@@ -240,18 +244,20 @@ function About() {
           </div>
         </div>
       </section>
+
       <section className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8">
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 tracking-tight">
               Our Spiritual <span className="text-[#8B6A3E]">Guides</span>
             </h2>
-            <p className="text-gray-600">
+            <div className="w-12 h-0.5 bg-gray-800 mx-auto mb-3"></div>
+            <p className="text-gray-600 text-sm">
               Experienced mentors who illuminate your spiritual path
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-4">
             {[
               {
                 name: "Ravi Shankar",
@@ -279,9 +285,9 @@ function About() {
             ].map((guide, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="group bg-white rounded-lg overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200"
               >
-                <div className="relative h-56 w-full overflow-hidden">
+                <div className="relative h-40 w-full overflow-hidden">
                   <Image
                     src={guide.image}
                     alt={guide.name}
@@ -294,10 +300,10 @@ function About() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
                 </div>
 
-                <div className="p-5 text-center">
-                  <div className="relative -mt-10 mb-4">
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-[#8B6A3E] rounded-xl border-4 border-white shadow-lg">
-                      <span className="text-white font-bold text-lg">
+                <div className="p-3 text-center">
+                  <div className="relative -mt-8 mb-3">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-[#8B6A3E] rounded-lg border-4 border-white shadow-sm">
+                      <span className="text-white font-bold text-sm">
                         {guide.name
                           .split(" ")
                           .map((n) => n[0])
@@ -306,21 +312,21 @@ function About() {
                     </div>
                   </div>
 
-                  <div className="mt-2">
-                    <h3 className="font-bold text-gray-900 text-lg mb-1">
+                  <div className="mt-1">
+                    <h3 className="font-bold text-gray-900 text-sm mb-1 tracking-tight">
                       {guide.name}
                     </h3>
-                    <p className="text-[#8B6A3E] text-sm font-medium mb-3">
+                    <p className="text-[#8B6A3E] text-xs font-medium mb-2">
                       {guide.role}
                     </p>
-                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                    <p className="text-gray-600 text-xs mb-3 leading-relaxed">
                       {guide.description}
                     </p>
-                    <div className="flex flex-wrap justify-center gap-2">
+                    <div className="flex flex-wrap justify-center gap-1">
                       {guide.expertise.map((skill, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 bg-[#8B6A3E]/10 text-[#8B6A3E] rounded-full text-xs font-medium border border-[#8B6A3E]/20"
+                          className="px-2 py-0.5 bg-[#8B6A3E]/10 text-[#8B6A3E] rounded-full text-xs font-medium border border-[#8B6A3E]/20"
                         >
                           {skill}
                         </span>
@@ -336,18 +342,19 @@ function About() {
 
       <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="relative max-w-4xl mx-auto text-center">
-          <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 tracking-tight">
             Begin Your <span className="text-[#8B6A3E]">Spiritual Journey</span>
           </h2>
-          <p className="text-gray-700 mb-6 max-w-xl mx-auto text-sm md:text-base">
+          <div className="w-12 h-0.5 bg-gray-800 mx-auto mb-3"></div>
+          <p className="text-gray-700 mb-6 max-w-xl mx-auto text-sm">
             Discover inner peace, find your purpose, and transform your soul
             with our curated spiritual journeys.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button className="px-6 py-2 bg-[#8B6A3E] text-white font-medium rounded-lg hover:bg-[#8B6A3E]/90 transition-colors duration-300">
+          <div className="flex flex-col sm:flex-row gap-2 justify-center">
+            <button className="px-5 py-2 bg-[#8B6A3E] text-white font-medium rounded-lg hover:bg-[#8B6A3E]/90 transition-colors duration-200 text-sm">
               Explore Journeys
             </button>
-            <button className="px-6 py-2 bg-white border border-[#8B6A3E] text-[#8B6A3E] font-medium rounded-lg hover:bg-[#8B6A3E]/10 transition-colors duration-300">
+            <button className="px-5 py-2 bg-white border border-[#8B6A3E] text-[#8B6A3E] font-medium rounded-lg hover:bg-[#8B6A3E]/10 transition-colors duration-200 text-sm">
               Book a Consultation
             </button>
           </div>
