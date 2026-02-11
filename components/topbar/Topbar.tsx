@@ -1,8 +1,9 @@
 "use client";
 
+import { link } from "fs";
 import { Mail, Phone, User, Users, Shield } from "lucide-react";
-import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function TopInfoBar() {
   const [isMusicOn, setIsMusicOn] = useState(false);
@@ -148,7 +149,7 @@ export default function TopInfoBar() {
             <div className="hidden md:block w-px h-3 bg-white/20"></div>
 
             <Link
-              href="/vendor-login"
+              href="/vendorlogin"
               className="flex items-center justify-center w-8 h-8 md:w-auto md:h-auto md:px-2 md:py-1 rounded bg-[#8B6A3E] hover:bg-[#755735] text-white transition-colors"
               aria-label="Vendor Login"
             >
