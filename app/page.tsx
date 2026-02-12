@@ -1,3 +1,7 @@
+"use client";
+import { useAuth } from "@/context/AuthContext";
+import User from "@/components/vendordashboard/user/User";
+import Vendor from "@/components/vendordashboard/vendor/Vendor";
 import Topbar from "../components/topbar/Topbar";
 import Navbar from "../components/navbar/Navbar";
 import Hero from "../components/hero/Hero";
@@ -9,6 +13,13 @@ import Footer from "../components/Footer/Footer";
 import Sideicon from "../components/Sideicon/Sideicon";
 
 export default function Page() {
+  const { role } = useAuth();
+  if (role === "user") {
+    return <User />;
+  }
+  if (role === "vendor") {
+    return <Vendor />;
+  }
   return (
     <div>
       <Sideicon />

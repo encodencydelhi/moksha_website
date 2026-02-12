@@ -1,4 +1,4 @@
-import Register from "@/components/vendordashboard/register/Register";
+import Register from "@/components/vendordashboardauth/register/Register";
 
 function page() {
   return (

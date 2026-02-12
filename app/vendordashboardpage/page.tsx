@@ -1,10 +1,9 @@
-import Sentotp from "@/components/vendordashboardauth/sentotp/Sentotp";
 import React from "react";
-
+import Vendor from "@/components/vendordashboard/vendor/Vendor";
 function page() {
   return (
     <div>
-      <Sentotp />
+      <Vendor />
     </div>
   );
 }

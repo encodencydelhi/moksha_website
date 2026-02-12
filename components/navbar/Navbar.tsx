@@ -133,7 +133,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center h-12">
             <div className="absolute top-1 left-4 sm:left-30 z-10">
-              <a href="/">
+              <Link href="/">
                 {" "}
                 <div className="w-14 h-14 sm:w-30 sm:h-30 overflow-hidden rounded-md">
                   <img
@@ -142,7 +142,7 @@ export default function Navbar() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-              </a>
+              </Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-0 dropdown-container ml-auto h-full">
@@ -166,7 +166,7 @@ export default function Navbar() {
                       />
                     </button>
                   ) : (
-                    <a
+                    <Link
                       href={item.href}
                       onClick={() => {
                         setActiveLink(item.name.toLowerCase());
@@ -179,7 +179,7 @@ export default function Navbar() {
                       }`}
                     >
                       <span className="font-medium">{item.name}</span>
-                    </a>
+                    </Link>
                   )}
 
                   {item.dropdown && (
@@ -192,7 +192,7 @@ export default function Navbar() {
                     >
                       <div className="py-2">
                         {item.dropdown.map((subItem) => (
-                          <a
+                          <Link
                             key={subItem.name}
                             href={subItem.href}
                             onClick={() => {
@@ -207,7 +207,7 @@ export default function Navbar() {
                             <span className="font-medium text-[#5A4030]">
                               {subItem.name}
                             </span>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -257,14 +257,14 @@ export default function Navbar() {
                     />
                   </button>
                 ) : (
-                  <a
+                  <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className="flex items-center space-x-2 w-full px-3 py-2 rounded-lg text-[#5A4030] hover:bg-gray-50"
                   >
                     <span className="text-base">{item.icon}</span>
                     <span className="text-[15px] font-medium">{item.name}</span>
-                  </a>
+                  </Link>
                 )}
 
                 {openDropdown === item.name && item.dropdown && (

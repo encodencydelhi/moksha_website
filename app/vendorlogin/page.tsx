@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "@/components/vendordashboard/login/Login";
+import Login from "@/components/vendordashboardauth/login/Login";
 function pages() {
   return (
     <div>
