@@ -167,6 +167,15 @@ export default function TopInfoBar() {
               <Shield size={16} className="md:hidden" />
               <span className="hidden md:inline text-xs">Moksha Seva</span>
             </Link>
+            <div className="hidden md:block w-px h-3 bg-white/20"></div>
+            <Link
+              href="/login"
+              className="flex items-center justify-center w-8 h-8 md:w-auto md:h-auto md:px-2 md:py-1 rounded bg-[#8B6A3E] hover:bg-[#755735] text-white transition-colors"
+              aria-label="Moksha Seva"
+            >
+              <Shield size={16} className="md:hidden" />
+              <span className="hidden md:inline text-xs">Mortal Records</span>
+            </Link>
           </div>
         </div>
       </div>

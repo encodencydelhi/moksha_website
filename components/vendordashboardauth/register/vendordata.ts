@@ -303,7 +303,6 @@ export const vendorCategories: VendorCategory[] = [
     ],
   },
 
-  // 2. AMBULANCE PROVIDER
   {
     id: "ambulance_service",
     name: "Ambulance ",
@@ -1385,7 +1384,6 @@ export const vendorCategories: VendorCategory[] = [
     ],
   },
 
-  // 8. FLOWER & GARLAND SHOP
   {
     id: "flower_garland",
     name: "Flower & Garland Shop",
@@ -1515,7 +1513,6 @@ export const vendorCategories: VendorCategory[] = [
     ],
   },
 
-  // 9. TENT & SEATING ARRANGEMENT PROVIDER
   {
     id: "tent_seating",
     name: "Tent & Seating Arrangement",
@@ -1717,7 +1714,6 @@ export const vendorCategories: VendorCategory[] = [
     ],
   },
 
-  // 10. BHAJAN MANDALI / PATH GROUP
   {
     id: "bhajan_mandali",
     name: "Bhajan Mandali / Path Group",
@@ -2032,7 +2028,6 @@ export const vendorCategories: VendorCategory[] = [
     ],
   },
 
-  // 12. DOCUMENTATION AGENT (Death Certificate/Hospital Paperwork)
   {
     id: "documentation_help",
     name: "Documentation Agent",
@@ -2183,12 +2178,8 @@ export const vendorCategories: VendorCategory[] = [
       },
     ],
   },
-
-  // Add all remaining categories similarly...
-  // Due to length, I'll continue with the rest in a separate response
 ];
 
-// ============ STEP CONFIGURATION FOR ALL CATEGORIES ============
 export const getStepsForCategory = (categoryId: string) => {
   const commonStep = {
     id: 1,

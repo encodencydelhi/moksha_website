@@ -1,50 +1,87 @@
 "use client";
-import {
-  createContext,
-  useContext,
-  useState,
-  ReactNode,
-  useEffect,
-} from "react";
 
-type Role = "user" | "vendor" | null;
+import React, { createContext, useContext, useEffect, useState } from "react";
+
+export interface VendorUser {
+  name: string;
+  email: string;
+  role: "vendor";
+  category: "ambulance" | "pandit";
+}
 
 interface AuthContextType {
-  role: Role;
-  login: (role: Role) => void;
+  user: VendorUser | null;
+  role: string | null;
+  vendorCategory: string | null;
+  isLoading: boolean;
+  login: (data: VendorUser) => void;
   logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
-export function AuthProvider({ children }: { children: ReactNode }) {
-  const [role, setRole] = useState<Role>(null);
+export const USERS = {
+  pandit: {
+    name: "Pandit Ji",
+    email: "pandit@service.com",
+    role: "vendor" as const,
+    category: "pandit" as const,
+  },
+  ambulance: {
+    name: "Ambulance Partner",
+    email: "ambulance@service.com",
+    role: "vendor" as const,
+    category: "ambulance" as const,
+  },
+};
 
-  // refresh ke baad bhi login yaad rahe
+export function AuthProvider({ children }: { children: React.ReactNode }) {
+  const [user, setUser] = useState<VendorUser | null>(null);
+  const [role, setRole] = useState<string | null>(null);
+  const [vendorCategory, setVendorCategory] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  /* load from localStorage */
   useEffect(() => {
-    const savedRole = localStorage.getItem("role") as Role;
-    if (savedRole) setRole(savedRole);
+    const u = localStorage.getItem("user");
+    const r = localStorage.getItem("role");
+    const c = localStorage.getItem("category");
+
+    if (u && r) {
+      setUser(JSON.parse(u));
+      setRole(r);
+      setVendorCategory(c);
+    }
+
+    setIsLoading(false);
   }, []);
 
-  const login = (userRole: Role) => {
-    setRole(userRole);
-    localStorage.setItem("role", userRole || "");
+  const login = (data: VendorUser) => {
+    setUser(data);
+    setRole("vendor");
+    setVendorCategory(data.category);
+
+    localStorage.setItem("user", JSON.stringify(data));
+    localStorage.setItem("role", "vendor");
+    localStorage.setItem("category", data.category);
   };
 
   const logout = () => {
+    setUser(null);
     setRole(null);
-    localStorage.removeItem("role");
+    setVendorCategory(null);
+
+    localStorage.clear();
+    window.location.href = "/vendorlogin";
   };
 
   return (
-    <AuthContext.Provider value={{ role, login, logout }}>
+    <AuthContext.Provider
+      value={{ user, role, vendorCategory, isLoading, login, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );
 }
 
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) throw new Error("useAuth must be used inside AuthProvider");
-  return context;
-};
+export const useAuth = () => useContext(AuthContext)!;
