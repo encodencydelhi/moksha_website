@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Bell,
   Search,
@@ -18,15 +18,22 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
   const router = useRouter();
   const [showNotifications, setShowNotifications] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
 
-  // Debug
-  console.log("VendorHeader received:", { config, user });
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   if (!config) {
     return (
       <div
         style={{
-          height: 80,
+          height: isMobile ? 60 : 80,
           background: "#FFF",
           borderBottom: "1px solid #E5E7EB",
         }}
@@ -42,21 +49,79 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
     router.replace("/vendorlogin");
   };
 
+  // Mobile search overlay
+  if (isMobile && showMobileSearch) {
+    return (
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          background: "#FFF",
+          zIndex: 1000,
+          padding: "12px 16px",
+          boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <button
+            onClick={() => setShowMobileSearch(false)}
+            style={{ background: "none", border: "none", fontSize: "18px" }}
+          >
+            ←
+          </button>
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              alignItems: "center",
+              background: "#F3F4F6",
+              borderRadius: "8px",
+              padding: "8px 12px",
+            }}
+          >
+            <Search size={16} color="#9CA3AF" />
+            <input
+              type="text"
+              placeholder="Search..."
+              autoFocus
+              style={{
+                border: "none",
+                background: "none",
+                marginLeft: "8px",
+                outline: "none",
+                width: "100%",
+                fontSize: "14px",
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <header
       style={{
         background: "#FFF",
-        padding: "16px 24px",
+        padding: isMobile ? "12px 16px" : "16px 24px",
         borderBottom: "1px solid #E5E7EB",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
         boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
-        height: "80px",
+        height: isMobile ? "60px" : "80px",
       }}
     >
       {/* Left Section */}
-      <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: isMobile ? "8px" : "16px",
+        }}
+      >
         <button
           onClick={onMenuClick}
           style={{
@@ -68,38 +133,56 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
             alignItems: "center",
           }}
         >
-          <Menu size={24} />
+          <Menu size={isMobile ? 20 : 24} />
         </button>
 
-        {/* Search Bar */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            background: "#F3F4F6",
-            borderRadius: "8px",
-            padding: "8px 16px",
-            width: "320px",
-          }}
-        >
-          <Search size={18} color="#9CA3AF" />
-          <input
-            type="text"
-            placeholder="Search..."
+        {/* Search Bar - Hide on mobile */}
+        {!isMobile && (
+          <div
             style={{
-              border: "none",
-              background: "none",
-              marginLeft: "8px",
-              outline: "none",
-              width: "100%",
-              fontSize: "14px",
+              display: "flex",
+              alignItems: "center",
+              background: "#F3F4F6",
+              borderRadius: "8px",
+              padding: "8px 16px",
+              width: "320px",
             }}
-          />
-        </div>
+          >
+            <Search size={18} color="#9CA3AF" />
+            <input
+              type="text"
+              placeholder="Search..."
+              style={{
+                border: "none",
+                background: "none",
+                marginLeft: "8px",
+                outline: "none",
+                width: "100%",
+                fontSize: "14px",
+              }}
+            />
+          </div>
+        )}
       </div>
 
       {/* Right Section */}
-      <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: isMobile ? "12px" : "20px",
+        }}
+      >
+        {/* Mobile Search Icon */}
+        {isMobile && (
+          <button
+            onClick={() => setShowMobileSearch(true)}
+            style={{ background: "none", border: "none", cursor: "pointer" }}
+          >
+            <Search size={18} color="#4B5563" />
+          </button>
+        )}
+
         {/* Notifications */}
         <div style={{ position: "relative" }}>
           <button
@@ -111,7 +194,7 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
               position: "relative",
             }}
           >
-            <Bell size={20} color="#4B5563" />
+            <Bell size={isMobile ? 18 : 20} color="#4B5563" />
             {unreadCount > 0 && (
               <span
                 style={{
@@ -120,10 +203,10 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
                   right: -5,
                   background: config.theme?.primary || "#8B6A3E",
                   color: "#FFF",
-                  fontSize: "10px",
+                  fontSize: "9px",
                   padding: "2px 4px",
                   borderRadius: "10px",
-                  minWidth: "16px",
+                  minWidth: "14px",
                   textAlign: "center",
                 }}
               >
@@ -137,9 +220,9 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
             <div
               style={{
                 position: "absolute",
-                top: "40px",
-                right: 0,
-                width: "320px",
+                top: isMobile ? "35px" : "40px",
+                right: isMobile ? -60 : 0,
+                width: isMobile ? "280px" : "320px",
                 background: "#FFF",
                 borderRadius: "12px",
                 boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
@@ -148,9 +231,18 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
               }}
             >
               <div
-                style={{ padding: "16px", borderBottom: "1px solid #E5E7EB" }}
+                style={{
+                  padding: isMobile ? "12px" : "16px",
+                  borderBottom: "1px solid #E5E7EB",
+                }}
               >
-                <h3 style={{ margin: 0, fontSize: "16px", fontWeight: 600 }}>
+                <h3
+                  style={{
+                    margin: 0,
+                    fontSize: isMobile ? "14px" : "16px",
+                    fontWeight: 600,
+                  }}
+                >
                   Notifications
                 </h3>
               </div>
@@ -159,7 +251,7 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
                   <div
                     key={notif.id}
                     style={{
-                      padding: "12px 16px",
+                      padding: isMobile ? "10px 12px" : "12px 16px",
                       borderBottom: "1px solid #F3F4F6",
                       background: notif.read ? "#FFF" : "#FEF3C7",
                       cursor: "pointer",
@@ -168,7 +260,7 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
                     <p
                       style={{
                         margin: 0,
-                        fontSize: "13px",
+                        fontSize: isMobile ? "12px" : "13px",
                         fontWeight: notif.read ? 400 : 500,
                       }}
                     >
@@ -176,7 +268,7 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
                     </p>
                     <span
                       style={{
-                        fontSize: "11px",
+                        fontSize: "10px",
                         color: "#6B7280",
                         marginTop: "4px",
                         display: "block",
@@ -198,7 +290,7 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "8px",
+              gap: isMobile ? "4px" : "8px",
               background: "none",
               border: "none",
               cursor: "pointer",
@@ -206,8 +298,8 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
           >
             <div
               style={{
-                width: 36,
-                height: 36,
+                width: isMobile ? 28 : 36,
+                height: isMobile ? 28 : 36,
                 borderRadius: "50%",
                 background: config.theme?.primary || "#8B6A3E",
                 display: "flex",
@@ -215,19 +307,25 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
                 justifyContent: "center",
                 color: "#FFF",
                 fontWeight: 600,
+                fontSize: isMobile ? "12px" : "14px",
               }}
             >
               {user?.name?.charAt(0).toUpperCase() || "U"}
             </div>
-            <div style={{ textAlign: "left" }}>
-              <p style={{ margin: 0, fontSize: "14px", fontWeight: 500 }}>
-                {user?.name || "User"}
-              </p>
-              <p style={{ margin: 0, fontSize: "11px", color: "#6B7280" }}>
-                {config.id?.replace("_", " ") || "Vendor"}
-              </p>
-            </div>
-            <ChevronDown size={16} color="#6B7280" />
+
+            {/* Hide text on very small screens */}
+            {!isMobile && (
+              <div style={{ textAlign: "left" }}>
+                <p style={{ margin: 0, fontSize: "14px", fontWeight: 500 }}>
+                  {user?.name || "User"}
+                </p>
+                <p style={{ margin: 0, fontSize: "11px", color: "#6B7280" }}>
+                  {config.id?.replace("_", " ") || "Vendor"}
+                </p>
+              </div>
+            )}
+
+            {!isMobile && <ChevronDown size={16} color="#6B7280" />}
           </button>
 
           {/* Profile Dropdown */}
@@ -235,9 +333,9 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
             <div
               style={{
                 position: "absolute",
-                top: "50px",
+                top: isMobile ? "40px" : "50px",
                 right: 0,
-                width: "200px",
+                width: isMobile ? "160px" : "200px",
                 background: "#FFF",
                 borderRadius: "8px",
                 boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
@@ -245,11 +343,11 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
                 border: "1px solid #E5E7EB",
               }}
             >
-              <button style={dropdownItemStyle}>
-                <UserIcon size={16} /> Profile
+              <button style={dropdownItemStyle(isMobile)}>
+                <UserIcon size={isMobile ? 14 : 16} /> Profile
               </button>
-              <button style={dropdownItemStyle}>
-                <Settings size={16} /> Settings
+              <button style={dropdownItemStyle(isMobile)}>
+                <Settings size={isMobile ? 14 : 16} /> Settings
               </button>
               <hr
                 style={{
@@ -259,10 +357,10 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
                 }}
               />
               <button
-                style={{ ...dropdownItemStyle, color: "#FF4D4F" }}
+                style={{ ...dropdownItemStyle(isMobile), color: "#FF4D4F" }}
                 onClick={handleLogout}
               >
-                <LogOut size={16} /> Logout
+                <LogOut size={isMobile ? 14 : 16} /> Logout
               </button>
             </div>
           )}
@@ -272,17 +370,17 @@ export default function VendorHeader({ config, user, onMenuClick }: any) {
   );
 }
 
-const dropdownItemStyle = {
+const dropdownItemStyle = (isMobile: boolean) => ({
   display: "flex",
   alignItems: "center",
   gap: "8px",
-  padding: "10px 16px",
+  padding: isMobile ? "8px 12px" : "10px 16px",
   width: "100%",
   background: "none",
   border: "none",
   cursor: "pointer",
-  fontSize: "13px",
+  fontSize: isMobile ? "12px" : "13px",
   color: "#374151",
   transition: "background 0.2s",
   textAlign: "left" as const,
-};
+});

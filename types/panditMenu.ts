@@ -1,28 +1,159 @@
-import { MenuItem } from "./vendor";
+import { VendorConfig } from "@/types/vendor";
+import {
+  LayoutDashboard,
+  Calendar,
+  Users,
+  Package,
+  Clock,
+  DollarSign,
+  Award,
+  BookOpen,
+  CheckCircle,
+  TrendingUp,
+} from "lucide-react";
 
-export const panditMenu: MenuItem[] = [
-  {
-    id: "dashboard",
-    label: "Dashboard",
-    icon: "📊",
-    path: "/vendor/dashboard",
+export const panditConfig: VendorConfig = {
+  id: "pandit",
+  title: "Pandit Ji Dashboard",
+  subtitle: "Manage your religious ceremonies & bookings",
+  theme: {
+    primary: "#8B6A3E",
+    secondary: "#A78B6B",
+    accent: "#D4AF37",
   },
-  {
-    id: "bookings",
-    label: "Bookings",
-    icon: "📅",
-    path: "/vendor/bookings",
-  },
-  {
-    id: "clients",
-    label: "Clients",
-    icon: "👥",
-    path: "/vendor/clients",
-  },
-  {
-    id: "pooja-items",
-    label: "Pooja Items",
-    icon: "🪔",
-    path: "/vendor/pooja-items",
-  },
-];
+  menu: [
+    {
+      id: "dashboard",
+      label: "Dashboard",
+      icon: LayoutDashboard,
+      path: "/vendor/dashboard",
+    },
+    {
+      id: "bookings",
+      label: "Bookings",
+      icon: Calendar,
+      path: "/vendor/bookings",
+      badge: 5,
+    },
+    {
+      id: "clients",
+      label: "Clients",
+      icon: Users,
+      path: "/vendor/clients",
+    },
+    {
+      id: "ceremonies",
+      label: "Ceremonies",
+      icon: BookOpen,
+      path: "/vendor/ceremonies",
+    },
+    {
+      id: "schedule",
+      label: "Schedule",
+      icon: Clock,
+      path: "/vendor/schedule",
+    },
+    {
+      id: "earnings",
+      label: "Earnings",
+      icon: DollarSign,
+      path: "/vendor/earnings",
+    },
+    {
+      id: "pooja-items",
+      label: "Pooja Items",
+      icon: Package,
+      path: "/vendor/pooja-items",
+    },
+    {
+      id: "reviews",
+      label: "Reviews",
+      icon: Award,
+      path: "/vendor/reviews",
+      badge: 2,
+    },
+  ],
+  stats: [
+    {
+      title: "Today's Bookings",
+      value: "12",
+      icon: Calendar,
+      change: 20,
+      bgColor: "#8B6A3E",
+    },
+    {
+      title: "Total Clients",
+      value: "345",
+      icon: Users,
+      change: 12,
+      bgColor: "#A78B6B",
+    },
+    {
+      title: "Revenue (This Month)",
+      value: "₹45,000",
+      icon: TrendingUp,
+      change: 8,
+      bgColor: "#D4AF37",
+    },
+    {
+      title: "Completion Rate",
+      value: "98%",
+      icon: CheckCircle,
+      change: 2,
+      bgColor: "#2E7D32",
+    },
+  ],
+  recentActivity: [
+    {
+      id: "1",
+      title: "Antim Sanskar Booking",
+      time: "10:30 AM",
+      status: "pending",
+      user: "Sharma Family",
+      amount: "₹2,100",
+    },
+    {
+      id: "2",
+      title: "Garud Puran Path",
+      time: "09:15 AM",
+      status: "completed",
+      user: "Verma Ji",
+      amount: "₹3,500",
+    },
+    {
+      id: "3",
+      title: "Pind Daan Ceremony",
+      time: "Yesterday",
+      status: "completed",
+      user: "Gupta Family",
+      amount: "₹1,800",
+    },
+    {
+      id: "4",
+      title: "New Client Added",
+      time: "Yesterday",
+      status: "in-progress",
+      user: "Patel Family",
+    },
+  ],
+  notifications: [
+    {
+      id: "n1",
+      message: "New booking request from Sharma Family",
+      time: "5 min ago",
+      read: false,
+    },
+    {
+      id: "n2",
+      message: "Payment received of ₹2,100",
+      time: "1 hour ago",
+      read: false,
+    },
+    {
+      id: "n3",
+      message: "Review received: 5 stars",
+      time: "3 hours ago",
+      read: true,
+    },
+  ],
+};

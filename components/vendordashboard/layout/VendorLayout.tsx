@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { vendorRegistry } from "@/types/vendorRegistry";
 import Sidebar from "../vendorsidebar/Sidebar";
@@ -10,19 +10,41 @@ import DashboardRenderer from "../vendor-panels/DashboardRenderer";
 export default function VendorLayout() {
   const { vendorCategory, user } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+      if (window.innerWidth < 768) {
+        setSidebarOpen(false);
+      }
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   if (!vendorCategory || !user) {
     return null;
   }
+
   const vendorConfig = vendorRegistry[vendorCategory];
-  console.log("VendorLayout - vendorConfig:", vendorConfig);
 
   if (!vendorConfig) {
     return <div>No config found for {vendorCategory}</div>;
   }
 
   return (
-    <div style={{ display: "flex", height: "100vh", background: "#F5F5F5" }}>
+    <div
+      style={{
+        display: "flex",
+        height: "100vh",
+        background: "#F5F5F5",
+        overflow: "hidden",
+      }}
+    >
       <Sidebar
         config={vendorConfig}
         isOpen={sidebarOpen}
@@ -34,8 +56,9 @@ export default function VendorLayout() {
           flex: 1,
           display: "flex",
           flexDirection: "column",
-          marginLeft: sidebarOpen ? "280px" : "80px",
+          marginLeft: isMobile ? 0 : sidebarOpen ? "280px" : "80px",
           transition: "margin-left 0.3s ease",
+          width: "100%",
         }}
       >
         <VendorHeader
@@ -47,7 +70,7 @@ export default function VendorLayout() {
         <main
           style={{
             flex: 1,
-            padding: "24px",
+            padding: isMobile ? "16px" : "24px",
             overflow: "auto",
           }}
         >
