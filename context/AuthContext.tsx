@@ -71,8 +71,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setRole(null);
     setVendorCategory(null);
 
-    localStorage.clear();
-    window.location.href = "/vendorlogin";
+    localStorage.removeItem("user");
+    localStorage.removeItem("role");
+    localStorage.removeItem("category");
   };
 
   return (

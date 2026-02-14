@@ -90,7 +90,6 @@ export default function VendorDashboard() {
         userName={user?.name || "Vendor"}
       />
 
-      {/* Main Content Area */}
       <div
         className={`transition-all duration-300 ease-in-out ${
           isSidebarOpen ? "lg:ml-72" : "ml-0"
@@ -103,7 +102,6 @@ export default function VendorDashboard() {
           vendorCategory={currentVendorCategory}
         />
 
-        {/* Dashboard Content */}
         <main className="p-4 md:p-6 lg:p-8">
           <div className="max-w-7xl mx-auto">
             {activeTab === "dashboard" && (
