@@ -1,6 +1,7 @@
 "use client";
 import { useAuth } from "@/context/AuthContext";
-import Vendor from "@/components/vendordashboard/vendor/Layout";
+import VendorLayout from "@/components/vendordashboard/layout/VendorLayout";
+
 import Topbar from "../components/topbar/Topbar";
 import Navbar from "../components/navbar/Navbar";
 import Hero from "../components/hero/Hero";
@@ -15,7 +16,7 @@ export default function Page() {
   const { role } = useAuth();
 
   if (role === "vendor") {
-    return <Vendor />;
+    return <VendorLayout />;
   }
 
   return (

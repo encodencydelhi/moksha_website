@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
-import VendorDashboard from "@/components/vendordashboard/vendor/VendorDashboard";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import VendorLayout from "@/components/vendordashboard/layout/VendorLayout";
 
-export default function Page() {
+export default function VendorDashboardPage() {
   const { user, isLoading } = useAuth();
   const router = useRouter();
 
@@ -15,13 +15,36 @@ export default function Page() {
     }
   }, [user, isLoading, router]);
 
-  if (isLoading || !user) {
+  if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="text-center"></div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100vh",
+          background: "#F5F5F5",
+        }}
+      >
+        <div style={{ textAlign: "center" }}>
+          <div
+            style={{
+              width: 48,
+              height: 48,
+              border: "3px solid #8B6A3E",
+              borderTopColor: "transparent",
+              borderRadius: "50%",
+              animation: "spin 1s linear infinite",
+              marginBottom: "16px",
+            }}
+          />
+          <p style={{ color: "#6B7280" }}>Loading your dashboard...</p>
+        </div>
       </div>
     );
   }
 
-  return <VendorDashboard />;
+  if (!user) return null;
+
+  return <VendorLayout />;
 }
