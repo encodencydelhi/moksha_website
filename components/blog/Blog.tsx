@@ -138,7 +138,7 @@ function Blog() {
     <div className="min-h-screen bg-white">
       <Topbar />
       <Navbar />
-      <Mantra />
+
       <section
         className="relative py-16 md:py-14"
         style={{ backgroundColor: themeColorLight }}
@@ -423,6 +423,7 @@ function Blog() {
             </div>
           )}
         </div>
+        <Mantra />
       </section>
 
       {/* Compact Newsletter */}
