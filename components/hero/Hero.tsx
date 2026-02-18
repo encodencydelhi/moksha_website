@@ -167,10 +167,8 @@ export default function Hero() {
     }
   };
 
-  // ---------------- UI ----------------
   return (
-    <section className="relative w-full min-h-[60vh] md:min-h-[80vh] overflow-hidden">
-      {/* Background Images */}
+    <section className="relative w-full min-h-[60vh] md:min-h-[40vh] overflow-hidden">
       <div className="absolute inset-0">
         {images.map((img, i) => (
           <div
@@ -237,7 +235,7 @@ export default function Hero() {
           {mantra && (
             <div
               key={currentIndex}
-              className="mt-8 rounded-xl p-6  animate-fadeIn"
+              className="mt-1 rounded-xl p-6  animate-fadeIn"
             >
               <h3 className="text-amber-200 text-lg font-semibold mb-3 flex items-center justify-center gap-2">
                 <span>🌼</span>
