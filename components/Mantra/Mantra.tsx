@@ -22,32 +22,32 @@ function Mantra() {
   if (!mantra) return null;
 
   return (
-    <section className="relative w-full py-3 mt-10 px-4 bg-[#F7F3ED] overflow-hidden">
-      <div className="absolute w-[320px] h-[140px] bg-[#8B6A3E]/10 rounded-full blur-2xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+    <section className="mt-12 relative w-full py-1 px-4 overflow-hidden">
+      <div className="absolute w-[320px] h-[140px] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
 
       <div className="relative max-w-4xl mx-auto text-center">
-        <div className="flex flex-col items-center gap-2 mb-1 mt-4">
-          <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#8B6A3E]/10">
+        <div className="flex flex-col items-center gap-0.5 mb-0">
+          <div className="flex items-center gap-2 px-4 py-1 rounded-full">
             <BookOpen className="w-4 h-4 text-[#8B6A3E]" />
-            <span className="text-[#8B6A3E]  text-xs font-semibold tracking-wide">
+            <span className="text-[#8B6A3E] text-xs font-semibold tracking-wide">
               Daily Wisdom
             </span>
           </div>
 
           <h2 className="text-xl md:text-2xl font-semibold text-gray-900">
-            Today’s Sacred Teaching
+            Today&apos;s Sacred Teaching
           </h2>
 
-          <div className="flex items-center gap-3 mt-1">
+          <div className="flex items-center gap-3 mt-0">
             <div className="w-10 h-px bg-[#8B6A3E]/40"></div>
             <span className="text-[#8B6A3E] text-lg">ॐ</span>
             <div className="w-10 h-px bg-[#8B6A3E]/40"></div>
           </div>
         </div>
 
-        <div className="relative bg-white/80 backdrop-blur-md border border-[#8B6A3E]/20 shadow-lg rounded-xl p-5 md:p-6 animate-fadeIn">
+        <div className="relative rounded-xl p-3 md:p-4 animate-fadeIn">
           {/* Title */}
-          <h3 className="text-[#8B6A3E] font-semibold text-base mb-4">
+          <h3 className="text-[#8B6A3E] font-semibold text-base mb-2">
             {mantra.title}
           </h3>
 
@@ -57,12 +57,12 @@ function Mantra() {
           </p>
 
           {/* Divider */}
-          <div className="my-4 flex items-center justify-center">
+          <div className="my-2 flex items-center justify-center">
             <div className="w-12 h-px bg-[#8B6A3E]/40"></div>
           </div>
 
           {/* Hindi Meaning */}
-          <div className="bg-[#8B6A3E]/5 border border-[#8B6A3E]/10 rounded-lg p-3">
+          <div className="rounded-lg p-2">
             <p className="text-gray-800 text-sm md:text-base italic leading-relaxed">
               {mantra.hindi}
             </p>
@@ -70,7 +70,7 @@ function Mantra() {
         </div>
 
         {/* Footer */}
-        <p className="mt-3 text-xs text-gray-500">
+        <p className="mt-2 text-xs text-gray-500">
           Pause for a moment. Breathe. Let the meaning settle within.
         </p>
       </div>

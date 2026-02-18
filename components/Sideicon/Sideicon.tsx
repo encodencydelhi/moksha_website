@@ -99,7 +99,6 @@ const SocialSidebar = () => {
           </span>
         </div>
 
-        {/* Emergency Button */}
         <a href="tel:+919310219283">
           <div
             className="px-1 py-4 rounded flex items-center justify-center shadow-xl border border-red-300 hover:bg-red-700 transition-all duration-300 cursor-pointer"
@@ -124,7 +123,6 @@ const SocialSidebar = () => {
         </a>
       </div>
 
-      {/* Bottom Left - WhatsApp Icon */}
       <div className="fixed left-4 bottom-4 z-50 hidden md:flex flex-col gap-2">
         <a
           href={whatsappLink.url}
@@ -142,7 +140,6 @@ const SocialSidebar = () => {
         </a>
       </div>
 
-      {/* Bottom Right - Phone Icon */}
       <div className="fixed right-4 bottom-4 z-50 hidden md:flex flex-col gap-2">
         <a href={phoneLink.url} aria-label={phoneLink.label} className="group">
           <div
@@ -154,7 +151,6 @@ const SocialSidebar = () => {
         </a>
       </div>
 
-      {/* Mobile View */}
       <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 md:hidden flex flex-col gap-3 py-3 px-2 rounded-full shadow-xl border border-gray-200 bg-white">
         {socialLinks.map((social, index) => (
           <a

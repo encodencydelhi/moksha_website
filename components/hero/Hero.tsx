@@ -234,11 +234,10 @@ export default function Hero() {
             <span className="text-amber-200"> Ritual & Remembrance</span>
           </h2>
 
-          {/* ---------------- DAILY MANTRA CARD ---------------- */}
           {mantra && (
             <div
               key={currentIndex}
-              className="mt-8 rounded-xl p-6 border border-white/20 shadow-xl animate-fadeIn"
+              className="mt-8 rounded-xl p-6  animate-fadeIn"
             >
               <h3 className="text-amber-200 text-lg font-semibold mb-3 flex items-center justify-center gap-2">
                 <span>🌼</span>
