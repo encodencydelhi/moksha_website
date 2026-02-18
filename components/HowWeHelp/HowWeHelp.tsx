@@ -1,5 +1,6 @@
 "use client";
 import { useState, ReactElement } from "react";
+import Mantra from "../Mantra/Mantra";
 
 interface CustomIconProps {
   name: string;
@@ -327,6 +328,9 @@ export default function HowWeCanHelp() {
             </a>
           </p>
         </div>
+      </div>
+      <div>
+        <Mantra />
       </div>
     </section>
   );

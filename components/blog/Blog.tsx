@@ -4,6 +4,7 @@ import Topbar from "@/components/topbar/Topbar";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import Image from "next/image";
+import Mantra from "../Mantra/Mantra";
 import Link from "next/link";
 import {
   FiSearch,
@@ -137,7 +138,7 @@ function Blog() {
     <div className="min-h-screen bg-white">
       <Topbar />
       <Navbar />
-
+      <Mantra />
       <section
         className="relative py-16 md:py-14"
         style={{ backgroundColor: themeColorLight }}

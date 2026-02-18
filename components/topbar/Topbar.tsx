@@ -1,22 +1,47 @@
 "use client";
 
 import { Mail, Phone, User, Users, Shield } from "lucide-react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 
 export default function TopInfoBar() {
   const [isMusicOn, setIsMusicOn] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  const playlist = [
+    "/audio/om.mp3",
+    "/audio/no.mp3",
+    "/audio/nour.mp3",
+    "/audio/semara.mp3",
+    "/audio/shiv.mp3",
+  ];
+
+  const getTodayTrack = () => {
+    const today = new Date();
+    const base = new Date(2024, 0, 1);
+
+    const diffDays = Math.floor(
+      (today.getTime() - base.getTime()) / (1000 * 60 * 60 * 24),
+    );
+
+    return diffDays % playlist.length;
+  };
+
+  const [currentTrack, setCurrentTrack] = useState(getTodayTrack());
+
   const toggleMusic = async () => {
     try {
+      const todayTrack = getTodayTrack();
+      setCurrentTrack(todayTrack);
+
       if (!audioRef.current) {
-        audioRef.current = new Audio("/audio/om.mp3");
+        audioRef.current = new Audio(playlist[todayTrack]);
         audioRef.current.loop = true;
         audioRef.current.volume = 0.3;
       }
 
       if (!isMusicOn) {
+        audioRef.current.src = playlist[todayTrack];
         await audioRef.current.play();
         setIsMusicOn(true);
       } else {
@@ -27,6 +52,15 @@ export default function TopInfoBar() {
       console.log("Browser blocked audio:", error);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
 
   return (
     <div
