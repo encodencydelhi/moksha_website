@@ -21,13 +21,10 @@ import Image from "next/image";
 import shlokas from "@/types/shlokas.json";
 
 function About() {
-  // ---------------- DAILY MANTRA STATE ----------------
   const [mantra, setMantra] = useState<any>(null);
   const [currentMantraIndex, setCurrentMantraIndex] = useState(0);
 
-  // ---------------- GET TODAY MANTRA ----------------
   useEffect(() => {
-    // Filter out Shanti Mantra (id: 5) as requested
     const filteredMantras = shlokas.filter((m) => m.id !== 5);
 
     const today = new Date();
@@ -39,7 +36,6 @@ function About() {
     setCurrentMantraIndex(index);
   }, []);
 
-  // ---------------- CHANGE MANTRA ----------------
   const changeMantra = (index: number) => {
     const filteredMantras = shlokas.filter((m) => m.id !== 5);
     setMantra(filteredMantras[index]);
@@ -67,7 +63,6 @@ function About() {
       <Topbar />
       <Navbar />
 
-      {/* Hero Section */}
       <section
         className="py-18 md:py-14 px-4 sm:px-6 lg:px-8"
         style={{ backgroundColor: "#F5E9D9" }}
@@ -84,9 +79,6 @@ function About() {
         </div>
       </section>
 
-      {/* Daily Mantra Section - New Addition */}
-
-      {/* Welcome Section */}
       <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -139,7 +131,6 @@ function About() {
         </div>
       </section>
 
-      {/* Mission & Vision Section */}
       <section className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8">
@@ -187,27 +178,27 @@ function About() {
           </div>
         </div>
       </section>
+
       {mantra && (
-        <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-6">
-              <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-[#8B6A3E]/5 mb-4">
+        <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-4">
+              <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-[#8B6A3E]/5 mb-3">
                 <BookOpen className="w-4 h-4 text-[#8B6A3E]" />
                 <span className="text-[#8B6A3E] font-medium text-sm">
                   Daily Wisdom
                 </span>
               </div>
-              <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 tracking-tight">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 tracking-tight">
                 Today's <span className="text-[#8B6A3E]">Sacred Mantra</span>
               </h2>
               <div className="w-12 h-0.5 bg-gray-300 mx-auto"></div>
             </div>
 
             <div className="relative">
-              {/* Navigation Buttons */}
               <button
                 onClick={prevMantra}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 md:-translate-x-16 p-2 rounded-full bg-[#8B6A3E]/5 hover:bg-[#8B6A3E]/10 text-[#8B6A3E] transition-colors hidden md:block"
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-8 p-2 rounded-full bg-[#8B6A3E]/5 hover:bg-[#8B6A3E]/10 text-[#8B6A3E] transition-colors hidden md:block"
                 aria-label="Previous mantra"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -215,36 +206,31 @@ function About() {
 
               <button
                 onClick={nextMantra}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 md:translate-x-16 p-2 rounded-full bg-[#8B6A3E]/5 hover:bg-[#8B6A3E]/10 text-[#8B6A3E] transition-colors hidden md:block"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-8 p-2 rounded-full bg-[#8B6A3E]/5 hover:bg-[#8B6A3E]/10 text-[#8B6A3E] transition-colors hidden md:block"
                 aria-label="Next mantra"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
 
-              {/* Mantra Card */}
-              <div className="bg-gradient-to-br from-[#FDF8F0] to-[#FAF3E8] rounded-xl p-6 md:p-8 border border-[#8B6A3E]/10 shadow-sm">
-                <div className="text-center space-y-6">
-                  {/* Title */}
-                  <h3 className="text-lg font-semibold text-[#8B6A3E]/80">
+              <div className="bg-gradient-to-br from-[#FDF8F0] to-[#FAF3E8] rounded-xl p-5 md:p-6 border border-[#8B6A3E]/10 shadow-sm">
+                <div className="text-center space-y-4">
+                  <h3 className="text-base font-semibold text-[#8B6A3E]/80">
                     {mantra.title}
                   </h3>
 
-                  {/* Sanskrit Text */}
                   <div className="relative">
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-12 h-px bg-[#8B6A3E]/20"></div>
-                    <p className="text-2xl md:text-3xl font-serif text-gray-800 leading-relaxed pt-4">
+                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-10 h-px bg-[#8B6A3E]/20"></div>
+                    <p className="text-xl md:text-2xl font-serif text-gray-800 leading-relaxed pt-3">
                       {mantra.sanskrit}
                     </p>
                   </div>
 
-                  {/* Hindi Translation */}
-                  <div className="bg-white/80 rounded-lg p-4 border border-[#8B6A3E]/5">
+                  <div className="bg-white/80 rounded-lg p-3 border border-[#8B6A3E]/5">
                     <p className="text-gray-600 text-sm md:text-base italic">
                       {mantra.hindi}
                     </p>
                   </div>
 
-                  {/* Mobile Navigation */}
                   <div className="flex items-center justify-between md:hidden">
                     <button
                       onClick={prevMantra}
@@ -265,8 +251,7 @@ function About() {
                     </button>
                   </div>
 
-                  {/* Dots Indicator */}
-                  <div className="flex justify-center gap-2 mt-4">
+                  <div className="flex justify-center gap-2 mt-2">
                     {filteredMantras.map((_, index) => (
                       <button
                         key={index}
@@ -287,7 +272,6 @@ function About() {
         </section>
       )}
 
-      {/* Story Section */}
       <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-6 items-center">
@@ -339,7 +323,6 @@ function About() {
         </div>
       </section>
 
-      {/* Stats Section */}
       <section className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8">
@@ -396,7 +379,6 @@ function About() {
         </div>
       </section>
 
-      {/* Guides Section */}
       <section className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8">
@@ -491,7 +473,6 @@ function About() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="relative max-w-4xl mx-auto text-center">
           <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 tracking-tight">
