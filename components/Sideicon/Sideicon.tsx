@@ -82,7 +82,7 @@ const SocialSidebar = () => {
           className="px-1 py-4 rounded flex items-center justify-center shadow-xl border border-gray-200"
           style={{
             color: "white",
-            backgroundColor: "#ef4444",
+            backgroundColor: "#8B6A3E",
 
             borderLeft: "none",
           }}
@@ -105,7 +105,7 @@ const SocialSidebar = () => {
             className="px-1 py-4 rounded flex items-center justify-center shadow-xl border border-red-300 hover:bg-red-700 transition-all duration-300 cursor-pointer"
             style={{
               color: "white",
-              backgroundColor: "#ef4444",
+              backgroundColor: "#8B6A3E",
 
               borderLeft: "none",
             }}
