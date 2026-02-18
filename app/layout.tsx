@@ -1,4 +1,5 @@
 import "./globals.css";
+import Sideicon from "@/components/Sideicon/Sideicon";
 
 export default function RootLayout({
   children,
@@ -7,7 +8,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <Sideicon />
+        {children}
+      </body>
     </html>
   );
 }
