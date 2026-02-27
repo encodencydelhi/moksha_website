@@ -5,7 +5,6 @@ import { ChevronLeft, ChevronRight, Play, Pause, Shield } from "lucide-react";
 import shlokas from "@/types/shlokas.json";
 
 export default function Hero() {
-  // ---------------- IMAGES ----------------
   const images = useMemo(
     () => [
       "/assets/three.jpg",
@@ -200,7 +199,6 @@ export default function Hero() {
         <ChevronRight className="w-5 h-5" />
       </button>
 
-      {/* Dots */}
       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2 z-30">
         {images.map((_, i) => (
           <button
