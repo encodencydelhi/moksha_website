@@ -167,7 +167,7 @@ function Contact() {
       <div className="relative h-[80vh] min-h-[600px] overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&auto=format"
+            src="/assets/chatgpt.png"
             alt="Corporate Office"
             fill
             className="object-cover"
@@ -175,7 +175,7 @@ function Contact() {
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-black/8"></div>
 
         <div className="absolute inset-0 opacity-5">
           <div
