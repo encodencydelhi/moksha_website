@@ -85,7 +85,7 @@ function Contact() {
       icon: FaBuilding,
       color: "from-amber-500 to-orange-500",
       image:
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&auto=format",
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&auto=format&fit=crop", // Modern corporate building
     },
     {
       city: "Ghaziabad",
@@ -95,7 +95,7 @@ function Contact() {
       icon: FaRegBuilding,
       color: "from-blue-500 to-cyan-500",
       image:
-        "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=400&auto=format",
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&auto=format&fit=crop", // Commercial building exterior
     },
     {
       city: "Delhi",
@@ -105,7 +105,7 @@ function Contact() {
       icon: FaRegBuilding,
       color: "from-purple-500 to-pink-500",
       image:
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&auto=format",
+        "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=800&auto=format&fit=crop", // Delhi market street
     },
     {
       city: "Mumbai",
@@ -116,7 +116,7 @@ function Contact() {
       icon: FaRegBuilding,
       color: "from-emerald-500 to-teal-500",
       image:
-        "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&auto=format",
+        "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=800&auto=format&fit=crop", // Mumbai cityscape
     },
   ];
 
