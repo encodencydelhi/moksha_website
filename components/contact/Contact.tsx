@@ -120,44 +120,6 @@ function Contact() {
     },
   ];
 
-  const contactInfo = [
-    {
-      icon: FaMapMarkerAlt,
-      title: "Main Venue",
-      details: ["Hall No. 11, Bharat Mandapam", "Pragati Maidan, New Delhi"],
-      extra: "India",
-      bgImage:
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&auto=format",
-    },
-    {
-      icon: FaClock,
-      title: "Business Hours",
-      details: [
-        "Monday - Friday: 9:00 AM - 6:00 PM",
-        "Saturday: 10:00 AM - 4:00 PM",
-      ],
-      extra: "Closed on Sundays",
-      bgImage:
-        "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=400&auto=format",
-    },
-    {
-      icon: FaHeadset,
-      title: "Customer Support",
-      details: ["+91-9654900525", "support@organicexpo.in"],
-      extra: "24/7 Emergency Support",
-      bgImage:
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&auto=format",
-    },
-    {
-      icon: FaGlobe,
-      title: "Social Connect",
-      details: ["Follow us for updates", "Live chat available"],
-      extra: "Response within 1hr",
-      bgImage:
-        "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&auto=format",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-[#F5E9D9]">
       <Topbar />
@@ -175,7 +137,7 @@ function Contact() {
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-black/8"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-black/8"></div>
 
         <div className="absolute inset-0 opacity-5">
           <div
@@ -329,55 +291,6 @@ function Contact() {
         </div>
       </div>
 
-      {/* Contact Info Cards */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 pb-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {contactInfo.map((info, index) => {
-            const Icon = info.icon;
-            return (
-              <div
-                key={index}
-                className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 cursor-pointer"
-                style={{ height: "240px" }}
-              >
-                <div className="absolute inset-0">
-                  <Image
-                    src={info.bgImage}
-                    alt={info.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/80 to-black/60"></div>
-                </div>
-
-                <div className="absolute inset-0 p-4 flex flex-col">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#8B6A3E] to-[#6B4E2E] flex items-center justify-center mb-3 shadow-xl">
-                    <Icon className="text-white text-lg" />
-                  </div>
-
-                  <h3 className="font-bold text-base text-white mb-2">
-                    {info.title}
-                  </h3>
-                  <div className="space-y-0.5">
-                    {info.details.map((detail, i) => (
-                      <p key={i} className="text-white/80 text-xs">
-                        {detail}
-                      </p>
-                    ))}
-                  </div>
-                  <div className="mt-auto">
-                    <span className="inline-block px-2 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs font-medium border border-white/30">
-                      {info.extra}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Contact Form Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-12">
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Contact Form */}
