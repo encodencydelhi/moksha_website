@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import {
   FaHandHoldingHeart,
@@ -22,6 +23,7 @@ import {
 } from "react-icons/fa";
 
 export default function Navbar() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
@@ -70,71 +72,142 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [openDropdown]);
 
+  const handleNavigation = (path: string, name: string) => {
+    setActiveLink(name.toLowerCase());
+    setOpenDropdown(null);
+    setOpen(false);
+
+    // Check if it's a hash link (same page section)
+    if (path.startsWith("#")) {
+      // Handle hash navigation
+      const element = document.getElementById(path.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else {
+        // If element not found, just scroll to top
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    } else {
+      // Regular page navigation
+      router.push(path);
+    }
+  };
+
   const navItems = [
-    { name: "Home", href: "/", icon: <FaHandHoldingHeart /> },
-    { name: "About", href: "/about", icon: <FaPrayingHands /> },
+    {
+      name: "Home",
+      path: "/",
+      icon: <FaHandHoldingHeart />,
+      type: "page",
+    },
+    {
+      name: "About",
+      path: "/about",
+      icon: <FaPrayingHands />,
+      type: "page",
+    },
     {
       name: "Services",
-      href: "#services",
+      path: "#services",
       icon: <FaStar />,
+      type: "dropdown",
       dropdown: [
         {
           name: "Pandit Service",
-          href: "/panditservices",
+          path: "/panditservices",
           icon: <FaPrayingHands />,
+          type: "page",
         },
         {
           name: "Ambulance Service",
-          href: "/ambulanceservices",
+          path: "#ambulance",
           icon: <FaAmbulance />,
+          type: "hash",
         },
         {
           name: "Antim Sanskar Wood",
-          href: "#wood",
+          path: "#wood",
           icon: <FaTree />,
+          type: "hash",
         },
         {
           name: "Puja Samagri",
-          href: "#puja",
+          path: "#puja",
           icon: <FaShoppingBasket />,
+          type: "hash",
         },
         {
           name: "Complete Ritual Package",
-          href: "#ritual-package",
+          path: "#ritual-package",
           icon: <FaBoxOpen />,
+          type: "hash",
         },
       ],
     },
     {
       name: "Resources",
-      href: "#resources",
+      path: "#resources",
       icon: <FaLeaf />,
+      type: "dropdown",
       dropdown: [
-        { name: "Blog & Articles", href: "#blog", icon: <FaBookOpen /> },
+        {
+          name: "Blog & Articles",
+          path: "#blog",
+          icon: <FaBookOpen />,
+          type: "hash",
+        },
         {
           name: "Guided Meditations",
-          href: "#meditations",
+          path: "#meditations",
           icon: <FaPrayingHands />,
+          type: "hash",
         },
-        { name: "E-books", href: "#ebooks", icon: <FaLaptopCode /> },
-        { name: "Video Library", href: "#videos", icon: <FaLeaf /> },
+        {
+          name: "E-books",
+          path: "#ebooks",
+          icon: <FaLaptopCode />,
+          type: "hash",
+        },
+        {
+          name: "Video Library",
+          path: "#videos",
+          icon: <FaLeaf />,
+          type: "hash",
+        },
       ],
     },
-    { name: "Blog", href: "/blog", icon: <FaBookOpen /> },
+    {
+      name: "Blog",
+      path: "/blog",
+      icon: <FaBookOpen />,
+      type: "page",
+    },
     {
       name: "Moksha Gallery",
-      href: "/mokshagallery",
+      path: "/mokshagallery",
       icon: <FaHeart />,
+      type: "dropdown",
       dropdown: [
-        { name: "Moksha Galley", href: "/mokshagallery", icon: <FaLeaf /> },
         {
-          name: "Moksha Vedio Gallery",
-          href: "/mokshavediogallery",
+          name: "Moksha Gallery",
+          path: "/mokshagallery",
+          icon: <FaLeaf />,
+          type: "page",
+        },
+        {
+          name: "Moksha Video Gallery",
+          path: "/mokshavediogallery",
           icon: <FaHistory />,
+          type: "page",
         },
       ],
     },
-    { name: "Contact", href: "/contact", icon: <FaUserCircle /> },
+    {
+      name: "Contact",
+      path: "/contact",
+      icon: <FaUserCircle />,
+      type: "page",
+    },
   ];
 
   const toggleDropdown = (itemName: string) => {
@@ -153,8 +226,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center h-12">
             <div className="absolute top-1 left-4 sm:left-30 z-10">
-              <Link href="/">
-                {" "}
+              <button onClick={() => handleNavigation("/", "home")}>
                 <div className="w-14 h-14 sm:w-30 sm:h-30 overflow-hidden rounded-md">
                   <img
                     src="/assets/logoreal.jpeg"
@@ -162,7 +234,7 @@ export default function Navbar() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-              </Link>
+              </button>
             </div>
 
             <div className="hidden lg:flex items-center space-x-0 dropdown-container ml-auto h-full">
@@ -186,12 +258,8 @@ export default function Navbar() {
                       />
                     </button>
                   ) : (
-                    <Link
-                      href={item.href}
-                      onClick={() => {
-                        setActiveLink(item.name.toLowerCase());
-                        setOpenDropdown(null);
-                      }}
+                    <button
+                      onClick={() => handleNavigation(item.path, item.name)}
                       className={`px-4 py-2 transition-colors duration-200 flex items-center gap-1 h-full ${
                         activeLink === item.name.toLowerCase()
                           ? "text-[#8B6A3E]"
@@ -199,7 +267,7 @@ export default function Navbar() {
                       }`}
                     >
                       <span className="font-medium">{item.name}</span>
-                    </Link>
+                    </button>
                   )}
 
                   {item.dropdown && (
@@ -212,14 +280,12 @@ export default function Navbar() {
                     >
                       <div className="py-2">
                         {item.dropdown.map((subItem) => (
-                          <Link
+                          <button
                             key={subItem.name}
-                            href={subItem.href}
-                            onClick={() => {
-                              setActiveLink(item.name.toLowerCase());
-                              setOpenDropdown(null);
-                            }}
-                            className="flex items-center space-x-2 px-1 py-1.5 text-[#5A4030] hover:bg-gray-50 transition-all duration-150 mx-2 rounded-md"
+                            onClick={() =>
+                              handleNavigation(subItem.path, subItem.name)
+                            }
+                            className="flex items-center space-x-2 w-full px-1 py-1.5 text-[#5A4030] hover:bg-gray-50 transition-all duration-150 mx-2 rounded-md"
                           >
                             <span className="text-[#5A4030]/80">
                               {subItem.icon}
@@ -227,7 +293,7 @@ export default function Navbar() {
                             <span className="font-medium text-[#5A4030]">
                               {subItem.name}
                             </span>
-                          </Link>
+                          </button>
                         ))}
                       </div>
                     </div>
@@ -277,27 +343,25 @@ export default function Navbar() {
                     />
                   </button>
                 ) : (
-                  <Link
-                    href={item.href}
-                    onClick={() => setOpen(false)}
+                  <button
+                    onClick={() => handleNavigation(item.path, item.name)}
                     className="flex items-center space-x-2 w-full px-3 py-2 rounded-lg text-[#5A4030] hover:bg-gray-50"
                   >
                     <span className="text-base">{item.icon}</span>
                     <span className="text-[15px] font-medium">{item.name}</span>
-                  </Link>
+                  </button>
                 )}
 
                 {openDropdown === item.name && item.dropdown && (
                   <div className="ml-5 mt-1 space-y-0.5 bg-white rounded-lg p-1.5 border border-gray-100">
                     {item.dropdown.map((subItem) => (
-                      <a
+                      <button
                         key={subItem.name}
-                        href={subItem.href}
                         onClick={() => {
+                          handleNavigation(subItem.path, subItem.name);
                           setOpen(false);
-                          setOpenDropdown(null);
                         }}
-                        className="flex items-center space-x-2 px-3 py-1.5 rounded-md text-[#5A4030] hover:bg-gray-100 transition-all duration-150"
+                        className="flex items-center space-x-2 w-full px-3 py-1.5 rounded-md text-[#5A4030] hover:bg-gray-100 transition-all duration-150"
                       >
                         <span className="text-[#5A4030]/70">
                           {subItem.icon}
@@ -305,7 +369,7 @@ export default function Navbar() {
                         <span className="text-[14px] font-medium">
                           {subItem.name}
                         </span>
-                      </a>
+                      </button>
                     ))}
                   </div>
                 )}
