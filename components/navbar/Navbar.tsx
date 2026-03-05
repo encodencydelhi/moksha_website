@@ -15,6 +15,10 @@ import {
   FaHeart,
   FaMedal,
   FaTools,
+  FaAmbulance,
+  FaTree,
+  FaShoppingBasket,
+  FaBoxOpen,
 } from "react-icons/fa";
 
 export default function Navbar() {
@@ -75,14 +79,30 @@ export default function Navbar() {
       icon: <FaStar />,
       dropdown: [
         {
-          name: "Spiritual Guidance",
-          href: "#spiritual",
+          name: "Pandit Service",
+          href: "/panditservices",
           icon: <FaPrayingHands />,
         },
-        { name: "Yoga & Meditation", href: "#yoga", icon: <FaLeaf /> },
-        { name: "Ayurvedic Treatments", href: "#ayurveda", icon: <FaHeart /> },
-        { name: "Retreat Packages", href: "#retreats", icon: <FaMedal /> },
-        { name: "Custom Services", href: "#custom", icon: <FaTools /> },
+        {
+          name: "Ambulance Service",
+          href: "/ambulanceservices",
+          icon: <FaAmbulance />,
+        },
+        {
+          name: "Antim Sanskar Wood",
+          href: "#wood",
+          icon: <FaTree />,
+        },
+        {
+          name: "Puja Samagri",
+          href: "#puja",
+          icon: <FaShoppingBasket />,
+        },
+        {
+          name: "Complete Ritual Package",
+          href: "#ritual-package",
+          icon: <FaBoxOpen />,
+        },
       ],
     },
     {

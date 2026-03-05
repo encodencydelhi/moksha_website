@@ -22,7 +22,7 @@ export default function CompassionSection() {
             }}
           />
 
-          <div className="absolute inset-0 bg-gradient-to-r from-[#F8F4EC] via-[#F8F4EC]/95 to-[#F8F4EC]/0"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#F8F4EC] via-[#F8F4EC]/100 to-[#F8F4EC]/0"></div>
 
           <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/0 to-transparent"></div>
 

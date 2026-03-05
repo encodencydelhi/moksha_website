@@ -4,6 +4,17 @@ import Topbar from "@/components/topbar/Topbar";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import Image from "next/image";
+import {
+  FiHeart,
+  FiUser,
+  FiCalendar,
+  FiShare2,
+  FiDownload,
+  FiX,
+  FiEye,
+} from "react-icons/fi";
+import { PiFlowerLotus } from "react-icons/pi";
+import { FaFacebook, FaTwitter, FaPinterest, FaLinkedin } from "react-icons/fa";
 
 interface GalleryImage {
   id: number;
@@ -291,53 +302,79 @@ function MokshaGallery() {
 
   const masonryColumns = getMasonryColumns();
 
+  const themeColor = "#8B6A3E";
+  const themeColorLight = "#F5E9D9";
+  const themeColorDark = "#5A3E2B";
+
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#F5E9D9" }}>
+    <div className="min-h-screen bg-gradient-to-b from-[#FAF7F2] to-white">
       <Topbar />
       <Navbar />
 
-      <div className="container mx-auto px-3 sm:px-4 py-16 md:py-14">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3 tracking-tight">
-            Moksha Portfolio
-          </h1>
-          <div className="w-16 h-0.5 bg-gray-800 mx-auto mb-4"></div>
-          <p className="text-gray-700 text-base max-w-2xl mx-auto">
-            Curated collection of premium corporate photography capturing
-            moments that define modern business excellence
-          </p>
+      {/* Hero Section */}
+      <section className="relative py-20 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#8B6A3E] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#5A3E2B] rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
+        <div className="relative max-w-4xl mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#8B6A3E]/5 rounded-full border border-[#8B6A3E]/10 mb-5">
+            <PiFlowerLotus className="w-3.5 h-3.5 text-[#8B6A3E]" />
+            <span className="text-[10px] tracking-[0.2em] uppercase text-[#8B6A3E]">
+              Visual Stories
+            </span>
+          </div>
+
+          <h1 className="flex items-center text-center justify-center text-4xl md:text-5xl font-light text-[#2C1810] mb-4 tracking-tight">
+            Moksha
+            <span className="block text-5xl md:text-6xl font-serif text-[#8B6A3E] mt-2">
+              Gallery
+            </span>
+          </h1>
+
+          <p className="text-base text-[#5A3E2B]/70 max-w-2xl mx-auto">
+            Curated collection of premium photography capturing moments that
+            define modern business excellence and spiritual journeys.
+          </p>
+        </div>
+      </section>
+
+      {/* Categories */}
+      <div className="max-w-7xl mx-auto px-6 mb-10">
+        <div className="flex flex-wrap justify-center gap-2">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border ${
+              className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
                 selectedCategory === category.id
-                  ? "bg-[#8B6A3E] text-white border-[#8B6A3E] shadow-md"
-                  : "text-gray-700 border-gray-300 hover:border-[#8B6A3E] hover:text-[#8B6A3E] hover:bg-white/50"
+                  ? "bg-[#8B6A3E] text-white shadow-md"
+                  : "bg-white text-[#5A3E2B] border border-[#E7D5C2] hover:bg-[#F5E9D9]"
               }`}
             >
               {category.name}
             </button>
           ))}
         </div>
+      </div>
 
-        {/* Pinterest-style masonry grid */}
+      {/* Pinterest-style masonry grid */}
+      <div className="max-w-7xl mx-auto px-6 pb-16">
         <div
           ref={containerRef}
-          className="grid gap-5"
+          className="grid gap-4"
           style={{
             gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
           }}
         >
           {masonryColumns.map((column, colIndex) => (
-            <div key={colIndex} className="flex flex-col gap-5">
+            <div key={colIndex} className="flex flex-col gap-4">
               {column.map((image) => (
                 <div
                   key={image.id}
-                  className="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 bg-white cursor-pointer"
+                  className="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 bg-white cursor-pointer hover:-translate-y-1"
                   onClick={() => setSelectedImage(image)}
                   style={{
                     height: `${image.height}px`,
@@ -348,58 +385,47 @@ function MokshaGallery() {
                       src={image.src}
                       alt={image.alt}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="object-cover group-hover:scale-110 transition-transform duration-700"
                       sizes={`(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw`}
                     />
 
                     {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    {/* Category tag */}
+                    <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <span className="px-2 py-1 bg-[#8B6A3E] text-white rounded-full text-[10px] font-medium shadow-lg">
+                        {image.category.charAt(0).toUpperCase() +
+                          image.category.slice(1)}
+                      </span>
+                    </div>
 
                     {/* Hover overlay with detailed info */}
-                    <div className="absolute inset-x-0 bottom-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+                    <div className="absolute inset-x-0 bottom-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
                       <div className="space-y-2">
-                        {/* Category tag */}
-                        <div className="flex items-center justify-between">
-                          <span className="px-2 py-1 bg-[#8B6A3E] text-white rounded-full text-xs font-medium shadow-lg">
-                            {image.category.charAt(0).toUpperCase() +
-                              image.category.slice(1)}
-                          </span>
-                          <span className="text-white/90 text-xs font-medium bg-black/30 px-2 py-1 rounded-full backdrop-blur-sm">
-                            {image.date}
-                          </span>
-                        </div>
-
                         {/* Title and description */}
                         <div>
-                          <h3 className="text-base font-bold text-white line-clamp-1 mb-1">
+                          <h3 className="text-sm font-serif text-white mb-1 line-clamp-1">
                             {image.title}
                           </h3>
-                          <p className="text-white/80 text-xs line-clamp-2 mb-2">
+                          <p className="text-white/80 text-[10px] line-clamp-2 mb-2">
                             {image.description}
                           </p>
                         </div>
 
                         {/* Photographer and likes */}
-                        <div className="flex items-center justify-between pt-1 border-t border-white/20">
-                          <span className="text-white/70 text-xs flex items-center gap-1">
-                            <svg
-                              className="w-3 h-3"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" />
-                            </svg>
+                        <div className="flex items-center justify-between pt-2 border-t border-white/20">
+                          <span className="text-white/70 text-[9px] flex items-center gap-1">
+                            <FiUser className="w-2.5 h-2.5" />
                             {image.photographer}
                           </span>
-                          <span className="text-white/70 text-xs flex items-center gap-1">
-                            <svg
-                              className="w-3 h-3"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
-                            </svg>
+                          <span className="text-white/70 text-[9px] flex items-center gap-1">
+                            <FiHeart className="w-2.5 h-2.5" />
                             {image.likes}
+                          </span>
+                          <span className="text-white/70 text-[9px] flex items-center gap-1">
+                            <FiCalendar className="w-2.5 h-2.5" />
+                            {image.date}
                           </span>
                         </div>
 
@@ -409,21 +435,9 @@ function MokshaGallery() {
                             e.stopPropagation();
                             setSelectedImage(image);
                           }}
-                          className="w-full mt-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-xs font-medium py-2 rounded-lg transition-all duration-200 flex items-center justify-center gap-1 border border-white/30"
+                          className="w-full mt-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-[9px] font-medium py-1.5 rounded-lg transition-all duration-200 flex items-center justify-center gap-1 border border-white/30"
                         >
-                          <svg
-                            className="w-3.5 h-3.5"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                            />
-                          </svg>
+                          <FiEye className="w-3 h-3" />
                           View Details
                         </button>
                       </div>
@@ -435,8 +449,9 @@ function MokshaGallery() {
           ))}
         </div>
 
-        <div className="text-center mt-10">
-          <button className="px-6 py-2.5 bg-[#8B6A3E] text-white text-sm font-medium rounded-full hover:bg-gray-900 transition-all duration-200 shadow-md hover:shadow-lg inline-flex items-center gap-2 group">
+        {/* View More Button */}
+        <div className="text-center mt-12">
+          <button className="inline-flex items-center gap-2 px-6 py-3 bg-[#8B6A3E] text-white rounded-lg text-sm font-medium hover:shadow-xl transform hover:scale-105 transition-all duration-300">
             <span>View Complete Portfolio</span>
             <svg
               className="w-4 h-4 group-hover:translate-x-1 transition-transform"
@@ -470,19 +485,7 @@ function MokshaGallery() {
               className="absolute top-4 right-4 z-20 text-gray-700 bg-white/90 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center transition-all shadow-lg hover:shadow-xl"
               aria-label="Close modal"
             >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <FiX className="w-5 h-5" />
             </button>
 
             <div className="flex flex-col lg:flex-row h-full">
@@ -506,74 +509,75 @@ function MokshaGallery() {
                       {selectedImage.category.charAt(0).toUpperCase() +
                         selectedImage.category.slice(1)}
                     </span>
-                    <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-2">
+                    <h2 className="text-2xl lg:text-3xl font-serif text-[#2C1810] mb-2">
                       {selectedImage.title}
                     </h2>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-[#5A3E2B]/70 text-sm">
                       {selectedImage.description}
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4 py-4 border-y border-gray-200">
+                  <div className="grid grid-cols-2 gap-4 py-4 border-y border-[#F5E9D9]">
                     <div>
-                      <p className="text-xs text-gray-500 mb-1">Photographer</p>
-                      <p className="text-sm font-medium text-gray-800">
+                      <p className="text-[10px] text-[#5A3E2B]/60 mb-1">
+                        Photographer
+                      </p>
+                      <p className="text-sm font-medium text-[#2C1810]">
                         {selectedImage.photographer}
                       </p>
                     </div>
                     <div>
-                      <p className="text-xs text-gray-500 mb-1">Year</p>
-                      <p className="text-sm font-medium text-gray-800">
+                      <p className="text-[10px] text-[#5A3E2B]/60 mb-1">Year</p>
+                      <p className="text-sm font-medium text-[#2C1810]">
                         {selectedImage.date}
                       </p>
                     </div>
                     <div>
-                      <p className="text-xs text-gray-500 mb-1">Likes</p>
-                      <p className="text-sm font-medium text-gray-800 flex items-center gap-1">
-                        <svg
-                          className="w-4 h-4 text-red-500"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
-                        </svg>
+                      <p className="text-[10px] text-[#5A3E2B]/60 mb-1">
+                        Likes
+                      </p>
+                      <p className="text-sm font-medium text-[#2C1810] flex items-center gap-1">
+                        <FiHeart className="w-4 h-4 text-red-500" />
                         {selectedImage.likes.toLocaleString()}
                       </p>
                     </div>
                     <div>
-                      <p className="text-xs text-gray-500 mb-1">Category</p>
-                      <p className="text-sm font-medium text-gray-800">
+                      <p className="text-[10px] text-[#5A3E2B]/60 mb-1">
+                        Category
+                      </p>
+                      <p className="text-sm font-medium text-[#2C1810]">
                         Corporate {selectedImage.category}
                       </p>
                     </div>
                   </div>
 
                   <div>
-                    <h3 className="text-sm font-semibold text-gray-800 mb-3">
+                    <h3 className="text-sm font-serif text-[#2C1810] mb-3">
                       Share this image
                     </h3>
                     <div className="flex gap-2">
-                      {["facebook", "twitter", "pinterest", "linkedin"].map(
-                        (social) => (
+                      {[
+                        { icon: FaFacebook, color: "#1877F2" },
+                        { icon: FaTwitter, color: "#1DA1F2" },
+                        { icon: FaPinterest, color: "#E60023" },
+                        { icon: FaLinkedin, color: "#0A66C2" },
+                      ].map((social, idx) => {
+                        const Icon = social.icon;
+                        return (
                           <button
-                            key={social}
+                            key={idx}
                             className="w-10 h-10 rounded-full bg-gray-100 hover:bg-[#8B6A3E] hover:text-white transition-colors duration-200 flex items-center justify-center text-gray-600"
+                            style={{ color: social.color }}
                           >
-                            <span className="sr-only">{social}</span>
-                            <svg
-                              className="w-5 h-5"
-                              fill="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z" />
-                            </svg>
+                            <Icon className="w-5 h-5" />
                           </button>
-                        ),
-                      )}
+                        );
+                      })}
                     </div>
                   </div>
 
-                  <button className="w-full py-3 bg-[#8B6A3E] text-white rounded-lg hover:bg-gray-900 transition-colors duration-200 font-medium text-sm">
+                  <button className="w-full py-3 bg-[#8B6A3E] text-white rounded-lg hover:bg-[#5A3E2B] transition-colors duration-200 font-medium text-sm flex items-center justify-center gap-2">
+                    <FiDownload className="w-4 h-4" />
                     Download High Resolution
                   </button>
                 </div>

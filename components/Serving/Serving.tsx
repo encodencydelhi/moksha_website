@@ -1,5 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import { PiFlowerLotus, PiHeart, PiHandHeart, PiStar } from "react-icons/pi";
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
+import { FiClock, FiUsers, FiMapPin, FiAward } from "react-icons/fi";
+import { BsShieldCheck, BsHeart, BsHandThumbsUp } from "react-icons/bs";
 
 export default function Serving() {
   const [isVisible, setIsVisible] = useState(false);
@@ -8,211 +13,289 @@ export default function Serving() {
     setIsVisible(true);
   }, []);
 
+  const themeColor = "#8B6A3E";
+  const themeColorLight = "#F5E9D9";
+  const themeColorDark = "#5A3E2B";
+
   return (
-    <section className="w-full relative overflow-hidden py-10 md:py-12 lg:py-14">
+    <section className="w-full relative overflow-hidden py-16 md:py-20 lg:py-24 bg-gradient-to-b from-[#FAF7F2] to-white">
+      {/* Background Patterns */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FCF9F3] to-white"></div>
-        <div className="absolute top-1/4 -left-24 w-72 h-72 bg-[#E8DBC5] rounded-full opacity-20 blur-3xl"></div>
-        <div className="absolute bottom-1/4 -right-24 w-80 h-80 bg-[#D4C1A6] rounded-full opacity-15 blur-3xl"></div>
+        <div className="absolute top-1/4 -left-24 w-96 h-96 bg-[#8B6A3E]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 -right-24 w-[500px] h-[500px] bg-[#5A3E2B]/5 rounded-full blur-3xl"></div>
+
+        {/* Mandala Pattern */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border-2 border-[#8B6A3E] rounded-full"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border-2 border-[#8B6A3E] rounded-full"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border-2 border-[#8B6A3E] rounded-full"></div>
+        </div>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#8B6A3E]/5 rounded-full border border-[#8B6A3E]/10 mb-4">
+            <PiFlowerLotus className="w-3.5 h-3.5 text-[#8B6A3E]" />
+            <span className="text-[10px] tracking-[0.2em] uppercase text-[#8B6A3E]">
+              Our Promise
+            </span>
+          </div>
+
+          <h2 className="text-3xl md:text-4xl lg:text-3xl font-light text-[#2C1810] mb-3">
+            Serving with
+            <span className="block text-4xl md:text-4xl lg:text-4xl font-serif text-[#8B6A3E] mt-2">
+              Compassion & Dignity
+            </span>
+          </h2>
+
+          <p className="text-[#5A3E2B]/70 text-sm max-w-2xl mx-auto">
+            For over 15 years, we've been guiding families through life's most
+            profound transitions with respect, care, and cultural sensitivity.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Side - Image with Stats */}
           <div
-            className={`relative transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
+            className={`relative transition-all duration-700 transform ${
+              isVisible
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-8"
+            }`}
           >
-            <div className="relative rounded-xl overflow-hidden shadow-xl">
-              <div
-                className="aspect-[4/4] sm:aspect-[4/3] bg-cover bg-center"
-                style={{ backgroundImage: "url('/assets/p.jpg')" }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative h-[400px] md:h-[450px]">
+                <Image
+                  src="/assets/p.jpg"
+                  alt="Serving with Compassion"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 text-white">
-                <div className="inline-flex items-center px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full mb-2">
-                  <div className="w-2 h-2 bg-[#8B6A3E] rounded-full mr-2"></div>
-                  <span className="text-xs font-medium">Trusted Service</span>
-                </div>
-                <p className="text-sm sm:text-base font-light">
-                  Guiding Families with Compassion
-                </p>
-              </div>
-            </div>
-
-            <div className="absolute -top-3 -left-3 bg-white p-3 rounded-lg shadow border border-[#E8DBC5]">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 rounded-full bg-[#F8F4EC] flex items-center justify-center">
-                  <svg
-                    className="w-4 h-4 text-[#8B6A3E]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm font-light text-[#3A2A1F]">24/7</p>
-                  <p className="text-[11px] text-[#6E4B3A]">Support</p>
+              {/* Floating Quote */}
+              <div className="absolute top-6 left-6 max-w-[250px]">
+                <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-xl">
+                  <FaQuoteLeft className="text-[#8B6A3E]/20 text-lg mb-1" />
+                  <p className="text-[#2C1810] text-xs italic mb-2">
+                    Every soul deserves a dignified farewell
+                  </p>
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center">
+                      <PiHeart className="w-3 h-3 text-[#8B6A3E]" />
+                    </div>
+                    <span className="text-[10px] font-medium text-[#8B6A3E]">
+                      Moksha Voyage
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="absolute -bottom-3 -right-3 bg-[#8B6A3E] p-3 rounded-lg shadow">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                  <svg
-                    className="w-4 h-4 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
+              {/* Stats Badges */}
+              <div className="absolute bottom-6 left-6 right-6 flex flex-wrap gap-3">
+                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg flex-1 min-w-[100px]">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center">
+                      <FiClock className="w-4 h-4 text-[#8B6A3E]" />
+                    </div>
+                    <div>
+                      <p className="text-lg font-serif text-[#2C1810]">24/7</p>
+                      <p className="text-[9px] text-[#5A3E2B]/70">Support</p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm font-light text-white">500+</p>
-                  <p className="text-[11px] text-white/90">Families</p>
+
+                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg flex-1 min-w-[100px]">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center">
+                      <FiUsers className="w-4 h-4 text-[#8B6A3E]" />
+                    </div>
+                    <div>
+                      <p className="text-lg font-serif text-[#2C1810]">500+</p>
+                      <p className="text-[9px] text-[#5A3E2B]/70">Families</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
+          {/* Right Side - Content */}
           <div
-            className={`transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
+            className={`transition-all duration-700 delay-300 transform ${
+              isVisible
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-8"
+            }`}
           >
-            <div className="mb-4">
-              <div className="inline-flex items-center space-x-2 mb-3">
-                <div className="w-8 h-0.5 bg-[#8B6A3E]"></div>
-                <span className="text-[#8B6A3E] font-medium tracking-wide uppercase text-xs">
-                  Our Promise
-                </span>
-              </div>
+            {/* Title */}
+            <div className="mb-6">
+              <h3 className="text-2xl md:text-3xl font-serif text-[#2C1810] mb-3">
+                Peace of Mind in
+                <span className="block text-[#8B6A3E]">Every Ritual</span>
+              </h3>
 
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-[#3A2A1F] leading-tight">
-                <span className="block">Moksha Voyage</span>
-                <span className="relative inline-block">
-                  Peace of Mind
-                  <svg
-                    className="absolute -bottom-1 left-0 w-full h-2 text-[#E8DBC5]/70"
-                    viewBox="0 0 100 10"
-                    preserveAspectRatio="none"
-                  >
-                    <path
-                      d="M0,5 Q25,0 50,5 T100,5"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                    />
-                  </svg>
+              <p className="text-[#5A3E2B]/70 text-sm leading-relaxed">
+                At{" "}
+                <span className="font-medium text-[#8B6A3E]">
+                  Moksha Voyage
                 </span>
-              </h2>
+                , we understand the importance of tradition and the need for
+                compassion during difficult times. Our experienced team ensures
+                every ritual is handled with the utmost respect and dignity.
+              </p>
             </div>
 
-            <p className="text-[#6E4B3A] text-sm sm:text-base leading-relaxed font-light mb-5">
-              At{" "}
-              <span className="font-medium text-[#8B6A3E]">Moksha Voyage</span>,
-              we guide families through life's most profound transitions with
-              compassion and cultural sensitivity, ensuring every ritual is
-              handled with dignity and respect.
-            </p>
-
-            <div className="space-y-3 mb-6">
-              <div className="flex items-start space-x-3 p-3 bg-white/60 rounded-lg border border-[#E8DBC5]">
-                <div className="w-5 h-5 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center mt-0.5">
-                  <svg
-                    className="w-3 h-3 text-[#8B6A3E]"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
+            {/* Features Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+              {[
+                {
+                  icon: PiHandHeart,
+                  title: "Complete Ritual Guidance",
+                  desc: "Expert pandits for all ceremonies",
+                },
+                {
+                  icon: BsShieldCheck,
+                  title: "Transparent Support",
+                  desc: "Clear communication & pricing",
+                },
+                {
+                  icon: PiHeart,
+                  title: "Cultural Sensitivity",
+                  desc: "Respect for all traditions",
+                },
+                {
+                  icon: FiAward,
+                  title: "15+ Years Experience",
+                  desc: "Trusted by thousands",
+                },
+              ].map((feature, idx) => {
+                const Icon = feature.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="group p-3 bg-white rounded-lg border border-[#E8DBC5] hover:shadow-md transition-all duration-300 hover:-translate-y-1"
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <p className="text-[#5A4030] text-sm">
-                  Complete ritual guidance and arrangements
-                </p>
-              </div>
+                    <div className="flex items-start gap-2">
+                      <div className="w-8 h-8 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center group-hover:bg-[#8B6A3E] transition-colors duration-300">
+                        <Icon className="w-4 h-4 text-[#8B6A3E] group-hover:text-white transition-colors duration-300" />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-medium text-[#2C1810] mb-0.5">
+                          {feature.title}
+                        </h4>
+                        <p className="text-[10px] text-[#5A3E2B]/60">
+                          {feature.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
 
-              <div className="flex items-start space-x-3 p-3 bg-white/60 rounded-lg border border-[#E8DBC5]">
-                <div className="w-5 h-5 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center mt-0.5">
-                  <svg
-                    className="w-3 h-3 text-[#8B6A3E]"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+            {/* Testimonial */}
+            <div className="bg-gradient-to-r from-[#F5E9D9] to-white rounded-lg p-4 mb-6 border-l-4 border-[#8B6A3E]">
+              <div className="flex gap-3">
+                <div className="flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-[#8B6A3E] flex items-center justify-center">
+                    <FaQuoteRight className="w-4 h-4 text-white" />
+                  </div>
                 </div>
-                <p className="text-[#5A4030] text-sm">
-                  Transparent and compassionate support
-                </p>
-              </div>
-
-              <div className="flex items-start space-x-3 p-3 bg-white/60 rounded-lg border border-[#E8DBC5]">
-                <div className="w-5 h-5 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center mt-0.5">
-                  <svg
-                    className="w-3 h-3 text-[#8B6A3E]"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                <div>
+                  <p className="text-xs text-[#5A3E2B]/80 italic mb-2">
+                    "The team at Moksha Voyage provided exceptional support
+                    during our time of need. Their compassion and attention to
+                    detail made a difficult time much easier."
+                  </p>
+                  <p className="text-[10px] font-medium text-[#8B6A3E]">
+                    — Rajesh Sharma, Delhi
+                  </p>
                 </div>
-                <p className="text-[#5A4030] text-sm">
-                  Respect for all traditions
-                </p>
               </div>
             </div>
 
+            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3">
-              <button className="px-6 py-2.5 bg-[#8B6A3E] text-white rounded-md text-sm font-medium">
-                Our Services
+              <button className="flex-1 px-5 py-3 bg-[#8B6A3E] text-white rounded-lg text-sm font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                <span>Explore Services</span>
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
               </button>
-              <button className="px-6 py-2.5 border border-[#8B6A3E] text-[#8B6A3E] rounded-md text-sm font-medium">
-                Contact Us
+              <button className="flex-1 px-5 py-3 border border-[#8B6A3E] text-[#8B6A3E] rounded-lg text-sm font-medium hover:bg-[#F5E9D9] transition-all duration-300 flex items-center justify-center gap-2">
+                <span>Contact Us</span>
+                <PiHandHeart className="w-4 h-4" />
               </button>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-[#E8DBC5] pt-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="text-center p-4 bg-white/60 rounded-lg border border-[#E8DBC5]">
-              <div className="text-xl font-light text-[#8B6A3E] mb-1">15+</div>
-              <div className="text-xs text-[#6E4B3A]">Years of Service</div>
-            </div>
-            <div className="text-center p-4 bg-white/60 rounded-lg border border-[#E8DBC5]">
-              <div className="text-xl font-light text-[#8B6A3E] mb-1">50+</div>
-              <div className="text-xs text-[#6E4B3A]">Cities</div>
-            </div>
-            <div className="text-center p-4 bg-white/60 rounded-lg border border-[#E8DBC5]">
-              <div className="text-xl font-light text-[#8B6A3E] mb-1">98%</div>
-              <div className="text-xs text-[#6E4B3A]">Satisfaction</div>
-            </div>
-          </div>
+        {/* Bottom Stats */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            {
+              icon: FiClock,
+              value: "15+",
+              label: "Years of Service",
+              desc: "Since 2010",
+            },
+            {
+              icon: FiMapPin,
+              value: "50+",
+              label: "Cities",
+              desc: "Across India",
+            },
+            {
+              icon: FiUsers,
+              value: "500+",
+              label: "Families",
+              desc: "Trusted by many",
+            },
+            {
+              icon: PiStar,
+              value: "98%",
+              label: "Satisfaction",
+              desc: "From our clients",
+            },
+          ].map((stat, idx) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={idx}
+                className="group relative bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 text-center"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#8B6A3E]/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative">
+                  <div className="w-10 h-10 mx-auto mb-2 bg-[#8B6A3E]/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Icon className="w-5 h-5 text-[#8B6A3E]" />
+                  </div>
+                  <div className="text-xl font-serif text-[#2C1810] mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs font-medium text-[#8B6A3E] mb-0.5">
+                    {stat.label}
+                  </div>
+                  <div className="text-[9px] text-[#5A3E2B]/60">
+                    {stat.desc}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
