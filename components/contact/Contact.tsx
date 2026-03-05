@@ -137,7 +137,7 @@ function Contact() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/40 to-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/0 to-black/0"></div>
         </div>
 
         {/* Decorative Patterns */}
@@ -150,17 +150,17 @@ function Contact() {
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-7xl mx-auto px-6 w-full">
             <div className="max-w-lg">
-              <div className="flex items-center gap-2 text-[#F5E9D9] mb-3">
+              <div className="flex items-center gap-2 text-[#5A3E2B] mb-3">
                 <PiFlowerLotus className="text-2xl" />
                 <span className="text-sm tracking-widest">संपर्क करें</span>
               </div>
 
-              <h1 className="text-5xl md:text-6xl font-serif text-white mb-4 leading-tight">
+              <h1 className="text-5xl md:text-6xl font-serif text-[#5A3E2B] mb-4 leading-tight">
                 Contact
-                <span className="text-white"> With Us</span>
+                <span className="text-[#C89B6D]"> With Us</span>
               </h1>
 
-              <p className="text-[#F5E9D9] text-lg max-w-md font-light leading-relaxed">
+              <p className="text-[#5A3E2B] text-lg max-w-md font-light leading-relaxed">
                 Get in touch with our team for any inquiries or assistance.
                 We're here to help you 24/7.
               </p>
