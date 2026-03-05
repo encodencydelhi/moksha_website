@@ -5,8 +5,6 @@ import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/Footer";
 import Image from "next/image";
 import {
-  GiWaterDrop,
-  GiPalmTree,
   GiCandleFlame,
   GiGraveFlowers,
   GiFireplace,
@@ -352,7 +350,7 @@ function MokshaGallery() {
                 {/* Content */}
                 <div className="p-2.5">
                   {/* Description */}
-                  <p className="text-xs text-[#7B5E47] mb-1.5 line-clamp-2 text-center leading-relaxed">
+                  <p className="text-sm text-[#7B5E47] mb-1.5 line-clamp-2 text-center leading-relaxed">
                     {service.description}
                   </p>
 
@@ -374,10 +372,10 @@ function MokshaGallery() {
                   {/* Pandit Info */}
                   <div className="flex items-center gap-1.5 mb-2 p-1.5 bg-[#FDF8F2] rounded-lg">
                     <div className="w-7 h-7 rounded-full bg-[#C89B6D] flex items-center justify-center flex-shrink-0">
-                      <GiPrayerBeads className="text-white text-xs" />
+                      <GiPrayerBeads className="text-white text-sm" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="text-xs text-[#5A3E2B] truncate">
+                      <p className="text-sm text-[#5A3E2B] truncate">
                         {service.panditName}
                       </p>
                       <p className="text-[10px] text-[#7B5E47]">
@@ -477,7 +475,7 @@ function MokshaGallery() {
                     <Icon className="text-2xl text-white" />
                   </div>
                   <h3 className="text-lg text-[#5A3E2B] mb-1">{item.title}</h3>
-                  <p className="text-xs text-[#7B5E47]">{item.desc}</p>
+                  <p className="text-sm text-[#7B5E47]">{item.desc}</p>
                 </div>
               );
             })}
@@ -522,15 +520,15 @@ function MokshaGallery() {
               <FaQuoteLeft className="absolute top-3 right-3 text-2xl text-[#C89B6D] opacity-20" />
               <div className="flex gap-1 text-yellow-500 mb-2">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <FaStar key={i} className="text-xs" />
+                  <FaStar key={i} className="text-sm" />
                 ))}
               </div>
-              <p className="text-[#7B5E47] mb-3 italic text-xs">
+              <p className="text-[#7B5E47] mb-3 italic text-sm">
                 "{testimonial.text}"
               </p>
               <div>
                 <p className="text-[#5A3E2B] text-sm">{testimonial.name}</p>
-                <p className="text-xs text-[#7B5E47]">{testimonial.location}</p>
+                <p className="text-sm text-[#7B5E47]">{testimonial.location}</p>
               </div>
             </div>
           ))}

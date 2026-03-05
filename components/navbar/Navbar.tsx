@@ -14,8 +14,6 @@ import {
   FaLaptopCode,
   FaHistory,
   FaHeart,
-  FaMedal,
-  FaTools,
   FaAmbulance,
   FaTree,
   FaShoppingBasket,
@@ -42,7 +40,6 @@ export default function Navbar() {
       }
       lastScroll = currentScroll;
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -77,18 +74,14 @@ export default function Navbar() {
     setOpenDropdown(null);
     setOpen(false);
 
-    // Check if it's a hash link (same page section)
     if (path.startsWith("#")) {
-      // Handle hash navigation
       const element = document.getElementById(path.substring(1));
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       } else {
-        // If element not found, just scroll to top
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     } else {
-      // Regular page navigation
       router.push(path);
     }
   };
