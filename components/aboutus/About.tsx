@@ -172,7 +172,7 @@ function About() {
               <div className="space-y-3">
                 <div className="h-40 rounded-xl overflow-hidden shadow-lg">
                   <Image
-                    src="/assets/old.png"
+                    src="/assets/ambulance.avif"
                     alt="Spiritual Journey"
                     width={300}
                     height={200}
@@ -219,7 +219,7 @@ function About() {
           <div className="relative order-2 lg:order-1">
             <div className="relative h-[350px] rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/assets/girl.jpg"
+                src="/assets/grahpravesh.jpg"
                 alt="Our Story"
                 fill
                 className="object-cover"

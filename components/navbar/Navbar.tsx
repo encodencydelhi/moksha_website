@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
-import Link from "next/link";
+
 import { useRouter } from "next/navigation";
 
 import {
