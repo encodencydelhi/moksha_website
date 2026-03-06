@@ -201,11 +201,11 @@ function About() {
                 </div>
                 <div className="h-40 rounded-xl overflow-hidden shadow-lg">
                   <Image
-                    src="/assets/man2.avif"
+                    src="/assets/downloadd.webp"
                     alt="Pilgrimage"
                     width={300}
                     height={250}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-contain hover:scale-110 transition-transform duration-700"
                   />
                 </div>
               </div>

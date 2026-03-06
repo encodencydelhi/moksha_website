@@ -38,8 +38,7 @@ function MokshaGallery() {
     {
       id: 1,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format",
+      poster: "/assets/downloadd.webp",
       alt: "Corporate Event",
       category: "events",
       title: "Tech Innovation Summit 2024",
@@ -53,8 +52,7 @@ function MokshaGallery() {
     {
       id: 2,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&auto=format",
+      poster: "/assets/ambulance.avif",
       alt: "Modern Office",
       category: "workspace",
       title: "Minimalist Executive Suite",
@@ -68,8 +66,7 @@ function MokshaGallery() {
     {
       id: 3,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format",
+      poster: "/assets/grahpravesh.jpg",
       alt: "Business Meeting",
       category: "meetings",
       title: "Strategic Planning Session",
@@ -83,8 +80,7 @@ function MokshaGallery() {
     {
       id: 4,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format",
+      poster: "/assets/chatgpt.png",
       alt: "Product Launch",
       category: "events",
       title: "Next-Gen Product Reveal",
@@ -98,8 +94,7 @@ function MokshaGallery() {
     {
       id: 5,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=800&auto=format",
+      poster: "/assets/b.jpg",
       alt: "Creative Studio",
       category: "workspace",
       title: "Design Innovation Lab",
@@ -113,8 +108,7 @@ function MokshaGallery() {
     {
       id: 6,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1527192491265-7e15af55a1f2?w=800&auto=format",
+      poster: "/assets/c.jpg",
       alt: "Client Presentation",
       category: "meetings",
       title: "Investor Pitch Meeting",
@@ -128,8 +122,7 @@ function MokshaGallery() {
     {
       id: 7,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&auto=format",
+      poster: "/assets/girl.jpg",
       alt: "Networking Event",
       category: "events",
       title: "Industry Networking Gala",
@@ -143,8 +136,7 @@ function MokshaGallery() {
     {
       id: 8,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&auto=format",
+      poster: "/assets/four.jpg",
       alt: "Executive Office",
       category: "workspace",
       title: "CEO Corner Office",
@@ -158,8 +150,7 @@ function MokshaGallery() {
     {
       id: 9,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&auto=format",
+      poster: "/assets/old.png",
       alt: "Corporate Workshop",
       category: "events",
       title: "Leadership Development Workshop",
@@ -173,8 +164,7 @@ function MokshaGallery() {
     {
       id: 10,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format",
+      poster: "/assets/downloadd.webp",
       alt: "Team Collaboration",
       category: "workspace",
       title: "Cross-functional Team Meeting",
@@ -188,8 +178,7 @@ function MokshaGallery() {
     {
       id: 11,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&auto=format",
+      poster: "/assets/ambulance.avif",
       alt: "Business Strategy",
       category: "meetings",
       title: "Strategic Planning Retreat",
@@ -203,8 +192,7 @@ function MokshaGallery() {
     {
       id: 12,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1507537362848-9c7e70b7b5c1?w=800&auto=format",
+      poster: "/assets/grahpravesh.jpg",
       alt: "Award Ceremony",
       category: "events",
       title: "Industry Excellence Awards",
@@ -218,8 +206,7 @@ function MokshaGallery() {
     {
       id: 13,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800&auto=format",
+      poster: "/assets/chatgpt.png",
       alt: "Modern Workspace",
       category: "workspace",
       title: "Open Concept Office",
@@ -233,8 +220,7 @@ function MokshaGallery() {
     {
       id: 14,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1552581234-26160f608093?w=800&auto=format",
+      poster: "/assets/b.jpg",
       alt: "Business Discussion",
       category: "meetings",
       title: "Client Negotiation Meeting",
@@ -248,8 +234,7 @@ function MokshaGallery() {
     {
       id: 15,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&auto=format",
+      poster: "/assets/c.jpg",
       alt: "Team Building",
       category: "events",
       title: "Annual Company Retreat",
@@ -263,8 +248,7 @@ function MokshaGallery() {
     {
       id: 16,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=800&auto=format",
+      poster: "/assets/girl.jpg",
       alt: "Creative Office",
       category: "workspace",
       title: "Startup Office Space",
@@ -278,8 +262,7 @@ function MokshaGallery() {
     {
       id: 17,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&auto=format",
+      poster: "/assets/four.jpg",
       alt: "Business Workshop",
       category: "meetings",
       title: "Professional Development Seminar",
@@ -293,8 +276,7 @@ function MokshaGallery() {
     {
       id: 18,
       src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-      poster:
-        "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&auto=format",
+      poster: "/assets/old.png",
       alt: "Corporate Training",
       category: "events",
       title: "Corporate Training Session",

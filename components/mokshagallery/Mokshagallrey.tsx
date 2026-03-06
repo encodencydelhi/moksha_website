@@ -33,7 +33,7 @@ function MokshaGallery() {
   const [images] = useState<GalleryImage[]>([
     {
       id: 1,
-      src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/downloadd.webp",
       alt: "Corporate Event",
       category: "events",
       title: "Tech Innovation Summit 2024",
@@ -45,7 +45,7 @@ function MokshaGallery() {
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1497366858526-0766cadbe8fa?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/ambulance.avif",
       alt: "Modern Office",
       category: "workspace",
       title: "Minimalist Executive Suite",
@@ -57,7 +57,7 @@ function MokshaGallery() {
     },
     {
       id: 3,
-      src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/grahpravesh.jpg",
       alt: "Business Meeting",
       category: "meetings",
       title: "Strategic Planning Session",
@@ -69,7 +69,7 @@ function MokshaGallery() {
     },
     {
       id: 4,
-      src: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/chatgpt.png",
       alt: "Product Launch",
       category: "events",
       title: "Next-Gen Product Reveal",
@@ -81,7 +81,7 @@ function MokshaGallery() {
     },
     {
       id: 5,
-      src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/b.jpg",
       alt: "Creative Studio",
       category: "workspace",
       title: "Design Innovation Lab",
@@ -93,7 +93,7 @@ function MokshaGallery() {
     },
     {
       id: 6,
-      src: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/c.jpg",
       alt: "Client Presentation",
       category: "meetings",
       title: "Investor Pitch Meeting",
@@ -105,7 +105,7 @@ function MokshaGallery() {
     },
     {
       id: 7,
-      src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/girl.jpg",
       alt: "Networking Event",
       category: "events",
       title: "Industry Networking Gala",
@@ -117,7 +117,7 @@ function MokshaGallery() {
     },
     {
       id: 8,
-      src: "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/four.jpg",
       alt: "Executive Office",
       category: "workspace",
       title: "CEO Corner Office",
@@ -129,7 +129,7 @@ function MokshaGallery() {
     },
     {
       id: 9,
-      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/old.png",
       alt: "Corporate Workshop",
       category: "events",
       title: "Leadership Development Workshop",
@@ -139,9 +139,12 @@ function MokshaGallery() {
       date: "2024",
       height: 390,
     },
+    // Note: You have 9 images in your list, so I've used all of them
+    // You can duplicate or add more images if needed, but here's a suggestion
+    // to create more variety with your existing images:
     {
       id: 10,
-      src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/downloadd.webp",
       alt: "Team Collaboration",
       category: "workspace",
       title: "Cross-functional Team Meeting",
@@ -153,7 +156,7 @@ function MokshaGallery() {
     },
     {
       id: 11,
-      src: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/ambulance.avif",
       alt: "Business Strategy",
       category: "meetings",
       title: "Strategic Planning Retreat",
@@ -165,7 +168,7 @@ function MokshaGallery() {
     },
     {
       id: 12,
-      src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/grahpravesh.jpg",
       alt: "Award Ceremony",
       category: "events",
       title: "Industry Excellence Awards",
@@ -177,7 +180,7 @@ function MokshaGallery() {
     },
     {
       id: 13,
-      src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/chatgpt.png",
       alt: "Modern Workspace",
       category: "workspace",
       title: "Open Concept Office",
@@ -189,7 +192,7 @@ function MokshaGallery() {
     },
     {
       id: 14,
-      src: "https://images.unsplash.com/photo-1527192491265-7e15af55a1f2?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/b.jpg",
       alt: "Business Discussion",
       category: "meetings",
       title: "Client Negotiation Meeting",
@@ -201,7 +204,7 @@ function MokshaGallery() {
     },
     {
       id: 15,
-      src: "https://images.unsplash.com/photo-1540317580384-e5d43867caa6?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/c.jpg",
       alt: "Team Building",
       category: "events",
       title: "Annual Company Retreat",
@@ -213,7 +216,7 @@ function MokshaGallery() {
     },
     {
       id: 16,
-      src: "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/girl.jpg",
       alt: "Creative Office",
       category: "workspace",
       title: "Startup Office Space",
@@ -225,7 +228,7 @@ function MokshaGallery() {
     },
     {
       id: 17,
-      src: "https://images.unsplash.com/photo-1552581234-26160f608093?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/four.jpg",
       alt: "Business Workshop",
       category: "meetings",
       title: "Professional Development Seminar",
@@ -237,7 +240,7 @@ function MokshaGallery() {
     },
     {
       id: 18,
-      src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=1200&auto=format&fit=crop&q=80",
+      src: "/assets/old.png",
       alt: "Corporate Training",
       category: "events",
       title: "Corporate Training Session",
