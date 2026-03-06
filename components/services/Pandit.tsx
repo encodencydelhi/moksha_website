@@ -26,6 +26,9 @@ function MokshaGallery() {
   const [selectedServiceForBooking, setSelectedServiceForBooking] =
     useState(null);
 
+  // Local Griha Pravesh image path
+  const grihaPraveshImagePath = "/assets/grahpravesh.jpg";
+
   const panditServices = [
     {
       id: 1,
@@ -34,12 +37,12 @@ function MokshaGallery() {
       description:
         "Sacred immersion of ashes in holy rivers with complete Vedic rituals",
       longDescription:
-        "Perform the final sacred ritual for your loved ones at the holiest ghats. Our experienced pandits guide you through every step of this spiritual journey, ensuring peace for the departed soul.",
+        "Perform the final sacred ritual for your loved ones at the holiest ghats. Our experienced pandits guide you through every step of this spiritual journey.",
       location: "Haridwar, Rishikesh, Varanasi",
       price: "5,500",
       rating: 4.9,
       reviews: 128,
-      image: "/images/services/asthi-visarjan.jpg",
+      image: grihaPraveshImagePath,
       features: ["Vedic Mantras", "Holy Dip", "Pind Daan", "Brahmin Bhoj"],
       panditName: "Pandit Ramesh Sharma",
       experience: "15+ years",
@@ -55,7 +58,7 @@ function MokshaGallery() {
       price: "4,500",
       rating: 4.8,
       reviews: 156,
-      image: "/images/services/pind-daan.jpg",
+      image: grihaPraveshImagePath,
       features: [
         "Tarpan",
         "Pind Offering",
@@ -72,12 +75,12 @@ function MokshaGallery() {
       description:
         "Annual ancestral ritual to honor and remember departed family members",
       longDescription:
-        "Annual ceremony performed during Pitru Paksha or death anniversary to honor ancestors and seek their blessings for family prosperity.",
+        "Annual ceremony performed during Pitru Paksha or death anniversary to honor ancestors and seek their blessings.",
       location: "At your home or holy site",
       price: "3,999",
       rating: 4.7,
       reviews: 98,
-      image: "/images/services/shraddh.jpg",
+      image: grihaPraveshImagePath,
       features: ["Pind Daan", "Tarpan", "Brahmin Bhoj", "Daan"],
       panditName: "Pandit Rajesh Mishra",
       experience: "10+ years",
@@ -93,7 +96,7 @@ function MokshaGallery() {
       price: "6,500",
       rating: 4.9,
       reviews: 87,
-      image: "/images/services/antim-sanskar.jpg",
+      image: grihaPraveshImagePath,
       features: ["Mukhagni", "Asthi Collection", "Pind Daan", "Shanti Path"],
       panditName: "Pandit Mohan Joshi",
       experience: "20+ years",
@@ -105,12 +108,12 @@ function MokshaGallery() {
       description:
         "Sacred fire ceremony for purification and positive energies",
       longDescription:
-        "Purify your home or workplace with sacred fire ceremonies. Removes negative energies and brings prosperity, health, and happiness.",
+        "Purify your home or workplace with sacred fire ceremonies. Removes negative energies and brings prosperity and happiness.",
       location: "Your preferred location",
       price: "3,500",
       rating: 4.8,
       reviews: 245,
-      image: "/images/services/havan.jpg",
+      image: grihaPraveshImagePath,
       features: [
         "Agni Aahuti",
         "Mantra Chanting",
@@ -126,12 +129,12 @@ function MokshaGallery() {
       icon: GiHouse,
       description: "Vastu-compliant house warming ceremony for new beginnings",
       longDescription:
-        "Bless your new home with positive energy. Complete Vastu-compliant Griha Pravesh ceremony for prosperity and happiness.",
+        "Bless your new home with positive energy. Complete Vastu-compliant Griha Pravesh ceremony.",
       location: "Your new home",
       price: "4,200",
       rating: 4.9,
       reviews: 312,
-      image: "/images/services/griha-pravesh.jpg",
+      image: grihaPraveshImagePath,
       features: [
         "Vastu Shanti",
         "Ganesh Puja",
@@ -148,12 +151,12 @@ function MokshaGallery() {
       description:
         "Narration of Lord Vishnu's stories for prosperity and happiness",
       longDescription:
-        "Listen to the sacred tales of Lord Vishnu for prosperity, happiness, and fulfillment of wishes. Perfect for family gatherings.",
+        "Listen to the sacred tales of Lord Vishnu for prosperity and fulfillment of wishes.",
       location: "Your home or community hall",
       price: "3,200",
       rating: 4.7,
       reviews: 178,
-      image: "/images/services/satyanarayan.jpg",
+      image: grihaPraveshImagePath,
       features: ["Katha Vachan", "Aarti", "Prasad", "Vishnu Sahasranam"],
       panditName: "Pandit Deepak Pathak",
       experience: "14+ years",
@@ -164,12 +167,12 @@ function MokshaGallery() {
       icon: GiRing,
       description: "Complete Vedic wedding rituals with experienced pandits",
       longDescription:
-        "Traditional Vedic wedding ceremony performed by expert pandits. All rituals from Ganesh Puja to Saptapadi conducted with perfection.",
+        "Traditional Vedic wedding ceremony performed by expert pandits from Ganesh Puja to Saptapadi.",
       location: "Wedding venue or home",
       price: "8,999",
       rating: 5.0,
       reviews: 456,
-      image: "/images/services/marriage.jpg",
+      image: grihaPraveshImagePath,
       features: ["Ganesh Puja", "Kanyadaan", "Saptapadi", "Mangalsutra"],
       panditName: "Pandit Dinesh Upadhyay",
       experience: "25+ years",
@@ -196,10 +199,10 @@ function MokshaGallery() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <Image
-            src="/images/hero-bg.jpg"
-            alt="Sacred Ganga Aarti"
+            src={grihaPraveshImagePath}
+            alt="Pandit Services Hero Background"
             fill
-            className="object-cover"
+            className="object-conver"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#8B5E3C]/80 to-[#5A3E2B]/90"></div>
@@ -316,16 +319,21 @@ function MokshaGallery() {
                 key={service.id}
                 className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-1"
               >
-                {/* Image Container with Overlay */}
+                {/* Image Container with Actual Image */}
                 <div className="relative h-36 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#5A3E2B] to-transparent z-10"></div>
-                  <div className="w-full h-full bg-gradient-to-br from-[#C89B6D] to-[#8B5E3C] flex items-center justify-center">
-                    {/* Icon with better visibility */}
-                    <div className="relative">
-                      <Icon className="text-6xl text-white/90 drop-shadow-lg transform group-hover:scale-110 transition-transform duration-300" />
-                      {/* Glow effect behind icon */}
-                      <div className="absolute inset-0 blur-xl bg-white/30 rounded-full -z-10"></div>
-                    </div>
+                  {/* Actual Image */}
+                  <Image
+                    src={service.image}
+                    alt={service.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#5A3E2B] via-transparent to-transparent z-10"></div>
+
+                  {/* Service Icon as Overlay */}
+                  <div className="absolute top-2 left-2 z-20 bg-white/20 backdrop-blur-sm p-1.5 rounded-full">
+                    <Icon className="text-white text-lg" />
                   </div>
 
                   {/* Rating Badge */}
@@ -538,7 +546,12 @@ function MokshaGallery() {
       {/* CTA Section */}
       <section className="relative py-16 bg-gradient-to-r from-[#8B5E3C] to-[#5A3E2B] text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/pattern.png')] bg-repeat"></div>
+          <Image
+            src={grihaPraveshImagePath}
+            alt="Pandit Services Background"
+            fill
+            className="object-cover opacity-10"
+          />
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center px-6">
@@ -554,8 +567,6 @@ function MokshaGallery() {
             Book a Pandit Now
           </button>
         </div>
-
-        {/* Bottom Wave */}
       </section>
 
       <Footer />

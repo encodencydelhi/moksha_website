@@ -67,31 +67,13 @@ export default function Serving() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <div className="relative h-[400px] md:h-[450px]">
                 <Image
-                  src="/assets/p.jpg"
+                  src="/assets/grahpravesh.jpg"
                   alt="Serving with Compassion"
                   fill
                   className="object-cover"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-              </div>
-
-              {/* Floating Quote */}
-              <div className="absolute top-6 left-6 max-w-[250px]">
-                <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-xl">
-                  <FaQuoteLeft className="text-[#8B6A3E]/20 text-lg mb-1" />
-                  <p className="text-[#2C1810] text-xs italic mb-2">
-                    Every soul deserves a dignified farewell
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center">
-                      <PiHeart className="w-3 h-3 text-[#8B6A3E]" />
-                    </div>
-                    <span className="text-[10px] font-medium text-[#8B6A3E]">
-                      Moksha Voyage
-                    </span>
-                  </div>
-                </div>
               </div>
 
               {/* Stats Badges */}

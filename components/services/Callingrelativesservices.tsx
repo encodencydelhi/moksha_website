@@ -5,16 +5,17 @@ import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/Footer";
 import Image from "next/image";
 import {
-  GiAmbulance,
-  GiHeartPlus,
-  GiMedicalPack,
-  GiStethoscope,
-  GiMedicines,
-  GiHealthNormal,
-  GiHealing,
+  GiPhone,
+  GiTalk,
   GiStarSwirl,
-  GiHealthPotion,
-  GiLifeSupport,
+  GiGlobe,
+  GiHearts,
+  GiFamilyTree,
+  GiConversation,
+  GiRing,
+  GiSoundOn,
+  GiSpeaker,
+  GiSurfBoard,
 } from "react-icons/gi";
 import {
   FaMapMarkerAlt,
@@ -23,211 +24,237 @@ import {
   FaPhoneAlt,
   FaClock,
   FaShieldAlt,
-  FaHeartbeat,
-  FaSyringe,
-  FaHospital,
+  FaWhatsapp,
+  FaVideo,
+  FaEnvelope,
+  FaUsers,
+  FaUserFriends,
+  FaHeart,
 } from "react-icons/fa";
 import {
   MdVerified,
-  MdLocalHospital,
+  MdSupportAgent,
   MdEmergency,
-  MdMedicalServices,
+  MdLanguage,
+  MdMessage,
+  MdPhone,
+  MdPhoneCallback,
+  MdCall,
+  MdCallEnd,
 } from "react-icons/md";
 import { PiFlowerLotus } from "react-icons/pi";
-import { TbAmbulance } from "react-icons/tb";
-import { BsSuitHeartFill, BsDroplet } from "react-icons/bs";
-import { IoMedkit } from "react-icons/io5";
+import {
+  BsSuitHeartFill,
+  BsChatDots,
+  BsTelephone,
+  BsTelephoneFill,
+} from "react-icons/bs";
+import { TbMessageCircle, TbPhoneCall } from "react-icons/tb";
+import { RiCustomerService2Fill } from "react-icons/ri";
+import { IoCall } from "react-icons/io5";
 
-function AmbulanceServices() {
+function CallingRelativesServices() {
   const [selectedService, setSelectedService] = useState(null);
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [selectedServiceForBooking, setSelectedServiceForBooking] =
     useState(null);
 
-  // Local ambulance image path
-  const ambulanceImagePath = "/assets/ambulance.avif";
-
-  const ambulanceServices = [
+  const callingServices = [
     {
       id: 1,
-      name: "Basic Life Support (BLS)",
-      icon: GiAmbulance,
+      name: "Emergency Family Notification",
+      icon: GiSoundOn,
       description:
-        "Fully equipped ambulance with basic life support equipment and trained staff",
+        "Immediate notification to family members in case of emergency or critical situation",
       longDescription:
-        "Basic Life Support ambulance equipped with essential medical equipment, oxygen cylinder, stretcher, and trained paramedics for non-emergency patient transport.",
-      location: "Available 24/7",
-      price: "1,999",
-      rating: 4.8,
-      reviews: 245,
-      image: ambulanceImagePath,
+        "Rapid notification service to inform family members about emergencies. Our team contacts all listed relatives immediately and coordinates their response.",
+      location: "Worldwide",
+      price: "999",
+      rating: 4.9,
+      reviews: 234,
+      image:
+        "https://images.pexels.com/photos/7659560/pexels-photo-7659560.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Oxygen Cylinder",
-        "Stretcher",
-        "First Aid Kit",
-        "Trained Staff",
+        "24/7 Availability",
+        "Multi-language",
+        "SMS & Call",
+        "Confirmation Tracking",
       ],
-      driverName: "Rajesh Kumar",
+      coordinatorName: "Priya Sharma",
       experience: "8+ years",
-      responseTime: "30 mins",
+      responseTime: "5-10 mins",
       contactNumber: "+91 98765 43210",
+      languages: "",
     },
     {
       id: 2,
-      name: "Advanced Life Support (ALS)",
-      icon: GiHeartPlus,
+      name: "International Relative Connect",
+      icon: GiGlobe,
       description:
-        "ICU on wheels with ventilator, defibrillator, and emergency medications",
+        "Connect with family members abroad during emergencies or important events",
       longDescription:
-        "Advanced Life Support ambulance equipped with ventilator, defibrillator, cardiac monitor, emergency medications, and critical care paramedics.",
-      location: "Available 24/7",
-      price: "3,999",
-      rating: 4.9,
+        "Specialized service to contact relatives in different countries. We handle time zones, language barriers, and ensure your message reaches them.",
+      location: "International",
+      price: "2,499",
+      rating: 4.8,
       reviews: 156,
-      image: ambulanceImagePath,
+      image:
+        "https://images.pexels.com/photos/4611040/pexels-photo-4611040.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Ventilator",
-        "Defibrillator",
-        "Cardiac Monitor",
-        "Emergency Meds",
+        "International Calling",
+        "Time Zone Management",
+        "Translation",
+        "Follow-ups",
       ],
-      driverName: "Suresh Singh",
-      experience: "12+ years",
-      responseTime: "25 mins",
+      coordinatorName: "Rajesh Kumar",
+      experience: "10+ years",
+      responseTime: "30 mins",
       contactNumber: "+91 98765 43211",
     },
     {
       id: 3,
-      name: "Patient Transport Vehicle",
-      icon: IoMedkit,
+      name: "Mass Notification Service",
+      icon: GiSurfBoard, // Changed from GiBroadcast to GiBroadcastEmitter
       description:
-        "Comfortable transport for non-emergency patients with basic medical support",
+        "Simultaneously notify all family members and relatives about important events",
       longDescription:
-        "Comfortable vehicle designed for non-emergency patient transport, ideal for hospital discharges, check-ups, and routine medical visits.",
-      location: "Available 24/7",
-      price: "1,499",
+        "Bulk notification service to inform all family members simultaneously about weddings, funerals, ceremonies, or emergencies.",
+      location: "Worldwide",
+      price: "1,999",
       rating: 4.7,
       reviews: 189,
-      image: ambulanceImagePath,
-      features: ["Comfortable Seating", "AC", "Basic Medical Kit", "Attendant"],
-      driverName: "Mohan Das",
+      image:
+        "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: ["Bulk SMS", "Voice Broadcast", "WhatsApp Groups", "Email"],
+      coordinatorName: "Anita Desai",
       experience: "6+ years",
-      responseTime: "40 mins",
+      responseTime: "1 hour",
       contactNumber: "+91 98765 43212",
     },
     {
       id: 4,
-      name: "Cardiac Care Ambulance",
-      icon: FaHeartbeat,
+      name: "Video Calling Assistance",
+      icon: FaVideo,
       description:
-        "Specialized ambulance for heart patients with cardiac monitoring equipment",
+        "Technical support for video calls with family during ceremonies or emergencies",
       longDescription:
-        "Specialized cardiac care ambulance with ECG monitor, defibrillator, cardiac emergency medications, and trained cardiac care technicians.",
-      location: "Available 24/7",
-      price: "4,500",
+        "We help set up and facilitate video calls with family members who cannot attend in person. Perfect for weddings, funerals, and ceremonies.",
+      location: "Remote Support",
+      price: "499",
       rating: 4.9,
-      reviews: 112,
-      image: ambulanceImagePath,
+      reviews: 312,
+      image:
+        "https://images.pexels.com/photos/4492129/pexels-photo-4492129.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "ECG Monitor",
-        "Defibrillator",
-        "Cardiac Meds",
-        "Oxygen Support",
+        "Video Setup",
+        "Platform Support",
+        "Recording",
+        "Multiple Participants",
       ],
-      driverName: "Prakash Sharma",
-      experience: "10+ years",
-      responseTime: "20 mins",
+      coordinatorName: "Vikram Singh",
+      experience: "5+ years",
+      responseTime: "15 mins",
       contactNumber: "+91 98765 43213",
     },
     {
       id: 5,
-      name: "Neonatal Ambulance",
-      icon: GiHealing,
+      name: "Funeral Ceremony Invitations",
+      icon: GiFamilyTree,
       description:
-        "Specialized ambulance for newborns with incubator and pediatric equipment",
+        "Professional calling service to invite relatives to funeral ceremonies",
       longDescription:
-        "Specially designed ambulance for newborns with incubator, pediatric ventilator, and trained neonatal care specialists.",
-      location: "Available 24/7",
-      price: "5,999",
+        "Sensitive and respectful calling service to invite family members to funeral ceremonies. We handle the emotional aspect with care and compassion.",
+      location: "Pan India",
+      price: "2,999",
       rating: 4.9,
-      reviews: 78,
-      image: ambulanceImagePath,
+      reviews: 278,
+      image:
+        "https://images.pexels.com/photos/6605287/pexels-photo-6605287.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Incubator",
-        "Pediatric Ventilator",
-        "Warmers",
-        "Neonatal Meds",
+        "Personalized Calls",
+        "RSVP Tracking",
+        "Location Details",
+        "Follow-ups",
       ],
-      driverName: "Anita Devi",
-      experience: "9+ years",
-      responseTime: "35 mins",
+      coordinatorName: "Meera Joshi",
+      experience: "12+ years",
+      responseTime: "24 hours",
       contactNumber: "+91 98765 43214",
     },
     {
       id: 6,
-      name: "Air Ambulance",
-      icon: GiLifeSupport,
+      name: "Wedding Invitation Calls",
+      icon: GiHearts,
       description:
-        "Emergency air transport with complete medical team and equipment",
+        "Traditional invitation calls to relatives for wedding ceremonies",
       longDescription:
-        "Air ambulance service for critical patients requiring immediate transport across cities or countries. Includes medical team and full ICU setup.",
+        "Professional calling service for wedding invitations. Our team makes warm, personalized calls to invite relatives to your special day.",
       location: "Pan India",
-      price: "Call for Quote",
+      price: "3,999",
       rating: 4.8,
-      reviews: 45,
-      image: ambulanceImagePath,
+      reviews: 445,
+      image:
+        "https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "ICU Setup",
-        "Medical Team",
-        "Ventilator",
-        "International Transfer",
+        "Personalized Script",
+        "RSVP Collection",
+        "Guest List Management",
+        "Follow-up Calls",
       ],
-      driverName: "Captain Verma",
-      experience: "15+ years",
-      responseTime: "2 hours",
+      coordinatorName: "Sneha Reddy",
+      experience: "7+ years",
+      responseTime: "48 hours",
       contactNumber: "+91 98765 43215",
     },
     {
       id: 7,
-      name: "Dead Body Freezer Van",
-      icon: GiMedicalPack,
+      name: "Relatives Locator Service",
+      icon: GiConversation,
       description:
-        "Respectful and dignified transport with proper preservation facilities",
+        "Find and connect with long-lost relatives anywhere in the world",
       longDescription:
-        "Specialized vehicle for dignified transport of deceased with proper cold preservation facilities and respectful handling.",
-      location: "Available 24/7",
-      price: "2,999",
-      rating: 4.7,
+        "Specialized service to locate and establish contact with relatives you've lost touch with. We use various resources to find them.",
+      location: "Global",
+      price: "4,999",
+      rating: 4.6,
       reviews: 98,
-      image: ambulanceImagePath,
+      image:
+        "https://images.pexels.com/photos/5668480/pexels-photo-5668480.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Cold Storage",
-        "Respectful Handling",
-        "Clean Vehicle",
-        "Documentation Help",
+        "Tracing Service",
+        "Address Verification",
+        "Contact Establishment",
+        "Confidential",
       ],
-      driverName: "Gopal Singh",
-      experience: "7+ years",
-      responseTime: "45 mins",
+      coordinatorName: "Amitabh Thakur",
+      experience: "15+ years",
+      responseTime: "3-5 days",
       contactNumber: "+91 98765 43216",
     },
     {
       id: 8,
-      name: "Emergency Response Vehicle",
-      icon: TbAmbulance,
-      description: "Rapid response vehicle for immediate medical emergencies",
+      name: "24/7 Emergency Helpline",
+      icon: MdEmergency,
+      description:
+        "Round-the-clock assistance for contacting family during crises",
       longDescription:
-        "Quick response vehicle for emergency situations with paramedics and essential life support equipment for immediate medical assistance.",
-      location: "Available 24/7",
-      price: "2,500",
+        "24/7 emergency helpline service to help you contact family members during medical emergencies, accidents, or any critical situation.",
+      location: "24/7 Support",
+      price: "999/month",
       rating: 4.9,
-      reviews: 234,
-      image: ambulanceImagePath,
-      features: ["Rapid Response", "Paramedics", "Emergency Meds", "First Aid"],
-      driverName: "Vikram Rathore",
-      experience: "11+ years",
-      responseTime: "15 mins",
-      contactNumber: "+91 98765 43217",
+      reviews: 567,
+      image:
+        "https://images.pexels.com/photos/7659560/pexels-photo-7659560.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: [
+        "24/7 Availability",
+        "Emergency Protocols",
+        "Multi-language",
+        "Priority Response",
+      ],
+      coordinatorName: "Emergency Team",
+      experience: "Always Available",
+      responseTime: "Immediate",
+      contactNumber: "+91 1800 123 4567",
     },
   ];
 
@@ -241,7 +268,7 @@ function AmbulanceServices() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleEmergencyCall = (contactNumber: string) => {
+  const handleCallNow = (contactNumber: string) => {
     window.location.href = `tel:${contactNumber}`;
   };
 
@@ -274,46 +301,46 @@ function AmbulanceServices() {
           <div className="max-w-3xl mx-auto text-center">
             {/* Sacred Symbol */}
             <div className="flex items-center justify-center gap-2 text-[#F5E9D9] mb-4">
-              <MdEmergency className="text-2xl" />
+              <GiSoundOn className="text-2xl" />
               <span className="text-sm tracking-widest">
-                24/7 EMERGENCY SERVICES
+                संपर्क • CONNECT • ਸੰਪਰਕ
               </span>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-serif text-white mb-4 leading-tight">
-              Ambulance Services
+              Calling Relatives Services
               <span className="block text-xl md:text-2xl font-light text-[#F5E9D9] mt-3">
-                Rapid Response Medical Transport with Care
+                Stay Connected with Family Anywhere, Anytime
               </span>
             </h1>
 
             <p className="text-base md:text-lg text-white mb-6 max-w-2xl mx-auto">
-              Book well-equipped ambulances with trained medical staff for
-              emergency and non-emergency patient transport. Available 24/7 for
-              your medical needs.
+              Professional calling services to help you connect with relatives
+              during emergencies, ceremonies, and special occasions.
+              Compassionate and reliable communication assistance.
             </p>
 
             {/* Emergency Contact */}
             <div className="inline-flex items-center gap-4 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6">
               <FaPhoneAlt className="text-white text-xl animate-pulse" />
               <span className="text-white font-bold text-xl">
-                24/7 Emergency: +91 1800 123 4567
+                24/7 Helpline: +91 1800 123 4567
               </span>
             </div>
 
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-6">
               <div>
-                <div className="text-2xl text-white">50+</div>
-                <div className="text-sm text-[#F5E9D9]">Ambulance Fleet</div>
+                <div className="text-2xl text-white">50K+</div>
+                <div className="text-sm text-[#F5E9D9]">Calls Connected</div>
               </div>
               <div>
                 <div className="text-2xl text-white">15+</div>
-                <div className="text-sm text-[#F5E9D9]">Cities Covered</div>
+                <div className="text-sm text-[#F5E9D9]">Languages</div>
               </div>
               <div>
-                <div className="text-2xl text-white">10K+</div>
-                <div className="text-sm text-[#F5E9D9]">Lives Saved</div>
+                <div className="text-2xl text-white">98%</div>
+                <div className="text-sm text-[#F5E9D9]">Success Rate</div>
               </div>
             </div>
           </div>
@@ -340,19 +367,17 @@ function AmbulanceServices() {
         <div className="text-center mb-12 relative">
           {/* Decorative Elements */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 w-20 h-20 opacity-10">
-            <MdLocalHospital className="w-full h-full text-[#8B5E3C]" />
+            <GiTalk className="w-full h-full text-[#8B5E3C]" />
           </div>
 
           <div className="relative">
             <span className="text-[#C89B6D] tracking-widest text-sm">
-              ॐ MEDICAL SERVICES ॐ
+              ॐ CONNECTION SERVICES ॐ
             </span>
 
             <h2 className="text-3xl md:text-4xl font-serif text-[#5A3E2B] mt-3 mb-4">
-              Well-Equipped Ambulances with
-              <span className="block text-[#8B5E3C]">
-                Trained Medical Staff
-              </span>
+              Professional Calling Assistance
+              <span className="block text-[#8B5E3C]">for Every Occasion</span>
             </h2>
 
             {/* Decorative Line */}
@@ -363,16 +388,16 @@ function AmbulanceServices() {
             </div>
 
             <p className="text-sm text-[#7B5E47] max-w-2xl mx-auto">
-              Choose from our comprehensive range of ambulance services, each
-              equipped with modern medical facilities and staffed by experienced
-              professionals.
+              From emergency notifications to wedding invitations, our
+              professional calling services ensure your message reaches every
+              family member with care and clarity.
             </p>
           </div>
         </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {ambulanceServices.map((service) => {
+          {callingServices.map((service) => {
             const Icon = service.icon;
 
             return (
@@ -408,10 +433,10 @@ function AmbulanceServices() {
                     </span>
                   </div>
 
-                  {/* Response Time Badge */}
+                  {/* Language Badge */}
                   <div className="absolute bottom-2 right-2 z-20 bg-[#8B5E3C]/90 backdrop-blur-sm px-2 py-0.5 rounded-full">
                     <span className="text-white text-[10px] font-medium">
-                      {service.responseTime}
+                      {service.languages}
                     </span>
                   </div>
 
@@ -445,17 +470,17 @@ function AmbulanceServices() {
                     </span>
                   </div>
 
-                  {/* Driver Info */}
+                  {/* Coordinator Info */}
                   <div className="flex items-center gap-1.5 mb-2 p-1.5 bg-[#FDF8F2] rounded-lg">
                     <div className="w-7 h-7 rounded-full bg-[#C89B6D] flex items-center justify-center flex-shrink-0">
-                      <FaShieldAlt className="text-white text-sm" />
+                      <RiCustomerService2Fill className="text-white text-sm" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="text-sm text-[#5A3E2B] truncate">
-                        {service.driverName}
+                        {service.coordinatorName}
                       </p>
                       <p className="text-[10px] text-[#7B5E47]">
-                        {service.experience} experience
+                        {service.experience}
                       </p>
                     </div>
                     <MdVerified className="text-[#C89B6D] text-sm flex-shrink-0" />
@@ -466,7 +491,7 @@ function AmbulanceServices() {
                     <div className="flex items-center gap-1 text-[10px] text-[#7B5E47]">
                       <FaClock className="text-[#C89B6D] text-[10px]" />
                       <span className="truncate max-w-[90px]">
-                        {service.location}
+                        {service.responseTime}
                       </span>
                     </div>
                     <div className="text-sm text-[#8B5E3C]">
@@ -486,7 +511,7 @@ function AmbulanceServices() {
                       Details
                     </button>
                     <button
-                      onClick={() => handleEmergencyCall(service.contactNumber)}
+                      onClick={() => handleCallNow(service.contactNumber)}
                       className="flex-1 px-1.5 py-1.5 bg-gradient-to-r from-[#8B5E3C] to-[#A9744F] text-white rounded-lg text-[10px] hover:shadow-sm transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-1"
                     >
                       <FaPhoneAlt className="text-[8px]" />
@@ -514,7 +539,7 @@ function AmbulanceServices() {
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-              Why Choose Moksha Ambulance?
+              Why Choose Our Calling Services?
             </h2>
             <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
           </div>
@@ -523,23 +548,23 @@ function AmbulanceServices() {
             {[
               {
                 icon: MdVerified,
-                title: "Verified Fleet",
-                desc: "All ambulances are well-maintained and regularly inspected",
+                title: "Professional Callers",
+                desc: "Trained professionals for sensitive communications",
               },
               {
                 icon: FaClock,
                 title: "24/7 Availability",
-                desc: "Round-the-clock service for all your medical transport needs",
+                desc: "Round-the-clock service for emergencies",
               },
               {
-                icon: BsSuitHeartFill,
-                title: "Trained Staff",
-                desc: "Experienced paramedics and drivers for patient care",
+                icon: MdLanguage,
+                title: "Multi-Language Support",
+                desc: "Call in any Indian or international language",
               },
               {
-                icon: MdMedicalServices,
-                title: "Modern Equipment",
-                desc: "Latest medical equipment in all our ambulances",
+                icon: FaHeart,
+                title: "Compassionate Service",
+                desc: "Handling every call with care and empathy",
               },
             ].map((item, idx) => {
               const Icon = item.icon;
@@ -560,11 +585,112 @@ function AmbulanceServices() {
         </div>
       </section>
 
+      {/* How It Works Section */}
+      <section className="py-12 px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
+            How Our Calling Service Works
+          </h2>
+          <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full mb-4"></div>
+          <p className="text-sm text-[#7B5E47] max-w-2xl mx-auto">
+            Simple and efficient process to connect you with your relatives
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          {[
+            {
+              step: "01",
+              title: "Share Details",
+              desc: "Provide relative contact list and message",
+              icon: FaEnvelope,
+            },
+            {
+              step: "02",
+              title: "Choose Service",
+              desc: "Select the type of calling service needed",
+              icon: GiPhone,
+            },
+            {
+              step: "03",
+              title: "We Make Calls",
+              desc: "Our team contacts all your relatives",
+              icon: BsTelephoneFill,
+            },
+            {
+              step: "04",
+              title: "Get Confirmation",
+              desc: "Receive updates and confirmations",
+              icon: MdMessage,
+            },
+          ].map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div key={idx} className="relative">
+                <div className="bg-white p-4 rounded-lg shadow-sm text-center">
+                  <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-[#C89B6D] flex items-center justify-center">
+                    <Icon className="text-white text-xl" />
+                  </div>
+                  <span className="text-sm text-[#C89B6D] font-medium">
+                    {item.step}
+                  </span>
+                  <h3 className="text-lg text-[#5A3E2B] mb-1">{item.title}</h3>
+                  <p className="text-sm text-[#7B5E47]">{item.desc}</p>
+                </div>
+                {idx < 3 && (
+                  <div className="hidden md:block absolute top-1/2 -right-2 text-[#C89B6D] text-xl">
+                    →
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Communication Channels */}
+      <section className="py-12 px-6 max-w-7xl mx-auto bg-white rounded-lg shadow-sm">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
+            Multiple Ways to Connect
+          </h2>
+          <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            {
+              icon: FaPhoneAlt,
+              name: "Phone Calls",
+              desc: "Direct voice calls",
+            },
+            { icon: FaWhatsapp, name: "WhatsApp", desc: "Messages & calls" },
+            {
+              icon: FaVideo,
+              name: "Video Calls",
+              desc: "Face-to-face connection",
+            },
+            { icon: FaEnvelope, name: "Email", desc: "Written communication" },
+          ].map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div key={idx} className="text-center p-3">
+                <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-[#F5E9D9] flex items-center justify-center">
+                  <Icon className="text-[#8B5E3C] text-xl" />
+                </div>
+                <h3 className="text-sm text-[#5A3E2B]">{item.name}</h3>
+                <p className="text-xs text-[#7B5E47]">{item.desc}</p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-12 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            What Our Patients Say
+            What Families Say
           </h2>
           <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
         </div>
@@ -572,21 +698,21 @@ function AmbulanceServices() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
             {
-              name: "Ramesh Gupta",
+              name: "Sunita Gupta",
               location: "Delhi",
-              text: "Quick response time and very professional staff. The ambulance arrived within 15 minutes and the paramedics were very caring.",
+              text: "During my father's last moments, they helped me reach all relatives within minutes. Grateful for their prompt service.",
               rating: 5,
             },
             {
-              name: "Sunita Sharma",
+              name: "Rajesh Khanna",
               location: "Mumbai",
-              text: "Used their patient transport service for my mother's hospital visit. Very comfortable and affordable. Highly recommended!",
+              text: "Used their wedding invitation service. All 200+ relatives were called personally. Very professional and warm.",
               rating: 5,
             },
             {
-              name: "Anil Patel",
-              location: "Ahmedabad",
-              text: "The ALS ambulance saved my father's life during a cardiac emergency. Grateful for their prompt service and care.",
+              name: "Priyanka Singh",
+              location: "Bangalore",
+              text: "Found my long-lost cousin through their locator service. Thank you for reuniting our family!",
               rating: 5,
             },
           ].map((testimonial, idx) => (
@@ -615,26 +741,25 @@ function AmbulanceServices() {
       {/* CTA Section */}
       <section className="relative py-16 bg-gradient-to-r from-[#8B5E3C] to-[#5A3E2B] text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('/images/ambulance-pattern.png')] bg-repeat opacity-10"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/pattern.png')] bg-repeat"></div>
         </div>
-        <div className="absolute inset-0"></div>
 
         <div className="relative max-w-4xl mx-auto text-center px-6">
-          <MdEmergency className="text-5xl mx-auto mb-4 opacity-50" />
+          <GiSoundOn className="text-5xl mx-auto mb-4 opacity-50" />
           <h2 className="text-3xl md:text-4xl font-serif text-white mb-4">
-            Need Emergency Medical Transport?
+            Need to Reach Your Relatives?
           </h2>
           <p className="text-base md:text-lg text-white mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed">
-            Our ambulances are available 24/7 with trained medical staff. Don't
-            wait in emergency situations. Call us now for immediate assistance.
+            Whether it's an emergency or a celebration, our professional calling
+            team is here to help you connect with every family member.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <button className="px-8 py-3 bg-white text-[#8B5E3C] rounded-lg font-medium text-base hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2">
               <FaPhoneAlt />
-              Call Emergency
+              Call Helpline
             </button>
             <button className="px-8 py-3 border-2 border-white text-white rounded-lg font-medium text-base hover:bg-white hover:text-[#8B5E3C] transition-all duration-300">
-              Book Now
+              Request Callback
             </button>
           </div>
         </div>
@@ -645,4 +770,4 @@ function AmbulanceServices() {
   );
 }
 
-export default AmbulanceServices;
+export default CallingRelativesServices;

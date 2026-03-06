@@ -18,6 +18,8 @@ import {
   FaTree,
   FaShoppingBasket,
   FaBoxOpen,
+  FaPhone,
+  FaMagic,
 } from "react-icons/fa";
 
 export default function Navbar() {
@@ -113,7 +115,7 @@ export default function Navbar() {
         },
         {
           name: "Ambulance Service",
-          path: "#ambulance",
+          path: "/ambulanceservices",
           icon: <FaAmbulance />,
           type: "hash",
         },
@@ -130,9 +132,15 @@ export default function Navbar() {
           type: "hash",
         },
         {
-          name: "Complete Ritual Package",
-          path: "#ritual-package",
-          icon: <FaBoxOpen />,
+          name: "Special Services",
+          path: "/specialservices",
+          icon: <FaMagic />,
+          type: "hash",
+        },
+        {
+          name: "Calling Relatives",
+          path: "/callingrelativesservices",
+          icon: <FaPhone />,
           type: "hash",
         },
       ],
@@ -144,7 +152,7 @@ export default function Navbar() {
       type: "dropdown",
       dropdown: [
         {
-          name: "Blog & Articles",
+          name: "Articles",
           path: "#blog",
           icon: <FaBookOpen />,
           type: "hash",
@@ -371,8 +379,7 @@ export default function Navbar() {
           </div>
         </div>
       )}
-
-      <div className="h-12 lg:h-14"></div>
+      <div className="h-16 w-16"></div>
     </>
   );
 }
