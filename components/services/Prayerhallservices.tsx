@@ -14,6 +14,15 @@ import {
   GiConversation,
   GiSoundOn,
   GiSurfBoard,
+  GiPrayer,
+  GiPrayingMantis,
+  GiTempleDoor,
+  GiChurch,
+  GiMeditation,
+  GiCandleHolder,
+  GiIncense,
+  GiFlowerPot,
+  GiFlowerStar,
 } from "react-icons/gi";
 import {
   FaMapMarkerAlt,
@@ -28,6 +37,12 @@ import {
   FaUsers,
   FaUserFriends,
   FaHeart,
+  FaPray,
+  FaHands,
+  FaPlaceOfWorship,
+  FaMosque,
+  FaChurch as FaChurchIcon,
+  FaTemperatureLow,
 } from "react-icons/fa";
 import {
   MdVerified,
@@ -39,6 +54,12 @@ import {
   MdPhoneCallback,
   MdCall,
   MdCallEnd,
+  MdMeetingRoom,
+  MdChair,
+  MdVolumeUp,
+  MdWifi,
+  MdAcUnit,
+  MdKitchen,
 } from "react-icons/md";
 import { PiFlowerLotus } from "react-icons/pi";
 import {
@@ -46,236 +67,230 @@ import {
   BsChatDots,
   BsTelephone,
   BsTelephoneFill,
+  BsBuilding,
+  BsDoorOpen,
 } from "react-icons/bs";
-import { TbMessageCircle, TbPhoneCall } from "react-icons/tb";
+import { TbMessageCircle, TbPhoneCall, TbCrown } from "react-icons/tb";
 import { RiCustomerService2Fill } from "react-icons/ri";
 import { IoCall } from "react-icons/io5";
 
-function CallingRelativesServices() {
+function PrayerHallServices() {
   const [selectedService, setSelectedService] = useState(null);
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [selectedServiceForBooking, setSelectedServiceForBooking] =
     useState(null);
 
-  const callingServices = [
+  const prayerHallServices = [
     {
       id: 1,
-      name: "Emergency Family Notification",
-      icon: GiSoundOn,
+      name: "Community Prayer Hall",
+      icon: GiTempleDoor,
       description:
-        "Immediate notification to family members in case of emergency or critical situation",
+        "Spacious prayer hall for community gatherings, daily prayers, and religious ceremonies.",
       longDescription:
-        "Rapid notification service to inform family members about emergencies. Our team contacts all listed relatives immediately and coordinates their response.",
-      location: "Worldwide",
-      price: "999",
+        "Large community prayer hall with separate sections for men and women. Ideal for daily prayers, Friday gatherings, and community events. Complete with ablution facilities and sound system.",
+      location: "City Center",
+      price: "2,999/day",
       rating: 4.9,
       reviews: 234,
       image:
-        "https://images.pexels.com/photos/7659560/pexels-photo-7659560.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/3618557/pexels-photo-3618557.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "24/7 Availability",
-        "Multi-language",
-        "SMS & Call",
-        "Confirmation Tracking",
+        "Separate Sections",
+        "AC Hall",
+        "Sound System",
+        "Ablution Area",
       ],
-      coordinatorName: "Priya Sharma",
-      experience: "8+ years",
-      responseTime: "5-10 mins",
+      coordinatorName: "Mohammad Ali",
+      experience: "12+ years",
+      responseTime: "2 hours",
       contactNumber: "+91 98765 43210",
       whatsappNumber: "+91 98765 43210",
       alternateNumber: "+91 99887 66554",
+
+      capacity: "500 people",
+      amenities: ["Parking", "Wheelchair Access", "CCTV", "Library"],
     },
     {
       id: 2,
-      name: "International Relative Connect",
-      icon: GiGlobe,
+      name: "Wedding Prayer Hall",
+      icon: GiHearts,
       description:
-        "Connect with family members abroad during emergencies or important events",
+        "Elegant prayer hall for wedding ceremonies and religious celebrations.",
       longDescription:
-        "Specialized service to contact relatives in different countries. We handle time zones, language barriers, and ensure your message reaches them.",
-      location: "International",
-      price: "2,499",
+        "Beautifully decorated prayer hall perfect for wedding ceremonies, nikah, and other religious celebrations. Includes stage area, bride's room, and catering space.",
+      location: "Central Location",
+      price: "4,999/day",
       rating: 4.8,
-      reviews: 156,
+      reviews: 189,
       image:
-        "https://images.pexels.com/photos/4611040/pexels-photo-4611040.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: [
-        "International Calling",
-        "Time Zone Management",
-        "Translation",
-        "Follow-ups",
-      ],
-      coordinatorName: "Rajesh Kumar",
-      experience: "10+ years",
-      responseTime: "30 mins",
+        "https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: ["Stage Area", "Bride Room", "Catering Space", "Decoration"],
+      coordinatorName: "Abdul Rahman",
+      experience: "15+ years",
+      responseTime: "4 hours",
       contactNumber: "+91 98765 43211",
       whatsappNumber: "+91 98765 43211",
       alternateNumber: "+91 99887 66553",
+
+      capacity: "300 people",
+      amenities: ["Parking", "Generator", "Catering Kitchen", "Changing Rooms"],
     },
     {
       id: 3,
-      name: "Mass Notification Service",
-      icon: GiSurfBoard,
+      name: "Funeral Prayer Hall",
+      icon: GiFamilyTree,
       description:
-        "Simultaneously notify all family members and relatives about important events",
+        "Dignified prayer hall for funeral prayers and last rites ceremonies.",
       longDescription:
-        "Bulk notification service to inform all family members simultaneously about weddings, funerals, ceremonies, or emergencies.",
-      location: "Worldwide",
+        "Peaceful and dignified space for funeral prayers (Janazah) and last rites ceremonies. Separate area for family members and facilities for ritual washing.",
+      location: "Near Cemetery",
       price: "1,999",
-      rating: 4.7,
-      reviews: 189,
+      rating: 4.9,
+      reviews: 156,
       image:
-        "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: ["Bulk SMS", "Voice Broadcast", "WhatsApp Groups", "Email"],
-      coordinatorName: "Anita Desai",
-      experience: "6+ years",
+        "https://images.pexels.com/photos/6605287/pexels-photo-6605287.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: [
+        "Washing Facility",
+        "Family Area",
+        "Cemetery Access",
+        "Parking",
+      ],
+      coordinatorName: "Qari Mohammad",
+      experience: "20+ years",
       responseTime: "1 hour",
       contactNumber: "+91 98765 43212",
       whatsappNumber: "+91 98765 43212",
       alternateNumber: "+91 99887 66552",
+
+      capacity: "200 people",
+      amenities: ["Wudu Area", "Parking", "Waiting Area", "CCTV"],
     },
     {
       id: 4,
-      name: "Video Calling Assistance",
-      icon: FaVideo,
+      name: "Ramadan Special Hall",
+      icon: GiStarSwirl,
       description:
-        "Technical support for video calls with family during ceremonies or emergencies",
+        "Special prayer hall for Taraweeh prayers and Iftar gatherings during Ramadan.",
       longDescription:
-        "We help set up and facilitate video calls with family members who cannot attend in person. Perfect for weddings, funerals, and ceremonies.",
-      location: "Remote Support",
-      price: "499",
-      rating: 4.9,
-      reviews: 312,
-      image:
-        "https://images.pexels.com/photos/4492129/pexels-photo-4492129.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: [
-        "Video Setup",
-        "Platform Support",
-        "Recording",
-        "Multiple Participants",
-      ],
-      coordinatorName: "Vikram Singh",
-      experience: "5+ years",
-      responseTime: "15 mins",
-      contactNumber: "+91 98765 43213",
-      whatsappNumber: "+91 98765 43213",
-      alternateNumber: "+91 99887 66551",
-    },
-    {
-      id: 5,
-      name: "Funeral Ceremony Invitations",
-      icon: GiFamilyTree,
-      description:
-        "Professional calling service to invite relatives to funeral ceremonies",
-      longDescription:
-        "Sensitive and respectful calling service to invite family members to funeral ceremonies. We handle the emotional aspect with care and compassion.",
-      location: "Pan India",
-      price: "2,999",
+        "Dedicated hall for Ramadan prayers including Taraweeh, Qiyam-ul-lail, and Iftar gatherings. Complete with kitchen for Iftar preparation and AC for comfort.",
+      location: "Multiple Locations",
+      price: "3,999/month",
       rating: 4.9,
       reviews: 278,
       image:
-        "https://images.pexels.com/photos/6605287/pexels-photo-6605287.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: [
-        "Personalized Calls",
-        "RSVP Tracking",
-        "Location Details",
-        "Follow-ups",
-      ],
-      coordinatorName: "Meera Joshi",
-      experience: "12+ years",
-      responseTime: "24 hours",
+        "https://images.pexels.com/photos/4650705/pexels-photo-4650705.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: ["Iftar Kitchen", "AC Hall", "Quran Copies", "Parking"],
+      coordinatorName: "Hafiz Usman",
+      experience: "10+ years",
+      responseTime: "12 hours",
+      contactNumber: "+91 98765 43213",
+      whatsappNumber: "+91 98765 43213",
+      alternateNumber: "+91 99887 66551",
+
+      capacity: "400 people",
+      amenities: ["Kitchen", "Dining Area", "Wudu Area", "Projector"],
+    },
+    {
+      id: 5,
+      name: "Women's Prayer Hall",
+      icon: FaHeart,
+      description: "Private and comfortable prayer hall exclusively for women.",
+      longDescription:
+        "Safe and comfortable prayer space exclusively for women. Includes separate entrance, childcare area, and female instructors for Quran classes.",
+      location: "Residential Area",
+      price: "1,999/day",
+      rating: 4.8,
+      reviews: 145,
+      image:
+        "https://images.pexels.com/photos/4492129/pexels-photo-4492129.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: ["Private Entrance", "Childcare", "Female Staff", "Library"],
+      coordinatorName: "Aisha Begum",
+      experience: "8+ years",
+      responseTime: "3 hours",
       contactNumber: "+91 98765 43214",
       whatsappNumber: "+91 98765 43214",
       alternateNumber: "+91 99887 66550",
+
+      capacity: "150 women",
+      amenities: ["Child Room", "Parking", "AC", "Kitchen"],
     },
     {
       id: 6,
-      name: "Wedding Invitation Calls",
-      icon: GiHearts,
+      name: "Eid Prayer Ground",
+      icon: FaUsers,
       description:
-        "Traditional invitation calls to relatives for wedding ceremonies",
+        "Large open prayer ground for Eid-ul-Fitr and Eid-ul-Adha prayers.",
       longDescription:
-        "Professional calling service for wedding invitations. Our team makes warm, personalized calls to invite relatives to your special day.",
-      location: "Pan India",
-      price: "3,999",
-      rating: 4.8,
-      reviews: 445,
+        "Spacious open ground for Eid prayers accommodating thousands of worshippers. Includes stage for Imam, sound system, and separate areas for women.",
+      location: "Open Ground",
+      price: "5,999/event",
+      rating: 4.7,
+      reviews: 98,
       image:
-        "https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: [
-        "Personalized Script",
-        "RSVP Collection",
-        "Guest List Management",
-        "Follow-up Calls",
-      ],
-      coordinatorName: "Sneha Reddy",
-      experience: "7+ years",
-      responseTime: "48 hours",
+        "https://images.pexels.com/photos/3768914/pexels-photo-3768914.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: ["Open Ground", "Sound System", "Shade Available", "Parking"],
+      coordinatorName: "Maulana Saeed",
+      experience: "18+ years",
+      responseTime: "24 hours",
       contactNumber: "+91 98765 43215",
       whatsappNumber: "+91 98765 43215",
       alternateNumber: "+91 99887 66549",
+
+      capacity: "2000+ people",
+      amenities: ["Parking", "Water Facility", "First Aid", "Security"],
     },
     {
       id: 7,
-      name: "Relatives Locator Service",
-      icon: GiConversation,
+      name: "Islamic Learning Center",
+      icon: GiPrayer,
       description:
-        "Find and connect with long-lost relatives anywhere in the world",
+        "Prayer hall combined with classrooms for Quran and Islamic studies.",
       longDescription:
-        "Specialized service to locate and establish contact with relatives you've lost touch with. We use various resources to find them.",
-      location: "Global",
-      price: "4,999",
-      rating: 4.6,
-      reviews: 98,
+        "Multi-purpose facility with prayer hall and separate classrooms for Quran teaching, Islamic studies, and Arabic language classes.",
+      location: "Educational Hub",
+      price: "3,499/day",
+      rating: 4.8,
+      reviews: 112,
       image:
-        "https://images.pexels.com/photos/5668480/pexels-photo-5668480.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: [
-        "Tracing Service",
-        "Address Verification",
-        "Contact Establishment",
-        "Confidential",
-      ],
-      coordinatorName: "Amitabh Thakur",
+        "https://images.pexels.com/photos/5428010/pexels-photo-5428010.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: ["Classrooms", "Library", "Prayer Hall", "Teacher Rooms"],
+      coordinatorName: "Dr. Zakir Hussain",
       experience: "15+ years",
-      responseTime: "3-5 days",
+      responseTime: "6 hours",
       contactNumber: "+91 98765 43216",
       whatsappNumber: "+91 98765 43216",
       alternateNumber: "+91 99887 66548",
+
+      capacity: "250 people",
+      amenities: ["Library", "Projector", "AC", "Cafeteria"],
     },
     {
       id: 8,
-      name: "24/7 Emergency Helpline",
-      icon: MdEmergency,
+      name: "24/7 Open Prayer Room",
+      icon: GiCandleHolder,
       description:
-        "Round-the-clock assistance for contacting family during crises",
+        "Round-the-clock prayer room for individual worship and meditation.",
       longDescription:
-        "24/7 emergency helpline service to help you contact family members during medical emergencies, accidents, or any critical situation.",
-      location: "24/7 Support",
-      price: "999/month",
+        "Always open prayer room for those who wish to pray at any time. Quiet, clean, and peaceful environment with ablution facilities available 24/7.",
+      location: "Multiple Locations",
+      price: "499/visit",
       rating: 4.9,
-      reviews: 567,
+      reviews: 345,
       image:
-        "https://images.pexels.com/photos/7659560/pexels-photo-7659560.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: [
-        "24/7 Availability",
-        "Emergency Protocols",
-        "Multi-language",
-        "Priority Response",
-      ],
-      coordinatorName: "Emergency Team",
+        "https://images.pexels.com/photos/3618557/pexels-photo-3618557.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: ["24/7 Access", "Clean Facility", "Wudu Area", "Security"],
+      coordinatorName: "Security Team",
       experience: "Always Available",
       responseTime: "Immediate",
-      contactNumber: "+91 1800 123 4567",
+      contactNumber: "+91 98765 43217",
       whatsappNumber: "+91 98765 43217",
       alternateNumber: "+91 99887 66547",
       languages: " ",
+      capacity: "50 people",
+      amenities: ["CCTV", "AC", "Prayer Mats", "Quran Copies"],
     },
   ];
-
-  const handleBookNow = (service: any) => {
-    setSelectedServiceForBooking(service);
-    setShowBookingForm(true);
-  };
 
   const handleViewDetails = (service: any) => {
     setSelectedService(service);
@@ -293,6 +308,11 @@ function CallingRelativesServices() {
     );
   };
 
+  const handleBookNow = (service: any) => {
+    setSelectedServiceForBooking(service);
+    setShowBookingForm(true);
+  };
+
   return (
     <div className="min-h-screen bg-[#FDF8F2]">
       <Topbar />
@@ -302,6 +322,11 @@ function CallingRelativesServices() {
       <section className="relative text-white overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/3618557/pexels-photo-3618557.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="Prayer Hall"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-[#8B5E3C]/80 to-[#5A3E2B]/90"></div>
         </div>
 
@@ -322,46 +347,46 @@ function CallingRelativesServices() {
           <div className="max-w-3xl mx-auto text-center">
             {/* Sacred Symbol */}
             <div className="flex items-center justify-center gap-2 text-[#F5E9D9] mb-4">
-              <GiSoundOn className="text-2xl" />
+              <GiPrayer className="text-2xl" />
               <span className="text-sm tracking-widest">
-                संपर्क • CONNECT • ਸੰਪਰਕ
+                नमाज़ • PRAYER • نماز
               </span>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-serif text-white mb-4 leading-tight">
-              Calling Relatives Services
+              Prayer Hall Services
               <span className="block text-xl md:text-2xl font-light text-[#F5E9D9] mt-3">
-                Stay Connected with Family Anywhere, Anytime
+                Sacred Spaces for Worship and Community Gatherings
               </span>
             </h1>
 
             <p className="text-base md:text-lg text-white mb-6 max-w-2xl mx-auto">
-              Professional calling services to help you connect with relatives
-              during emergencies, ceremonies, and special occasions.
-              Compassionate and reliable communication assistance.
+              Well-maintained prayer halls for daily prayers, special occasions,
+              and community events. Clean, peaceful, and spiritually uplifting
+              environments.
             </p>
 
             {/* Emergency Contact */}
             <div className="inline-flex items-center gap-4 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6">
               <FaPhoneAlt className="text-white text-xl animate-pulse" />
               <span className="text-white font-bold text-xl">
-                24/7 Helpline: +91 1800 123 4567
+                24/7 Booking: +91 1800 123 4567
               </span>
             </div>
 
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-6">
               <div>
-                <div className="text-2xl text-white">50K+</div>
-                <div className="text-sm text-[#F5E9D9]">Calls Connected</div>
+                <div className="text-2xl text-white">50+</div>
+                <div className="text-sm text-[#F5E9D9]">Prayer Halls</div>
               </div>
               <div>
-                <div className="text-2xl text-white">15+</div>
-                <div className="text-sm text-[#F5E9D9]">Languages</div>
+                <div className="text-2xl text-white">100K+</div>
+                <div className="text-sm text-[#F5E9D9]">Worshippers Served</div>
               </div>
               <div>
-                <div className="text-2xl text-white">98%</div>
-                <div className="text-sm text-[#F5E9D9]">Success Rate</div>
+                <div className="text-2xl text-white">24/7</div>
+                <div className="text-sm text-[#F5E9D9]">Open Facilities</div>
               </div>
             </div>
           </div>
@@ -388,16 +413,16 @@ function CallingRelativesServices() {
         <div className="text-center mb-12 relative">
           {/* Decorative Elements */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 w-20 h-20 opacity-10">
-            <GiTalk className="w-full h-full text-[#8B5E3C]" />
+            <GiTempleDoor className="w-full h-full text-[#8B5E3C]" />
           </div>
 
           <div className="relative">
             <span className="text-[#C89B6D] tracking-widest text-sm">
-              ॐ CONNECTION SERVICES ॐ
+              ॐ PRAYER HALL SERVICES ॐ
             </span>
 
             <h2 className="text-3xl md:text-4xl font-serif text-[#5A3E2B] mt-3 mb-4">
-              Professional Calling Assistance
+              Sacred Spaces for Worship
               <span className="block text-[#8B5E3C]">for Every Occasion</span>
             </h2>
 
@@ -409,16 +434,16 @@ function CallingRelativesServices() {
             </div>
 
             <p className="text-sm text-[#7B5E47] max-w-2xl mx-auto">
-              From emergency notifications to wedding invitations, our
-              professional calling services ensure your message reaches every
-              family member with care and clarity.
+              From daily prayers to special occasions, our prayer halls provide
+              peaceful and dignified spaces for worship and community
+              gatherings.
             </p>
           </div>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {callingServices.map((service) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+          {prayerHallServices.map((service) => {
             const Icon = service.icon;
 
             return (
@@ -454,10 +479,10 @@ function CallingRelativesServices() {
                     </span>
                   </div>
 
-                  {/* Language Badge */}
+                  {/* Capacity Badge */}
                   <div className="absolute bottom-2 right-2 z-20 bg-[#8B5E3C]/90 backdrop-blur-sm px-2 py-0.5 rounded-full">
                     <span className="text-white text-[10px] font-medium">
-                      {service.languages}
+                      {service.capacity}
                     </span>
                   </div>
 
@@ -511,15 +536,11 @@ function CallingRelativesServices() {
                   <div className="mb-2 space-y-1">
                     <div className="flex items-center gap-1 text-[10px] text-[#7B5E47]">
                       <MdCall className="text-[#C89B6D] text-[10px]" />
-                      <span className="truncate text-[14px]">
-                        {service.contactNumber}
-                      </span>
+                      <span className="truncate">{service.contactNumber}</span>
                     </div>
                     <div className="flex items-center gap-1 text-[10px] text-[#7B5E47]">
                       <FaWhatsapp className="text-[#25D366] text-[10px]" />
-                      <span className="truncate text-[14px]">
-                        {service.whatsappNumber}
-                      </span>
+                      <span className="truncate">{service.whatsappNumber}</span>
                     </div>
                   </div>
 
@@ -537,6 +558,18 @@ function CallingRelativesServices() {
                         onwards
                       </span>
                     </div>
+                  </div>
+
+                  {/* Amenities Preview */}
+                  <div className="flex flex-wrap gap-1 mb-2">
+                    {service.amenities.slice(0, 2).map((amenity, idx) => (
+                      <span
+                        key={idx}
+                        className="text-[8px] px-1 py-0.5 bg-[#C89B6D]/10 text-[#8B5E3C] rounded"
+                      >
+                        {amenity}
+                      </span>
+                    ))}
                   </div>
 
                   {/* Buttons */}
@@ -572,7 +605,7 @@ function CallingRelativesServices() {
         </div>
       </section>
 
-      {/* Why Choose Us Section - 4 Columns */}
+      {/* Why Choose Us Section */}
       <section className="py-12 bg-[#F5E9D9] relative overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-10">
@@ -583,7 +616,7 @@ function CallingRelativesServices() {
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-              Why Choose Our Calling Services?
+              Why Choose Our Prayer Halls?
             </h2>
             <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
           </div>
@@ -592,23 +625,23 @@ function CallingRelativesServices() {
             {[
               {
                 icon: MdVerified,
-                title: "Professional Callers",
-                desc: "Trained professionals for sensitive communications",
+                title: "Clean & Pure",
+                desc: "Always clean and well-maintained",
               },
               {
                 icon: FaClock,
-                title: "24/7 Availability",
-                desc: "Round-the-clock service for emergencies",
+                title: "Flexible Timing",
+                desc: "Open for all prayer times",
               },
               {
                 icon: MdLanguage,
-                title: "Multi-Language Support",
-                desc: "Call in any Indian or international language",
+                title: "Multi-Language",
+                desc: "Imams available in multiple languages",
               },
               {
                 icon: FaHeart,
-                title: "Compassionate Service",
-                desc: "Handling every call with care and empathy",
+                title: "Peaceful Environment",
+                desc: "Calm and spiritual atmosphere",
               },
             ].map((item, idx) => {
               const Icon = item.icon;
@@ -633,11 +666,11 @@ function CallingRelativesServices() {
       <section className="py-12 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            How Our Calling Service Works
+            How to Book a Prayer Hall
           </h2>
           <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full mb-4"></div>
           <p className="text-sm text-[#7B5E47] max-w-2xl mx-auto">
-            Simple and efficient process to connect you with your relatives
+            Simple process to reserve a prayer hall for your needs
           </p>
         </div>
 
@@ -645,27 +678,27 @@ function CallingRelativesServices() {
           {[
             {
               step: "01",
-              title: "Share Details",
-              desc: "Provide relative contact list and message",
-              icon: FaEnvelope,
+              title: "Select Hall",
+              desc: "Choose prayer hall type and location",
+              icon: GiTempleDoor,
             },
             {
               step: "02",
-              title: "Choose Service",
-              desc: "Select the type of calling service needed",
-              icon: GiPhone,
+              title: "Check Availability",
+              desc: "Verify date and time slots",
+              icon: FaClock,
             },
             {
               step: "03",
-              title: "We Make Calls",
-              desc: "Our team contacts all your relatives",
-              icon: BsTelephoneFill,
+              title: "Make Booking",
+              desc: "Confirm reservation with payment",
+              icon: FaPhoneAlt,
             },
             {
               step: "04",
-              title: "Get Confirmation",
-              desc: "Receive updates and confirmations",
-              icon: MdMessage,
+              title: "Visit & Pray",
+              desc: "Use the facility at scheduled time",
+              icon: GiPrayer,
             },
           ].map((item, idx) => {
             const Icon = item.icon;
@@ -692,11 +725,11 @@ function CallingRelativesServices() {
         </div>
       </section>
 
-      {/* Communication Channels */}
+      {/* Facilities Section */}
       <section className="py-12 px-6 max-w-7xl mx-auto bg-white rounded-lg shadow-sm">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            Multiple Ways to Connect
+            Facilities We Provide
           </h2>
           <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
         </div>
@@ -704,17 +737,21 @@ function CallingRelativesServices() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             {
-              icon: FaPhoneAlt,
-              name: "Phone Calls",
-              desc: "Direct voice calls",
+              icon: MdAcUnit,
+              name: "Air Conditioning",
+              desc: "Comfortable environment",
             },
-            { icon: FaWhatsapp, name: "WhatsApp", desc: "Messages & calls" },
+            { icon: MdWifi, name: "Free WiFi", desc: "Stay connected" },
+            { icon: MdVolumeUp, name: "Sound System", desc: "Clear audio" },
+            { icon: MdKitchen, name: "Kitchen", desc: "Food preparation" },
+            { icon: FaUsers, name: "Separate Sections", desc: "Men & Women" },
+            { icon: MdChair, name: "Seating", desc: "Comfortable chairs" },
+            { icon: FaMapMarkerAlt, name: "Parking", desc: "Ample space" },
             {
-              icon: FaVideo,
-              name: "Video Calls",
-              desc: "Face-to-face connection",
+              icon: MdMeetingRoom,
+              name: "Meeting Rooms",
+              desc: "Community gatherings",
             },
-            { icon: FaEnvelope, name: "Email", desc: "Written communication" },
           ].map((item, idx) => {
             const Icon = item.icon;
             return (
@@ -734,7 +771,7 @@ function CallingRelativesServices() {
       <section className="py-12 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            What Families Say
+            What Worshippers Say
           </h2>
           <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
         </div>
@@ -742,21 +779,21 @@ function CallingRelativesServices() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
             {
-              name: "Sunita Gupta",
+              name: "Mohammad Farooq",
               location: "Delhi",
-              text: "During my father's last moments, they helped me reach all relatives within minutes. Grateful for their prompt service.",
+              text: "Beautiful prayer hall with peaceful atmosphere. Very clean and well-maintained. The separate sections for women are excellent.",
               rating: 5,
             },
             {
-              name: "Rajesh Khanna",
+              name: "Fatima Begum",
               location: "Mumbai",
-              text: "Used their wedding invitation service. All 200+ relatives were called personally. Very professional and warm.",
+              text: "Used the women's prayer hall for our Quran classes. Very safe and comfortable environment. Highly recommended.",
               rating: 5,
             },
             {
-              name: "Priyanka Singh",
-              location: "Bangalore",
-              text: "Found my long-lost cousin through their locator service. Thank you for reuniting our family!",
+              name: "Abdullah Khan",
+              location: "Hyderabad",
+              text: "The Eid prayer ground was perfect for our community. Excellent arrangements and sound system.",
               rating: 5,
             },
           ].map((testimonial, idx) => (
@@ -789,13 +826,13 @@ function CallingRelativesServices() {
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center px-6">
-          <GiSoundOn className="text-5xl mx-auto mb-4 opacity-50" />
+          <GiPrayer className="text-5xl mx-auto mb-4 opacity-50" />
           <h2 className="text-3xl md:text-4xl font-serif text-white mb-4">
-            Need to Reach Your Relatives?
+            Need a Prayer Hall?
           </h2>
           <p className="text-base md:text-lg text-white mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed">
-            Whether it's an emergency or a celebration, our professional calling
-            team is here to help you connect with every family member.
+            Whether for daily prayers, special occasions, or community events,
+            we have the perfect prayer hall for your needs.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <button
@@ -803,7 +840,7 @@ function CallingRelativesServices() {
               className="px-8 py-3 bg-white text-[#8B5E3C] rounded-lg font-medium text-base hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
             >
               <FaPhoneAlt />
-              Call Helpline
+              Book Now
             </button>
             <button
               onClick={() => handleWhatsApp("+919876543210")}
@@ -813,19 +850,20 @@ function CallingRelativesServices() {
               WhatsApp Us
             </button>
           </div>
-          {/* Emergency Contact Numbers */}
+
+          {/* Contact Numbers */}
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+              <p className="text-[#F5E9D9]">North Delhi</p>
+              <p className="font-bold">+91 98765 43210</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+              <p className="text-[#F5E9D9]">South Delhi</p>
+              <p className="font-bold">+91 98765 43213</p>
+            </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
               <p className="text-[#F5E9D9]">Emergency</p>
               <p className="font-bold">+91 1800 123 4567</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <p className="text-[#F5E9D9]">Wedding/Event</p>
-              <p className="font-bold">+91 98765 43215</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <p className="text-[#F5E9D9]">Funeral/Ceremony</p>
-              <p className="font-bold">+91 98765 43214</p>
             </div>
           </div>
         </div>
@@ -836,4 +874,4 @@ function CallingRelativesServices() {
   );
 }
 
-export default CallingRelativesServices;
+export default PrayerHallServices;

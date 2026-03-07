@@ -14,6 +14,10 @@ import {
   GiConversation,
   GiSoundOn,
   GiSurfBoard,
+  GiCarWheel,
+  GiFlowerStar,
+  GiCoffin,
+  GiFlowerPot,
 } from "react-icons/gi";
 import {
   FaMapMarkerAlt,
@@ -28,6 +32,9 @@ import {
   FaUsers,
   FaUserFriends,
   FaHeart,
+  FaCar,
+  FaSnowflake,
+  FaLeaf,
 } from "react-icons/fa";
 import {
   MdVerified,
@@ -39,6 +46,8 @@ import {
   MdPhoneCallback,
   MdCall,
   MdCallEnd,
+  MdLocalFlorist,
+  MdAcUnit,
 } from "react-icons/md";
 import { PiFlowerLotus } from "react-icons/pi";
 import {
@@ -46,236 +55,186 @@ import {
   BsChatDots,
   BsTelephone,
   BsTelephoneFill,
+  BsTruck,
 } from "react-icons/bs";
 import { TbMessageCircle, TbPhoneCall } from "react-icons/tb";
-import { RiCustomerService2Fill } from "react-icons/ri";
+import { RiCustomerService2Fill, RiEmotionSadLine } from "react-icons/ri";
 import { IoCall } from "react-icons/io5";
 
-function CallingRelativesServices() {
+function HearseVanServices() {
   const [selectedService, setSelectedService] = useState(null);
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [selectedServiceForBooking, setSelectedServiceForBooking] =
     useState(null);
 
-  const callingServices = [
+  const hearseVanServices = [
     {
       id: 1,
-      name: "Emergency Family Notification",
-      icon: GiSoundOn,
+      name: "Standard Hearse Van",
+      icon: GiCarWheel,
       description:
-        "Immediate notification to family members in case of emergency or critical situation",
+        "Dignified transportation service for the departed with professional drivers.",
       longDescription:
-        "Rapid notification service to inform family members about emergencies. Our team contacts all listed relatives immediately and coordinates their response.",
-      location: "Worldwide",
-      price: "999",
+        "Our standard hearse van service provides respectful and dignified transportation for your loved one. Professional drivers ensure a smooth and solemn journey with complete reverence.",
+      location: "City Wide",
+      price: "2,999",
       rating: 4.9,
-      reviews: 234,
+      reviews: 210,
       image:
-        "https://images.pexels.com/photos/7659560/pexels-photo-7659560.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/667200/pexels-photo-667200.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
+        "Professional Driver",
+        "Decorated Vehicle",
         "24/7 Availability",
-        "Multi-language",
-        "SMS & Call",
-        "Confirmation Tracking",
+        "Air Conditioned",
       ],
-      coordinatorName: "Priya Sharma",
-      experience: "8+ years",
-      responseTime: "5-10 mins",
+      coordinatorName: "Ravi Sharma",
+      experience: "10+ years",
+      responseTime: "30 mins",
       contactNumber: "+91 98765 43210",
       whatsappNumber: "+91 98765 43210",
       alternateNumber: "+91 99887 66554",
     },
     {
       id: 2,
-      name: "International Relative Connect",
-      icon: GiGlobe,
+      name: "Premium Glass Hearse",
+      icon: GiFlowerStar,
       description:
-        "Connect with family members abroad during emergencies or important events",
+        "Luxury glass hearse van with floral decoration and respectful presentation.",
       longDescription:
-        "Specialized service to contact relatives in different countries. We handle time zones, language barriers, and ensure your message reaches them.",
-      location: "International",
-      price: "2,499",
+        "Premium glass hearse van featuring elegant glass panels for dignified viewing. Beautifully decorated with fresh flowers and professional attendants for the final journey.",
+      location: "City Wide",
+      price: "4,999",
       rating: 4.8,
-      reviews: 156,
+      reviews: 165,
       image:
-        "https://images.pexels.com/photos/4611040/pexels-photo-4611040.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "International Calling",
-        "Time Zone Management",
-        "Translation",
-        "Follow-ups",
+        "Glass Viewing",
+        "Floral Decoration",
+        "Professional Staff",
+        "Air Conditioned",
       ],
-      coordinatorName: "Rajesh Kumar",
-      experience: "10+ years",
-      responseTime: "30 mins",
+      coordinatorName: "Amit Verma",
+      experience: "12+ years",
+      responseTime: "20 mins",
       contactNumber: "+91 98765 43211",
       whatsappNumber: "+91 98765 43211",
       alternateNumber: "+91 99887 66553",
     },
     {
       id: 3,
-      name: "Mass Notification Service",
-      icon: GiSurfBoard,
+      name: "Freezer Box Hearse Van",
+      icon: MdAcUnit,
       description:
-        "Simultaneously notify all family members and relatives about important events",
+        "Hearse van with freezer box facility for long-distance transportation.",
       longDescription:
-        "Bulk notification service to inform all family members simultaneously about weddings, funerals, ceremonies, or emergencies.",
-      location: "Worldwide",
-      price: "1,999",
-      rating: 4.7,
-      reviews: 189,
+        "Specialized hearse van equipped with freezer box for maintaining dignity during long-distance transportation. Ideal for inter-city or inter-state transfers.",
+      location: "Inter-City",
+      price: "5,999",
+      rating: 4.9,
+      reviews: 132,
       image:
-        "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: ["Bulk SMS", "Voice Broadcast", "WhatsApp Groups", "Email"],
-      coordinatorName: "Anita Desai",
-      experience: "6+ years",
-      responseTime: "1 hour",
+        "https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: [
+        "Freezer Box",
+        "Long Distance Travel",
+        "24/7 Service",
+        "Trained Staff",
+      ],
+      coordinatorName: "Sanjay Gupta",
+      experience: "15+ years",
+      responseTime: "45 mins",
       contactNumber: "+91 98765 43212",
       whatsappNumber: "+91 98765 43212",
       alternateNumber: "+91 99887 66552",
+      languages: "Hindi, English, Gujarati",
     },
     {
       id: 4,
-      name: "Video Calling Assistance",
-      icon: FaVideo,
+      name: "Luxury Funeral Hearse",
+      icon: GiCoffin,
       description:
-        "Technical support for video calls with family during ceremonies or emergencies",
+        "Premium funeral hearse van for dignified final journey with elegant setup.",
       longDescription:
-        "We help set up and facilitate video calls with family members who cannot attend in person. Perfect for weddings, funerals, and ceremonies.",
-      location: "Remote Support",
-      price: "499",
+        "Ultimate luxury hearse van with premium interior finishes, elegant drapery, and VIP treatment. Complete with floral arrangements and ceremonial decorations.",
+      location: "Premium Service",
+      price: "7,999",
       rating: 4.9,
-      reviews: 312,
+      reviews: 98,
       image:
-        "https://images.pexels.com/photos/4492129/pexels-photo-4492129.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/1036627/pexels-photo-1036627.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Video Setup",
-        "Platform Support",
-        "Recording",
-        "Multiple Participants",
+        "Luxury Interior",
+        "Floral Decoration",
+        "Professional Driver",
+        "VIP Service",
       ],
-      coordinatorName: "Vikram Singh",
-      experience: "5+ years",
-      responseTime: "15 mins",
+      coordinatorName: "Vikas Singh",
+      experience: "8+ years",
+      responseTime: "1 hour",
       contactNumber: "+91 98765 43213",
       whatsappNumber: "+91 98765 43213",
       alternateNumber: "+91 99887 66551",
+      languages: "Hindi, English, Urdu",
     },
     {
       id: 5,
-      name: "Funeral Ceremony Invitations",
-      icon: GiFamilyTree,
+      name: "Tempo Traveller Hearse",
+      icon: BsTruck,
       description:
-        "Professional calling service to invite relatives to funeral ceremonies",
+        "Spacious hearse van for large families to accompany the final journey.",
       longDescription:
-        "Sensitive and respectful calling service to invite family members to funeral ceremonies. We handle the emotional aspect with care and compassion.",
-      location: "Pan India",
-      price: "2,999",
-      rating: 4.9,
-      reviews: 278,
+        "Large capacity hearse van allowing family members to accompany their loved one. Comfortable seating and dignified setup for the procession.",
+      location: "Family Package",
+      price: "8,999",
+      rating: 4.7,
+      reviews: 76,
       image:
-        "https://images.pexels.com/photos/6605287/pexels-photo-6605287.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/1052753/pexels-photo-1052753.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Personalized Calls",
-        "RSVP Tracking",
-        "Location Details",
-        "Follow-ups",
+        "Family Seating",
+        "AC Comfort",
+        "Procession Ready",
+        "Professional Driver",
       ],
-      coordinatorName: "Meera Joshi",
-      experience: "12+ years",
-      responseTime: "24 hours",
+      coordinatorName: "Manoj Tiwari",
+      experience: "9+ years",
+      responseTime: "1.5 hours",
       contactNumber: "+91 98765 43214",
       whatsappNumber: "+91 98765 43214",
       alternateNumber: "+91 99887 66550",
+      languages: "Hindi, English, Bhojpuri",
     },
     {
       id: 6,
-      name: "Wedding Invitation Calls",
-      icon: GiHearts,
+      name: "Flower Decorated Hearse",
+      icon: GiFlowerPot,
       description:
-        "Traditional invitation calls to relatives for wedding ceremonies",
+        "Beautifully decorated hearse van with fresh flowers and garlands.",
       longDescription:
-        "Professional calling service for wedding invitations. Our team makes warm, personalized calls to invite relatives to your special day.",
-      location: "Pan India",
+        "Traditional hearse van adorned with fresh marigold flowers and garlands. Respectful and beautiful presentation for the final journey.",
+      location: "With Decoration",
       price: "3,999",
       rating: 4.8,
-      reviews: 445,
+      reviews: 145,
       image:
-        "https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/931170/pexels-photo-931170.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Personalized Script",
-        "RSVP Collection",
-        "Guest List Management",
-        "Follow-up Calls",
+        "Fresh Flowers",
+        "Traditional Decor",
+        "Garlands Included",
+        "Fragrant Setup",
       ],
-      coordinatorName: "Sneha Reddy",
+      coordinatorName: "Rajesh Pandey",
       experience: "7+ years",
-      responseTime: "48 hours",
+      responseTime: "2 hours",
       contactNumber: "+91 98765 43215",
       whatsappNumber: "+91 98765 43215",
       alternateNumber: "+91 99887 66549",
-    },
-    {
-      id: 7,
-      name: "Relatives Locator Service",
-      icon: GiConversation,
-      description:
-        "Find and connect with long-lost relatives anywhere in the world",
-      longDescription:
-        "Specialized service to locate and establish contact with relatives you've lost touch with. We use various resources to find them.",
-      location: "Global",
-      price: "4,999",
-      rating: 4.6,
-      reviews: 98,
-      image:
-        "https://images.pexels.com/photos/5668480/pexels-photo-5668480.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: [
-        "Tracing Service",
-        "Address Verification",
-        "Contact Establishment",
-        "Confidential",
-      ],
-      coordinatorName: "Amitabh Thakur",
-      experience: "15+ years",
-      responseTime: "3-5 days",
-      contactNumber: "+91 98765 43216",
-      whatsappNumber: "+91 98765 43216",
-      alternateNumber: "+91 99887 66548",
-    },
-    {
-      id: 8,
-      name: "24/7 Emergency Helpline",
-      icon: MdEmergency,
-      description:
-        "Round-the-clock assistance for contacting family during crises",
-      longDescription:
-        "24/7 emergency helpline service to help you contact family members during medical emergencies, accidents, or any critical situation.",
-      location: "24/7 Support",
-      price: "999/month",
-      rating: 4.9,
-      reviews: 567,
-      image:
-        "https://images.pexels.com/photos/7659560/pexels-photo-7659560.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: [
-        "24/7 Availability",
-        "Emergency Protocols",
-        "Multi-language",
-        "Priority Response",
-      ],
-      coordinatorName: "Emergency Team",
-      experience: "Always Available",
-      responseTime: "Immediate",
-      contactNumber: "+91 1800 123 4567",
-      whatsappNumber: "+91 98765 43217",
-      alternateNumber: "+91 99887 66547",
-      languages: " ",
+      languages: "Hindi, English, Maithili",
     },
   ];
-
-  const handleBookNow = (service: any) => {
-    setSelectedServiceForBooking(service);
-    setShowBookingForm(true);
-  };
 
   const handleViewDetails = (service: any) => {
     setSelectedService(service);
@@ -293,6 +252,11 @@ function CallingRelativesServices() {
     );
   };
 
+  const handleBookNow = (service: any) => {
+    setSelectedServiceForBooking(service);
+    setShowBookingForm(true);
+  };
+
   return (
     <div className="min-h-screen bg-[#FDF8F2]">
       <Topbar />
@@ -302,6 +266,11 @@ function CallingRelativesServices() {
       <section className="relative text-white overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/667200/pexels-photo-667200.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="Hearse Van"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-[#8B5E3C]/80 to-[#5A3E2B]/90"></div>
         </div>
 
@@ -322,46 +291,46 @@ function CallingRelativesServices() {
           <div className="max-w-3xl mx-auto text-center">
             {/* Sacred Symbol */}
             <div className="flex items-center justify-center gap-2 text-[#F5E9D9] mb-4">
-              <GiSoundOn className="text-2xl" />
+              <GiCarWheel className="text-2xl" />
               <span className="text-sm tracking-widest">
-                संपर्क • CONNECT • ਸੰਪਰਕ
+                अंतिम यात्रा • FINAL JOURNEY • ਅੰਤਿਮ ਯਾਤਰਾ
               </span>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-serif text-white mb-4 leading-tight">
-              Calling Relatives Services
+              Hearse Van Services
               <span className="block text-xl md:text-2xl font-light text-[#F5E9D9] mt-3">
-                Stay Connected with Family Anywhere, Anytime
+                Dignified Transportation for the Final Journey
               </span>
             </h1>
 
             <p className="text-base md:text-lg text-white mb-6 max-w-2xl mx-auto">
-              Professional calling services to help you connect with relatives
-              during emergencies, ceremonies, and special occasions.
-              Compassionate and reliable communication assistance.
+              Professional hearse van services ensuring a dignified and
+              respectful final journey for your loved ones. Available 24/7 with
+              compassionate staff.
             </p>
 
             {/* Emergency Contact */}
             <div className="inline-flex items-center gap-4 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6">
               <FaPhoneAlt className="text-white text-xl animate-pulse" />
               <span className="text-white font-bold text-xl">
-                24/7 Helpline: +91 1800 123 4567
+                24/7 Emergency: +91 1800 123 4567
               </span>
             </div>
 
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-6">
               <div>
-                <div className="text-2xl text-white">50K+</div>
-                <div className="text-sm text-[#F5E9D9]">Calls Connected</div>
+                <div className="text-2xl text-white">5000+</div>
+                <div className="text-sm text-[#F5E9D9]">Journeys Completed</div>
               </div>
               <div>
                 <div className="text-2xl text-white">15+</div>
-                <div className="text-sm text-[#F5E9D9]">Languages</div>
+                <div className="text-sm text-[#F5E9D9]">Fleet Size</div>
               </div>
               <div>
-                <div className="text-2xl text-white">98%</div>
-                <div className="text-sm text-[#F5E9D9]">Success Rate</div>
+                <div className="text-2xl text-white">24/7</div>
+                <div className="text-sm text-[#F5E9D9]">Availability</div>
               </div>
             </div>
           </div>
@@ -388,17 +357,19 @@ function CallingRelativesServices() {
         <div className="text-center mb-12 relative">
           {/* Decorative Elements */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 w-20 h-20 opacity-10">
-            <GiTalk className="w-full h-full text-[#8B5E3C]" />
+            <GiCarWheel className="w-full h-full text-[#8B5E3C]" />
           </div>
 
           <div className="relative">
             <span className="text-[#C89B6D] tracking-widest text-sm">
-              ॐ CONNECTION SERVICES ॐ
+              ॐ HEARSE VAN SERVICES ॐ
             </span>
 
             <h2 className="text-3xl md:text-4xl font-serif text-[#5A3E2B] mt-3 mb-4">
-              Professional Calling Assistance
-              <span className="block text-[#8B5E3C]">for Every Occasion</span>
+              Respectful Transportation
+              <span className="block text-[#8B5E3C]">
+                for the Final Journey
+              </span>
             </h2>
 
             {/* Decorative Line */}
@@ -409,16 +380,15 @@ function CallingRelativesServices() {
             </div>
 
             <p className="text-sm text-[#7B5E47] max-w-2xl mx-auto">
-              From emergency notifications to wedding invitations, our
-              professional calling services ensure your message reaches every
-              family member with care and clarity.
+              Choose from our range of hearse vans designed to provide dignified
+              and respectful transportation for your loved ones.
             </p>
           </div>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {callingServices.map((service) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+          {hearseVanServices.map((service) => {
             const Icon = service.icon;
 
             return (
@@ -454,14 +424,6 @@ function CallingRelativesServices() {
                     </span>
                   </div>
 
-                  {/* Language Badge */}
-                  <div className="absolute bottom-2 right-2 z-20 bg-[#8B5E3C]/90 backdrop-blur-sm px-2 py-0.5 rounded-full">
-                    <span className="text-white text-[10px] font-medium">
-                      {service.languages}
-                    </span>
-                  </div>
-
-                  {/* Service Name on Image */}
                   <div className="absolute bottom-2 left-2 z-20">
                     <h3 className="text-base font-serif text-white drop-shadow-lg">
                       {service.name}
@@ -511,15 +473,11 @@ function CallingRelativesServices() {
                   <div className="mb-2 space-y-1">
                     <div className="flex items-center gap-1 text-[10px] text-[#7B5E47]">
                       <MdCall className="text-[#C89B6D] text-[10px]" />
-                      <span className="truncate text-[14px]">
-                        {service.contactNumber}
-                      </span>
+                      <span className="truncate">{service.contactNumber}</span>
                     </div>
                     <div className="flex items-center gap-1 text-[10px] text-[#7B5E47]">
                       <FaWhatsapp className="text-[#25D366] text-[10px]" />
-                      <span className="truncate text-[14px]">
-                        {service.whatsappNumber}
-                      </span>
+                      <span className="truncate">{service.whatsappNumber}</span>
                     </div>
                   </div>
 
@@ -572,7 +530,7 @@ function CallingRelativesServices() {
         </div>
       </section>
 
-      {/* Why Choose Us Section - 4 Columns */}
+      {/* Why Choose Us Section */}
       <section className="py-12 bg-[#F5E9D9] relative overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-10">
@@ -583,7 +541,7 @@ function CallingRelativesServices() {
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-              Why Choose Our Calling Services?
+              Why Choose Our Hearse Van Services?
             </h2>
             <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
           </div>
@@ -592,8 +550,8 @@ function CallingRelativesServices() {
             {[
               {
                 icon: MdVerified,
-                title: "Professional Callers",
-                desc: "Trained professionals for sensitive communications",
+                title: "Professional Drivers",
+                desc: "Experienced and respectful drivers",
               },
               {
                 icon: FaClock,
@@ -601,14 +559,14 @@ function CallingRelativesServices() {
                 desc: "Round-the-clock service for emergencies",
               },
               {
-                icon: MdLanguage,
-                title: "Multi-Language Support",
-                desc: "Call in any Indian or international language",
+                icon: FaShieldAlt,
+                title: "Dignified Service",
+                desc: "Handled with utmost respect",
               },
               {
-                icon: FaHeart,
-                title: "Compassionate Service",
-                desc: "Handling every call with care and empathy",
+                icon: FaLeaf,
+                title: "Well Maintained",
+                desc: "Clean and well-maintained fleet",
               },
             ].map((item, idx) => {
               const Icon = item.icon;
@@ -633,11 +591,11 @@ function CallingRelativesServices() {
       <section className="py-12 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            How Our Calling Service Works
+            How Our Service Works
           </h2>
           <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full mb-4"></div>
           <p className="text-sm text-[#7B5E47] max-w-2xl mx-auto">
-            Simple and efficient process to connect you with your relatives
+            Simple and respectful process to arrange hearse van services
           </p>
         </div>
 
@@ -645,27 +603,27 @@ function CallingRelativesServices() {
           {[
             {
               step: "01",
-              title: "Share Details",
-              desc: "Provide relative contact list and message",
-              icon: FaEnvelope,
+              title: "Contact Us",
+              desc: "Call or WhatsApp our 24/7 helpline",
+              icon: FaPhoneAlt,
             },
             {
               step: "02",
-              title: "Choose Service",
-              desc: "Select the type of calling service needed",
-              icon: GiPhone,
+              title: "Choose Van",
+              desc: "Select the type of hearse van needed",
+              icon: GiCarWheel,
             },
             {
               step: "03",
-              title: "We Make Calls",
-              desc: "Our team contacts all your relatives",
-              icon: BsTelephoneFill,
+              title: "Provide Details",
+              desc: "Share location and time requirements",
+              icon: FaMapMarkerAlt,
             },
             {
               step: "04",
-              title: "Get Confirmation",
-              desc: "Receive updates and confirmations",
-              icon: MdMessage,
+              title: "Van Arrives",
+              desc: "Hearse van reaches at scheduled time",
+              icon: BsTelephoneFill,
             },
           ].map((item, idx) => {
             const Icon = item.icon;
@@ -692,44 +650,6 @@ function CallingRelativesServices() {
         </div>
       </section>
 
-      {/* Communication Channels */}
-      <section className="py-12 px-6 max-w-7xl mx-auto bg-white rounded-lg shadow-sm">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            Multiple Ways to Connect
-          </h2>
-          <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            {
-              icon: FaPhoneAlt,
-              name: "Phone Calls",
-              desc: "Direct voice calls",
-            },
-            { icon: FaWhatsapp, name: "WhatsApp", desc: "Messages & calls" },
-            {
-              icon: FaVideo,
-              name: "Video Calls",
-              desc: "Face-to-face connection",
-            },
-            { icon: FaEnvelope, name: "Email", desc: "Written communication" },
-          ].map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div key={idx} className="text-center p-3">
-                <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-[#F5E9D9] flex items-center justify-center">
-                  <Icon className="text-[#8B5E3C] text-xl" />
-                </div>
-                <h3 className="text-sm text-[#5A3E2B]">{item.name}</h3>
-                <p className="text-xs text-[#7B5E47]">{item.desc}</p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
       {/* Testimonials Section */}
       <section className="py-12 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-8">
@@ -742,21 +662,21 @@ function CallingRelativesServices() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
             {
-              name: "Sunita Gupta",
+              name: "Rajesh Gupta",
               location: "Delhi",
-              text: "During my father's last moments, they helped me reach all relatives within minutes. Grateful for their prompt service.",
+              text: "Very respectful and dignified service. The driver was professional and the van was clean. Grateful for their support during difficult time.",
               rating: 5,
             },
             {
-              name: "Rajesh Khanna",
+              name: "Sunita Sharma",
               location: "Mumbai",
-              text: "Used their wedding invitation service. All 200+ relatives were called personally. Very professional and warm.",
+              text: "They handled everything with such care and respect. The floral decoration was beautiful. Thank you for your compassionate service.",
               rating: 5,
             },
             {
-              name: "Priyanka Singh",
+              name: "Amit Kumar",
               location: "Bangalore",
-              text: "Found my long-lost cousin through their locator service. Thank you for reuniting our family!",
+              text: "Arranged hearse van at midnight. Very prompt response and professional service. Highly recommended.",
               rating: 5,
             },
           ].map((testimonial, idx) => (
@@ -789,13 +709,13 @@ function CallingRelativesServices() {
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center px-6">
-          <GiSoundOn className="text-5xl mx-auto mb-4 opacity-50" />
+          <GiCarWheel className="text-5xl mx-auto mb-4 opacity-50" />
           <h2 className="text-3xl md:text-4xl font-serif text-white mb-4">
-            Need to Reach Your Relatives?
+            Need a Hearse Van Immediately?
           </h2>
           <p className="text-base md:text-lg text-white mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed">
-            Whether it's an emergency or a celebration, our professional calling
-            team is here to help you connect with every family member.
+            Our 24/7 emergency service ensures a hearse van reaches you whenever
+            you need it. Compassionate and professional service always.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <button
@@ -803,7 +723,7 @@ function CallingRelativesServices() {
               className="px-8 py-3 bg-white text-[#8B5E3C] rounded-lg font-medium text-base hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
             >
               <FaPhoneAlt />
-              Call Helpline
+              Call Emergency Helpline
             </button>
             <button
               onClick={() => handleWhatsApp("+919876543210")}
@@ -813,6 +733,7 @@ function CallingRelativesServices() {
               WhatsApp Us
             </button>
           </div>
+
           {/* Emergency Contact Numbers */}
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
@@ -820,12 +741,12 @@ function CallingRelativesServices() {
               <p className="font-bold">+91 1800 123 4567</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <p className="text-[#F5E9D9]">Wedding/Event</p>
-              <p className="font-bold">+91 98765 43215</p>
+              <p className="text-[#F5E9D9]">Delhi NCR</p>
+              <p className="font-bold">+91 98765 43210</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <p className="text-[#F5E9D9]">Funeral/Ceremony</p>
-              <p className="font-bold">+91 98765 43214</p>
+              <p className="text-[#F5E9D9]">Mumbai</p>
+              <p className="font-bold">+91 98765 43213</p>
             </div>
           </div>
         </div>
@@ -836,4 +757,4 @@ function CallingRelativesServices() {
   );
 }
 
-export default CallingRelativesServices;
+export default HearseVanServices;

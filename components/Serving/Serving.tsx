@@ -67,7 +67,7 @@ export default function Serving() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <div className="relative h-[400px] md:h-[450px]">
                 <Image
-                  src="/assets/grahpravesh.jpg"
+                  src="/assets/pandit.avif"
                   alt="Serving with Compassion"
                   fill
                   className="object-cover"
@@ -77,31 +77,6 @@ export default function Serving() {
               </div>
 
               {/* Stats Badges */}
-              <div className="absolute bottom-6 left-6 right-6 flex flex-wrap gap-3">
-                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg flex-1 min-w-[100px]">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center">
-                      <FiClock className="w-4 h-4 text-[#8B6A3E]" />
-                    </div>
-                    <div>
-                      <p className="text-lg font-serif text-[#2C1810]">24/7</p>
-                      <p className="text-[9px] text-[#5A3E2B]/70">Support</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg flex-1 min-w-[100px]">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center">
-                      <FiUsers className="w-4 h-4 text-[#8B6A3E]" />
-                    </div>
-                    <div>
-                      <p className="text-lg font-serif text-[#2C1810]">500+</p>
-                      <p className="text-[9px] text-[#5A3E2B]/70">Families</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 

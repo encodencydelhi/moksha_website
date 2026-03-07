@@ -7,7 +7,7 @@ import Footer from "@/components/Footer/Footer";
 import Image from "next/image";
 import {
   FaBuilding,
-  FaMapMarkerAlt,
+  FaMapMarkerAlt, 
   FaPhoneAlt,
   FaEnvelope,
   FaFacebook,

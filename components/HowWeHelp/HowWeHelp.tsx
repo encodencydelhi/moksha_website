@@ -329,7 +329,9 @@ export default function HowWeCanHelp() {
           </p>
         </div>
       </div>
-      <div>
+
+      <div style={{ marginTop: "40px" }}>
+        {" "}
         <Mantra />
       </div>
     </section>

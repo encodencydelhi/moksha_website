@@ -14,6 +14,22 @@ import {
   GiConversation,
   GiSoundOn,
   GiSurfBoard,
+  GiFlowerPot,
+  GiFlowerStar,
+  GiIncense,
+  GiCandleHolder,
+  GiWoodPile,
+  GiWoodenDoor,
+  GiWoodenFence,
+  GiWoodCabin,
+  GiWoodStick,
+  GiFireplace,
+  GiFireBowl,
+  GiFireFlower,
+  GiFireAce,
+  GiFire,
+  GiFireRay,
+  GiFlowerTwirl,
 } from "react-icons/gi";
 import {
   FaMapMarkerAlt,
@@ -28,6 +44,13 @@ import {
   FaUsers,
   FaUserFriends,
   FaHeart,
+  FaLeaf,
+  FaTree,
+  FaFire,
+  FaWater,
+  FaMountain,
+  FaSun,
+  FaMoon,
 } from "react-icons/fa";
 import {
   MdVerified,
@@ -39,243 +62,284 @@ import {
   MdPhoneCallback,
   MdCall,
   MdCallEnd,
+  MdLocalFlorist,
+  MdLocalFireDepartment,
+  MdOutlineLocalFlorist,
+  MdAssuredWorkload,
+  MdNature,
+  MdOutdoorGrill,
+  MdCampaign,
 } from "react-icons/md";
-import { PiFlowerLotus } from "react-icons/pi";
+import { PiFlowerLotus, PiFlowerTulip, PiLeaf } from "react-icons/pi";
 import {
   BsSuitHeartFill,
   BsChatDots,
   BsTelephone,
   BsTelephoneFill,
+  BsDroplet,
+  BsDropletHalf,
+  BsDropletFill,
+  BsFire,
+  BsFlower1,
+  BsFlower2,
+  BsFlower3,
 } from "react-icons/bs";
-import { TbMessageCircle, TbPhoneCall } from "react-icons/tb";
-import { RiCustomerService2Fill } from "react-icons/ri";
-import { IoCall } from "react-icons/io5";
+import {
+  TbMessageCircle,
+  TbPhoneCall,
+  TbCrown,
+  TbFlower,
+} from "react-icons/tb";
+import { RiCustomerService2Fill, RiOilFill } from "react-icons/ri";
+import { IoCall, IoFlower, IoWater } from "react-icons/io5";
 
-function CallingRelativesServices() {
+function FuralSamagriServices() {
   const [selectedService, setSelectedService] = useState(null);
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [selectedServiceForBooking, setSelectedServiceForBooking] =
     useState(null);
 
-  const callingServices = [
+  const furalSamagriServices = [
     {
       id: 1,
-      name: "Emergency Family Notification",
-      icon: GiSoundOn,
+      name: "Wood for Pyre (चिता के लिए लकड़ी)",
+      icon: GiWoodPile,
       description:
-        "Immediate notification to family members in case of emergency or critical situation",
+        "High-quality sandalwood and mango wood logs for funeral pyre, properly dried and cut.",
       longDescription:
-        "Rapid notification service to inform family members about emergencies. Our team contacts all listed relatives immediately and coordinates their response.",
-      location: "Worldwide",
-      price: "999",
+        "Premium quality wood specifically selected for funeral pyres. Includes sandalwood, mango wood, and other sacred woods. Properly dried, cut to size, and delivered to the cremation ground.",
+      location: "Pan India",
+      price: "3,999",
       rating: 4.9,
-      reviews: 234,
+      reviews: 456,
       image:
-        "https://images.pexels.com/photos/7659560/pexels-photo-7659560.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/2886937/pexels-photo-2886937.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "24/7 Availability",
-        "Multi-language",
-        "SMS & Call",
-        "Confirmation Tracking",
+        "Sandalwood Mix",
+        "Properly Dried",
+        "Cut to Size",
+        "Delivery Included",
       ],
-      coordinatorName: "Priya Sharma",
-      experience: "8+ years",
-      responseTime: "5-10 mins",
+      coordinatorName: "Ganga Ram",
+      experience: "25+ years",
+      responseTime: "2 hours",
       contactNumber: "+91 98765 43210",
       whatsappNumber: "+91 98765 43210",
       alternateNumber: "+91 99887 66554",
+
+      weight: "100 kg",
+      includes: ["Sandalwood", "Mango Wood", "Ghee", "Camphor"],
     },
     {
       id: 2,
-      name: "International Relative Connect",
-      icon: GiGlobe,
+      name: "Ghee & Camphor (घी और कपूर)",
+      icon: RiOilFill,
       description:
-        "Connect with family members abroad during emergencies or important events",
+        "Pure desi ghee and high-quality camphor for funeral rituals and pyre ignition.",
       longDescription:
-        "Specialized service to contact relatives in different countries. We handle time zones, language barriers, and ensure your message reaches them.",
-      location: "International",
-      price: "2,499",
+        "Pure desi cow ghee and premium quality camphor specifically for funeral ceremonies. Essential for rituals and helping the pyre ignite properly.",
+      location: "Pan India",
+      price: "999",
       rating: 4.8,
-      reviews: 156,
+      reviews: 312,
       image:
-        "https://images.pexels.com/photos/4611040/pexels-photo-4611040.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/4198105/pexels-photo-4198105.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "International Calling",
-        "Time Zone Management",
-        "Translation",
-        "Follow-ups",
+        "Pure Desi Ghee",
+        "Premium Camphor",
+        "Ritual Grade",
+        "Proper Packaging",
       ],
-      coordinatorName: "Rajesh Kumar",
-      experience: "10+ years",
-      responseTime: "30 mins",
+      coordinatorName: "Laxmi Narayan",
+      experience: "15+ years",
+      responseTime: "1 hour",
       contactNumber: "+91 98765 43211",
       whatsappNumber: "+91 98765 43211",
       alternateNumber: "+91 99887 66553",
+
+      weight: "5 kg Ghee, 1 kg Camphor",
+      includes: ["Desi Ghee", "Camphor Tablets", "Matchbox", "Cotton Wicks"],
     },
     {
       id: 3,
-      name: "Mass Notification Service",
-      icon: GiSurfBoard,
+      name: "Flower Garlands (पुष्प माला)",
+      icon: GiFlowerPot,
       description:
-        "Simultaneously notify all family members and relatives about important events",
+        "Fresh marigold and rose garlands for funeral ceremonies and last respects.",
       longDescription:
-        "Bulk notification service to inform all family members simultaneously about weddings, funerals, ceremonies, or emergencies.",
-      location: "Worldwide",
-      price: "1,999",
+        "Fresh flower garlands made with marigold, roses, and other sacred flowers. Delivered fresh on the day of the ceremony for paying last respects.",
+      location: "Local Delivery",
+      price: "499",
       rating: 4.7,
-      reviews: 189,
+      reviews: 234,
       image:
-        "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: ["Bulk SMS", "Voice Broadcast", "WhatsApp Groups", "Email"],
-      coordinatorName: "Anita Desai",
-      experience: "6+ years",
-      responseTime: "1 hour",
+        "https://images.pexels.com/photos/931170/pexels-photo-931170.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: [
+        "Fresh Flowers",
+        "Marigold & Rose",
+        "Same Day Delivery",
+        "Eco-friendly",
+      ],
+      coordinatorName: "Phool Chand",
+      experience: "12+ years",
+      responseTime: "3 hours",
       contactNumber: "+91 98765 43212",
       whatsappNumber: "+91 98765 43212",
       alternateNumber: "+91 99887 66552",
+
+      quantity: "10 Garlands",
+      includes: ["Marigold", "Roses", "Tulsi Leaves", "Floral Thread"],
     },
     {
       id: 4,
-      name: "Video Calling Assistance",
-      icon: FaVideo,
+      name: "Sacred Cloth (कफन)",
+      icon: GiWoodenDoor,
       description:
-        "Technical support for video calls with family during ceremonies or emergencies",
+        "Pure white cotton cloth for shroud (kafan) as per religious traditions.",
       longDescription:
-        "We help set up and facilitate video calls with family members who cannot attend in person. Perfect for weddings, funerals, and ceremonies.",
-      location: "Remote Support",
-      price: "499",
-      rating: 4.9,
-      reviews: 312,
+        "High-quality pure white cotton cloth for shroud (kafan) as per Hindu and other religious traditions. Properly washed and sanctified.",
+      location: "Pan India",
+      price: "799",
+      rating: 4.8,
+      reviews: 189,
       image:
-        "https://images.pexels.com/photos/4492129/pexels-photo-4492129.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: [
-        "Video Setup",
-        "Platform Support",
-        "Recording",
-        "Multiple Participants",
-      ],
-      coordinatorName: "Vikram Singh",
-      experience: "5+ years",
-      responseTime: "15 mins",
+        "https://images.pexels.com/photos/6588607/pexels-photo-6588607.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: ["Pure Cotton", "White Color", "Sanctified", "Proper Size"],
+      coordinatorName: "Ram Vilas",
+      experience: "20+ years",
+      responseTime: "2 hours",
       contactNumber: "+91 98765 43213",
       whatsappNumber: "+91 98765 43213",
       alternateNumber: "+91 99887 66551",
+
+      length: "9 meters",
+      includes: ["Main Cloth", "Small Pieces", "Cotton Thread"],
     },
     {
       id: 5,
-      name: "Funeral Ceremony Invitations",
-      icon: GiFamilyTree,
+      name: "Sacred Water (गंगा जल)",
+      icon: IoWater,
       description:
-        "Professional calling service to invite relatives to funeral ceremonies",
+        "Pure Ganga Jal in copper vessels for funeral rituals and purification.",
       longDescription:
-        "Sensitive and respectful calling service to invite family members to funeral ceremonies. We handle the emotional aspect with care and compassion.",
+        "Authentic Ganga Jal sourced directly from Haridwar and Rishikesh. Packed in pure copper vessels for ritual purity. Used for final purification rites.",
       location: "Pan India",
-      price: "2,999",
-      rating: 4.9,
-      reviews: 278,
-      image:
-        "https://images.pexels.com/photos/6605287/pexels-photo-6605287.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: [
-        "Personalized Calls",
-        "RSVP Tracking",
-        "Location Details",
-        "Follow-ups",
-      ],
-      coordinatorName: "Meera Joshi",
-      experience: "12+ years",
-      responseTime: "24 hours",
-      contactNumber: "+91 98765 43214",
-      whatsappNumber: "+91 98765 43214",
-      alternateNumber: "+91 99887 66550",
-    },
-    {
-      id: 6,
-      name: "Wedding Invitation Calls",
-      icon: GiHearts,
-      description:
-        "Traditional invitation calls to relatives for wedding ceremonies",
-      longDescription:
-        "Professional calling service for wedding invitations. Our team makes warm, personalized calls to invite relatives to your special day.",
-      location: "Pan India",
-      price: "3,999",
-      rating: 4.8,
-      reviews: 445,
-      image:
-        "https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: [
-        "Personalized Script",
-        "RSVP Collection",
-        "Guest List Management",
-        "Follow-up Calls",
-      ],
-      coordinatorName: "Sneha Reddy",
-      experience: "7+ years",
-      responseTime: "48 hours",
-      contactNumber: "+91 98765 43215",
-      whatsappNumber: "+91 98765 43215",
-      alternateNumber: "+91 99887 66549",
-    },
-    {
-      id: 7,
-      name: "Relatives Locator Service",
-      icon: GiConversation,
-      description:
-        "Find and connect with long-lost relatives anywhere in the world",
-      longDescription:
-        "Specialized service to locate and establish contact with relatives you've lost touch with. We use various resources to find them.",
-      location: "Global",
-      price: "4,999",
-      rating: 4.6,
-      reviews: 98,
-      image:
-        "https://images.pexels.com/photos/5668480/pexels-photo-5668480.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: [
-        "Tracing Service",
-        "Address Verification",
-        "Contact Establishment",
-        "Confidential",
-      ],
-      coordinatorName: "Amitabh Thakur",
-      experience: "15+ years",
-      responseTime: "3-5 days",
-      contactNumber: "+91 98765 43216",
-      whatsappNumber: "+91 98765 43216",
-      alternateNumber: "+91 99887 66548",
-    },
-    {
-      id: 8,
-      name: "24/7 Emergency Helpline",
-      icon: MdEmergency,
-      description:
-        "Round-the-clock assistance for contacting family during crises",
-      longDescription:
-        "24/7 emergency helpline service to help you contact family members during medical emergencies, accidents, or any critical situation.",
-      location: "24/7 Support",
-      price: "999/month",
+      price: "299",
       rating: 4.9,
       reviews: 567,
       image:
-        "https://images.pexels.com/photos/7659560/pexels-photo-7659560.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/3225517/pexels-photo-3225517.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "24/7 Availability",
-        "Emergency Protocols",
-        "Multi-language",
-        "Priority Response",
+        "Pure Ganga Jal",
+        "Copper Vessel",
+        "Ritual Grade",
+        "Sealed Pack",
       ],
-      coordinatorName: "Emergency Team",
-      experience: "Always Available",
-      responseTime: "Immediate",
-      contactNumber: "+91 1800 123 4567",
+      coordinatorName: "Ganga Das",
+      experience: "18+ years",
+      responseTime: "4 hours",
+      contactNumber: "+91 98765 43214",
+      whatsappNumber: "+91 98765 43214",
+      alternateNumber: "+91 99887 66550",
+
+      quantity: "2 Liters",
+      includes: ["Copper Vessel", "Ganga Jal", "Sacred Thread", "Prasad"],
+    },
+    {
+      id: 6,
+      name: "Tulsi & Sacred Leaves (तुलसी दल)",
+      icon: PiLeaf,
+      description:
+        "Fresh Tulsi leaves and other sacred herbs for funeral rituals.",
+      longDescription:
+        "Fresh Tulsi (Holy Basil) leaves and other sacred herbs used in funeral ceremonies. Essential for placing in the mouth of the departed as per tradition.",
+      location: "Local Delivery",
+      price: "199",
+      rating: 4.7,
+      reviews: 145,
+      image:
+        "https://images.pexels.com/photos/6168364/pexels-photo-6168364.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: ["Fresh Tulsi", "Sacred Herbs", "Same Day", "Ritual Ready"],
+      coordinatorName: "Vrinda Devi",
+      experience: "10+ years",
+      responseTime: "2 hours",
+      contactNumber: "+91 98765 43215",
+      whatsappNumber: "+91 98765 43215",
+      alternateNumber: "+91 99887 66549",
+
+      quantity: "100 leaves",
+      includes: [
+        "Tulsi Leaves",
+        "Bel Patra",
+        "Durva Grass",
+        "Sandalwood Paste",
+      ],
+    },
+    {
+      id: 7,
+      name: "Copper & Brass Utensils (तांबा-पीतल के बर्तन)",
+      icon: GiFireBowl,
+      description:
+        "Traditional copper and brass utensils for funeral rituals and offerings.",
+      longDescription:
+        "Pure copper and brass utensils specifically for funeral ceremonies. Includes kalash, thali, diya, and other ritual items. Sanctified and ready to use.",
+      location: "Pan India",
+      price: "1,999",
+      rating: 4.8,
+      reviews: 98,
+      image:
+        "https://images.pexels.com/photos/5428007/pexels-photo-5428007.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: ["Pure Copper", "Brass Items", "Ritual Set", "Sanctified"],
+      coordinatorName: "Sunder Lal",
+      experience: "30+ years",
+      responseTime: "6 hours",
+      contactNumber: "+91 98765 43216",
+      whatsappNumber: "+91 98765 43216",
+      alternateNumber: "+91 99887 66548",
+
+      setIncludes: ["Kalash", "Thali", "Diya", "Lota", "Chamach"],
+    },
+    {
+      id: 8,
+      name: "Complete Funeral Kit (संपूर्ण सामग्री किट)",
+      icon: GiFlowerStar,
+      description:
+        "All-in-one funeral samagri kit with everything needed for last rites.",
+      longDescription:
+        "Complete funeral kit containing all essential items for Hindu last rites. Includes wood, ghee, camphor, flowers, kafan, ganga jal, and all ritual items. Delivered together for convenience.",
+      location: "Pan India",
+      price: "5,999",
+      rating: 4.9,
+      reviews: 234,
+      image:
+        "https://images.pexels.com/photos/6605287/pexels-photo-6605287.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: [
+        "Complete Set",
+        "All Items Included",
+        "Ready to Use",
+        "Doorstep Delivery",
+      ],
+      coordinatorName: "Moksh Das",
+      experience: "22+ years",
+      responseTime: "3 hours",
+      contactNumber: "+91 98765 43217",
       whatsappNumber: "+91 98765 43217",
       alternateNumber: "+91 99887 66547",
       languages: " ",
+      kitIncludes: [
+        "Wood (50kg)",
+        "Ghee (2kg)",
+        "Camphor",
+        "Flower Garlands",
+        "Kafan",
+        "Ganga Jal",
+        "Tulsi Leaves",
+        "Copper Utensils",
+        "Agarbatti",
+        "Matchbox",
+      ],
     },
   ];
-
-  const handleBookNow = (service: any) => {
-    setSelectedServiceForBooking(service);
-    setShowBookingForm(true);
-  };
 
   const handleViewDetails = (service: any) => {
     setSelectedService(service);
@@ -293,6 +357,11 @@ function CallingRelativesServices() {
     );
   };
 
+  const handleBookNow = (service: any) => {
+    setSelectedServiceForBooking(service);
+    setShowBookingForm(true);
+  };
+
   return (
     <div className="min-h-screen bg-[#FDF8F2]">
       <Topbar />
@@ -302,6 +371,11 @@ function CallingRelativesServices() {
       <section className="relative text-white overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/2886937/pexels-photo-2886937.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="Funeral Samagri"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-[#8B5E3C]/80 to-[#5A3E2B]/90"></div>
         </div>
 
@@ -322,46 +396,46 @@ function CallingRelativesServices() {
           <div className="max-w-3xl mx-auto text-center">
             {/* Sacred Symbol */}
             <div className="flex items-center justify-center gap-2 text-[#F5E9D9] mb-4">
-              <GiSoundOn className="text-2xl" />
+              <GiIncense className="text-2xl" />
               <span className="text-sm tracking-widest">
-                संपर्क • CONNECT • ਸੰਪਰਕ
+                ॐ FURAL SAMAGRI ॐ • अंतिम संस्कार सामग्री
               </span>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-serif text-white mb-4 leading-tight">
-              Calling Relatives Services
+              Fural Samagri Services
               <span className="block text-xl md:text-2xl font-light text-[#F5E9D9] mt-3">
-                Stay Connected with Family Anywhere, Anytime
+                Complete Funeral Supplies for Last Rites
               </span>
             </h1>
 
             <p className="text-base md:text-lg text-white mb-6 max-w-2xl mx-auto">
-              Professional calling services to help you connect with relatives
-              during emergencies, ceremonies, and special occasions.
-              Compassionate and reliable communication assistance.
+              All essential items for funeral ceremonies delivered to your
+              doorstep. Pure, sanctified, and ready-to-use samagri as per
+              religious traditions.
             </p>
 
             {/* Emergency Contact */}
             <div className="inline-flex items-center gap-4 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6">
               <FaPhoneAlt className="text-white text-xl animate-pulse" />
               <span className="text-white font-bold text-xl">
-                24/7 Helpline: +91 1800 123 4567
+                24/7 Emergency: +91 1800 123 4567
               </span>
             </div>
 
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-6">
               <div>
-                <div className="text-2xl text-white">50K+</div>
-                <div className="text-sm text-[#F5E9D9]">Calls Connected</div>
+                <div className="text-2xl text-white">10K+</div>
+                <div className="text-sm text-[#F5E9D9]">Families Served</div>
               </div>
               <div>
-                <div className="text-2xl text-white">15+</div>
-                <div className="text-sm text-[#F5E9D9]">Languages</div>
+                <div className="text-2xl text-white">100%</div>
+                <div className="text-sm text-[#F5E9D9]">Pure Products</div>
               </div>
               <div>
-                <div className="text-2xl text-white">98%</div>
-                <div className="text-sm text-[#F5E9D9]">Success Rate</div>
+                <div className="text-2xl text-white">24/7</div>
+                <div className="text-sm text-[#F5E9D9]">Delivery</div>
               </div>
             </div>
           </div>
@@ -388,17 +462,17 @@ function CallingRelativesServices() {
         <div className="text-center mb-12 relative">
           {/* Decorative Elements */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 w-20 h-20 opacity-10">
-            <GiTalk className="w-full h-full text-[#8B5E3C]" />
+            <GiIncense className="w-full h-full text-[#8B5E3C]" />
           </div>
 
           <div className="relative">
             <span className="text-[#C89B6D] tracking-widest text-sm">
-              ॐ CONNECTION SERVICES ॐ
+              ॐ FUNERAL SAMAGRI ॐ
             </span>
 
             <h2 className="text-3xl md:text-4xl font-serif text-[#5A3E2B] mt-3 mb-4">
-              Professional Calling Assistance
-              <span className="block text-[#8B5E3C]">for Every Occasion</span>
+              Complete Funeral Supplies
+              <span className="block text-[#8B5E3C]">for Last Rites</span>
             </h2>
 
             {/* Decorative Line */}
@@ -409,16 +483,16 @@ function CallingRelativesServices() {
             </div>
 
             <p className="text-sm text-[#7B5E47] max-w-2xl mx-auto">
-              From emergency notifications to wedding invitations, our
-              professional calling services ensure your message reaches every
-              family member with care and clarity.
+              All essential items for funeral ceremonies, sourced with purity
+              and delivered with respect. Traditional samagri as per Hindu
+              rites.
             </p>
           </div>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {callingServices.map((service) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+          {furalSamagriServices.map((service) => {
             const Icon = service.icon;
 
             return (
@@ -511,19 +585,15 @@ function CallingRelativesServices() {
                   <div className="mb-2 space-y-1">
                     <div className="flex items-center gap-1 text-[10px] text-[#7B5E47]">
                       <MdCall className="text-[#C89B6D] text-[10px]" />
-                      <span className="truncate text-[14px]">
-                        {service.contactNumber}
-                      </span>
+                      <span className="truncate">{service.contactNumber}</span>
                     </div>
                     <div className="flex items-center gap-1 text-[10px] text-[#7B5E47]">
                       <FaWhatsapp className="text-[#25D366] text-[10px]" />
-                      <span className="truncate text-[14px]">
-                        {service.whatsappNumber}
-                      </span>
+                      <span className="truncate">{service.whatsappNumber}</span>
                     </div>
                   </div>
 
-                  {/* Location and Price */}
+                  {/* Quantity/Weight and Price */}
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-1 text-[10px] text-[#7B5E47]">
                       <FaClock className="text-[#C89B6D] text-[10px]" />
@@ -537,6 +607,18 @@ function CallingRelativesServices() {
                         onwards
                       </span>
                     </div>
+                  </div>
+
+                  {/* Includes Preview */}
+                  <div className="flex flex-wrap gap-1 mb-2">
+                    {service.includes?.slice(0, 2).map((item, idx) => (
+                      <span
+                        key={idx}
+                        className="text-[8px] px-1 py-0.5 bg-[#C89B6D]/10 text-[#8B5E3C] rounded"
+                      >
+                        {item}
+                      </span>
+                    ))}
                   </div>
 
                   {/* Buttons */}
@@ -572,7 +654,7 @@ function CallingRelativesServices() {
         </div>
       </section>
 
-      {/* Why Choose Us Section - 4 Columns */}
+      {/* Why Choose Us Section */}
       <section className="py-12 bg-[#F5E9D9] relative overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-10">
@@ -583,7 +665,7 @@ function CallingRelativesServices() {
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-              Why Choose Our Calling Services?
+              Why Choose Our Funeral Samagri?
             </h2>
             <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
           </div>
@@ -592,23 +674,23 @@ function CallingRelativesServices() {
             {[
               {
                 icon: MdVerified,
-                title: "Professional Callers",
-                desc: "Trained professionals for sensitive communications",
+                title: "100% Pure",
+                desc: "Authentic and pure ritual items",
               },
               {
                 icon: FaClock,
-                title: "24/7 Availability",
-                desc: "Round-the-clock service for emergencies",
+                title: "24/7 Delivery",
+                desc: "Round-the-clock emergency service",
               },
               {
-                icon: MdLanguage,
-                title: "Multi-Language Support",
-                desc: "Call in any Indian or international language",
+                icon: FaLeaf,
+                title: "Eco-friendly",
+                desc: "Environmentally conscious products",
               },
               {
                 icon: FaHeart,
-                title: "Compassionate Service",
-                desc: "Handling every call with care and empathy",
+                title: "Respectful Service",
+                desc: "Handled with dignity and care",
               },
             ].map((item, idx) => {
               const Icon = item.icon;
@@ -633,11 +715,11 @@ function CallingRelativesServices() {
       <section className="py-12 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            How Our Calling Service Works
+            How to Order Funeral Samagri
           </h2>
           <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full mb-4"></div>
           <p className="text-sm text-[#7B5E47] max-w-2xl mx-auto">
-            Simple and efficient process to connect you with your relatives
+            Simple process to get all funeral supplies delivered
           </p>
         </div>
 
@@ -645,27 +727,27 @@ function CallingRelativesServices() {
           {[
             {
               step: "01",
-              title: "Share Details",
-              desc: "Provide relative contact list and message",
-              icon: FaEnvelope,
+              title: "Contact Us",
+              desc: "Call or WhatsApp our 24/7 helpline",
+              icon: FaPhoneAlt,
             },
             {
               step: "02",
-              title: "Choose Service",
-              desc: "Select the type of calling service needed",
-              icon: GiPhone,
+              title: "Tell Requirements",
+              desc: "Share what samagri you need",
+              icon: FaEnvelope,
             },
             {
               step: "03",
-              title: "We Make Calls",
-              desc: "Our team contacts all your relatives",
-              icon: BsTelephoneFill,
+              title: "Confirm Order",
+              desc: "Verify items and delivery location",
+              icon: MdVerified,
             },
             {
               step: "04",
-              title: "Get Confirmation",
-              desc: "Receive updates and confirmations",
-              icon: MdMessage,
+              title: "Get Delivery",
+              desc: "Items delivered to cremation ground",
+              icon: GiWoodPile,
             },
           ].map((item, idx) => {
             const Icon = item.icon;
@@ -692,29 +774,25 @@ function CallingRelativesServices() {
         </div>
       </section>
 
-      {/* Communication Channels */}
+      {/* Traditional Items Section */}
       <section className="py-12 px-6 max-w-7xl mx-auto bg-white rounded-lg shadow-sm">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            Multiple Ways to Connect
+            Traditional Funeral Items
           </h2>
           <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            {
-              icon: FaPhoneAlt,
-              name: "Phone Calls",
-              desc: "Direct voice calls",
-            },
-            { icon: FaWhatsapp, name: "WhatsApp", desc: "Messages & calls" },
-            {
-              icon: FaVideo,
-              name: "Video Calls",
-              desc: "Face-to-face connection",
-            },
-            { icon: FaEnvelope, name: "Email", desc: "Written communication" },
+            { icon: GiWoodPile, name: "Wood", desc: "Sandalwood, Mango wood" },
+            { icon: RiOilFill, name: "Ghee", desc: "Pure desi ghee" },
+            { icon: GiCandleHolder, name: "Camphor", desc: "Premium kapur" },
+            { icon: GiFlowerPot, name: "Flowers", desc: "Marigold, Roses" },
+            { icon: GiWoodenDoor, name: "Kafan", desc: "Pure cotton cloth" },
+            { icon: IoWater, name: "Ganga Jal", desc: "Sacred water" },
+            { icon: PiLeaf, name: "Tulsi", desc: "Holy basil leaves" },
+            { icon: GiFireBowl, name: "Utensils", desc: "Copper, Brass" },
           ].map((item, idx) => {
             const Icon = item.icon;
             return (
@@ -742,21 +820,21 @@ function CallingRelativesServices() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
             {
-              name: "Sunita Gupta",
+              name: "Rajesh Gupta",
               location: "Delhi",
-              text: "During my father's last moments, they helped me reach all relatives within minutes. Grateful for their prompt service.",
+              text: "During our difficult time, they delivered all samagri within an hour. Pure products and respectful service. Thank you.",
               rating: 5,
             },
             {
-              name: "Rajesh Khanna",
+              name: "Sunita Sharma",
               location: "Mumbai",
-              text: "Used their wedding invitation service. All 200+ relatives were called personally. Very professional and warm.",
+              text: "The complete funeral kit was very helpful. Everything was arranged perfectly. Grateful for their support.",
               rating: 5,
             },
             {
-              name: "Priyanka Singh",
-              location: "Bangalore",
-              text: "Found my long-lost cousin through their locator service. Thank you for reuniting our family!",
+              name: "Amit Kumar",
+              location: "Lucknow",
+              text: "Pure Ganga Jal and proper wood for pyre. They handled everything with respect. Highly recommended.",
               rating: 5,
             },
           ].map((testimonial, idx) => (
@@ -789,13 +867,14 @@ function CallingRelativesServices() {
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center px-6">
-          <GiSoundOn className="text-5xl mx-auto mb-4 opacity-50" />
+          <GiIncense className="text-5xl mx-auto mb-4 opacity-50" />
           <h2 className="text-3xl md:text-4xl font-serif text-white mb-4">
-            Need to Reach Your Relatives?
+            Need Funeral Samagri Immediately?
           </h2>
           <p className="text-base md:text-lg text-white mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed">
-            Whether it's an emergency or a celebration, our professional calling
-            team is here to help you connect with every family member.
+            We understand the urgency. Our 24/7 service ensures all funeral
+            supplies reach you whenever needed. Pure, sanctified, and delivered
+            with respect.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <button
@@ -803,7 +882,7 @@ function CallingRelativesServices() {
               className="px-8 py-3 bg-white text-[#8B5E3C] rounded-lg font-medium text-base hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
             >
               <FaPhoneAlt />
-              Call Helpline
+              Call Emergency Helpline
             </button>
             <button
               onClick={() => handleWhatsApp("+919876543210")}
@@ -813,19 +892,20 @@ function CallingRelativesServices() {
               WhatsApp Us
             </button>
           </div>
+
           {/* Emergency Contact Numbers */}
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <p className="text-[#F5E9D9]">Emergency</p>
+              <p className="text-[#F5E9D9]">Delhi NCR</p>
+              <p className="font-bold">+91 98765 43210</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+              <p className="text-[#F5E9D9]">Mumbai</p>
+              <p className="font-bold">+91 98765 43213</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+              <p className="text-[#F5E9D9]">24/7 Helpline</p>
               <p className="font-bold">+91 1800 123 4567</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <p className="text-[#F5E9D9]">Wedding/Event</p>
-              <p className="font-bold">+91 98765 43215</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <p className="text-[#F5E9D9]">Funeral/Ceremony</p>
-              <p className="font-bold">+91 98765 43214</p>
             </div>
           </div>
         </div>
@@ -836,4 +916,4 @@ function CallingRelativesServices() {
   );
 }
 
-export default CallingRelativesServices;
+export default FuralSamagriServices;

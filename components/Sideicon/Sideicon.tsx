@@ -62,7 +62,6 @@ const SocialSidebar = () => {
   ];
 
   const phoneLink = {
-    icon: <FaPhone size={20} />,
     url: "tel:+919310219283",
     color: "#4CAF50",
     label: "Call Us 24/7",
