@@ -45,7 +45,7 @@ export default function CompassionSection() {
             </div>
 
             <h2 className="text-4xl md:text-4xl font-normal text-[#3A2A1F] leading-tight mb-5">
-              <span className="block mb-2">Compassionate Guidance</span>
+              <span className="block mb-2">A Journey Guided by Love</span>
               <span className="block font-light text-[#4A3A2F] text-3xl md:text-3xl">
                 with Peace of Mind
               </span>
@@ -71,10 +71,11 @@ export default function CompassionSection() {
               <span className="font-semibold text-[#8B6A3E]">
                 Moksha Voyage
               </span>
-              , we provide compassionate support through life's most challenging
-              transitions. Our dedicated team offers cultural sensitivity,
-              transparency, and deep respect for your traditions, ensuring every
-              moment is handled with dignity and grace.
+              To build a trusted, transparent digital ecosystem that connects
+              families with verified end-of-life service providers, provides
+              step-by-step emotional and ritual guidance, and ensures no one
+              navigates life's most profound transition alone or without
+              dignity.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">

@@ -1,5 +1,10 @@
 "use client";
-import { FaPhoneAlt, FaEnvelope, FaCalendarAlt } from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaCalendarAlt,
+  FaWhatsapp,
+} from "react-icons/fa";
 import { useState, useEffect } from "react";
 
 export default function SacredJourney() {
@@ -36,16 +41,16 @@ export default function SacredJourney() {
           className={`text-center mb-8 transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
         >
           <span className="text-[#8B6A3E] tracking-widest uppercase text-[11px] font-medium">
-            Sacred Support
+            24/7 Care Coordination
           </span>
 
           <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-[#3A2A1F] leading-snug mt-2 mb-2">
-            You Are Not Alone On This Journey
+            A Journey Guided by Love
           </h2>
 
           <p className="text-xs sm:text-sm text-[#6E4B3A]/90 max-w-xl mx-auto font-light leading-relaxed">
-            Our compassionate team stands beside you and supports you at every
-            step.
+            One trusted contact. Complete care. First response within 15
+            minutes, 24 hours a day, 365 days a year.
           </p>
         </div>
 
@@ -53,34 +58,51 @@ export default function SacredJourney() {
           className={`transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
         >
           <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <button className="flex items-center justify-center gap-2 px-4 py-2 rounded-md bg-[#8B6A3E] text-white text-sm hover:bg-[#7A5A2E] transition">
+            <button className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[#8B6A3E] text-white text-sm hover:bg-[#7A5A2E] transition shadow-md hover:shadow-lg">
               <FaPhoneAlt className="text-xs" />
-              Call Now
+              Get Immediate Support
             </button>
 
-            <button className="flex items-center justify-center gap-2 px-4 py-2 rounded-md bg-[#5C4033] text-white text-sm hover:opacity-90 transition">
+            <button className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[#25D366] text-white text-sm hover:bg-[#128C7E] transition shadow-md hover:shadow-lg">
+              <FaWhatsapp className="text-sm" />
+              WhatsApp Chat
+            </button>
+
+            <button className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-md border border-[#8B6A3E] text-[#8B6A3E] text-sm hover:bg-[#F8F4EC] transition">
               <FaEnvelope className="text-xs" />
-              Message Us
-            </button>
-
-            <button className="flex items-center justify-center gap-2 px-4 py-2 rounded-md bg-[#4A716C] text-white text-sm hover:opacity-90 transition">
-              <FaCalendarAlt className="text-xs" />
-              Schedule
+              Plan Ahead for Your Family
             </button>
           </div>
 
           <div className="text-center mt-6">
             <p className="text-[12px] text-[#6E4B3A] font-light">
-              24×7 Support • Compassionate Guidance • Cultural Sensitivity
+              Toll-free 24/7 Helpline • Real-Time Family Tracking • Radical
+              Pricing Transparency
             </p>
+          </div>
+
+          <div className="flex justify-center gap-6 mt-4">
+            <span className="text-xs text-[#8B6A3E] font-medium">
+              ✓ Response Time SLA: 15 min
+            </span>
+            <span className="text-xs text-[#8B6A3E] font-medium">
+              ✓ Verified Network
+            </span>
+            <span className="text-xs text-[#8B6A3E] font-medium">
+              ✓ No Hidden Charges
+            </span>
           </div>
         </div>
 
         <div
           className={`text-center mt-8 transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
         >
-          <p className="text-sm sm:text-base font-light italic text-[#5A4030] px-4 max-w-lg mx-auto">
-            "Compassionate support makes difficult moments easier."
+          <p className="text-sm sm:text-base font-light italic text-[#5A4030] px-4 max-w-lg mx-auto border-l-2 border-[#8B6A3E] pl-4">
+            "You should not have to navigate this alone, and with Moksha Voyage,
+            you never will."
+          </p>
+          <p className="text-[10px] text-[#8B6A3E] mt-2">
+            — From our Empathy Section
           </p>
         </div>
       </div>

@@ -55,66 +55,102 @@ export default function MokshaShlokSection() {
                 {/* Title with elegant underline */}
                 <div className="mb-4">
                   <h2 className="text-[#2A1A0F] text-4xl font-light tracking-wide mb-1 drop-shadow-sm">
-                    Moksha
+                    Moksha Voyage
                   </h2>
                   <div className="flex items-center gap-3">
                     <div className="w-16 h-[2px] bg-[#8B6A3E]/60"></div>
                     <span className="text-[#8B6A3E] text-sm font-medium tracking-[0.25em] uppercase drop-shadow-sm">
-                      Bhagavad Gītā 18.66
+                      Sacred Wisdom
                     </span>
                   </div>
                 </div>
 
+                {/* Small description from PDF */}
+                <div className="mb-2 text-[#8B6A3E] text-xs tracking-wider">
+                  India's First End-to-End Cremation Platform
+                </div>
+
                 {/* Shlok with enhanced traditional styling */}
-                <div className="mb-4 bg-gradient-to-r from-[#8B6A3E]/10 via-transparent to-transparent p-5 rounded-r-2xl border-l-4 border-[#8B6A3E]/50 shadow-sm">
-                  <p className="text-[#3A2A1F] text-xl md:text-2xl font-bold leading-relaxed whitespace-pre-line drop-shadow-sm">
-                    <span className="text-[#8B6A3E] text-3xl mr-1 drop-shadow">
+                <div className="mb-3 bg-gradient-to-r from-[#8B6A3E]/10 via-transparent to-transparent p-4 rounded-r-2xl border-l-4 border-[#8B6A3E]/50 shadow-sm">
+                  <p className="text-[#3A2A1F] text-lg md:text-xl font-bold leading-relaxed whitespace-pre-line drop-shadow-sm">
+                    <span className="text-[#8B6A3E] text-2xl mr-1 drop-shadow">
                       ॥
                     </span>
                     सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज।
                     {"\n"}
                     अहं त्वां सर्वपापेभ्यो मोक्षयिष्यामि मा शुचः।
-                    <span className="text-[#8B6A3E] text-3xl ml-1 drop-shadow">
+                    <span className="text-[#8B6A3E] text-2xl ml-1 drop-shadow">
                       ॥
                     </span>
                   </p>
                 </div>
 
                 {/* Sanskrit transliteration */}
-                <div className="mb-4 text-[#4A3A2F]/80 text-sm italic font-medium">
+                <div className="mb-2 text-[#4A3A2F]/70 text-xs italic font-medium">
                   <p>sarva-dharmān parityajya mām ekaṁ śaraṇaṁ vraja</p>
                   <p>ahaṁ tvāṁ sarva-pāpebhyo mokṣayiṣyāmi mā śucaḥ</p>
                 </div>
 
+                {/* Our Promise - from PDF page 7 */}
+                <div className="mb-2 p-3 bg-[#8B6A3E]/10 rounded-lg border border-[#8B6A3E]/20">
+                  <p className="text-[#2A1A0F] text-xs italic font-medium">
+                    <span className="text-[#8B6A3E] font-semibold">
+                      Our Promise:{" "}
+                    </span>
+                    "Every family will receive the same standard of care,
+                    respect, and transparency we would want for our own loved
+                    ones."
+                  </p>
+                </div>
+
                 {/* Meaning with enhanced elegant styling */}
-                <div className="relative mb-4 bg-[#8B6A3E]/5 p-4 rounded-lg">
-                  <div className="absolute -left-2 top-0 text-3xl text-[#8B6A3E]/40">
+                <div className="relative mb-3 bg-[#8B6A3E]/5 p-3 rounded-lg">
+                  <div className="absolute -left-2 top-0 text-2xl text-[#8B6A3E]/40">
                     ❝
                   </div>
-                  <p className="text-[#2A1A0F] text-base italic font-medium leading-relaxed pl-6 pr-4 drop-shadow-sm">
+                  <p className="text-[#2A1A0F] text-xs italic font-medium leading-relaxed pl-5 pr-3 drop-shadow-sm">
                     Abandon all varieties of religion and just surrender unto
                     Me. I shall deliver you from all sinful reactions. Do not
                     fear.
                   </p>
-                  <div className="absolute -right-2 bottom-0 text-3xl text-[#8B6A3E]/40">
+                  <div className="absolute -right-2 bottom-0 text-2xl text-[#8B6A3E]/40">
                     ❞
                   </div>
                 </div>
 
+                {/* Core Pillar - from PDF page 3 */}
+                <div className="grid grid-cols-5 gap-1 mb-2">
+                  <div className="text-[8px] text-center text-[#8B6A3E] font-medium">
+                    SIMPLIFY
+                  </div>
+                  <div className="text-[8px] text-center text-[#8B6A3E] font-medium">
+                    CONNECT
+                  </div>
+                  <div className="text-[8px] text-center text-[#8B6A3E] font-medium">
+                    PROTECT
+                  </div>
+                  <div className="text-[8px] text-center text-[#8B6A3E] font-medium">
+                    HONOUR
+                  </div>
+                  <div className="text-[8px] text-center text-[#8B6A3E] font-medium">
+                    SERVE
+                  </div>
+                </div>
+
                 {/* Decorative footer */}
-                <div className="flex items-center gap-4 mt-4">
+                <div className="flex items-center gap-4 mt-3">
                   <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[#8B6A3E]/50 to-transparent"></div>
                   <div className="flex gap-2">
-                    <div className="w-2 h-2 bg-[#8B6A3E] rounded-full animate-pulse shadow-sm"></div>
-                    <div className="w-2 h-2 bg-[#8B6A3E]/80 rounded-full"></div>
-                    <div className="w-2 h-2 bg-[#8B6A3E]/60 rounded-full"></div>
+                    <div className="w-1.5 h-1.5 bg-[#8B6A3E] rounded-full animate-pulse shadow-sm"></div>
+                    <div className="w-1.5 h-1.5 bg-[#8B6A3E]/80 rounded-full"></div>
+                    <div className="w-1.5 h-1.5 bg-[#8B6A3E]/60 rounded-full"></div>
                   </div>
                   <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[#8B6A3E]/50 to-transparent"></div>
                 </div>
 
                 {/* Enhanced footer text */}
-                <p className="text-center text-[#8B6A3E]/60 text-[10px] tracking-[0.4em] uppercase mt-3 font-medium">
-                  Pause • Breathe • Reflect • Liberate
+                <p className="text-center text-[#8B6A3E]/60 text-[8px] tracking-[0.3em] uppercase mt-2 font-medium">
+                  A JOURNEY GUIDED BY LOVE
                 </p>
               </div>
             </div>
@@ -139,19 +175,36 @@ export default function MokshaShlokSection() {
                 <div className="absolute inset-0 bg-gradient-to-l from-[#F8F4EC]/30 to-transparent"></div>
 
                 {/* Decorative elements on image */}
-                <div className="absolute top-6 right-6 text-6xl text-white/30 font-serif drop-shadow-lg">
+                <div className="absolute top-6 right-6 text-5xl text-white/30 font-serif drop-shadow-lg">
                   ॐ
                 </div>
+
+                {/* Added trust badges on image */}
+                <div className="absolute top-6 left-6 flex gap-1">
+                  <span className="px-2 py-0.5 bg-black/40 backdrop-blur-sm text-white text-[8px] rounded-full border border-white/20">
+                    24/7 Care
+                  </span>
+                  <span className="px-2 py-0.5 bg-black/40 backdrop-blur-sm text-white text-[8px] rounded-full border border-white/20">
+                    Verified
+                  </span>
+                </div>
+
                 <div className="absolute bottom-6 left-6 text-white drop-shadow-lg">
                   <div className="flex items-center gap-2">
                     <div className="w-1 h-8 bg-[#8B6A3E] drop-shadow-lg"></div>
                     <div>
-                      <p className="text-xs tracking-[0.3em] uppercase opacity-90 font-medium">
-                        Divine
+                      <p className="text-[10px] tracking-[0.3em] uppercase opacity-90 font-medium">
+                        MOKSHA
                       </p>
-                      <p className="text-sm font-semibold">Liberation</p>
+                      <p className="text-sm font-semibold">VOYAGE</p>
                     </div>
                   </div>
+                </div>
+
+                {/* Added stats on bottom right */}
+                <div className="absolute bottom-6 right-6 text-right text-white drop-shadow-lg">
+                  <p className="text-[10px] font-light">30M+ NRI</p>
+                  <p className="text-[10px] font-light">100% Transparency</p>
                 </div>
 
                 {/* Bottom fade */}

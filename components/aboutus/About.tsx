@@ -25,6 +25,68 @@ import {
   Star,
   Crown,
   Gem,
+  Shield,
+  Clock,
+  FileText,
+  Lock,
+  HandHeart,
+  Phone,
+  Calendar,
+  CheckCircle,
+  TrendingUp,
+  Users,
+  BookOpen,
+  Briefcase,
+  Coffee,
+  Home,
+  Truck,
+  Droplets,
+  Film,
+  Camera,
+  ScrollText,
+  Scale,
+  FileCheck,
+  UserCheck,
+  Globe2,
+  PhoneCall,
+  MessageCircle,
+  Video,
+  HeartHandshake,
+  Landmark,
+  TreePine,
+  Church,
+  Flower2,
+  Utensils,
+  Wifi,
+  Map,
+  Ship,
+  Plane,
+  Train,
+  Car,
+  Building2,
+  Warehouse,
+  Hospital,
+  Ambulance,
+  Mic,
+  Headphones,
+  Radio,
+  MonitorSmartphone,
+  HardDrive,
+  Cloud,
+  ShieldCheck,
+  Fingerprint,
+  KeyRound,
+  Mail,
+  Send,
+  Share2,
+  Twitter,
+  Facebook,
+  Instagram,
+  Youtube,
+  Linkedin,
+  StarHalf,
+  MessageSquareQuote,
+  ThumbsUp,
 } from "lucide-react";
 import Image from "next/image";
 import shlokas from "@/types/shlokas.json";
@@ -73,163 +135,114 @@ function About() {
       <Topbar />
       <Navbar />
 
-      {/* Hero Section - Minimal & Elegant */}
-      <section className="relative py-20 overflow-hidden">
-        {/* Background Pattern */}
+      {/* Hero Section - Fonts Reduced */}
+      <section className="relative py-16 overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#8B6A3E] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#5A3E2B] rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#8B6A3E]/5 rounded-full border border-[#8B6A3E]/10 mb-5">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#8B6A3E]/10 rounded-full border border-[#8B6A3E]/20 mb-5">
             <Feather className="w-3.5 h-3.5 text-[#8B6A3E]" />
-            <span className="text-[10px] tracking-[0.2em] uppercase text-[#8B6A3E]">
-              Since 2015
+            <span className="text-[10px] tracking-[0.2em] uppercase text-[#8B6A3E] font-medium">
+              A Promise Born from Loss
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-light text-[#2C1810] mb-5 tracking-tight">
+          <h1 className="text-4xl md:text-4xl lg:text-4xl font-light text-[#2C1810] mb-5 tracking-tight">
             About
-            <span className="block text-5xl md:text-6xl font-serif text-[#8B6A3E] mt-2">
+            <span className="block text-5xl md:text-6xl lg:text-5xl font-serif text-[#8B6A3E] mt-3">
               Moksha Voyage
             </span>
           </h1>
 
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <div className="relative">
-              <Quote className="absolute -top-4 -left-8 w-6 h-6 text-[#8B6A3E]/20" />
-              <p className="text-base md:text-lg text-[#5A3E2B]/80 italic leading-relaxed">
-                "Where ancient wisdom meets modern souls, and every journey
-                becomes a path to enlightenment."
+              <Quote className="absolute -top-4 -left-8 w-5 h-5 text-[#8B6A3E]/20" />
+              <p className="text-base md:text-lg text-[#5A3E2B]/90 italic leading-relaxed font-light">
+                "Moksha Voyage was founded not in a boardroom, but in the quiet,
+                aching moments following a deeply personal family loss. That
+                pain revealed a universal truth: families are left to navigate
+                their most sacred duty entirely alone."
               </p>
-              <Quote className="absolute -bottom-4 -right-8 w-6 h-6 text-[#8B6A3E]/20 rotate-180" />
+              <Quote className="absolute -bottom-4 -right-8 w-5 h-5 text-[#8B6A3E]/20 rotate-180" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Welcome Section - Elegant & Airy */}
-      <section className="py-16 px-6 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="relative">
-            <div className="absolute -top-8 -left-8 w-24 h-24 bg-[#8B6A3E]/5 rounded-full blur-2xl"></div>
-            <div className="relative z-10">
-              <span className="text-sm tracking-[0.3em] uppercase text-[#8B6A3E] mb-3 block">
-                Welcome to
-              </span>
-              <h2 className="text-3xl md:text-4xl font-serif text-[#2C1810] mb-4 leading-tight">
-                Where Souls Find
-                <span className="block text-[#8B6A3E]">Their Path</span>
-              </h2>
-              <p className="text-[#5A3E2B]/70 text-base leading-relaxed mb-6">
-                Step into a world where travel meets transformation. We are
-                India's premier spiritual and wellness travel company, dedicated
-                to curating journeys that nourish the soul and awaken the
-                spirit.
-              </p>
-
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  {
-                    icon: Globe,
-                    label: "Sacred Journeys",
-                    desc: "To 50+ destinations",
-                  },
-                  {
-                    icon: Heart,
-                    label: "Soul Healing",
-                    desc: "Transformative experiences",
-                  },
-                ].map((item, idx) => {
-                  const Icon = item.icon;
-                  return (
-                    <div
-                      key={idx}
-                      className="flex items-start gap-2 p-3 bg-white rounded-lg shadow-sm border border-[#8B6A3E]/10"
-                    >
-                      <div className="w-8 h-8 bg-[#8B6A3E]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-4 h-4 text-[#8B6A3E]" />
-                      </div>
-                      <div>
-                        <h3 className="text-md font-medium text-[#2C1810]">
-                          {item.label}
-                        </h3>
-                        <p className="text-[10px] text-[#5A3E2B]/70">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#8B6A3E]/20 to-transparent rounded-3xl blur-2xl"></div>
-            <div className="relative grid grid-cols-2 gap-3">
-              <div className="space-y-3">
-                <div className="h-40 rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src="/assets/ambulance.avif"
-                    alt="Spiritual Journey"
-                    width={300}
-                    height={200}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-                  />
+      {/* Quick Stats Bar - Fonts Reduced */}
+      <section className="py-6 px-6 bg-[#8B6A3E]/5 border-y border-[#8B6A3E]/10">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            {
+              icon: Clock,
+              value: "24/7",
+              label: "Care Coordination",
+              desc: "365 days a year",
+            },
+            {
+              icon: Globe,
+              value: "30M+",
+              label: "NRI Community",
+              desc: "Global Indian diaspora",
+            },
+            {
+              icon: Users,
+              value: "500+",
+              label: "Verified Providers",
+              desc: "Across India",
+            },
+            {
+              icon: Shield,
+              value: "100%",
+              label: "Transparency",
+              desc: "No hidden charges",
+            },
+          ].map((stat, idx) => {
+            const Icon = stat.icon;
+            return (
+              <div key={idx} className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-[#8B6A3E]/10 rounded-lg flex items-center justify-center">
+                  <Icon className="w-5 h-5 text-[#8B6A3E]" />
                 </div>
-                <div className="h-28 rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src="/assets/girl.jpg"
-                    alt="Meditation"
-                    width={300}
-                    height={150}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-                  />
+                <div>
+                  <div className="text-xl font-serif text-[#2C1810]">
+                    {stat.value}
+                  </div>
+                  <div className="text-[11px] text-[#8B6A3E] font-medium">
+                    {stat.label}
+                  </div>
+                  <div className="text-[9px] text-[#5A3E2B]/60">
+                    {stat.desc}
+                  </div>
                 </div>
               </div>
-              <div className="pt-6">
-                <div className="h-32 rounded-xl overflow-hidden shadow-lg mb-3">
-                  <Image
-                    src="/assets/man1.jpg"
-                    alt="Yoga"
-                    width={300}
-                    height={200}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-                <div className="h-40 rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src="/assets/downloadd.webp"
-                    alt="Pilgrimage"
-                    width={300}
-                    height={250}
-                    className="w-full h-full object-contain hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </section>
 
+      {/* Founder's Story - Fonts Reduced */}
       <section className="py-16 px-6 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative order-2 lg:order-1">
-            <div className="relative h-[350px] rounded-2xl overflow-hidden shadow-xl">
+            <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
               <Image
                 src="/assets/grahpravesh.jpg"
-                alt="Our Story"
+                alt="Founder's Story"
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
               <div className="absolute bottom-4 left-4 right-4">
-                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3">
+                <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
                   <p className="text-[#2C1810] text-sm italic">
-                    "Every journey begins with a single step, and every soul has
-                    a story to tell."
+                    "The frantic calls to unknown service providers, the fear of
+                    being misled during vulnerability, the profound disconnect
+                    of trying to honour a loved one from thousands of miles
+                    away."
                   </p>
                 </div>
               </div>
@@ -237,38 +250,50 @@ function About() {
           </div>
 
           <div className="order-1 lg:order-2">
-            <span className="text-sm tracking-[0.3em] uppercase text-[#8B6A3E] mb-3 block">
-              Our Journey
-            </span>
-            <h2 className="text-3xl md:text-4xl font-serif text-[#2C1810] mb-4 leading-tight">
-              From a Vision to
-              <span className="block text-[#8B6A3E]">a Movement</span>
-            </h2>
-            <p className="text-[#5A3E2B]/70 text-base leading-relaxed mb-6">
-              Founded in 2015 by spiritual seekers turned travel enthusiasts,
-              Moksha Voyage began as a small group organizing trips to Himalayan
-              meditation centers. What started as personal spiritual quests
-              evolved into a mission to help others find their path to
-              enlightenment through authentic travel experiences.
-            </p>
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#8B6A3E]/10 rounded-full border border-[#8B6A3E]/20 mb-4">
+              <Heart className="w-3.5 h-3.5 text-[#8B6A3E]" />
+              <span className="text-[9px] tracking-[0.2em] uppercase text-[#8B6A3E] font-medium">
+                Founder's Story
+              </span>
+            </div>
 
-            <div className="grid grid-cols-3 gap-3">
+            <h2 className="text-3xl md:text-4xl font-serif text-[#2C1810] mb-4 leading-tight">
+              A Promise Born
+              <span className="block text-[#8B6A3E] mt-1">from Loss</span>
+            </h2>
+
+            <div className="space-y-3 text-[#5A3E2B]/80 leading-relaxed">
+              <p className="text-sm">
+                Our founder experienced firsthand the devastating combination of
+                grief and logistical chaos — the frantic calls to unknown
+                service providers, the fear of being misled during
+                vulnerability, and the profound disconnect of trying to honour a
+                loved one from thousands of miles away.
+              </p>
+              <p className="text-sm">
+                That pain revealed a universal, unaddressed truth: families are
+                left to navigate their most sacred duty entirely alone and
+                unsupported. Moksha Voyage was built to change that — forever.
+              </p>
+            </div>
+
+            <div className="mt-6 grid grid-cols-3 gap-3">
               {[
-                { value: "8+", label: "Years", icon: Crown },
-                { value: "200+", label: "Guides", icon: Gem },
-                { value: "15+", label: "Countries", icon: Globe },
+                { icon: Calendar, value: "Since 2015", label: "Founded" },
+                { icon: TrendingUp, value: "12,000 Cr", label: "Market Size" },
+                { icon: Users, value: "30M+", label: "NRI Served" },
               ].map((stat, idx) => {
                 const Icon = stat.icon;
                 return (
                   <div
                     key={idx}
-                    className="text-center p-3 bg-[#FAF7F2] rounded-lg"
+                    className="text-center p-3 bg-[#FAF7F2] rounded-lg border border-[#8B6A3E]/10"
                   >
                     <Icon className="w-4 h-4 text-[#8B6A3E] mx-auto mb-1" />
-                    <div className="text-lg font-serif text-[#2C1810]">
+                    <div className="text-base font-serif text-[#2C1810]">
                       {stat.value}
                     </div>
-                    <div className="text-[10px] text-[#5A3E2B]/70">
+                    <div className="text-[9px] text-[#5A3E2B]/70">
                       {stat.label}
                     </div>
                   </div>
@@ -279,153 +304,177 @@ function About() {
         </div>
       </section>
 
-      {/* Journey Highlights - Minimal Stats */}
+      {/* Vision & Mission - 3 Cards Layout - Fonts Reduced */}
       <section className="py-16 px-6 bg-[#FAF7F2]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <span className="text-sm tracking-[0.3em] uppercase text-[#8B6A3E] mb-3 block">
-              By The Numbers
-            </span>
-            <h2 className="text-3xl md:text-4xl font-serif text-[#2C1810]">
-              Our Impact in
-              <span className="block text-[#8B6A3E]">Sacred Numbers</span>
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#8B6A3E]/10 rounded-full border border-[#8B6A3E]/20 mb-4">
+              <Target className="w-3.5 h-3.5 text-[#8B6A3E]" />
+              <span className="text-[9px] tracking-[0.2em] uppercase text-[#8B6A3E] font-medium">
+                Our Purpose
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-serif text-[#2C1810] mb-3">
+              Vision, Mission & Promise
             </h2>
+            <p className="text-sm text-[#5A3E2B]/70 max-w-2xl mx-auto">
+              Guided by compassion and driven by transparency, we're
+              transforming end-of-life care in India and beyond.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              {
-                icon: MapPin,
-                value: "50+",
-                label: "Sacred Destinations",
-                desc: "Across India & beyond",
-              },
-              {
-                icon: Users2,
-                value: "5,000+",
-                label: "Happy Travelers",
-                desc: "Souls transformed",
-              },
-              {
-                icon: Mountain,
-                value: "100+",
-                label: "Retreats",
-                desc: "Conducted worldwide",
-              },
-              {
-                icon: Award,
-                value: "98%",
-                label: "Satisfaction",
-                desc: "From our pilgrims",
-              },
-            ].map((stat, idx) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={idx}
-                  className="group relative bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#8B6A3E]/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  <div className="relative">
-                    <div className="w-10 h-10 bg-[#8B6A3E]/10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                      <Icon className="w-5 h-5 text-[#8B6A3E]" />
-                    </div>
-                    <div className="text-2xl font-serif text-[#2C1810] mb-1">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm font-medium text-[#8B6A3E] mb-1">
-                      {stat.label}
-                    </div>
-                    <div className="text-[9px] text-[#5A3E2B]/60">
-                      {stat.desc}
-                    </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Vision Card */}
+            <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#8B6A3E]/10 group">
+              <div className="w-14 h-14 bg-[#8B6A3E]/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Eye className="w-6 h-6 text-[#8B6A3E]" />
+              </div>
+              <h3 className="text-xl font-serif text-[#2C1810] mb-3">
+                Our Vision
+              </h3>
+              <p className="text-sm text-[#5A3E2B]/80 leading-relaxed">
+                A world where every person — regardless of geography, economic
+                means, or family circumstances — can experience a dignified,
+                peaceful, and culturally resonant end-of-life journey.
+              </p>
+              <div className="mt-4 pt-4 border-t border-[#8B6A3E]/10">
+                <div className="flex items-center gap-2 text-[#8B6A3E]">
+                  <Globe className="w-3.5 h-3.5" />
+                  <span className="text-[10px]">
+                    Global Access · Dignity for All
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Mission Card */}
+            <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#8B6A3E]/10 group">
+              <div className="w-14 h-14 bg-[#8B6A3E]/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Target className="w-6 h-6 text-[#8B6A3E]" />
+              </div>
+              <h3 className="text-xl font-serif text-[#2C1810] mb-3">
+                Our Mission
+              </h3>
+              <p className="text-sm text-[#5A3E2B]/80 leading-relaxed">
+                To build a trusted, transparent digital ecosystem connecting
+                families with verified services, providing emotional and ritual
+                guidance, and ensuring no one faces this journey without
+                support.
+              </p>
+              <div className="mt-4 pt-4 border-t border-[#8B6A3E]/10">
+                <div className="flex items-center gap-2 text-[#8B6A3E]">
+                  <Shield className="w-3.5 h-3.5" />
+                  <span className="text-[10px]">
+                    Verified Network · 24/7 Support
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Promise Card - Special Highlight */}
+            <div className="bg-gradient-to-br from-[#8B6A3E] to-[#5A3E2B] rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden">
+              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative z-10">
+                <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <Heart className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-serif text-white mb-3">
+                  Our Promise
+                </h3>
+                <p className="text-white/90 text-sm leading-relaxed italic">
+                  "Every family on Moksha Voyage will receive the same standard
+                  of care, respect, and transparency we would want for our own
+                  loved ones. This is not a business promise. It is a human
+                  one."
+                </p>
+                <div className="mt-4 pt-4 border-t border-white/20">
+                  <div className="flex items-center gap-2 text-white">
+                    <HeartHandshake className="w-3.5 h-3.5" />
+                    <span className="text-[10px]">
+                      Human Promise · Sacred Duty
+                    </span>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Spiritual Guides - Elegant Cards */}
+      {/* HOW WE HELP SECTION - 4 Cards Layout */}
       <section className="py-16 px-6 max-w-7xl mx-auto">
-        <div className="text-center mb-10">
-          <span className="text-sm tracking-[0.3em] uppercase text-[#8B6A3E] mb-3 block">
-            Masters of Wisdom
-          </span>
-          <h2 className="text-3xl md:text-4xl font-serif text-[#2C1810]">
-            Meet Your
-            <span className="block text-[#8B6A3E]">Spiritual Guides</span>
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#8B6A3E]/10 rounded-full border border-[#8B6A3E]/20 mb-4">
+            <HeartHandshake className="w-3.5 h-3.5 text-[#8B6A3E]" />
+            <span className="text-[9px] tracking-[0.2em] uppercase text-[#8B6A3E] font-medium">
+              Our Services
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-serif text-[#2C1810] mb-3">
+            How We Help
           </h2>
+          <p className="text-sm text-[#5A3E2B]/70 max-w-2xl mx-auto">
+            Comprehensive support through every step of the journey
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
-              name: "Ravi Shankar",
-              role: "Founder & Spiritual Director",
-              description:
-                "25+ years of meditation practice, studied under Himalayan masters",
-              expertise: ["Vedanta", "Meditation", "Yoga Philosophy"],
-              image: "/assets/man1.jpg",
-              icon: Sun,
+              icon: Ambulance,
+              title: "Cremation Services",
+              desc: "End-to-end cremation coordination with verified providers, ritual materials, and ground booking.",
+              features: ["Cremation Ground", "Pandit Services", "Samagri"],
+              color: "from-[#8B6A3E] to-[#A88B5E]",
             },
             {
-              name: "Priya Sharma",
-              role: "Head of Wellness Journeys",
-              description: "Certified Ayurvedic doctor & yoga therapist",
-              expertise: ["Ayurveda", "Yoga Therapy", "Holistic Healing"],
-              image: "/assets/man2.avif",
-              icon: Moon,
+              icon: Globe2,
+              title: "NRI Services",
+              desc: "Dedicated local representatives managing all logistics for families abroad with real-time updates.",
+              features: ["Family Rep", "Legal Docs", "Repatriation"],
+              color: "from-[#5C4033] to-[#7A5B46]",
             },
             {
-              name: "Arjun Patel",
-              role: "Pilgrimage Expert",
-              description: "Guided 500+ pilgrims across sacred sites of India",
-              expertise: ["Temple History", "Rituals", "Sacred Geography"],
-              image: "/assets/girl.jpg",
-              icon: Star,
+              icon: Heart,
+              title: "Grief Support",
+              desc: "Professional counselling, peer support communities, and post-funeral ritual guidance.",
+              features: ["Counselling", "Peer Groups", "Ritual Guidance"],
+              color: "from-[#4A716C] to-[#5E8B83]",
             },
-          ].map((guide, index) => {
-            const Icon = guide.icon;
+            {
+              icon: Video,
+              title: "Digital Legacy",
+              desc: "Permanent digital memorials, document vault, and video tributes to preserve memories.",
+              features: ["Digital Memorials", "Document Vault", "Obituary"],
+              color: "from-[#6B7D6E] to-[#8A9B8C]",
+            },
+          ].map((item, idx) => {
+            const Icon = item.icon;
             return (
               <div
-                key={index}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
+                key={idx}
+                className="group relative bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#E8DBC5] overflow-hidden"
               >
-                <div className="relative h-56 overflow-hidden">
-                  <Image
-                    src={guide.image}
-                    alt={guide.name}
-                    fill
-                    className="object-cover object-top group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                  <div className="absolute bottom-3 left-3 right-3">
-                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-                      <Icon className="w-2.5 h-2.5 text-white" />
-                      <span className="text-[9px] text-white">
-                        Spiritual Guide
-                      </span>
-                    </div>
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-5 transition-opacity`}
+                ></div>
+                <div className="relative">
+                  <div className="w-14 h-14 bg-[#8B6A3E]/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Icon className="w-6 h-6 text-[#8B6A3E]" />
                   </div>
-                </div>
-
-                <div className="p-4">
-                  <h3 className="text-lg font-serif text-[#2C1810] mb-1">
-                    {guide.name}
+                  <h3 className="text-lg font-serif text-[#2C1810] mb-2">
+                    {item.title}
                   </h3>
-                  <p className="text-sm text-[#8B6A3E] mb-2">{guide.role}</p>
-                  <p className="text-sm text-[#5A3E2B]/70 mb-3 leading-relaxed">
-                    {guide.description}
+                  <p className="text-xs text-[#5A3E2B]/70 leading-relaxed mb-4">
+                    {item.desc}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
-                    {guide.expertise.map((skill, idx) => (
+                    {item.features.map((feature, fidx) => (
                       <span
-                        key={idx}
-                        className="px-2 py-0.5 bg-[#8B6A3E]/5 text-[#8B6A3E] rounded-full text-[9px] border border-[#8B6A3E]/10"
+                        key={fidx}
+                        className="px-2 py-0.5 bg-[#8B6A3E]/5 text-[8px] text-[#8B6A3E] rounded-full border border-[#8B6A3E]/10"
                       >
-                        {skill}
+                        {feature}
                       </span>
                     ))}
                   </div>
@@ -436,8 +485,566 @@ function About() {
         </div>
       </section>
 
-      {/* CTA Section - Minimal & Powerful */}
-      <section className="relative py-20 overflow-hidden">
+      {/* FIVE CORE OBJECTIVES - Already there */}
+      <section className="py-16 px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#8B6A3E]/10 rounded-full border border-[#8B6A3E]/20 mb-4">
+            <Compass className="w-3.5 h-3.5 text-[#8B6A3E]" />
+            <span className="text-[9px] tracking-[0.2em] uppercase text-[#8B6A3E] font-medium">
+              Our Core
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-serif text-[#2C1810] mb-3">
+            Five Core Objectives
+          </h2>
+          <p className="text-sm text-[#5A3E2B]/70 max-w-2xl mx-auto">
+            The foundational pillars that guide every decision, every service,
+            and every interaction.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+          {[
+            {
+              icon: Compass,
+              title: "SIMPLIFY",
+              desc: "Transform overwhelming complexity of death-care logistics into clear, human, and manageable steps with a single trusted point of contact.",
+              color: "from-[#8B6A3E] to-[#A88B5E]",
+              features: [
+                "Single Point of Contact",
+                "Step-by-Step Guidance",
+                "Clear Processes",
+              ],
+            },
+            {
+              icon: Globe,
+              title: "CONNECT",
+              desc: "Build and maintain a verified, geographically diverse network of pandits, crematoriums, ambulance services, and transport providers accessible 24/7.",
+              color: "from-[#5C4033] to-[#7A5B46]",
+              features: [
+                "Verified Network",
+                "24/7 Accessibility",
+                "Pan-India Coverage",
+              ],
+            },
+            {
+              icon: Shield,
+              title: "PROTECT",
+              desc: "Guarantee complete pricing transparency, formal digital agreements, and zero hidden charges — especially in the moments of greatest vulnerability.",
+              color: "from-[#4A716C] to-[#5E8B83]",
+              features: [
+                "Transparent Pricing",
+                "Digital Agreements",
+                "Zero Hidden Charges",
+              ],
+            },
+          ].map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={idx}
+                className="group relative bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#E8DBC5] overflow-hidden"
+              >
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-5 transition-opacity`}
+                ></div>
+                <div className="relative">
+                  <div className="w-14 h-14 bg-[#8B6A3E]/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Icon className="w-6 h-6 text-[#8B6A3E]" />
+                  </div>
+                  <h3 className="text-xl font-serif text-[#2C1810] mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-[#5A3E2B]/70 leading-relaxed mb-4">
+                    {item.desc}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {item.features.map((feature, fidx) => (
+                      <span
+                        key={fidx}
+                        className="px-2 py-0.5 bg-[#8B6A3E]/5 text-[9px] text-[#8B6A3E] rounded-full border border-[#8B6A3E]/10"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {[
+            {
+              icon: Star,
+              title: "HONOUR",
+              desc: "Provide families with the tools to create lasting digital legacies: photo archives, life stories, and permanent online memorials for their loved ones.",
+              color: "from-[#6B7D6E] to-[#8A9B8C]",
+              features: ["Digital Memorials", "Life Stories", "Photo Archives"],
+            },
+            {
+              icon: HandHeart,
+              title: "SERVE",
+              desc: "Channel a meaningful percentage of every transaction into the Moksha Seva Fund, ensuring social impact is embedded into the business model.",
+              color: "from-[#8B6A3E] to-[#A88B5E]",
+              features: [
+                "Moksha Seva Fund",
+                "Social Impact",
+                "Community Support",
+              ],
+            },
+          ].map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={idx}
+                className="group relative bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#E8DBC5] overflow-hidden"
+              >
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-5 transition-opacity`}
+                ></div>
+                <div className="relative">
+                  <div className="w-14 h-14 bg-[#8B6A3E]/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Icon className="w-6 h-6 text-[#8B6A3E]" />
+                  </div>
+                  <h3 className="text-xl font-serif text-[#2C1810] mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-[#5A3E2B]/70 leading-relaxed mb-4">
+                    {item.desc}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {item.features.map((feature, fidx) => (
+                      <span
+                        key={fidx}
+                        className="px-2 py-0.5 bg-[#8B6A3E]/5 text-[9px] text-[#8B6A3E] rounded-full border border-[#8B6A3E]/10"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="py-16 px-6 bg-[#FAF7F2]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#8B6A3E]/10 rounded-full border border-[#8B6A3E]/20 mb-4">
+              <MessageSquareQuote className="w-3.5 h-3.5 text-[#8B6A3E]" />
+              <span className="text-[9px] tracking-[0.2em] uppercase text-[#8B6A3E] font-medium">
+                Real Stories
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-serif text-[#2C1810] mb-3">
+              What Families Say
+            </h2>
+            <p className="text-sm text-[#5A3E2B]/70 max-w-2xl mx-auto">
+              Verified testimonials from families we've served
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Testimonial 1 - Priya Sharma (NRI Family) */}
+            <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#E8DBC5] group overflow-hidden">
+              {/* Image at top - bigger */}
+              <div className="relative w-full h-48 overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1887&auto=format&fit=crop"
+                  alt="Desai Family"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  priority={false}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                {/* Rating on image */}
+                <div className="absolute top-3 right-3 flex items-center gap-1 bg-black/50 backdrop-blur-sm px-2 py-1 rounded-full">
+                  <div className="flex text-amber-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3 h-3 fill-current" />
+                    ))}
+                  </div>
+                  <span className="text-[8px] text-white ml-1">5.0</span>
+                </div>
+                {/* Verified badge on image */}
+                <div className="absolute bottom-3 left-3">
+                  <span className="text-[8px] px-2 py-1 bg-[#8B6A3E] text-white rounded-full">
+                    Verified
+                  </span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-5">
+                <div className="flex items-center justify-between mb-2">
+                  <div>
+                    <p className="text-sm font-serif text-[#2C1810] font-medium">
+                      Priya Sharma
+                    </p>
+                    <p className="text-[8px] text-[#5A3E2B]/60">
+                      London, UK · NRI Services
+                    </p>
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <Quote className="absolute -top-2 -left-1 w-3 h-3 text-[#8B6A3E]/30" />
+                  <p className="text-xs text-[#5A3E2B]/80 italic leading-relaxed pl-3">
+                    "Living in London when my father passed in Delhi, I was
+                    paralysed. Moksha Voyage became my eyes, my hands, and my
+                    voice in India. They called me at every milestone. I never
+                    felt alone, not for a single moment."
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 2 - Desai Family (Local Family) */}
+            <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#E8DBC5] group overflow-hidden">
+              {/* Image at top - bigger */}
+              <div className="relative w-full h-48 overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1887&auto=format&fit=crop"
+                  alt="Desai Family"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  priority={false}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                {/* Rating on image */}
+                <div className="absolute top-3 right-3 flex items-center gap-1 bg-black/50 backdrop-blur-sm px-2 py-1 rounded-full">
+                  <div className="flex text-amber-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3 h-3 fill-current" />
+                    ))}
+                  </div>
+                  <span className="text-[8px] text-white ml-1">5.0</span>
+                </div>
+                {/* Verified badge on image */}
+                <div className="absolute bottom-3 left-3">
+                  <span className="text-[8px] px-2 py-1 bg-[#8B6A3E] text-white rounded-full">
+                    Verified
+                  </span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-5">
+                <div className="flex items-center justify-between mb-2">
+                  <div>
+                    <p className="text-sm font-serif text-[#2C1810] font-medium">
+                      Desai Family
+                    </p>
+                    <p className="text-[8px] text-[#5A3E2B]/60">
+                      Mumbai · Full Cremation Package
+                    </p>
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <Quote className="absolute -top-2 -left-1 w-3 h-3 text-[#8B6A3E]/30" />
+                  <p className="text-xs text-[#5A3E2B]/80 italic leading-relaxed pl-3">
+                    "We were terrified of being overcharged and handed over to
+                    unverified vendors. Moksha Voyage gave us a complete
+                    itemised price list before confirming. The pandit they
+                    arranged was extraordinary."
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 3 - Arjun Nair (Elder Care) */}
+            <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#E8DBC5] group overflow-hidden">
+              {/* Image at top - bigger */}
+              <div className="relative w-full h-48 overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1594819047050-99defca82545?q=80&w=1887&auto=format&fit=crop"
+                  alt="Desai Family"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  priority={false}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                {/* Rating on image */}
+                <div className="absolute top-3 right-3 flex items-center gap-1 bg-black/50 backdrop-blur-sm px-2 py-1 rounded-full">
+                  <div className="flex text-amber-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3 h-3 fill-current" />
+                    ))}
+                  </div>
+                  <span className="text-[8px] text-white ml-1">5.0</span>
+                </div>
+                {/* Verified badge on image */}
+                <div className="absolute bottom-3 left-3">
+                  <span className="text-[8px] px-2 py-1 bg-[#8B6A3E] text-white rounded-full">
+                    Verified
+                  </span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-5">
+                <div className="flex items-center justify-between mb-2">
+                  <div>
+                    <p className="text-sm font-serif text-[#2C1810] font-medium">
+                      Arjun Nair
+                    </p>
+                    <p className="text-[8px] text-[#5A3E2B]/60">
+                      Singapore · Elder Care Coordination
+                    </p>
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <Quote className="absolute -top-2 -left-1 w-3 h-3 text-[#8B6A3E]/30" />
+                  <p className="text-xs text-[#5A3E2B]/80 italic leading-relaxed pl-3">
+                    "My mother lived alone in Pune for the last four years. When
+                    the time came, they were there within the hour. All
+                    documentation, rituals, coordination handled completely. In
+                    the most difficult moment, they were my calm."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Reviews Row - 2 More with Images */}
+
+          <div className="text-center mt-10">
+            <button className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#8B6A3E] text-white rounded-lg text-xs font-medium hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+              View All Reviews
+              <ThumbsUp className="w-3.5 h-3.5" />
+            </button>
+            <p className="text-[8px] text-[#8B6A3E]/60 mt-3">
+              Trusted by 500+ families across the globe
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* REVIEWS GRID - Additional Reviews */}
+      <section className="py-16 px-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Review 4 */}
+          <div className="bg-white/50 backdrop-blur-sm rounded-xl p-8 border border-[#E8DBC5] hover:shadow-lg transition-shadow">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex text-amber-400 gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-current" />
+                ))}
+              </div>
+              <span className="text-sm text-[#8B6A3E] font-medium">
+                March 2024
+              </span>
+            </div>
+            <p className="text-base text-[#5A3E2B]/90 italic leading-relaxed mb-4">
+              "The real-time tracking gave us peace of mind being 10,000 miles
+              away. Every step was documented, every update shared."
+            </p>
+            <p className="text-sm font-medium text-[#2C1810]">
+              — Meera Krishnan, Dubai
+            </p>
+          </div>
+
+          {/* Review 5 */}
+          <div className="bg-white/50 backdrop-blur-sm rounded-xl p-8 border border-[#E8DBC5] hover:shadow-lg transition-shadow">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex text-amber-400 gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-current" />
+                ))}
+              </div>
+              <span className="text-sm text-[#8B6A3E] font-medium">
+                February 2024
+              </span>
+            </div>
+            <p className="text-base text-[#5A3E2B]/90 italic leading-relaxed mb-4">
+              "As a shelter home manager, Moksha Seva stepped in without
+              hesitation for our residents who had no one. They gave dignity to
+              the forgotten."
+            </p>
+            <p className="text-sm font-medium text-[#2C1810]">
+              — Anjali Srivastava, Varanasi
+            </p>
+          </div>
+        </div>
+      </section>
+      {/* Trust Signals */}
+      <section className="py-12 px-6 bg-white border-y border-[#8B6A3E]/10">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          {[
+            { icon: ShieldCheck, text: "Verified Providers" },
+            { icon: Lock, text: "Blockchain Audit Trail" },
+            { icon: Clock, text: "15 Min Response SLA" },
+            { icon: Heart, text: "Moksha Seva Fund" },
+          ].map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div key={idx} className="flex items-center gap-3 justify-center">
+                <Icon className="w-6 h-6 text-[#8B6A3E]" />
+                <span className="text-sm font-medium text-[#5A3E2B]">
+                  {item.text}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Accolades & Partnerships - 3 Cards Layout - Fonts Reduced */}
+      <section className="py-16 px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#8B6A3E]/10 rounded-full border border-[#8B6A3E]/20 mb-4">
+            <Award className="w-3.5 h-3.5 text-[#8B6A3E]" />
+            <span className="text-[9px] tracking-[0.2em] uppercase text-[#8B6A3E] font-medium">
+              Recognition
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-serif text-[#2C1810] mb-3">
+            Accolades & Partnerships
+          </h2>
+          <p className="text-sm text-[#5A3E2B]/70 max-w-2xl mx-auto">
+            Trusted by institutions, recognized by industry, committed to
+            excellence.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Press Mentions */}
+          <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#8B6A3E]/10 group">
+            <div className="w-14 h-14 bg-[#8B6A3E]/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <Award className="w-6 h-6 text-[#8B6A3E]" />
+            </div>
+            <h3 className="text-xl font-serif text-[#2C1810] mb-3">
+              Press Mentions
+            </h3>
+            <div className="space-y-3">
+              <div className="p-3 bg-[#FAF7F2] rounded-lg border border-[#8B6A3E]/10">
+                <p className="text-xs font-medium text-[#2C1810]">
+                  The Economic Times
+                </p>
+                <p className="text-[9px] text-[#5A3E2B]/60">
+                  "Revolutionizing End-of-Life Care in India"
+                </p>
+              </div>
+              <div className="p-3 bg-[#FAF7F2] rounded-lg border border-[#8B6A3E]/10">
+                <p className="text-xs font-medium text-[#2C1810]">
+                  Forbes India
+                </p>
+                <p className="text-[9px] text-[#5A3E2B]/60">
+                  "30 Under 30: Social Impact"
+                </p>
+              </div>
+              <div className="p-3 bg-[#FAF7F2] rounded-lg border border-[#8B6A3E]/10">
+                <p className="text-xs font-medium text-[#2C1810]">YourStory</p>
+                <p className="text-[9px] text-[#5A3E2B]/60">
+                  "Tech for Good: Moksha Voyage Story"
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Key Partnerships */}
+          <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#8B6A3E]/10 group">
+            <div className="w-14 h-14 bg-[#8B6A3E]/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <Gem className="w-6 h-6 text-[#8B6A3E]" />
+            </div>
+            <h3 className="text-xl font-serif text-[#2C1810] mb-3">
+              Key Partnerships
+            </h3>
+            <div className="space-y-3">
+              <div className="p-3 bg-[#FAF7F2] rounded-lg border border-[#8B6A3E]/10">
+                <p className="text-xs font-medium text-[#2C1810]">
+                  Government MoU
+                </p>
+                <p className="text-[9px] text-[#5A3E2B]/60">
+                  Ministry of Social Justice
+                </p>
+              </div>
+              <div className="p-3 bg-[#FAF7F2] rounded-lg border border-[#8B6A3E]/10">
+                <p className="text-xs font-medium text-[#2C1810]">
+                  Healthcare Network
+                </p>
+                <p className="text-[9px] text-[#5A3E2B]/60">
+                  Apollo Hospitals · Fortis
+                </p>
+              </div>
+              <div className="p-3 bg-[#FAF7F2] rounded-lg border border-[#8B6A3E]/10">
+                <p className="text-xs font-medium text-[#2C1810]">
+                  Registered Body
+                </p>
+                <p className="text-[9px] text-[#5A3E2B]/60">
+                  FCRA-compliant · Section 80G
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Awards & Recognition */}
+          <div className="bg-gradient-to-br from-[#8B6A3E]/5 to-[#5A3E2B]/5 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#8B6A3E]/10 group">
+            <div className="w-14 h-14 bg-[#8B6A3E]/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <Star className="w-6 h-6 text-[#8B6A3E]" />
+            </div>
+            <h3 className="text-xl font-serif text-[#2C1810] mb-3">Awards</h3>
+            <div className="space-y-3">
+              <div className="p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-[#8B6A3E]/10">
+                <p className="text-xs font-medium text-[#2C1810]">
+                  Social Impact Innovation
+                </p>
+                <p className="text-[9px] text-[#5A3E2B]/60">
+                  India Startup Awards — 2023
+                </p>
+              </div>
+              <div className="p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-[#8B6A3E]/10">
+                <p className="text-xs font-medium text-[#2C1810]">
+                  Best Startup in Elder Care
+                </p>
+                <p className="text-[9px] text-[#5A3E2B]/60">ET Now — 2024</p>
+              </div>
+              <div className="p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-[#8B6A3E]/10">
+                <p className="text-xs font-medium text-[#2C1810]">
+                  Innovation in Death Tech
+                </p>
+                <p className="text-[9px] text-[#5A3E2B]/60">NASSCOM — 2024</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Moksha Seva Section - Fonts Reduced */}
+      <section className="py-12 px-6 bg-gradient-to-r from-[#8B6A3E]/10 to-[#5A3E2B]/10">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#8B6A3E]/20 rounded-full border border-[#8B6A3E]/30 mb-4">
+            <HandHeart className="w-3.5 h-3.5 text-[#8B6A3E]" />
+            <span className="text-[9px] tracking-[0.2em] uppercase text-[#8B6A3E] font-medium">
+              Social Impact
+            </span>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-serif text-[#2C1810] mb-3">
+            Moksha Seva Fund
+          </h2>
+          <p className="text-sm text-[#5A3E2B]/80 mb-5 max-w-2xl mx-auto">
+            Through the Moksha Seva Fund, a portion of every Moksha Voyage
+            transaction provides completely FREE compassionate end-of-life care
+            for the elderly and underprivileged who have no one else. Your
+            journey helps fund another's dignity.
+          </p>
+          <button className="px-6 py-2.5 bg-[#8B6A3E] text-white rounded-lg text-sm font-medium hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+            Support Moksha Seva
+          </button>
+        </div>
+      </section>
+
+      {/* Final CTA Section - Fonts Reduced */}
+      <section className="relative py-16 overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-[#2C1810] to-[#8B6A3E]"></div>
           <div className="absolute inset-0 opacity-10">
@@ -447,34 +1054,50 @@ function About() {
 
         <div className="relative max-w-4xl mx-auto text-center px-6">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 rounded-full border border-white/20 backdrop-blur-sm mb-5">
-            <Feather className="w-3.5 h-3.5 text-white" />
-            <span className="text-[10px] tracking-wider text-white">
-              Begin Your Journey
+            <Phone className="w-3.5 h-3.5 text-white" />
+            <span className="text-[9px] tracking-wider text-white font-medium">
+              24/7 Immediate Support
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-serif text-white mb-4">
-            Ready to Find Your
-            <span className="block text-[#F5E9D9]">Inner Peace?</span>
+          <h2 className="text-3xl md:text-4xl font-serif text-white mb-3">
+            No One Should Navigate This Journey
+            <span className="block text-[#F5E9D9] mt-1">
+              Alone or Without Dignity
+            </span>
           </h2>
 
-          <p className="text-white/80 text-base mb-6 max-w-2xl mx-auto">
-            Join thousands of souls who have discovered their path to
-            enlightenment through our sacred journeys.
+          <p className="text-white/80 text-sm mb-6 max-w-2xl mx-auto">
+            Get immediate support, plan ahead for your family, or learn how
+            Moksha Voyage works.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button className="px-6 py-3 bg-white text-[#2C1810] rounded-lg font-medium text-md hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-              Explore Sacred Journeys
+            <button className="px-6 py-3 bg-white text-[#2C1810] rounded-lg text-sm font-medium hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+              Get Immediate Support
             </button>
-            <button className="px-6 py-3 bg-transparent border-2 border-white text-white rounded-lg font-medium text-md hover:bg-white/10 transition-all duration-300">
-              Book Consultation
+            <button className="px-6 py-3 bg-transparent border-2 border-white text-white rounded-lg text-sm font-medium hover:bg-white/10 transition-all duration-300">
+              Plan Ahead for Your Family
+            </button>
+            <button className="px-6 py-3 bg-[#F5E9D9] text-[#2C1810] rounded-lg text-sm font-medium hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+              Learn More →
             </button>
           </div>
 
-          <p className="text-white/60 mt-5 text-sm">
-            ✦ Free spiritual guidance session with our experts ✦
-          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+            <div className="flex items-center gap-1.5 text-white/80">
+              <Shield className="w-3.5 h-3.5" />
+              <span className="text-xs">Radical Pricing Transparency</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-white/80">
+              <CheckCircle className="w-3.5 h-3.5" />
+              <span className="text-xs">Verified Network</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-white/80">
+              <Clock className="w-3.5 h-3.5" />
+              <span className="text-xs">24/7 Care Coordinators</span>
+            </div>
+          </div>
         </div>
       </section>
 

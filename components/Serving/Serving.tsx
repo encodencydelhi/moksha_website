@@ -38,20 +38,20 @@ export default function Serving() {
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#8B6A3E]/5 rounded-full border border-[#8B6A3E]/10 mb-4">
             <PiFlowerLotus className="w-3.5 h-3.5 text-[#8B6A3E]" />
             <span className="text-[10px] tracking-[0.2em] uppercase text-[#8B6A3E]">
-              Our Promise
+              Who We Serve
             </span>
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-3xl font-light text-[#2C1810] mb-3">
-            Serving with
+            Serving Humanity
             <span className="block text-4xl md:text-4xl lg:text-4xl font-serif text-[#8B6A3E] mt-2">
-              Compassion & Dignity
+              Beyond Boundaries
             </span>
           </h2>
 
           <p className="text-[#5A3E2B]/70 text-sm max-w-2xl mx-auto">
-            For over 15 years, we've been guiding families through life's most
-            profound transitions with respect, care, and cultural sensitivity.
+            Families in India · Global NRI Community · Senior Citizens · Shelter
+            Homes & NGO Partners
           </p>
         </div>
 
@@ -77,6 +77,16 @@ export default function Serving() {
               </div>
 
               {/* Stats Badges */}
+              <div className="absolute bottom-4 left-4 right-4 flex gap-2">
+                <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 flex-1">
+                  <div className="text-[#8B6A3E] font-bold text-sm">30M+</div>
+                  <div className="text-[9px] text-[#5A3E2B]">NRI Community</div>
+                </div>
+                <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 flex-1">
+                  <div className="text-[#8B6A3E] font-bold text-sm">24/7</div>
+                  <div className="text-[9px] text-[#5A3E2B]">Care Support</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -91,18 +101,17 @@ export default function Serving() {
             {/* Title */}
             <div className="mb-6">
               <h3 className="text-2xl md:text-3xl font-serif text-[#2C1810] mb-3">
-                Peace of Mind in
-                <span className="block text-[#8B6A3E]">Every Ritual</span>
+                NRI Community
+                <span className="block text-[#8B6A3E]">
+                  Our Beachhead Market
+                </span>
               </h3>
 
               <p className="text-[#5A3E2B]/70 text-sm leading-relaxed">
-                At{" "}
-                <span className="font-medium text-[#8B6A3E]">
-                  Moksha Voyage
-                </span>
-                , we understand the importance of tradition and the need for
-                compassion during difficult times. Our experienced team ensures
-                every ritual is handled with the utmost respect and dignity.
+                <span className="font-medium text-[#8B6A3E]">30M+ Indians</span>{" "}
+                living in the UK, USA, UAE, Canada, Australia, Singapore, and
+                the Gulf. Distance transforms grief into paralysis. We become
+                your eyes, hands, and voice in India.
               </p>
             </div>
 
@@ -111,23 +120,23 @@ export default function Serving() {
               {[
                 {
                   icon: PiHandHeart,
-                  title: "Complete Ritual Guidance",
-                  desc: "Expert pandits for all ceremonies",
+                  title: "Pain Point Intensity",
+                  desc: "Managing sacred duties from thousands of miles away",
                 },
                 {
                   icon: BsShieldCheck,
-                  title: "Transparent Support",
-                  desc: "Clear communication & pricing",
+                  title: "Financial Capacity",
+                  desc: "3-5x average domestic transaction value",
                 },
                 {
                   icon: PiHeart,
-                  title: "Cultural Sensitivity",
-                  desc: "Respect for all traditions",
+                  title: "Community Referral",
+                  desc: "Intensely community-networked diaspora",
                 },
                 {
                   icon: FiAward,
-                  title: "15+ Years Experience",
-                  desc: "Trusted by thousands",
+                  title: "Recurring Relationship",
+                  desc: "Elder-care check-ins & pre-planning",
                 },
               ].map((feature, idx) => {
                 const Icon = feature.icon;
@@ -154,7 +163,7 @@ export default function Serving() {
               })}
             </div>
 
-            {/* Testimonial */}
+            {/* Testimonial - NRI Story */}
             <div className="bg-gradient-to-r from-[#F5E9D9] to-white rounded-lg p-4 mb-6 border-l-4 border-[#8B6A3E]">
               <div className="flex gap-3">
                 <div className="flex-shrink-0">
@@ -164,21 +173,46 @@ export default function Serving() {
                 </div>
                 <div>
                   <p className="text-xs text-[#5A3E2B]/80 italic mb-2">
-                    "The team at Moksha Voyage provided exceptional support
-                    during our time of need. Their compassion and attention to
-                    detail made a difficult time much easier."
+                    "Living in London when my father passed in Delhi, I was
+                    paralysed. Moksha Voyage became my eyes, my hands, and my
+                    voice in India. I never felt alone, not for a single
+                    moment."
                   </p>
                   <p className="text-[10px] font-medium text-[#8B6A3E]">
-                    — Rajesh Sharma, Delhi
+                    — Priya Sharma, London, UK
                   </p>
                 </div>
+              </div>
+            </div>
+
+            {/* Grief Support Ecosystem */}
+            <div className="mb-6">
+              <h4 className="text-sm font-medium text-[#2C1810] mb-2">
+                Grief Support Ecosystem
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-2 py-1 bg-[#8B6A3E]/5 text-[10px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
+                  Professional Counselling
+                </span>
+                <span className="px-2 py-1 bg-[#8B6A3E]/5 text-[10px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
+                  Peer Support Groups
+                </span>
+                <span className="px-2 py-1 bg-[#8B6A3E]/5 text-[10px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
+                  Children & Grief Resources
+                </span>
+                <span className="px-2 py-1 bg-[#8B6A3E]/5 text-[10px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
+                  Ritual Continuity Support
+                </span>
+                <span className="px-2 py-1 bg-[#8B6A3E]/5 text-[10px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
+                  Crisis Intervention 24/7
+                </span>
               </div>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3">
               <button className="flex-1 px-5 py-3 bg-[#8B6A3E] text-white rounded-lg text-sm font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
-                <span>Explore Services</span>
+                <span>Find Support Now</span>
                 <svg
                   className="w-4 h-4"
                   fill="none"
@@ -194,39 +228,39 @@ export default function Serving() {
                 </svg>
               </button>
               <button className="flex-1 px-5 py-3 border border-[#8B6A3E] text-[#8B6A3E] rounded-lg text-sm font-medium hover:bg-[#F5E9D9] transition-all duration-300 flex items-center justify-center gap-2">
-                <span>Contact Us</span>
+                <span>Join Support Community</span>
                 <PiHandHeart className="w-4 h-4" />
               </button>
             </div>
           </div>
         </div>
 
-        {/* Bottom Stats */}
+        {/* Bottom Stats - Updated with PDF numbers */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             {
               icon: FiClock,
-              value: "15+",
-              label: "Years of Service",
-              desc: "Since 2010",
+              value: "24/7",
+              label: "Care Coordination",
+              desc: "365 days a year",
             },
             {
               icon: FiMapPin,
               value: "50+",
-              label: "Cities",
-              desc: "Across India",
+              label: "Cities Across India",
+              desc: "Verified provider network",
             },
             {
               icon: FiUsers,
-              value: "500+",
-              label: "Families",
-              desc: "Trusted by many",
+              value: "30M+",
+              label: "NRI Community",
+              desc: "Global Indian diaspora",
             },
             {
               icon: PiStar,
-              value: "98%",
-              label: "Satisfaction",
-              desc: "From our clients",
+              value: "100%",
+              label: "Transparency",
+              desc: "No hidden charges",
             },
           ].map((stat, idx) => {
             const Icon = stat.icon;
@@ -253,6 +287,30 @@ export default function Serving() {
               </div>
             );
           })}
+        </div>
+
+        {/* Moksha Seva Fund Banner */}
+        <div className="mt-12 p-6 bg-gradient-to-r from-[#8B6A3E]/10 to-transparent rounded-xl border border-[#8B6A3E]/20">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-[#8B6A3E] flex items-center justify-center flex-shrink-0">
+                <PiHandHeart className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h4 className="text-base font-serif text-[#8B6A3E]">
+                  Moksha Seva Fund
+                </h4>
+                <p className="text-xs text-[#5A3E2B]/70 max-w-2xl">
+                  A portion of every transaction provides completely FREE
+                  end-of-life care for the elderly and underprivileged who have
+                  no one else.
+                </p>
+              </div>
+            </div>
+            <button className="px-4 py-2 bg-[#8B6A3E] text-white rounded-lg text-xs font-medium hover:shadow-lg whitespace-nowrap">
+              Donate to Seva
+            </button>
+          </div>
         </div>
       </div>
     </section>

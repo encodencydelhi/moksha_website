@@ -222,13 +222,9 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-serif font-bold text-white">
-            Moksha Voyage
+            A Journey Guided{" "}
+            <span className="block text-amber-200">by Love</span>
           </h1>
-
-          <h2 className="text-xl md:text-3xl text-white/90">
-            A Journey of Dignity,
-            <span className="text-amber-200"> Ritual & Remembrance</span>
-          </h2>
 
           {mantra && (
             <div

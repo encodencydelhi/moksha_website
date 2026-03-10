@@ -79,43 +79,51 @@ export default function HowWeCanHelp() {
   const cards: CardItem[] = [
     {
       icon: "FaFireAlt",
-      title: "Cremation & Last Rites",
-      desc: "Respectful arrangements, traditional or electric cremation, and last rites as per custom and tradition.",
+      title: "Cremation Services",
+      desc: "End-to-end cremation coordination with verified providers, ritual materials, and cremation ground booking.",
       color: "from-[#8B6A3E] to-[#A88B5E]",
-      features: ["Traditional & Electric", "Complete Rituals", "24/7 Support"],
+      features: [
+        "Cremation Ground Booking",
+        "Pandit Services",
+        "Ritual Materials",
+      ],
     },
     {
       icon: "FaGlobeAsia",
-      title: "International Repatriation",
-      desc: "Door-to-door body repatriation to/from India with complete legal and practical coordination.",
+      title: "NRI Cross-Border",
+      desc: "Dedicated local representatives managing all logistics for families abroad with real-time updates.",
       color: "from-[#5C4033] to-[#7A5B46]",
-      features: ["Global Network", "Legal Support", "Door-to-Door"],
+      features: [
+        "Family Representative",
+        "Legal Documentation",
+        "Body/Ash Repatriation",
+      ],
     },
     {
       icon: "FaPrayingHands",
-      title: "Rituals, Shraddh & Pooja",
-      desc: "Asthi Visarjan, Tehrvi, Pind Daan, and all Shraddh rituals performed online or in person.",
+      title: "Grief Support",
+      desc: "Professional counselling, peer support communities, and post-funeral ritual guidance.",
       color: "from-[#4A716C] to-[#5E8B83]",
-      features: ["Online/In-person", "Vedic Priests", "Complete Package"],
+      features: ["Grief Counselling", "Peer Communities", "Ritual Continuity"],
     },
     {
       icon: "FaVideo",
-      title: "Online Streaming & Tributes",
-      desc: "Virtual presence through live streaming, digital tributes, and memorial pages for loved ones.",
+      title: "Digital Legacy",
+      desc: "Permanent digital memorials, document vault, and video tributes to preserve memories.",
       color: "from-[#6B7D6E] to-[#8A9B8C]",
-      features: ["Live Streaming", "Digital Memorials", "Global Access"],
+      features: ["Digital Memorials", "Document Vault", "Obituary Publishing"],
     },
   ];
 
   const stats: StatItem[] = [
-    { icon: "FaClock", value: "24/7", label: "Available Support" },
-    { icon: "FaUsers", value: "500+", label: "Families Served" },
+    { icon: "FaClock", value: "24/7", label: "Care Coordinators" },
+    { icon: "FaUsers", value: "30M+", label: "NRI Community Served" },
     {
       icon: "FaHeart",
       value: "100%",
-      label: "Compassionate Care",
+      label: "Pricing Transparency",
     },
-    { icon: "FaStar", value: "15+", label: "Years Experience" },
+    { icon: "FaStar", value: "12,000 Cr", label: "Indian Funeral Market" },
   ];
 
   const circleStyles = [
@@ -206,9 +214,9 @@ export default function HowWeCanHelp() {
           </div>
 
           <h2 className="text-3xl md:text-5xl lg:text-3xl font-light text-[#3A2A1F] leading-tight mb-4">
-            <span className="block">Comprehensive</span>
+            <span className="block">End-to-End Cremation &</span>
             <span className="relative inline-block">
-              Compassionate Care
+              Ritual Services
               <svg
                 className="absolute -bottom-2 left-0 w-full h-2.5 text-[#E8DBC5]/70"
                 viewBox="0 0 100 10"
@@ -225,9 +233,8 @@ export default function HowWeCanHelp() {
           </h2>
 
           <p className="text-lg md:text-sm text-[#6E4B3A]/80 max-w-3xl mx-auto font-light leading-relaxed">
-            We provide end-to-end support through every aspect of the
-            end-of-life journey, ensuring cultural sensitivity, dignity, and
-            peace of mind.
+            Verified Service Network · NRI Cross-Border Coordination · Radical
+            Pricing Transparency
           </p>
         </div>
 
@@ -324,14 +331,13 @@ export default function HowWeCanHelp() {
               href="tel:+9118001234567"
               className="text-[#8B6A3E] font-normal hover:underline"
             >
-              Call our 24/7 support line
+              Call our 24/7 helpline
             </a>
           </p>
         </div>
       </div>
 
       <div style={{ marginTop: "40px" }}>
-        {" "}
         <Mantra />
       </div>
     </section>
