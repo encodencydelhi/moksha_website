@@ -169,10 +169,6 @@ export default function MokshaShlokSection() {
                   alt="Sacred"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
-
-                {/* Gradient overlays for depth */}
-
-                {/* Decorative elements on image */}
               </div>
             </div>
           </div>
