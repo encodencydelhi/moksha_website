@@ -171,44 +171,8 @@ export default function MokshaShlokSection() {
                 />
 
                 {/* Gradient overlays for depth */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#8B6A3E]/50 via-transparent to-transparent"></div>
-                <div className="absolute inset-0 bg-gradient-to-l from-[#F8F4EC]/30 to-transparent"></div>
 
                 {/* Decorative elements on image */}
-                <div className="absolute top-6 right-6 text-5xl text-white/30 font-serif drop-shadow-lg">
-                  ॐ
-                </div>
-
-                {/* Added trust badges on image */}
-                <div className="absolute top-6 left-6 flex gap-1">
-                  <span className="px-2 py-0.5 bg-black/40 backdrop-blur-sm text-white text-[8px] rounded-full border border-white/20">
-                    24/7 Care
-                  </span>
-                  <span className="px-2 py-0.5 bg-black/40 backdrop-blur-sm text-white text-[8px] rounded-full border border-white/20">
-                    Verified
-                  </span>
-                </div>
-
-                <div className="absolute bottom-6 left-6 text-white drop-shadow-lg">
-                  <div className="flex items-center gap-2">
-                    <div className="w-1 h-8 bg-[#8B6A3E] drop-shadow-lg"></div>
-                    <div>
-                      <p className="text-[10px] tracking-[0.3em] uppercase opacity-90 font-medium">
-                        MOKSHA
-                      </p>
-                      <p className="text-sm font-semibold">VOYAGE</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Added stats on bottom right */}
-                <div className="absolute bottom-6 right-6 text-right text-white drop-shadow-lg">
-                  <p className="text-[10px] font-light">30M+ NRI</p>
-                  <p className="text-[10px] font-light">100% Transparency</p>
-                </div>
-
-                {/* Bottom fade */}
-                <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#8B6A3E]/70 to-transparent"></div>
               </div>
             </div>
           </div>

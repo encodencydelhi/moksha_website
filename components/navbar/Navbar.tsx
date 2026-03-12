@@ -226,7 +226,7 @@ export default function Navbar() {
       <nav
         className={`fixed ${hideTopBar ? "top-0" : "top-11"} left-0 w-full z-50 transition-all duration-50 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-lg shadow-sm py-0"
+            ? "bg-white backdrop-blur-lg shadow-sm py-0"
             : "bg-white py-0 "
         }`}
       >
@@ -234,9 +234,9 @@ export default function Navbar() {
           <div className="flex items-center h-12">
             <div className="absolute top-1 left-4 sm:left-30 z-10">
               <button onClick={() => handleNavigation("/", "home")}>
-                <div className="w-14 h-14 sm:w-30 sm:h-30 overflow-hidden rounded-md">
+                <div className="w-14 h-14 sm:w-30 sm:h-30 overflow-hidden rounded-md bg-white">
                   <img
-                    src="/assets/logoreal.jpeg"
+                    src="/assets/logoreal-removebg-preview.png"
                     alt="Moksha Voyage Logo"
                     className="w-full h-full object-cover"
                   />

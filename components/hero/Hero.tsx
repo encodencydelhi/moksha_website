@@ -167,20 +167,18 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full min-h-[60vh] md:min-h-[40vh] overflow-hidden">
+    <section className="relative w-full min-h-[60vh] md:min-h-[70vh] overflow-hidden">
       <div className="absolute inset-0">
         {images.map((img, i) => (
           <div
             key={i}
-            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-700 ${
+            className={`absolute inset-0 bg-cover bg-center duration-700 ${
               i === currentIndex ? "opacity-100" : "opacity-0"
             }`}
             style={{ backgroundImage: `url(${img})` }}
           />
         ))}
       </div>
-
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70" />
 
       {/* Arrows */}
       <button
@@ -221,9 +219,9 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-serif font-bold text-white">
+          <h1 className="text-5xl md:text-7xl font-serif font-bold text-amber-800">
             A Journey Guided{" "}
-            <span className="block text-amber-200">by Love</span>
+            <span className="block text-yellow-300">by Love</span>
           </h1>
 
           {mantra && (
