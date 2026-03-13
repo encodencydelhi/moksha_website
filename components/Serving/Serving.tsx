@@ -188,20 +188,20 @@ export default function Serving() {
               <h4 className="text-xs font-medium text-[#2C1810] mb-1.5">
                 Grief Support Ecosystem
               </h4>
-              <div className="flex flex-wrap gap-1.5">
-                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[8px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
+              <div className="flex flex-wrap gap-1.5 font-bold ">
+                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5  text-[13px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
                   Professional Counselling
                 </span>
-                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[8px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
+                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[13px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
                   Peer Support Groups
                 </span>
-                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[8px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
+                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[13px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
                   Children & Grief Resources
                 </span>
-                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[8px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
+                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[13px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
                   Ritual Continuity Support
                 </span>
-                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[8px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
+                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[13px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
                   Crisis Intervention 24/7
                 </span>
               </div>
