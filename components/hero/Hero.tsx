@@ -18,14 +18,12 @@ export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
 
-  // ---------------- DAILY MANTRA STATE ----------------
   const [mantra, setMantra] = useState<any>(null);
   const [audioPlaying, setAudioPlaying] = useState(false);
   const [audioError, setAudioError] = useState(false);
   const [audioLoading, setAudioLoading] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // ---------------- FIX: Memoize slideMantras to prevent re-creation ----------------
   const slideMantras = useMemo(() => {
     return [shlokas[0], shlokas[1], shlokas[2], shlokas[3]];
   }, []);
@@ -51,7 +49,6 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [isPlaying, nextSlide]);
 
-  // ---------------- AUDIO SETUP ----------------
   useEffect(() => {
     if (!mantra || !audioRef.current) return;
 
@@ -115,7 +112,6 @@ export default function Hero() {
       setAudioLoading(false);
     }
 
-    // Cleanup
     return () => {
       audio.removeEventListener("canplay", handleCanPlay);
       audio.removeEventListener("play", handlePlay);
@@ -219,7 +215,7 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-serif font-bold text-amber-800">
+          <h1 className="text-5xl md:text-7xl font-serif font-bold text-yellow-900">
             A Journey Guided{" "}
             <span className="block text-yellow-300">by Love</span>
           </h1>

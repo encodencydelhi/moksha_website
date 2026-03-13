@@ -387,13 +387,11 @@ function PrayerHallServices() {
             {/* Sacred Symbol */}
             <div className="flex items-center justify-center gap-2 text-[#F5E9D9] mb-4">
               <GiPrayer className="text-2xl" />
-              <span className="text-sm tracking-widest">
-                ॐ PRAYER HALLS ॐ • MEDITATION SPACES
-              </span>
+              <span className="text-sm tracking-widest">ॐ PRAYER HALLS ॐ</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-serif text-white mb-4 leading-tight">
-              Prayer & Meditation Halls
+              Prayer Halls
               <span className="block text-xl md:text-2xl font-light text-[#F5E9D9] mt-3">
                 Sacred Spaces for Inner Peace & Spiritual Practice
               </span>
