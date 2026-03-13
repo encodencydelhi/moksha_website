@@ -121,7 +121,7 @@ export default function Hero() {
       audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
       audio.pause();
     };
-  }, [mantra]); // ✅ Sirf mantra change pe trigger hoga
+  }, [mantra]);
 
   // ---------------- AUDIO CONTROL ----------------
   const toggleAudio = async () => {
@@ -168,7 +168,7 @@ export default function Hero() {
         {images.map((img, i) => (
           <div
             key={i}
-            className={`absolute inset-0 bg-cover bg-center duration-700 ${
+            className={`absolute inset-0 bg-cover bg-center ${
               i === currentIndex ? "opacity-100" : "opacity-0"
             }`}
             style={{ backgroundImage: `url(${img})` }}
@@ -221,10 +221,7 @@ export default function Hero() {
           </h1>
 
           {mantra && (
-            <div
-              key={currentIndex}
-              className="mt-1 rounded-xl p-6  animate-fadeIn"
-            >
+            <div className="mt-1 rounded-xl p-6">
               <h3 className="text-amber-200 text-lg font-semibold mb-3 flex items-center justify-center gap-2">
                 <span>🌼</span>
                 {currentIndex === 0
@@ -248,22 +245,6 @@ export default function Hero() {
           )}
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.5s ease-in-out;
-        }
-      `}</style>
     </section>
   );
 }

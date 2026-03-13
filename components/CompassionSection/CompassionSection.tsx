@@ -3,12 +3,6 @@
 import { useState, useEffect } from "react";
 
 export default function CompassionSection() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
   return (
     <section className="w-full relative overflow-hidden h-[550px]">
       <div className="absolute inset-0 z-0">
@@ -34,9 +28,7 @@ export default function CompassionSection() {
 
       <div className="relative z-10 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="h-full flex items-center">
-          <div
-            className={`max-w-3xl ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"} transition-all duration-700`}
-          >
+          <div className="max-w-3xl">
             <div className="inline-flex items-center space-x-2 mb-5">
               <div className="w-12 h-0.5 bg-[#8B6A3E]"></div>
               <span className="text-[#8B6A3E] font-medium tracking-wide uppercase text-xs">

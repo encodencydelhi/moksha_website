@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   FaWhatsapp,
   FaTelegram,
@@ -16,12 +16,7 @@ import { PiFlowerLotus } from "react-icons/pi";
 import { MdEmail } from "react-icons/md";
 
 const SocialSidebar = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [showTooltip, setShowTooltip] = useState<string | null>(null);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
 
   const socialLinks = [
     {
@@ -91,9 +86,7 @@ const SocialSidebar = () => {
   return (
     <>
       {/* Desktop View */}
-      <div
-        className={`fixed inset-0 pointer-events-none z-50 hidden md:block transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
-      >
+      <div className="fixed inset-0 pointer-events-none z-50 hidden md:block">
         {/* Left Side - Enquiry and Emergency stacked */}
         <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-auto">
           <div className="flex flex-col gap-3">
@@ -105,7 +98,7 @@ const SocialSidebar = () => {
                 onMouseEnter={() => setShowTooltip("enquiry")}
                 onMouseLeave={() => setShowTooltip(null)}
               >
-                <div className="px-2 py-5 rounded-r-lg flex items-center justify-center shadow-xl border-l-0 border border-[#8B6A3E]/20 bg-gradient-to-r from-[#8B6A3E] to-[#5A3E2B] hover:from-[#5A3E2B] hover:to-[#8B6A3E] transition-all duration-300">
+                <div className="px-2 py-5 rounded-r-lg flex items-center justify-center shadow-xl border-l-0 border border-[#8B6A3E]/20 bg-gradient-to-r from-[#8B6A3E] to-[#5A3E2B] hover:from-[#5A3E2B] hover:to-[#8B6A3E]">
                   <span
                     className="font-semibold text-sm tracking-wide text-white flex items-center gap-2"
                     style={{
@@ -134,7 +127,7 @@ const SocialSidebar = () => {
                 onMouseEnter={() => setShowTooltip("emergency")}
                 onMouseLeave={() => setShowTooltip(null)}
               >
-                <div className="px-2 py-7 rounded-r-lg flex items-center justify-center shadow-xl border-l-0 border border-red-500/20 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 transition-all duration-300">
+                <div className="px-2 py-7 rounded-r-lg flex items-center justify-center shadow-xl border-l-0 border border-red-500/20 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800">
                   <span
                     className="font-semibold text-sm tracking-wide text-white flex items-center gap-2"
                     style={{
@@ -171,7 +164,7 @@ const SocialSidebar = () => {
                   onMouseLeave={() => setShowTooltip(null)}
                 >
                   <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center bg-white shadow-lg border border-gray-200 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl"
+                    className="w-12 h-12 rounded-full flex items-center justify-center bg-white shadow-lg border border-gray-200 group-hover:shadow-xl"
                     style={{ color: social.color }}
                   >
                     {social.icon}
@@ -200,7 +193,7 @@ const SocialSidebar = () => {
               onMouseLeave={() => setShowTooltip(null)}
             >
               <div
-                className="w-14 h-14 rounded-full flex items-center justify-center bg-white shadow-xl border border-gray-200 transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl animate-pulse"
+                className="w-14 h-14 rounded-full flex items-center justify-center bg-white shadow-xl border border-gray-200 group-hover:shadow-2xl"
                 style={{ color: socialLinks[0].color }}
               >
                 <FaWhatsapp size={24} />
@@ -225,7 +218,7 @@ const SocialSidebar = () => {
               onMouseLeave={() => setShowTooltip(null)}
             >
               <div
-                className="w-14 h-14 rounded-full flex items-center justify-center bg-white shadow-xl border border-gray-200 transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl animate-bounce"
+                className="w-14 h-14 rounded-full flex items-center justify-center bg-white shadow-xl border border-gray-200 group-hover:shadow-2xl"
                 style={{ color: phoneLink.color }}
               >
                 <FaPhone size={24} />
@@ -256,7 +249,7 @@ const SocialSidebar = () => {
             href="mailto:info@mokshavoyage.com"
             className="flex flex-col items-center gap-1 group"
           >
-            <div className="w-10 h-10 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center group-hover:bg-[#8B6A3E] group-hover:text-white transition-colors">
+            <div className="w-10 h-10 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center group-hover:bg-[#8B6A3E] group-hover:text-white">
               <FaEnvelope
                 size={16}
                 className="text-[#8B6A3E] group-hover:text-white"
@@ -272,7 +265,7 @@ const SocialSidebar = () => {
             href="tel:+919310219283"
             className="flex flex-col items-center gap-1 group"
           >
-            <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center group-hover:bg-red-600 transition-colors">
+            <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center group-hover:bg-red-600">
               <FaPhone
                 size={16}
                 className="text-red-600 group-hover:text-white"
@@ -290,7 +283,7 @@ const SocialSidebar = () => {
             rel="noopener noreferrer"
             className="flex flex-col items-center gap-1 group"
           >
-            <div className="w-10 h-10 rounded-full bg-[#25D366]/10 flex items-center justify-center group-hover:bg-[#25D366] transition-colors">
+            <div className="w-10 h-10 rounded-full bg-[#25D366]/10 flex items-center justify-center group-hover:bg-[#25D366]">
               <FaWhatsapp
                 size={16}
                 className="text-[#25D366] group-hover:text-white"
@@ -306,7 +299,7 @@ const SocialSidebar = () => {
             href={phoneLink.url}
             className="flex flex-col items-center gap-1 group"
           >
-            <div className="w-10 h-10 rounded-full bg-[#4CAF50]/10 flex items-center justify-center group-hover:bg-[#4CAF50] transition-colors">
+            <div className="w-10 h-10 rounded-full bg-[#4CAF50]/10 flex items-center justify-center group-hover:bg-[#4CAF50]">
               <FaPhone
                 size={16}
                 className="text-[#4CAF50] group-hover:text-white"
@@ -335,7 +328,7 @@ const SocialSidebar = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 px-3 py-2 hover:bg-[#F5E9D9] rounded-lg transition-colors"
+                    className="flex items-center gap-3 px-3 py-2 hover:bg-[#F5E9D9] rounded-lg"
                   >
                     <div style={{ color: social.color }}>{social.icon}</div>
                     <span className="text-xs text-[#5A3E2B]">
