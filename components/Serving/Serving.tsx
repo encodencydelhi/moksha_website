@@ -18,7 +18,7 @@ export default function Serving() {
   const themeColorDark = "#5A3E2B";
 
   return (
-    <section className="w-full relative overflow-hidden py-16 md:py-20 lg:py-24 bg-gradient-to-b from-[#FAF7F2] to-white">
+    <section className="w-full relative overflow-hidden bg-gradient-to-b from-[#FAF7F2] to-white h-200 flex items-center">
       {/* Background Patterns */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 -left-24 w-96 h-96 bg-[#8B6A3E]/5 rounded-full blur-3xl"></div>
@@ -32,19 +32,19 @@ export default function Serving() {
         </div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#8B6A3E]/5 rounded-full border border-[#8B6A3E]/10 mb-4">
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#8B6A3E]/5 rounded-full border border-[#8B6A3E]/10 mb-3">
             <PiFlowerLotus className="w-3.5 h-3.5 text-[#8B6A3E]" />
             <span className="text-[10px] tracking-[0.2em] uppercase text-[#8B6A3E]">
               Who We Serve
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-3xl font-light text-[#2C1810] mb-3">
+          <h2 className="text-3xl md:text-4xl lg:text-3xl font-light text-[#2C1810] mb-2">
             Serving Humanity
-            <span className="block text-4xl md:text-4xl lg:text-4xl font-serif text-[#8B6A3E] mt-2">
+            <span className="block text-4xl md:text-4xl lg:text-4xl font-serif text-[#8B6A3E] mt-1">
               Beyond Boundaries
             </span>
           </h2>
@@ -55,8 +55,7 @@ export default function Serving() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Side - Image with Stats */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div
             className={`relative transition-all duration-700 transform ${
               isVisible
@@ -65,7 +64,7 @@ export default function Serving() {
             }`}
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <div className="relative h-[400px] md:h-[450px]">
+              <div className="relative h-[350px] md:h-[450px]">
                 <Image
                   src="/assets/pandit.avif"
                   alt="Serving with Compassion"
@@ -76,15 +75,14 @@ export default function Serving() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
               </div>
 
-              {/* Stats Badges */}
-              <div className="absolute bottom-4 left-4 right-4 flex gap-2">
-                <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 flex-1">
-                  <div className="text-[#8B6A3E] font-bold text-sm">30M+</div>
-                  <div className="text-[9px] text-[#5A3E2B]">NRI Community</div>
+              <div className="absolute bottom-3 left-3 right-3 flex gap-2">
+                <div className="bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1.5 flex-1">
+                  <div className="text-[#8B6A3E] font-bold text-xs">30M+</div>
+                  <div className="text-[8px] text-[#5A3E2B]">NRI Community</div>
                 </div>
-                <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 flex-1">
-                  <div className="text-[#8B6A3E] font-bold text-sm">24/7</div>
-                  <div className="text-[9px] text-[#5A3E2B]">Care Support</div>
+                <div className="bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1.5 flex-1">
+                  <div className="text-[#8B6A3E] font-bold text-xs">24/7</div>
+                  <div className="text-[8px] text-[#5A3E2B]">Care Support</div>
                 </div>
               </div>
             </div>
@@ -99,15 +97,15 @@ export default function Serving() {
             }`}
           >
             {/* Title */}
-            <div className="mb-6">
-              <h3 className="text-2xl md:text-3xl font-serif text-[#2C1810] mb-3">
+            <div className="mb-4">
+              <h3 className="text-xl md:text-2xl font-serif text-[#2C1810] mb-2">
                 NRI Community
-                <span className="block text-[#8B6A3E]">
+                <span className="block text-[#8B6A3E] text-lg">
                   Our Beachhead Market
                 </span>
               </h3>
 
-              <p className="text-[#5A3E2B]/70 text-sm leading-relaxed">
+              <p className="text-[#5A3E2B]/70 text-xs leading-relaxed">
                 <span className="font-medium text-[#8B6A3E]">30M+ Indians</span>{" "}
                 living in the UK, USA, UAE, Canada, Australia, Singapore, and
                 the Gulf. Distance transforms grief into paralysis. We become
@@ -116,7 +114,7 @@ export default function Serving() {
             </div>
 
             {/* Features Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
               {[
                 {
                   icon: PiHandHeart,
@@ -143,17 +141,17 @@ export default function Serving() {
                 return (
                   <div
                     key={idx}
-                    className="group p-3 bg-white rounded-lg border border-[#E8DBC5] hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+                    className="group p-2 bg-white rounded-lg border border-[#E8DBC5] hover:shadow-md transition-all duration-300 hover:-translate-y-1"
                   >
-                    <div className="flex items-start gap-2">
-                      <div className="w-8 h-8 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center group-hover:bg-[#8B6A3E] transition-colors duration-300">
-                        <Icon className="w-4 h-4 text-[#8B6A3E] group-hover:text-white transition-colors duration-300" />
+                    <div className="flex items-start gap-1.5">
+                      <div className="w-7 h-7 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center group-hover:bg-[#8B6A3E] transition-colors duration-300 flex-shrink-0">
+                        <Icon className="w-3.5 h-3.5 text-[#8B6A3E] group-hover:text-white transition-colors duration-300" />
                       </div>
                       <div>
-                        <h4 className="text-sm font-medium text-[#2C1810] mb-0.5">
+                        <h4 className="text-xs font-medium text-[#2C1810] mb-0.5">
                           {feature.title}
                         </h4>
-                        <p className="text-[10px] text-[#5A3E2B]/60">
+                        <p className="text-[9px] text-[#5A3E2B]/60">
                           {feature.desc}
                         </p>
                       </div>
@@ -164,21 +162,21 @@ export default function Serving() {
             </div>
 
             {/* Testimonial - NRI Story */}
-            <div className="bg-gradient-to-r from-[#F5E9D9] to-white rounded-lg p-4 mb-6 border-l-4 border-[#8B6A3E]">
-              <div className="flex gap-3">
+            <div className="bg-gradient-to-r from-[#F5E9D9] to-white rounded-lg p-3 mb-4 border-l-4 border-[#8B6A3E]">
+              <div className="flex gap-2">
                 <div className="flex-shrink-0">
-                  <div className="w-8 h-8 rounded-full bg-[#8B6A3E] flex items-center justify-center">
-                    <FaQuoteRight className="w-4 h-4 text-white" />
+                  <div className="w-7 h-7 rounded-full bg-[#8B6A3E] flex items-center justify-center">
+                    <FaQuoteRight className="w-3.5 h-3.5 text-white" />
                   </div>
                 </div>
                 <div>
-                  <p className="text-xs text-[#5A3E2B]/80 italic mb-2">
+                  <p className="text-[10px] text-[#5A3E2B]/80 italic mb-1">
                     "Living in London when my father passed in Delhi, I was
                     paralysed. Moksha Voyage became my eyes, my hands, and my
                     voice in India. I never felt alone, not for a single
                     moment."
                   </p>
-                  <p className="text-[10px] font-medium text-[#8B6A3E]">
+                  <p className="text-[9px] font-medium text-[#8B6A3E]">
                     — Priya Sharma, London, UK
                   </p>
                 </div>
@@ -186,35 +184,35 @@ export default function Serving() {
             </div>
 
             {/* Grief Support Ecosystem */}
-            <div className="mb-6">
-              <h4 className="text-sm font-medium text-[#2C1810] mb-2">
+            <div className="mb-4">
+              <h4 className="text-xs font-medium text-[#2C1810] mb-1.5">
                 Grief Support Ecosystem
               </h4>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-2 py-1 bg-[#8B6A3E]/5 text-[10px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
+              <div className="flex flex-wrap gap-1.5">
+                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[8px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
                   Professional Counselling
                 </span>
-                <span className="px-2 py-1 bg-[#8B6A3E]/5 text-[10px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
+                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[8px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
                   Peer Support Groups
                 </span>
-                <span className="px-2 py-1 bg-[#8B6A3E]/5 text-[10px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
+                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[8px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
                   Children & Grief Resources
                 </span>
-                <span className="px-2 py-1 bg-[#8B6A3E]/5 text-[10px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
+                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[8px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
                   Ritual Continuity Support
                 </span>
-                <span className="px-2 py-1 bg-[#8B6A3E]/5 text-[10px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
+                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[8px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
                   Crisis Intervention 24/7
                 </span>
               </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              <button className="flex-1 px-5 py-3 bg-[#8B6A3E] text-white rounded-lg text-sm font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
+              <button className="flex-1 px-4 py-2 bg-[#8B6A3E] text-white rounded-lg text-xs font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
                 <span>Find Support Now</span>
                 <svg
-                  className="w-4 h-4"
+                  className="w-3.5 h-3.5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -227,16 +225,16 @@ export default function Serving() {
                   />
                 </svg>
               </button>
-              <button className="flex-1 px-5 py-3 border border-[#8B6A3E] text-[#8B6A3E] rounded-lg text-sm font-medium hover:bg-[#F5E9D9] transition-all duration-300 flex items-center justify-center gap-2">
+              <button className="flex-1 px-4 py-2 border border-[#8B6A3E] text-[#8B6A3E] rounded-lg text-xs font-medium hover:bg-[#F5E9D9] transition-all duration-300 flex items-center justify-center gap-2">
                 <span>Join Support Community</span>
-                <PiHandHeart className="w-4 h-4" />
+                <PiHandHeart className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
         </div>
 
         {/* Bottom Stats - Updated with PDF numbers */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
             {
               icon: FiClock,
@@ -267,50 +265,26 @@ export default function Serving() {
             return (
               <div
                 key={idx}
-                className="group relative bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 text-center"
+                className="group relative bg-white rounded-lg p-2 shadow-sm hover:shadow-md transition-all duration-300 text-center"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#8B6A3E]/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#8B6A3E]/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="relative">
-                  <div className="w-10 h-10 mx-auto mb-2 bg-[#8B6A3E]/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Icon className="w-5 h-5 text-[#8B6A3E]" />
+                  <div className="w-8 h-8 mx-auto mb-1 bg-[#8B6A3E]/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Icon className="w-4 h-4 text-[#8B6A3E]" />
                   </div>
-                  <div className="text-xl font-serif text-[#2C1810] mb-1">
+                  <div className="text-lg font-serif text-[#2C1810] mb-0.5">
                     {stat.value}
                   </div>
-                  <div className="text-xs font-medium text-[#8B6A3E] mb-0.5">
+                  <div className="text-[10px] font-medium text-[#8B6A3E] mb-0.5">
                     {stat.label}
                   </div>
-                  <div className="text-[9px] text-[#5A3E2B]/60">
+                  <div className="text-[8px] text-[#5A3E2B]/60">
                     {stat.desc}
                   </div>
                 </div>
               </div>
             );
           })}
-        </div>
-
-        {/* Moksha Seva Fund Banner */}
-        <div className="mt-12 p-6 bg-gradient-to-r from-[#8B6A3E]/10 to-transparent rounded-xl border border-[#8B6A3E]/20">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-[#8B6A3E] flex items-center justify-center flex-shrink-0">
-                <PiHandHeart className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h4 className="text-base font-serif text-[#8B6A3E]">
-                  Moksha Seva Fund
-                </h4>
-                <p className="text-xs text-[#5A3E2B]/70 max-w-2xl">
-                  A portion of every transaction provides completely FREE
-                  end-of-life care for the elderly and underprivileged who have
-                  no one else.
-                </p>
-              </div>
-            </div>
-            <button className="px-4 py-2 bg-[#8B6A3E] text-white rounded-lg text-xs font-medium hover:shadow-lg whitespace-nowrap">
-              Donate to Seva
-            </button>
-          </div>
         </div>
       </div>
     </section>

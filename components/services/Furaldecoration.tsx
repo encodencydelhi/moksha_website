@@ -14,18 +14,28 @@ import {
   GiConversation,
   GiSoundOn,
   GiSurfBoard,
-  GiPrayer,
-  GiTempleDoor,
-  GiMeditation,
-  GiCandleHolder,
-  GiIncense,
   GiFlowerPot,
   GiFlowerStar,
-  GiLotus,
-  GiMeditation as GiMeditationIcon,
-  GiPeaceDove,
-  GiSBrick,
-  GiYinYang,
+  GiIncense,
+  GiCandleHolder,
+  GiWoodPile,
+  GiWoodenDoor,
+  GiWoodenFence,
+  GiWoodCabin,
+  GiWoodStick,
+  GiFireplace,
+  GiFireBowl,
+  GiFireFlower,
+  GiFireAce,
+  GiFire,
+  GiFireRay,
+  GiFlowerTwirl,
+  GiFlowerHat,
+  GiFlowerEmblem,
+  GiPalisade,
+  GiFlowers,
+  GiPlantRoots,
+  GiLeafSwirl,
 } from "react-icons/gi";
 import {
   FaMapMarkerAlt,
@@ -40,12 +50,13 @@ import {
   FaUsers,
   FaUserFriends,
   FaHeart,
-  FaPray,
-  FaHands,
-  FaPlaceOfWorship,
-  FaSpa,
   FaLeaf,
-  FaPeace,
+  FaTree,
+  FaFire,
+  FaWater,
+  FaMountain,
+  FaSun,
+  FaMoon,
 } from "react-icons/fa";
 import {
   MdVerified,
@@ -57,277 +68,338 @@ import {
   MdPhoneCallback,
   MdCall,
   MdCallEnd,
-  MdMeetingRoom,
-  MdChair,
-  MdVolumeUp,
-  MdWifi,
-  MdAcUnit,
-  MdSelfImprovement,
-  MdSpa,
+  MdLocalFlorist,
+  MdLocalFireDepartment,
+  MdOutlineLocalFlorist,
+  MdAssuredWorkload,
+  MdNature,
+  MdOutdoorGrill,
+  MdCampaign,
+  MdDevicesOther,
 } from "react-icons/md";
-import { PiFlowerLotus } from "react-icons/pi";
+import { PiFlowerLotus, PiFlowerTulip, PiLeaf } from "react-icons/pi";
 import {
   BsSuitHeartFill,
   BsChatDots,
   BsTelephone,
   BsTelephoneFill,
-  BsBuilding,
-  BsDoorOpen,
-  BsMoon,
-  BsSun,
+  BsDroplet,
+  BsDropletHalf,
+  BsDropletFill,
+  BsFire,
+  BsFlower1,
+  BsFlower2,
+  BsFlower3,
 } from "react-icons/bs";
-import { TbMessageCircle, TbPhoneCall, TbCrown } from "react-icons/tb";
-import { RiCustomerService2Fill } from "react-icons/ri";
-import { IoCall, IoLeaf } from "react-icons/io5";
+import {
+  TbMessageCircle,
+  TbPhoneCall,
+  TbCrown,
+  TbFlower,
+  TbFlowerOff,
+} from "react-icons/tb";
+import { RiCustomerService2Fill, RiOilFill } from "react-icons/ri";
+import { IoCall, IoFlower, IoWater } from "react-icons/io5";
 
-function PrayerHallServices() {
+function FuneralDecorationServices() {
   const [selectedService, setSelectedService] = useState(null);
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [selectedServiceForBooking, setSelectedServiceForBooking] =
     useState(null);
 
-  const prayerHallServices = [
+  const decorationServices = [
     {
       id: 1,
-      name: "Main Meditation Hall",
-      icon: GiMeditationIcon,
+      name: "Flower Decoration (पुष्प सज्जा)",
+      icon: GiFlowerHat,
       description:
-        "Spacious meditation hall for group sessions, yoga, and spiritual gatherings with peaceful ambiance.",
+        "Traditional flower decorations for the funeral pyre and surrounding area with fresh marigolds and roses.",
       longDescription:
-        "Our main meditation hall offers a serene environment for group meditation, yoga sessions, and spiritual gatherings. Features high ceilings, natural light, and sound-proofing for complete tranquility. Perfect for retreats and daily practice.",
-      location: "Main Complex",
-      price: "2,999",
+        "Complete floral decoration setup for funeral ceremonies. Includes garlands, flower petals, and arrangements around the pyre. Fresh flowers delivered daily, arranged with respect and tradition.",
+      location: "Local & Nearby",
+      price: "2,499",
       rating: 4.9,
       reviews: 234,
       image:
-        "https://images.pexels.com/photos/3618557/pexels-photo-3618557.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/931170/pexels-photo-931170.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Silent Zone",
-        "Natural Light",
-        "Acoustic Design",
-        "Meditation Cushions",
+        "Fresh Flowers",
+        "Traditional Design",
+        "Full Coverage",
+        "Same Day Setup",
       ],
-      coordinatorName: "Anand Sharma",
-      experience: "15+ years",
+      coordinatorName: "Phool Chandra",
+      experience: "18+ years",
       responseTime: "2 hours",
-      contactNumber: "+91 98765 43210",
-      whatsappNumber: "+91 98765 43210",
-      alternateNumber: "+91 99887 66554",
-      capacity: "100 people",
-      amenities: [
-        "Meditation Mats",
-        "Cushions",
-        "Altar",
-        "Peaceful Music System",
+      contactNumber: "+91 98765 43101",
+      whatsappNumber: "+91 98765 43101",
+      alternateNumber: "+91 99887 66401",
+      includes: [
+        "Marigold Garlands (50 pcs)",
+        "Rose Petals (5 kg)",
+        "Floral Mats",
+        "Tulsi Leaves",
+        "Decorative Torans",
       ],
+      setupTime: "2-3 hours",
+      coverage: "Complete pyre area",
     },
     {
       id: 2,
-      name: "Silent Retreat Hall",
-      icon: GiSBrick,
+      name: "Pandal & Canopy Decoration (पंडाल सज्जा)",
+      icon: GiFlowerTwirl,
       description:
-        "Private hall for silent meditation, personal retreats, and deep spiritual practice.",
+        "Complete pandal decoration with traditional motifs, flowers, and sacred symbols for funeral gatherings.",
       longDescription:
-        "Individual meditation hall designed for complete silence and solitude. Perfect for personal retreats, Vipassana practice, or deep contemplation. Located in a secluded garden area.",
-      location: "Garden Area",
-      price: "999",
-      rating: 4.9,
+        "Elaborate decoration for the funeral pandal including canopy setup, floral arrangements, traditional motifs, and seating arrangements. Creates a respectful atmosphere for mourners.",
+      location: "Local & Nearby",
+      price: "5,999",
+      rating: 4.8,
       reviews: 156,
       image:
         "https://images.pexels.com/photos/6605287/pexels-photo-6605287.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Complete Privacy",
-        "Garden View",
-        "Sound-proof",
-        "Basic Amenities",
+        "Full Pandal Setup",
+        "Traditional Motifs",
+        "Seating Area",
+        "Sacred Symbols",
       ],
-      coordinatorName: "Rajiv Menon",
-      experience: "10+ years",
-      responseTime: "1 hour",
-      contactNumber: "+91 98765 43212",
-      whatsappNumber: "+91 98765 43212",
-      alternateNumber: "+91 99887 66552",
-      capacity: "1-2 persons",
-      amenities: [
-        "Meditation Cushion",
-        "Tea Setup",
-        "Writing Desk",
-        "Garden Access",
+      coordinatorName: "Ramesh Sahu",
+      experience: "22+ years",
+      responseTime: "4 hours",
+      contactNumber: "+91 98765 43102",
+      whatsappNumber: "+91 98765 43102",
+      alternateNumber: "+91 99887 66402",
+      includes: [
+        "Canopy with Drapes",
+        "Floral Torans",
+        "Rangoli",
+        "Sacred Symbol Decor",
+        "Mourner Seating",
       ],
+      setupTime: "4-5 hours",
+      capacity: "50-100 people",
     },
     {
       id: 3,
-      name: "Group Retreat Hall",
-      icon: FaUsers,
+      name: "Rangoli & Floor Decoration (रंगोली सज्जा)",
+      icon: GiLeafSwirl,
       description:
-        "Spacious hall for group retreats, workshops, and spiritual discourses.",
+        "Traditional rangoli designs using colored powders, flower petals, and sacred symbols for funeral ceremonies.",
       longDescription:
-        "Complete retreat facility with main hall for sessions. Ideal for multi-day retreats and spiritual workshops. Peaceful environment for group practice.",
-      location: "Retreat Center",
-      price: "4,999",
-      rating: 4.9,
-      reviews: 278,
-      image:
-        "https://images.pexels.com/photos/4650705/pexels-photo-4650705.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: ["Main Hall", "Discussion Rooms", "Garden", "Breakout Areas"],
-      coordinatorName: "Swami Anand",
-      experience: "20+ years",
-      responseTime: "4 hours",
-      contactNumber: "+91 98765 43213",
-      whatsappNumber: "+91 98765 43213",
-      alternateNumber: "+91 99887 66551",
-      capacity: "50 people",
-      amenities: ["Floor Seating", "Discussion Rooms", "Meditation Garden"],
-    },
-    {
-      id: 4,
-      name: "Sunrise Meditation Hall",
-      icon: BsSun,
-      description:
-        "Open-air hall overlooking nature for sunrise and sunset meditation sessions.",
-      longDescription:
-        "Beautiful open-air hall situated with views of the surrounding nature. Perfect for sunrise meditation, evening chanting, and connecting with natural elements. Protected from weather while remaining open to elements.",
-      location: "Hilltop",
-      price: "799",
-      rating: 4.8,
-      reviews: 145,
-      image:
-        "https://images.pexels.com/photos/4492129/pexels-photo-4492129.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: [
-        "Open Air",
-        "Nature View",
-        "Sunrise/Sunset",
-        "Weather Protected",
-      ],
-      coordinatorName: "Meera Nair",
-      experience: "8+ years",
-      responseTime: "2 hours",
-      contactNumber: "+91 98765 43214",
-      whatsappNumber: "+91 98765 43214",
-      alternateNumber: "+91 99887 66550",
-      capacity: "30 people",
-      amenities: [
-        "Floor Cushions",
-        "Wind Protection",
-        "Water Station",
-        "Nature Trails",
-      ],
-    },
-    {
-      id: 5,
-      name: "Sacred Circle Hall",
-      icon: GiLotus,
-      description:
-        "Circular hall designed for sacred ceremonies, chanting circles, and group healing sessions.",
-      longDescription:
-        "Unique circular hall designed to enhance group energy and connection. Perfect for chanting circles, sound healing sessions, sacred ceremonies, and group meditations. Excellent acoustics.",
-      location: "Tranquility Zone",
-      price: "3,499",
+        "Intricate rangoli designs created at the entrance and around the pyre area. Uses natural colors, flower petals, and traditional patterns. Includes sacred symbols like Om, Swastik, and lotus.",
+      location: "Local Only",
+      price: "1,499",
       rating: 4.7,
       reviews: 98,
       image:
-        "https://images.pexels.com/photos/3768914/pexels-photo-3768914.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/5428007/pexels-photo-5428007.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Circular Design",
-        "Perfect Acoustics",
-        "Center Altar",
-        "Soft Lighting",
+        "Traditional Designs",
+        "Natural Colors",
+        "Flower Petals",
+        "Sacred Symbols",
       ],
-      coordinatorName: "David Chen",
+      coordinatorName: "Lakshmi Bai",
+      experience: "15+ years",
+      responseTime: "3 hours",
+      contactNumber: "+91 98765 43103",
+      whatsappNumber: "+91 98765 43103",
+      alternateNumber: "+91 99887 66403",
+      includes: [
+        "Entrance Rangoli",
+        "Pyre Area Design",
+        "Sacred Symbols",
+        "Color Powders",
+        "Flower Petals",
+      ],
+      setupTime: "2 hours",
+      size: "10x10 ft area",
+    },
+    {
+      id: 4,
+      name: "Diya & Lighting Decoration (दीप सज्जा)",
+      icon: GiCandleHolder,
+      description:
+        "Traditional diya and lighting arrangements creating a serene atmosphere for funeral ceremonies.",
+      longDescription:
+        "Beautiful arrangement of clay diyas, lamps, and traditional lighting around the funeral area. Creates a peaceful and sacred ambiance. Includes placement around pyre, pathway, and pandal.",
+      location: "Local & Nearby",
+      price: "1,999",
+      rating: 4.8,
+      reviews: 167,
+      image:
+        "https://images.pexels.com/photos/4198105/pexels-photo-4198105.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: [
+        "Clay Diyas",
+        "Traditional Lamps",
+        "Pathway Lighting",
+        "Pyre Surround",
+      ],
+      coordinatorName: "Deepak Yadav",
       experience: "12+ years",
-      responseTime: "6 hours",
-      contactNumber: "+91 98765 43215",
-      whatsappNumber: "+91 98765 43215",
-      alternateNumber: "+91 99887 66549",
-      capacity: "60 people",
-      amenities: [
-        "Sound System",
-        "Altar",
-        "Floor Seating",
-        "Acoustic Treatment",
+      responseTime: "2 hours",
+      contactNumber: "+91 98765 43104",
+      whatsappNumber: "+91 98765 43104",
+      alternateNumber: "+91 99887 66404",
+      includes: [
+        "Clay Diyas (100 pcs)",
+        "Brass Lamps (5 pcs)",
+        "Cotton Wicks",
+        "Ghee for Lamps",
+        "Decorative Holders",
       ],
+      setupTime: "2-3 hours",
+      duration: "Burns 4-6 hours",
+    },
+    {
+      id: 5,
+      name: "Floral Pyre Decoration (चिता पुष्प सज्जा)",
+      icon: GiFlowerTwirl,
+      description:
+        "Specialized flower decoration specifically for the funeral pyre with sacred flowers and traditional patterns.",
+      longDescription:
+        "Exclusive floral decoration for the pyre itself. Using sacred flowers like marigold, roses, and chrysanthemums arranged in traditional patterns. Includes flower petals for offering and garlands for the departed.",
+      location: "Local Only",
+      price: "3,499",
+      rating: 4.9,
+      reviews: 189,
+      image:
+        "https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: [
+        "Pyre Coverage",
+        "Sacred Flowers",
+        "Traditional Pattern",
+        "Premium Garlands",
+      ],
+      coordinatorName: "Mohan Das",
+      experience: "20+ years",
+      responseTime: "3 hours",
+      contactNumber: "+91 98765 43105",
+      whatsappNumber: "+91 98765 43105",
+      alternateNumber: "+91 99887 66405",
+      includes: [
+        "Pyre Floral Cover",
+        "Premium Garlands (25)",
+        "Flower Petals (10 kg)",
+        "Sacred Leaves",
+        "Floral Torans",
+      ],
+      setupTime: "2 hours",
+      flowers: "Marigold, Rose, Chrysanthemum",
     },
     {
       id: 6,
-      name: "Personal Contemplation Hall",
-      icon: GiPeaceDove,
+      name: "Pathway & Entrance Decoration (प्रवेश द्वार सज्जा)",
+      icon: GiFlowerEmblem,
       description:
-        "Private halls for personal meditation, journaling, and one-on-one spiritual guidance.",
+        "Beautiful decoration for the pathway leading to the pyre and main entrance with flowers and traditional elements.",
       longDescription:
-        "Small private halls designed for individual contemplation, personal meditation practice, or confidential spiritual guidance sessions. Quiet, peaceful, and completely private.",
-      location: "Quiet Zone",
-      price: "499",
-      rating: 4.8,
-      reviews: 112,
+        "Complete decoration of the pathway from entrance to pyre area. Includes floral arches, ground decorations, and traditional welcome elements. Creates a respectful and sacred path for the final journey.",
+      location: "Local & Nearby",
+      price: "2,999",
+      rating: 4.7,
+      reviews: 123,
       image:
-        "https://images.pexels.com/photos/5428010/pexels-photo-5428010.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/6168364/pexels-photo-6168364.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Complete Privacy",
-        "Sound-proof",
-        "Simple Design",
-        "Natural Light",
+        "Floral Arches",
+        "Pathway Decor",
+        "Entrance Setup",
+        "Welcome Elements",
       ],
-      coordinatorName: "Lakshmi Krishnan",
-      experience: "15+ years",
-      responseTime: "30 minutes",
-      contactNumber: "+91 98765 43216",
-      whatsappNumber: "+91 98765 43216",
-      alternateNumber: "+91 99887 66548",
-      capacity: "1-2 persons",
-      amenities: ["Cushion", "Small Altar", "Journal Desk", "Tea Service"],
+      coordinatorName: "Sita Devi",
+      experience: "14+ years",
+      responseTime: "3 hours",
+      contactNumber: "+91 98765 43106",
+      whatsappNumber: "+91 98765 43106",
+      alternateNumber: "+91 99887 66406",
+      includes: [
+        "Floral Arches (2)",
+        "Pathway Flowers",
+        "Entrance Torans",
+        "Decorative Pots",
+        "Sacred Symbol Flags",
+      ],
+      setupTime: "3 hours",
+      length: "50-100 ft pathway",
     },
     {
       id: 7,
-      name: "Evening Satsang Hall",
-      icon: BsMoon,
+      name: "Complete Funeral Decoration Package (संपूर्ण सज्जा पैकेज)",
+      icon: GiFlowerStar,
       description:
-        "Evening gathering space for satsang, spiritual discourse, and community singing.",
+        "All-in-one decoration package covering pyre, pandal, pathway, lighting, and complete ceremonial setup.",
       longDescription:
-        "Warm and inviting hall specifically for evening satsangs, spiritual discourses, kirtan, and community gatherings. Features comfortable seating and excellent acoustics for singing.",
-      location: "Community Area",
-      price: "2,499",
+        "Comprehensive decoration package for funeral ceremonies. Includes everything from pyre decoration to pandal setup, pathway decoration, lighting arrangements, and all floral elements. Coordinated traditional design with sacred motifs.",
+      location: "Local & Nearby",
+      price: "12,999",
       rating: 4.9,
-      reviews: 345,
+      reviews: 245,
       image:
-        "https://images.pexels.com/photos/3618557/pexels-photo-3618557.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/6605316/pexels-photo-6605316.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Evening Only",
-        "Warm Lighting",
-        "Community Feel",
-        "Musical Focus",
+        "Complete Setup",
+        "Premium Flowers",
+        "Traditional Design",
+        "Coordinated Theme",
       ],
-      coordinatorName: "Krishna Das",
-      experience: "18+ years",
-      responseTime: "3 hours",
-      contactNumber: "+91 98765 43217",
-      whatsappNumber: "+91 98765 43217",
-      alternateNumber: "+91 99887 66547",
-      capacity: "80 people",
-      amenities: ["Harmonium", "Tabla", "Cushions", "Tea Service"],
+      coordinatorName: "Vishnu Kanta",
+      experience: "25+ years",
+      responseTime: "2 hours",
+      contactNumber: "+91 98765 43107",
+      whatsappNumber: "+91 98765 43107",
+      alternateNumber: "+91 99887 66407",
+      includes: [
+        "Pyre Decoration",
+        "Pandal Setup",
+        "Pathway Decor",
+        "Lighting Arrangement",
+        "Rangoli Design",
+        "Floral Garlands (100)",
+        "Flower Petals (25 kg)",
+        "Decorative Torans (10)",
+        "Sacred Symbol Decor",
+        "Complete Coordination",
+      ],
+      setupTime: "5-6 hours",
+      teamSize: "8-10 members",
     },
     {
       id: 8,
-      name: "Yoga & Wellness Hall",
-      icon: GiYinYang,
+      name: "Sacred Symbol & Motif Decoration (प्रतीक सज्जा)",
+      icon: GiFlowerEmblem,
       description:
-        "Dedicated yoga hall with wooden flooring, mirrors, and all equipment for yoga and wellness practices.",
+        "Traditional sacred symbols and motifs decoration using flowers, colors, and traditional materials.",
       longDescription:
-        "Fully equipped yoga hall with professional flooring, wall mirrors, and all necessary props. Suitable for Hatha, Vinyasa, and other yoga styles.",
-      location: "Wellness Wing",
-      price: "1,999",
+        "Specialized decoration featuring sacred Hindu symbols like Om, Swastik, Lotus, Trishul, and other motifs. Created using flowers, colored powders, and traditional materials at key locations.",
+      location: "Local Only",
+      price: "1,799",
       rating: 4.8,
-      reviews: 189,
+      reviews: 89,
       image:
-        "https://images.pexels.com/photos/4056535/pexels-photo-4056535.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: ["Wooden Floor", "Mirrors", "Props Available", "Showers"],
-      coordinatorName: "Priya Patel",
-      experience: "12+ years",
+        "https://images.pexels.com/photos/6588607/pexels-photo-6588607.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: [
+        "Sacred Symbols",
+        "Traditional Motifs",
+        "Floral Designs",
+        "Multiple Locations",
+      ],
+      coordinatorName: "Gopal Shastri",
+      experience: "16+ years",
       responseTime: "3 hours",
-      contactNumber: "+91 98765 43211",
-      whatsappNumber: "+91 98765 43211",
-      alternateNumber: "+91 99887 66553",
-      capacity: "50 people",
-      amenities: ["Yoga Mats", "Blocks", "Straps", "Bolsters", "Showers"],
+      contactNumber: "+91 98765 43108",
+      whatsappNumber: "+91 98765 43108",
+      alternateNumber: "+91 99887 66408",
+      includes: [
+        "Om Symbol (3 locations)",
+        "Swastik Design",
+        "Lotus Motifs",
+        "Trishul Decoration",
+        "Sacred Kalash Setup",
+      ],
+      setupTime: "2-3 hours",
+      materials: "Flowers, Colors, Rice, Sandalwood",
     },
   ];
 
@@ -362,8 +434,8 @@ function PrayerHallServices() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img
-            src="https://images.pexels.com/photos/3618557/pexels-photo-3618557.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt="Prayer Hall"
+            src="https://images.pexels.com/photos/931170/pexels-photo-931170.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="Funeral Decoration"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#8B5E3C]/80 to-[#5A3E2B]/90"></div>
@@ -386,46 +458,48 @@ function PrayerHallServices() {
           <div className="max-w-3xl mx-auto text-center">
             {/* Sacred Symbol */}
             <div className="flex items-center justify-center gap-2 text-[#F5E9D9] mb-4">
-              <GiPrayer className="text-2xl" />
+              <GiFlowerHat className="text-2xl" />
               <span className="text-sm tracking-widest">
-                ॐ PRAYER HALLS ॐ • MEDITATION SPACES
+                ॐ FUNERAL DECORATION ॐ • अंतिम संस्कार सज्जा
               </span>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-serif text-white mb-4 leading-tight">
-              Prayer & Meditation Halls
+              Funeral Decoration Services
               <span className="block text-xl md:text-2xl font-light text-[#F5E9D9] mt-3">
-                Sacred Spaces for Inner Peace & Spiritual Practice
+                Traditional Floral & Ceremonial Decor for Last Rites
               </span>
             </h1>
 
             <p className="text-base md:text-lg text-white mb-6 max-w-2xl mx-auto">
-              Well-maintained prayer and meditation halls for individual
-              practice, group sessions, and spiritual gatherings. Peaceful,
-              clean, and spiritually uplifting environments.
+              Respectful and traditional decoration for funeral ceremonies.
+              Fresh flowers, sacred symbols, and complete setup delivered with
+              dignity.
             </p>
 
             {/* Emergency Contact */}
             <div className="inline-flex items-center gap-4 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6">
               <FaPhoneAlt className="text-white text-xl animate-pulse" />
               <span className="text-white font-bold text-xl">
-                24/7 Booking: +91 1800 123 4567
+                24/7 Emergency Decoration: +91 1800 123 4580
               </span>
             </div>
 
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-6">
               <div>
-                <div className="text-2xl text-white">15+</div>
-                <div className="text-sm text-[#F5E9D9]">Meditation Halls</div>
+                <div className="text-2xl text-white">5K+</div>
+                <div className="text-sm text-[#F5E9D9]">
+                  Ceremonies Decorated
+                </div>
               </div>
               <div>
-                <div className="text-2xl text-white">10K+</div>
-                <div className="text-sm text-[#F5E9D9]">Seekers Served</div>
+                <div className="text-2xl text-white">100%</div>
+                <div className="text-sm text-[#F5E9D9]">Fresh Flowers</div>
               </div>
               <div>
                 <div className="text-2xl text-white">24/7</div>
-                <div className="text-sm text-[#F5E9D9]">Quiet Hours</div>
+                <div className="text-sm text-[#F5E9D9]">Setup Available</div>
               </div>
             </div>
           </div>
@@ -446,24 +520,24 @@ function PrayerHallServices() {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Decoration Services Section */}
       <section className="py-4 px-6 max-w-7xl mx-auto">
         {/* Section Header with Decorative Lines */}
         <div className="text-center mb-12 relative">
           {/* Decorative Elements */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 w-20 h-20 opacity-10">
-            <GiTempleDoor className="w-full h-full text-[#8B5E3C]" />
+            <GiFlowerHat className="w-full h-full text-[#8B5E3C]" />
           </div>
 
           <div className="relative">
             <span className="text-[#C89B6D] tracking-widest text-sm">
-              ॐ PRAYER & MEDITATION HALLS ॐ
+              ॐ FUNERAL DECORATION ॐ
             </span>
 
             <h2 className="text-3xl md:text-4xl font-serif text-[#5A3E2B] mt-3 mb-4">
-              Sacred Spaces for Every Practice
+              Traditional Decoration Packages
               <span className="block text-[#8B5E3C]">
-                Individual & Group Meditation
+                for Funeral Ceremonies
               </span>
             </h2>
 
@@ -475,16 +549,16 @@ function PrayerHallServices() {
             </div>
 
             <p className="text-sm text-[#7B5E47] max-w-2xl mx-auto">
-              From individual contemplation to group gatherings, our prayer
-              halls provide peaceful and dignified spaces for all spiritual
-              practices.
+              Respectful and traditional decoration services using fresh
+              flowers, sacred symbols, and traditional elements for funeral
+              ceremonies.
             </p>
           </div>
         </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-          {prayerHallServices.map((service) => {
+          {decorationServices.map((service) => {
             const Icon = service.icon;
 
             return (
@@ -520,10 +594,10 @@ function PrayerHallServices() {
                     </span>
                   </div>
 
-                  {/* Capacity Badge */}
+                  {/* Setup Time Badge */}
                   <div className="absolute bottom-2 right-2 z-20 bg-[#8B5E3C]/90 backdrop-blur-sm px-2 py-0.5 rounded-full">
                     <span className="text-white text-[10px] font-medium">
-                      {service.capacity}
+                      {service.setupTime}
                     </span>
                   </div>
 
@@ -585,7 +659,7 @@ function PrayerHallServices() {
                     </div>
                   </div>
 
-                  {/* Location and Price */}
+                  {/* Setup Time and Price */}
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-1 text-[10px] text-[#7B5E47]">
                       <FaClock className="text-[#C89B6D] text-[10px]" />
@@ -601,14 +675,14 @@ function PrayerHallServices() {
                     </div>
                   </div>
 
-                  {/* Amenities Preview */}
+                  {/* Includes Preview */}
                   <div className="flex flex-wrap gap-1 mb-2">
-                    {service.amenities.slice(0, 2).map((amenity, idx) => (
+                    {service.includes?.slice(0, 2).map((item, idx) => (
                       <span
                         key={idx}
                         className="text-[8px] px-1 py-0.5 bg-[#C89B6D]/10 text-[#8B5E3C] rounded"
                       >
-                        {amenity}
+                        {item}
                       </span>
                     ))}
                   </div>
@@ -657,7 +731,7 @@ function PrayerHallServices() {
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-              Why Choose Our Prayer Halls?
+              Why Choose Our Decoration Services?
             </h2>
             <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
           </div>
@@ -666,23 +740,23 @@ function PrayerHallServices() {
             {[
               {
                 icon: MdVerified,
-                title: "Clean & Sacred",
-                desc: "Always clean and spiritually maintained",
+                title: "Fresh Flowers",
+                desc: "Daily fresh flowers guaranteed",
               },
               {
                 icon: FaClock,
-                title: "Flexible Hours",
-                desc: "Open for all practice times",
-              },
-              {
-                icon: FaPeace,
-                title: "Peaceful Environment",
-                desc: "Calm and meditative atmosphere",
+                title: "24/7 Setup",
+                desc: "Round-the-clock decoration service",
               },
               {
                 icon: FaLeaf,
-                title: "Nature Connected",
-                desc: "Surrounded by natural beauty",
+                title: "Eco-friendly",
+                desc: "Natural & biodegradable materials",
+              },
+              {
+                icon: MdDevicesOther,
+                title: "Traditional Designs",
+                desc: "Authentic sacred patterns",
               },
             ].map((item, idx) => {
               const Icon = item.icon;
@@ -707,11 +781,11 @@ function PrayerHallServices() {
       <section className="py-12 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            How to Book a Prayer Hall
+            How to Book Decoration Services
           </h2>
           <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full mb-4"></div>
           <p className="text-sm text-[#7B5E47] max-w-2xl mx-auto">
-            Simple process to reserve a meditation space for your practice
+            Simple process to arrange traditional funeral decoration
           </p>
         </div>
 
@@ -719,27 +793,27 @@ function PrayerHallServices() {
           {[
             {
               step: "01",
-              title: "Select Hall",
-              desc: "Choose hall type and location",
-              icon: GiTempleDoor,
-            },
-            {
-              step: "02",
-              title: "Check Availability",
-              desc: "Verify date and time slots",
-              icon: FaClock,
-            },
-            {
-              step: "03",
-              title: "Make Booking",
-              desc: "Confirm reservation",
+              title: "Contact Us",
+              desc: "Call or WhatsApp our 24/7 helpline",
               icon: FaPhoneAlt,
             },
             {
+              step: "02",
+              title: "Choose Package",
+              desc: "Select decoration type & requirements",
+              icon: GiFlowerHat,
+            },
+            {
+              step: "03",
+              title: "Confirm Details",
+              desc: "Share venue & timing preferences",
+              icon: MdVerified,
+            },
+            {
               step: "04",
-              title: "Begin Practice",
-              desc: "Use the space for meditation",
-              icon: GiMeditation,
+              title: "Complete Setup",
+              desc: "We decorate before ceremony",
+              icon: GiFlowerStar,
             },
           ].map((item, idx) => {
             const Icon = item.icon;
@@ -766,11 +840,11 @@ function PrayerHallServices() {
         </div>
       </section>
 
-      {/* Hall Features Section */}
+      {/* Decoration Elements Section */}
       <section className="py-12 px-6 max-w-7xl mx-auto bg-white rounded-lg shadow-sm">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            Hall Features & Amenities
+            Traditional Decoration Elements
           </h2>
           <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
         </div>
@@ -778,36 +852,40 @@ function PrayerHallServices() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             {
-              icon: MdAcUnit,
-              name: "Air Conditioning",
-              desc: "Comfortable environment",
+              icon: GiFlowerHat,
+              name: "Flower Garlands",
+              desc: "Marigold, Rose",
             },
             {
-              icon: MdVolumeUp,
-              name: "Sound System",
-              desc: "Clear audio for guidance",
+              icon: GiCandleHolder,
+              name: "Diyas & Lamps",
+              desc: "Clay & Brass",
             },
             {
-              icon: MdSelfImprovement,
-              name: "Meditation Props",
-              desc: "Cushions & mats",
-            },
-            { icon: FaLeaf, name: "Natural Light", desc: "Peaceful ambiance" },
-            {
-              icon: FaUsers,
-              name: "Group Seating",
-              desc: "Flexible arrangements",
-            },
-            { icon: FaPray, name: "Altar Space", desc: "Sacred focal point" },
-            {
-              icon: FaMapMarkerAlt,
-              name: "Quiet Location",
-              desc: "No disturbances",
+              icon: GiFlowerEmblem,
+              name: "Sacred Symbols",
+              desc: "Om, Swastik",
             },
             {
-              icon: BsMoon,
-              name: "Evening Sessions",
-              desc: "Special ambiance",
+              icon: GiFlowerEmblem,
+              name: "Pandal Decor",
+              desc: "Canopy Setup",
+            },
+            {
+              icon: GiFlowerTwirl,
+              name: "Pyre Flowers",
+              desc: "Sacred Coverage",
+            },
+            {
+              icon: GiFlowerStar,
+              name: "Complete Setup",
+              desc: "Full Package",
+            },
+            { icon: GiLeafSwirl, name: "Rangoli", desc: "Traditional Designs" },
+            {
+              icon: GiPlantRoots,
+              name: "Natural Elements",
+              desc: "Eco-friendly",
             },
           ].map((item, idx) => {
             const Icon = item.icon;
@@ -828,7 +906,7 @@ function PrayerHallServices() {
       <section className="py-12 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            What Seekers Say
+            What Families Say About Our Decoration
           </h2>
           <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
         </div>
@@ -836,21 +914,21 @@ function PrayerHallServices() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
             {
-              name: "Arjun Mehta",
-              location: "Delhi",
-              text: "The main meditation hall is incredibly peaceful. Perfect for my daily practice. The ambiance helps me go deeper in meditation.",
-              rating: 5,
-            },
-            {
-              name: "Sarah Johnson",
-              location: "Mumbai",
-              text: "Used the silent retreat hall for a week-long personal retreat. Complete silence and beautiful garden views. Exactly what I needed.",
-              rating: 5,
-            },
-            {
               name: "Priya Sharma",
-              location: "Bangalore",
-              text: "The sunrise meditation hall is magical. Watching the sun rise while meditating is an experience I'll never forget.",
+              location: "Delhi",
+              text: "The floral decoration was beautiful and respectful. Fresh flowers arranged traditionally. They understood our requirements perfectly.",
+              rating: 5,
+            },
+            {
+              name: "Vikram Singh",
+              location: "Mumbai",
+              text: "Complete pandal decoration with all sacred symbols. The rangoli and diya arrangement created a peaceful atmosphere. Thank you.",
+              rating: 5,
+            },
+            {
+              name: "Anita Desai",
+              location: "Lucknow",
+              text: "They decorated the pyre beautifully with marigolds. The pathway decoration with floral arches was very traditional. Highly recommended.",
               rating: 5,
             },
           ].map((testimonial, idx) => (
@@ -883,21 +961,22 @@ function PrayerHallServices() {
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center px-6">
-          <GiPrayer className="text-5xl mx-auto mb-4 opacity-50" />
+          <GiFlowerHat className="text-5xl mx-auto mb-4 opacity-50" />
           <h2 className="text-3xl md:text-4xl font-serif text-white mb-4">
-            Ready for Deeper Practice?
+            Need Funeral Decoration Immediately?
           </h2>
           <p className="text-base md:text-lg text-white mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed">
-            Whether for daily meditation, group practice, or personal retreats,
-            we have the perfect sacred space for your spiritual journey.
+            We understand the urgency. Our 24/7 decoration service ensures
+            complete traditional setup whenever needed. Fresh flowers, sacred
+            symbols, and respectful arrangements.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <button
-              onClick={() => handleCallNow("+9118001234567")}
+              onClick={() => handleCallNow("+9118001234580")}
               className="px-8 py-3 bg-white text-[#8B5E3C] rounded-lg font-medium text-base hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
             >
               <FaPhoneAlt />
-              Book Now
+              Call Decoration Helpline
             </button>
             <button
               onClick={() => handleWhatsApp("+919876543210")}
@@ -908,19 +987,19 @@ function PrayerHallServices() {
             </button>
           </div>
 
-          {/* Contact Numbers */}
+          {/* Emergency Contact Numbers */}
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <p className="text-[#F5E9D9]">Main Center</p>
-              <p className="font-bold">+91 98765 43210</p>
+              <p className="text-[#F5E9D9]">Delhi NCR</p>
+              <p className="font-bold">+91 98765 43101</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <p className="text-[#F5E9D9]">Retreat Office</p>
-              <p className="font-bold">+91 98765 43213</p>
+              <p className="text-[#F5E9D9]">Mumbai</p>
+              <p className="font-bold">+91 98765 43104</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <p className="text-[#F5E9D9]">24/7 Support</p>
-              <p className="font-bold">+91 1800 123 4567</p>
+              <p className="text-[#F5E9D9]">24/7 Helpline</p>
+              <p className="font-bold">+91 1800 123 4580</p>
             </div>
           </div>
         </div>
@@ -931,4 +1010,4 @@ function PrayerHallServices() {
   );
 }
 
-export default PrayerHallServices;
+export default FuneralDecorationServices;

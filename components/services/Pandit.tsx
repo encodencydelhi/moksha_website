@@ -26,7 +26,6 @@ function MokshaGallery() {
   const [selectedServiceForBooking, setSelectedServiceForBooking] =
     useState(null);
 
-  // Local Griha Pravesh image path
   const grihaPraveshImagePath = "/assets/grahpravesh.jpg";
 
   const panditServices = [
@@ -230,7 +229,7 @@ function MokshaGallery() {
             </div>
 
             <h1 className="text-4xl md:text-5xl font-serif text-white mb-4 leading-tight">
-              Pandit Services
+              Priest Services
               <span className="block text-xl md:text-2xl font-light text-[#F5E9D9] mt-3">
                 Traditional Vedic Rituals by Experienced Pandits
               </span>

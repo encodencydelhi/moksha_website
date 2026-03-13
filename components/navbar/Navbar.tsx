@@ -108,8 +108,14 @@ export default function Navbar() {
       type: "dropdown",
       dropdown: [
         {
-          name: "Fural Samagri",
+          name: "Funeral Samagri",
           path: "/furalservices",
+          icon: <FaShoppingBasket />,
+          type: "page",
+        },
+        {
+          name: "Funeral Decoration",
+          path: "/furaldecoration",
           icon: <FaShoppingBasket />,
           type: "page",
         },

@@ -104,52 +104,60 @@ export default function MokshaShlokSection() {
                 </div>
 
                 {/* Meaning with enhanced elegant styling */}
-                <div className="relative mb-3 bg-[#8B6A3E]/5 p-3 rounded-lg">
-                  <div className="absolute -left-2 top-0 text-2xl text-[#8B6A3E]/40">
+                <div className="relative mb-4 bg-[#8B6A3E]/5 p-4 rounded-lg shadow-[0_6px_18px_rgba(0,0,0,0.08)]">
+                  <div className="absolute -left-2 top-0 text-3xl text-[#8B6A3E]/40">
                     ❝
                   </div>
-                  <p className="text-[#2A1A0F] text-xs italic font-medium leading-relaxed pl-5 pr-3 drop-shadow-sm">
+
+                  <p className="text-[#2A1A0F] text-sm italic font-semibold leading-relaxed pl-6 pr-4 drop-shadow-sm">
                     Abandon all varieties of religion and just surrender unto
                     Me. I shall deliver you from all sinful reactions. Do not
                     fear.
                   </p>
-                  <div className="absolute -right-2 bottom-0 text-2xl text-[#8B6A3E]/40">
+
+                  <div className="absolute -right-2 bottom-0 text-3xl text-[#8B6A3E]/40">
                     ❞
                   </div>
                 </div>
 
-                {/* Core Pillar - from PDF page 3 */}
-                <div className="grid grid-cols-5 gap-1 mb-2">
-                  <div className="text-[8px] text-center text-[#8B6A3E] font-medium">
+                {/* Core Pillar */}
+                <div className="grid grid-cols-5 gap-2 mb-3">
+                  <div className="text-[15px] text-center text-[#8B6A3E] font-semibold tracking-wide drop-shadow-sm">
                     SIMPLIFY
                   </div>
-                  <div className="text-[8px] text-center text-[#8B6A3E] font-medium">
+
+                  <div className="text-[12px] text-center text-[#8B6A3E] font-semibold tracking-wide drop-shadow-sm">
                     CONNECT
                   </div>
-                  <div className="text-[8px] text-center text-[#8B6A3E] font-medium">
+
+                  <div className="text-[12px] text-center text-[#8B6A3E] font-semibold tracking-wide drop-shadow-sm">
                     PROTECT
                   </div>
-                  <div className="text-[8px] text-center text-[#8B6A3E] font-medium">
+
+                  <div className="text-[12px] text-center text-[#8B6A3E] font-semibold tracking-wide drop-shadow-sm">
                     HONOUR
                   </div>
-                  <div className="text-[8px] text-center text-[#8B6A3E] font-medium">
+
+                  <div className="text-[12px] text-center text-[#8B6A3E] font-semibold tracking-wide drop-shadow-sm">
                     SERVE
                   </div>
                 </div>
 
                 {/* Decorative footer */}
-                <div className="flex items-center gap-4 mt-3">
+                <div className="flex items-center gap-4 mt-4">
                   <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[#8B6A3E]/50 to-transparent"></div>
+
                   <div className="flex gap-2">
-                    <div className="w-1.5 h-1.5 bg-[#8B6A3E] rounded-full animate-pulse shadow-sm"></div>
-                    <div className="w-1.5 h-1.5 bg-[#8B6A3E]/80 rounded-full"></div>
-                    <div className="w-1.5 h-1.5 bg-[#8B6A3E]/60 rounded-full"></div>
+                    <div className="w-2 h-2 bg-[#8B6A3E] rounded-full animate-pulse shadow-md"></div>
+                    <div className="w-2 h-2 bg-[#8B6A3E]/80 rounded-full"></div>
+                    <div className="w-2 h-2 bg-[#8B6A3E]/60 rounded-full"></div>
                   </div>
+
                   <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[#8B6A3E]/50 to-transparent"></div>
                 </div>
 
-                {/* Enhanced footer text */}
-                <p className="text-center text-[#8B6A3E]/60 text-[8px] tracking-[0.3em] uppercase mt-2 font-medium">
+                {/* Footer Text */}
+                <p className="text-center text-[#8B6A3E] text-[12px] tracking-[0.35em] uppercase mt-3 font-bold">
                   A JOURNEY GUIDED BY LOVE
                 </p>
               </div>

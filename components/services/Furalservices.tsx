@@ -398,12 +398,12 @@ function FuralSamagriServices() {
             <div className="flex items-center justify-center gap-2 text-[#F5E9D9] mb-4">
               <GiIncense className="text-2xl" />
               <span className="text-sm tracking-widest">
-                ॐ FURAL SAMAGRI ॐ • अंतिम संस्कार सामग्री
+                ॐ FUNERAL SAMAGRI ॐ • अंतिम संस्कार सामग्री
               </span>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-serif text-white mb-4 leading-tight">
-              Fural Samagri Services
+              Funeral Samagri Services
               <span className="block text-xl md:text-2xl font-light text-[#F5E9D9] mt-3">
                 Complete Funeral Supplies for Last Rites
               </span>
