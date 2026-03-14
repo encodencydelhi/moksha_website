@@ -107,7 +107,7 @@ function FuneralDecorationServices() {
   const [selectedServiceForBooking, setSelectedServiceForBooking] =
     useState(null);
 
-  const decorationServices = [
+  const flowerDecorationServices = [
     {
       id: 1,
       name: "Flower Decoration (पुष्प सज्जा)",
@@ -123,8 +123,8 @@ function FuneralDecorationServices() {
       image:
         "https://images.pexels.com/photos/931170/pexels-photo-931170.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Fresh Flowers",
-        "Traditional Design",
+        "Fresh Flowers Only",
+        "Traditional Designs",
         "Full Coverage",
         "Same Day Setup",
       ],
@@ -139,121 +139,14 @@ function FuneralDecorationServices() {
         "Rose Petals (5 kg)",
         "Floral Mats",
         "Tulsi Leaves",
-        "Decorative Torans",
+        "Flower Torans",
       ],
       setupTime: "2-3 hours",
       coverage: "Complete pyre area",
+      flowerTypes: ["Marigold", "Rose", "Chrysanthemum", "Tulsi"],
     },
     {
       id: 2,
-      name: "Pandal & Canopy Decoration (पंडाल सज्जा)",
-      icon: GiFlowerTwirl,
-      description:
-        "Complete pandal decoration with traditional motifs, flowers, and sacred symbols for funeral gatherings.",
-      longDescription:
-        "Elaborate decoration for the funeral pandal including canopy setup, floral arrangements, traditional motifs, and seating arrangements. Creates a respectful atmosphere for mourners.",
-      location: "Local & Nearby",
-      price: "5,999",
-      rating: 4.8,
-      reviews: 156,
-      image:
-        "https://images.pexels.com/photos/6605287/pexels-photo-6605287.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: [
-        "Full Pandal Setup",
-        "Traditional Motifs",
-        "Seating Area",
-        "Sacred Symbols",
-      ],
-      coordinatorName: "Ramesh Sahu",
-      experience: "22+ years",
-      responseTime: "4 hours",
-      contactNumber: "+91 98765 43102",
-      whatsappNumber: "+91 98765 43102",
-      alternateNumber: "+91 99887 66402",
-      includes: [
-        "Canopy with Drapes",
-        "Floral Torans",
-        "Rangoli",
-        "Sacred Symbol Decor",
-        "Mourner Seating",
-      ],
-      setupTime: "4-5 hours",
-      capacity: "50-100 people",
-    },
-    {
-      id: 3,
-      name: "Rangoli & Floor Decoration (रंगोली सज्जा)",
-      icon: GiLeafSwirl,
-      description:
-        "Traditional rangoli designs using colored powders, flower petals, and sacred symbols for funeral ceremonies.",
-      longDescription:
-        "Intricate rangoli designs created at the entrance and around the pyre area. Uses natural colors, flower petals, and traditional patterns. Includes sacred symbols like Om, Swastik, and lotus.",
-      location: "Local Only",
-      price: "1,499",
-      rating: 4.7,
-      reviews: 98,
-      image:
-        "https://images.pexels.com/photos/5428007/pexels-photo-5428007.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: [
-        "Traditional Designs",
-        "Natural Colors",
-        "Flower Petals",
-        "Sacred Symbols",
-      ],
-      coordinatorName: "Lakshmi Bai",
-      experience: "15+ years",
-      responseTime: "3 hours",
-      contactNumber: "+91 98765 43103",
-      whatsappNumber: "+91 98765 43103",
-      alternateNumber: "+91 99887 66403",
-      includes: [
-        "Entrance Rangoli",
-        "Pyre Area Design",
-        "Sacred Symbols",
-        "Color Powders",
-        "Flower Petals",
-      ],
-      setupTime: "2 hours",
-      size: "10x10 ft area",
-    },
-    {
-      id: 4,
-      name: "Diya & Lighting Decoration (दीप सज्जा)",
-      icon: GiCandleHolder,
-      description:
-        "Traditional diya and lighting arrangements creating a serene atmosphere for funeral ceremonies.",
-      longDescription:
-        "Beautiful arrangement of clay diyas, lamps, and traditional lighting around the funeral area. Creates a peaceful and sacred ambiance. Includes placement around pyre, pathway, and pandal.",
-      location: "Local & Nearby",
-      price: "1,999",
-      rating: 4.8,
-      reviews: 167,
-      image:
-        "https://images.pexels.com/photos/4198105/pexels-photo-4198105.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: [
-        "Clay Diyas",
-        "Traditional Lamps",
-        "Pathway Lighting",
-        "Pyre Surround",
-      ],
-      coordinatorName: "Deepak Yadav",
-      experience: "12+ years",
-      responseTime: "2 hours",
-      contactNumber: "+91 98765 43104",
-      whatsappNumber: "+91 98765 43104",
-      alternateNumber: "+91 99887 66404",
-      includes: [
-        "Clay Diyas (100 pcs)",
-        "Brass Lamps (5 pcs)",
-        "Cotton Wicks",
-        "Ghee for Lamps",
-        "Decorative Holders",
-      ],
-      setupTime: "2-3 hours",
-      duration: "Burns 4-6 hours",
-    },
-    {
-      id: 5,
       name: "Floral Pyre Decoration (चिता पुष्प सज्जा)",
       icon: GiFlowerTwirl,
       description:
@@ -287,62 +180,169 @@ function FuneralDecorationServices() {
       ],
       setupTime: "2 hours",
       flowers: "Marigold, Rose, Chrysanthemum",
+      flowerTypes: ["Marigold", "Rose", "Chrysanthemum"],
+    },
+    {
+      id: 3,
+      name: "Flower Garlands & Mala (पुष्प मालाएं)",
+      icon: GiFlowers,
+      description:
+        "Traditional flower garlands made from fresh marigold, roses, and sacred leaves for funeral ceremonies.",
+      longDescription:
+        "Hand-strung flower garlands using fresh flowers. Includes garlands for the departed, family members, and for decorating the pyre. Made with traditional techniques and sacred flowers.",
+      location: "Local & Nearby",
+      price: "999",
+      rating: 4.8,
+      reviews: 156,
+      image:
+        "https://images.pexels.com/photos/5857525/pexels-photo-5857525.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: [
+        "Fresh Flowers",
+        "Hand-Strung",
+        "Traditional Style",
+        "Bulk Orders",
+      ],
+      coordinatorName: "Laxmi Devi",
+      experience: "15+ years",
+      responseTime: "1 hour",
+      contactNumber: "+91 98765 43108",
+      whatsappNumber: "+91 98765 43108",
+      alternateNumber: "+91 99887 66408",
+      includes: [
+        "Marigold Garlands (25)",
+        "Rose Garlands (10)",
+        "Tulsi Mala (5)",
+        "Sacred Leaf Garlands",
+      ],
+      setupTime: "1-2 hours",
+      flowerTypes: ["Marigold", "Rose", "Tulsi", "Mogra"],
+    },
+    {
+      id: 4,
+      name: "Flower Petals & Offerings (पुष्प वर्षा)",
+      icon: GiFlowerPot,
+      description:
+        "Fresh flower petals in bulk for offerings, path decoration, and ritual use during funeral ceremonies.",
+      longDescription:
+        "Fresh flower petals collected and packed for funeral rituals. Used for offering, path decoration, and cremation ceremonies. Available in mixed or single flower varieties.",
+      location: "Local & Nearby",
+      price: "799",
+      rating: 4.7,
+      reviews: 98,
+      image:
+        "https://images.pexels.com/photos/5857529/pexels-photo-5857529.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: [
+        "Fresh Petals",
+        "Bulk Quantity",
+        "Mixed Varieties",
+        "Same Day Delivery",
+      ],
+      coordinatorName: "Ram Kumar",
+      experience: "12+ years",
+      responseTime: "1 hour",
+      contactNumber: "+91 98765 43109",
+      whatsappNumber: "+91 98765 43109",
+      alternateNumber: "+91 99887 66409",
+      includes: [
+        "Rose Petals (5 kg)",
+        "Marigold Petals (5 kg)",
+        "Mixed Flower Petals",
+        "Sacred Leaves",
+      ],
+      setupTime: "30 mins",
+      flowerTypes: ["Rose", "Marigold", "Chrysanthemum", "Jasmine"],
+    },
+    {
+      id: 5,
+      name: "Pathway Flower Decoration (पुष्प पथ सज्जा)",
+      icon: GiFlowerEmblem,
+      description:
+        "Beautiful flower decoration for the pathway leading to the pyre with petals, flowers, and traditional patterns.",
+      longDescription:
+        "Floral decoration along the pathway from entrance to pyre area. Uses fresh flower petals, small flower arrangements, and traditional patterns to create a sacred path for the final journey.",
+      location: "Local & Nearby",
+      price: "1,999",
+      rating: 4.8,
+      reviews: 134,
+      image:
+        "https://images.pexels.com/photos/931171/pexels-photo-931171.jpeg?auto=compress&cs=tinysrgb&w=600",
+      features: [
+        "Flower Petal Path",
+        "Traditional Patterns",
+        "Fresh Flowers",
+        "Full Pathway",
+      ],
+      coordinatorName: "Sita Bai",
+      experience: "14+ years",
+      responseTime: "2 hours",
+      contactNumber: "+91 98765 43110",
+      whatsappNumber: "+91 98765 43110",
+      alternateNumber: "+91 99887 66410",
+      includes: [
+        "Flower Petals (15 kg)",
+        "Small Floral Arrangements",
+        "Decorative Flower Pots",
+        "Sacred Flower Designs",
+      ],
+      setupTime: "2-3 hours",
+      length: "50-100 ft pathway",
+      flowerTypes: ["Marigold", "Rose", "Jasmine", "Chrysanthemum"],
     },
     {
       id: 6,
-      name: "Pathway & Entrance Decoration (प्रवेश द्वार सज्जा)",
-      icon: GiFlowerEmblem,
+      name: "Premium Flower Decoration (प्रीमियम पुष्प सज्जा)",
+      icon: GiFlowerStar,
       description:
-        "Beautiful decoration for the pathway leading to the pyre and main entrance with flowers and traditional elements.",
+        "Premium flower decoration with exotic and rare flowers for those seeking special floral arrangements.",
       longDescription:
-        "Complete decoration of the pathway from entrance to pyre area. Includes floral arches, ground decorations, and traditional welcome elements. Creates a respectful and sacred path for the final journey.",
+        "Premium floral decoration using exotic and rare flowers. Includes specialized arrangements, premium garlands, and elaborate floral designs for those who want something extra special for their loved one's final journey.",
       location: "Local & Nearby",
-      price: "2,999",
-      rating: 4.7,
-      reviews: 123,
+      price: "5,999",
+      rating: 4.9,
+      reviews: 67,
       image:
-        "https://images.pexels.com/photos/6168364/pexels-photo-6168364.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Floral Arches",
-        "Pathway Decor",
-        "Entrance Setup",
-        "Welcome Elements",
+        "Exotic Flowers",
+        "Premium Designs",
+        "Elaborate Setup",
+        "Special Arrangements",
       ],
-      coordinatorName: "Sita Devi",
-      experience: "14+ years",
+      coordinatorName: "Rajesh Florist",
+      experience: "22+ years",
       responseTime: "3 hours",
-      contactNumber: "+91 98765 43106",
-      whatsappNumber: "+91 98765 43106",
-      alternateNumber: "+91 99887 66406",
+      contactNumber: "+91 98765 43111",
+      whatsappNumber: "+91 98765 43111",
+      alternateNumber: "+91 99887 66411",
       includes: [
-        "Floral Arches (2)",
-        "Pathway Flowers",
-        "Entrance Torans",
-        "Decorative Pots",
-        "Sacred Symbol Flags",
+        "Premium Garlands (50)",
+        "Exotic Flower Arrangements",
+        "Flower Petals (20 kg)",
+        "Decorative Floral Structures",
+        "Rare Flower Varieties",
       ],
-      setupTime: "3 hours",
-      length: "50-100 ft pathway",
+      setupTime: "3-4 hours",
+      flowerTypes: ["Orchids", "Lilies", "Roses", "Carnations", "Tuberose"],
     },
     {
       id: 7,
-      name: "Complete Funeral Decoration Package (संपूर्ण सज्जा पैकेज)",
-      icon: GiFlowerStar,
+      name: "Complete Flower Decoration Package (संपूर्ण पुष्प सज्जा)",
+      icon: GiFlowerTwirl,
       description:
-        "All-in-one decoration package covering pyre, pandal, pathway, lighting, and complete ceremonial setup.",
+        "All-in-one flower decoration package covering pyre, pathway, garlands, and all floral needs for funeral.",
       longDescription:
-        "Comprehensive decoration package for funeral ceremonies. Includes everything from pyre decoration to pandal setup, pathway decoration, lighting arrangements, and all floral elements. Coordinated traditional design with sacred motifs.",
+        "Complete floral decoration solution for funeral ceremonies. Includes pyre decoration, pathway flowers, all garlands, flower petals, and all floral elements. Coordinated traditional designs with fresh flowers throughout.",
       location: "Local & Nearby",
-      price: "12,999",
+      price: "8,999",
       rating: 4.9,
-      reviews: 245,
+      reviews: 189,
       image:
-        "https://images.pexels.com/photos/6605316/pexels-photo-6605316.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/931170/pexels-photo-931170.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Complete Setup",
+        "Complete Floral",
         "Premium Flowers",
-        "Traditional Design",
-        "Coordinated Theme",
+        "All Garlands",
+        "Coordinated Design",
       ],
       coordinatorName: "Vishnu Kanta",
       experience: "25+ years",
@@ -351,55 +351,53 @@ function FuneralDecorationServices() {
       whatsappNumber: "+91 98765 43107",
       alternateNumber: "+91 99887 66407",
       includes: [
-        "Pyre Decoration",
-        "Pandal Setup",
-        "Pathway Decor",
-        "Lighting Arrangement",
-        "Rangoli Design",
+        "Pyre Flower Decoration",
+        "Pathway Flower Setup",
         "Floral Garlands (100)",
         "Flower Petals (25 kg)",
-        "Decorative Torans (10)",
-        "Sacred Symbol Decor",
-        "Complete Coordination",
+        "Floral Torans (10)",
+        "Sacred Flower Designs",
+        "Fresh Flower Arrangements",
       ],
-      setupTime: "5-6 hours",
-      teamSize: "8-10 members",
+      setupTime: "4-5 hours",
+      teamSize: "6-8 members",
+      flowerTypes: ["Marigold", "Rose", "Chrysanthemum", "Jasmine", "Tulsi"],
     },
     {
       id: 8,
-      name: "Sacred Symbol & Motif Decoration (प्रतीक सज्जा)",
+      name: "Sacred Flower Arrangements (पवित्र पुष्प सज्जा)",
       icon: GiFlowerEmblem,
       description:
-        "Traditional sacred symbols and motifs decoration using flowers, colors, and traditional materials.",
+        "Special flower arrangements featuring sacred flowers and leaves used in Hindu funeral rituals.",
       longDescription:
-        "Specialized decoration featuring sacred Hindu symbols like Om, Swastik, Lotus, Trishul, and other motifs. Created using flowers, colored powders, and traditional materials at key locations.",
+        "Specialized floral arrangements using flowers and leaves considered sacred in Hindu funeral traditions. Includes Tulsi, Bel leaves, marigold, and other ritualistically important flowers arranged according to traditional requirements.",
       location: "Local Only",
-      price: "1,799",
+      price: "2,499",
       rating: 4.8,
       reviews: 89,
       image:
-        "https://images.pexels.com/photos/6588607/pexels-photo-6588607.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/5857525/pexels-photo-5857525.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Sacred Symbols",
-        "Traditional Motifs",
-        "Floral Designs",
-        "Multiple Locations",
+        "Sacred Flowers",
+        "Ritual Appropriate",
+        "Traditional Setup",
+        "Tulsi Included",
       ],
       coordinatorName: "Gopal Shastri",
       experience: "16+ years",
       responseTime: "3 hours",
-      contactNumber: "+91 98765 43108",
-      whatsappNumber: "+91 98765 43108",
-      alternateNumber: "+91 99887 66408",
+      contactNumber: "+91 98765 43112",
+      whatsappNumber: "+91 98765 43112",
+      alternateNumber: "+91 99887 66412",
       includes: [
-        "Om Symbol (3 locations)",
-        "Swastik Design",
-        "Lotus Motifs",
-        "Trishul Decoration",
-        "Sacred Kalash Setup",
+        "Tulsi Arrangements",
+        "Marigold Sacred Setup",
+        "Bel Leaf Decor",
+        "Sacred Flower Garlands",
+        "Ritual Flower Offerings",
       ],
       setupTime: "2-3 hours",
-      materials: "Flowers, Colors, Rice, Sandalwood",
+      flowerTypes: ["Tulsi", "Marigold", "Bel Leaves", "Dhatura", "Aak"],
     },
   ];
 
@@ -435,7 +433,7 @@ function FuneralDecorationServices() {
         <div className="absolute inset-0">
           <img
             src="https://images.pexels.com/photos/931170/pexels-photo-931170.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt="Funeral Decoration"
+            alt="Funeral Flower Decoration"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#8B5E3C]/80 to-[#5A3E2B]/90"></div>
@@ -460,28 +458,28 @@ function FuneralDecorationServices() {
             <div className="flex items-center justify-center gap-2 text-[#F5E9D9] mb-4">
               <GiFlowerHat className="text-2xl" />
               <span className="text-sm tracking-widest">
-                ॐ FUNERAL DECORATION ॐ • अंतिम संस्कार सज्जा
+                ॐ FUNERAL FLOWER DECORATION ॐ • अंतिम संस्कार पुष्प सज्जा
               </span>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-serif text-white mb-4 leading-tight">
-              Funeral Decoration Services
+              Funeral Flower Decoration Services
               <span className="block text-xl md:text-2xl font-light text-[#F5E9D9] mt-3">
-                Traditional Floral & Ceremonial Decor for Last Rites
+                Traditional Floral Decor for Last Rites with Fresh Flowers
               </span>
             </h1>
 
             <p className="text-base md:text-lg text-white mb-6 max-w-2xl mx-auto">
-              Respectful and traditional decoration for funeral ceremonies.
-              Fresh flowers, sacred symbols, and complete setup delivered with
-              dignity.
+              Respectful and traditional flower decoration for funeral
+              ceremonies. Fresh marigold, roses, and sacred flowers arranged
+              with dignity and tradition.
             </p>
 
             {/* Emergency Contact */}
             <div className="inline-flex items-center gap-4 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6">
               <FaPhoneAlt className="text-white text-xl animate-pulse" />
               <span className="text-white font-bold text-xl">
-                24/7 Emergency Decoration: +91 1800 123 4580
+                24/7 Flower Decoration: +91 1800 123 4580
               </span>
             </div>
 
@@ -490,7 +488,7 @@ function FuneralDecorationServices() {
               <div>
                 <div className="text-2xl text-white">5K+</div>
                 <div className="text-sm text-[#F5E9D9]">
-                  Ceremonies Decorated
+                  Ceremonies with Flowers
                 </div>
               </div>
               <div>
@@ -499,7 +497,7 @@ function FuneralDecorationServices() {
               </div>
               <div>
                 <div className="text-2xl text-white">24/7</div>
-                <div className="text-sm text-[#F5E9D9]">Setup Available</div>
+                <div className="text-sm text-[#F5E9D9]">Flower Setup</div>
               </div>
             </div>
           </div>
@@ -520,7 +518,7 @@ function FuneralDecorationServices() {
         </div>
       </section>
 
-      {/* Decoration Services Section */}
+      {/* Flower Decoration Services Section */}
       <section className="py-4 px-6 max-w-7xl mx-auto">
         {/* Section Header with Decorative Lines */}
         <div className="text-center mb-12 relative">
@@ -531,11 +529,11 @@ function FuneralDecorationServices() {
 
           <div className="relative">
             <span className="text-[#C89B6D] tracking-widest text-sm">
-              ॐ FUNERAL DECORATION ॐ
+              ॐ FUNERAL FLOWER DECORATION ॐ
             </span>
 
             <h2 className="text-3xl md:text-4xl font-serif text-[#5A3E2B] mt-3 mb-4">
-              Traditional Decoration Packages
+              Flower Decoration Packages
               <span className="block text-[#8B5E3C]">
                 for Funeral Ceremonies
               </span>
@@ -549,16 +547,16 @@ function FuneralDecorationServices() {
             </div>
 
             <p className="text-sm text-[#7B5E47] max-w-2xl mx-auto">
-              Respectful and traditional decoration services using fresh
-              flowers, sacred symbols, and traditional elements for funeral
-              ceremonies.
+              Respectful flower decoration services using fresh marigold, roses,
+              and sacred flowers for funeral ceremonies. Traditional floral
+              arrangements with dignity.
             </p>
           </div>
         </div>
 
-        {/* Services Grid */}
+        {/* Services Grid - Flower Decoration Only */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-          {decorationServices.map((service) => {
+          {flowerDecorationServices.map((service) => {
             const Icon = service.icon;
 
             return (
@@ -594,10 +592,10 @@ function FuneralDecorationServices() {
                     </span>
                   </div>
 
-                  {/* Setup Time Badge */}
+                  {/* Flower Types Badge */}
                   <div className="absolute bottom-2 right-2 z-20 bg-[#8B5E3C]/90 backdrop-blur-sm px-2 py-0.5 rounded-full">
                     <span className="text-white text-[10px] font-medium">
-                      {service.setupTime}
+                      {service.flowerTypes?.length} Flowers
                     </span>
                   </div>
 
@@ -616,19 +614,17 @@ function FuneralDecorationServices() {
                     {service.description}
                   </p>
 
-                  {/* Features */}
+                  {/* Flower Types */}
                   <div className="flex flex-wrap justify-center gap-1 mb-2">
-                    {service.features.slice(0, 2).map((feature, idx) => (
+                    {service.flowerTypes?.slice(0, 3).map((flower, idx) => (
                       <span
                         key={idx}
-                        className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full"
+                        className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full flex items-center gap-0.5"
                       >
-                        {feature}
+                        <IoFlower className="text-[8px]" />
+                        {flower}
                       </span>
                     ))}
-                    <span className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full">
-                      +{service.features.length - 2}
-                    </span>
                   </div>
 
                   {/* Coordinator Info */}
@@ -731,7 +727,7 @@ function FuneralDecorationServices() {
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-              Why Choose Our Decoration Services?
+              Why Choose Our Flower Decoration?
             </h2>
             <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
           </div>
@@ -745,18 +741,18 @@ function FuneralDecorationServices() {
               },
               {
                 icon: FaClock,
-                title: "24/7 Setup",
-                desc: "Round-the-clock decoration service",
+                title: "24/7 Flower Setup",
+                desc: "Round-the-clock floral service",
               },
               {
                 icon: FaLeaf,
                 title: "Eco-friendly",
-                desc: "Natural & biodegradable materials",
+                desc: "Biodegradable flower materials",
               },
               {
-                icon: MdDevicesOther,
-                title: "Traditional Designs",
-                desc: "Authentic sacred patterns",
+                icon: IoFlower,
+                title: "Sacred Flowers",
+                desc: "Traditional ritual flowers",
               },
             ].map((item, idx) => {
               const Icon = item.icon;
@@ -781,11 +777,11 @@ function FuneralDecorationServices() {
       <section className="py-12 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            How to Book Decoration Services
+            How to Book Flower Decoration
           </h2>
           <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full mb-4"></div>
           <p className="text-sm text-[#7B5E47] max-w-2xl mx-auto">
-            Simple process to arrange traditional funeral decoration
+            Simple process to arrange traditional flower decoration
           </p>
         </div>
 
@@ -799,20 +795,20 @@ function FuneralDecorationServices() {
             },
             {
               step: "02",
-              title: "Choose Package",
-              desc: "Select decoration type & requirements",
+              title: "Choose Flowers",
+              desc: "Select flower types & quantity",
               icon: GiFlowerHat,
             },
             {
               step: "03",
               title: "Confirm Details",
-              desc: "Share venue & timing preferences",
+              desc: "Share venue & timing",
               icon: MdVerified,
             },
             {
               step: "04",
-              title: "Complete Setup",
-              desc: "We decorate before ceremony",
+              title: "Flower Setup",
+              desc: "Fresh flowers before ceremony",
               icon: GiFlowerStar,
             },
           ].map((item, idx) => {
@@ -840,11 +836,11 @@ function FuneralDecorationServices() {
         </div>
       </section>
 
-      {/* Decoration Elements Section */}
+      {/* Flower Types Section */}
       <section className="py-12 px-6 max-w-7xl mx-auto bg-white rounded-lg shadow-sm">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            Traditional Decoration Elements
+            Flowers Used in Funeral Decoration
           </h2>
           <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
         </div>
@@ -853,46 +849,60 @@ function FuneralDecorationServices() {
           {[
             {
               icon: GiFlowerHat,
-              name: "Flower Garlands",
-              desc: "Marigold, Rose",
+              name: "Marigold",
+              desc: "Sacred & Traditional",
+              color: "orange-500",
             },
             {
-              icon: GiCandleHolder,
-              name: "Diyas & Lamps",
-              desc: "Clay & Brass",
-            },
-            {
-              icon: GiFlowerEmblem,
-              name: "Sacred Symbols",
-              desc: "Om, Swastik",
+              icon: GiFlowerPot,
+              name: "Rose",
+              desc: "Respect & Love",
+              color: "red-500",
             },
             {
               icon: GiFlowerEmblem,
-              name: "Pandal Decor",
-              desc: "Canopy Setup",
-            },
-            {
-              icon: GiFlowerTwirl,
-              name: "Pyre Flowers",
-              desc: "Sacred Coverage",
+              name: "Tulsi",
+              desc: "Sacred Holy Basil",
+              color: "green-600",
             },
             {
               icon: GiFlowerStar,
-              name: "Complete Setup",
-              desc: "Full Package",
+              name: "Chrysanthemum",
+              desc: "Honor & Respect",
+              color: "yellow-500",
             },
-            { icon: GiLeafSwirl, name: "Rangoli", desc: "Traditional Designs" },
+            {
+              icon: IoFlower,
+              name: "Jasmine",
+              desc: "Purity & Peace",
+              color: "white",
+            },
+            {
+              icon: GiFlowerTwirl,
+              name: "Mogra",
+              desc: "Fragrant Offering",
+              color: "white",
+            },
+            {
+              icon: GiLeafSwirl,
+              name: "Bel Leaves",
+              desc: "Sacred Rituals",
+              color: "green-700",
+            },
             {
               icon: GiPlantRoots,
-              name: "Natural Elements",
-              desc: "Eco-friendly",
+              name: "Tuberose",
+              desc: "Evening Fragrance",
+              color: "white",
             },
           ].map((item, idx) => {
             const Icon = item.icon;
             return (
               <div key={idx} className="text-center p-3">
-                <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-[#F5E9D9] flex items-center justify-center">
-                  <Icon className="text-[#8B5E3C] text-xl" />
+                <div
+                  className={`w-12 h-12 mx-auto mb-2 rounded-full bg-${item.color}/10 flex items-center justify-center`}
+                >
+                  <Icon className={`text-${item.color} text-xl`} />
                 </div>
                 <h3 className="text-sm text-[#5A3E2B]">{item.name}</h3>
                 <p className="text-xs text-[#7B5E47]">{item.desc}</p>
@@ -906,7 +916,7 @@ function FuneralDecorationServices() {
       <section className="py-12 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            What Families Say About Our Decoration
+            What Families Say About Our Flower Decoration
           </h2>
           <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
         </div>
@@ -916,19 +926,19 @@ function FuneralDecorationServices() {
             {
               name: "Priya Sharma",
               location: "Delhi",
-              text: "The floral decoration was beautiful and respectful. Fresh flowers arranged traditionally. They understood our requirements perfectly.",
+              text: "The floral decoration was beautiful and respectful. Fresh marigolds and roses arranged traditionally. They understood our requirements perfectly.",
               rating: 5,
             },
             {
               name: "Vikram Singh",
               location: "Mumbai",
-              text: "Complete pandal decoration with all sacred symbols. The rangoli and diya arrangement created a peaceful atmosphere. Thank you.",
+              text: "The flower garlands were fresh and fragrant. Pyre decoration with marigolds was exactly as we wanted. Thank you for the respectful service.",
               rating: 5,
             },
             {
               name: "Anita Desai",
               location: "Lucknow",
-              text: "They decorated the pyre beautifully with marigolds. The pathway decoration with floral arches was very traditional. Highly recommended.",
+              text: "They decorated with fresh flowers throughout. The pathway flower decoration with petals was very traditional. Highly recommended for flower needs.",
               rating: 5,
             },
           ].map((testimonial, idx) => (
@@ -963,12 +973,12 @@ function FuneralDecorationServices() {
         <div className="relative max-w-4xl mx-auto text-center px-6">
           <GiFlowerHat className="text-5xl mx-auto mb-4 opacity-50" />
           <h2 className="text-3xl md:text-4xl font-serif text-white mb-4">
-            Need Funeral Decoration Immediately?
+            Need Flower Decoration Immediately?
           </h2>
           <p className="text-base md:text-lg text-white mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed">
-            We understand the urgency. Our 24/7 decoration service ensures
-            complete traditional setup whenever needed. Fresh flowers, sacred
-            symbols, and respectful arrangements.
+            We understand the urgency. Our 24/7 flower decoration service
+            ensures fresh floral setup whenever needed. Marigold, roses, and
+            sacred flowers arranged with respect.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <button
@@ -976,7 +986,7 @@ function FuneralDecorationServices() {
               className="px-8 py-3 bg-white text-[#8B5E3C] rounded-lg font-medium text-base hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
             >
               <FaPhoneAlt />
-              Call Decoration Helpline
+              Call Flower Helpline
             </button>
             <button
               onClick={() => handleWhatsApp("+919876543210")}

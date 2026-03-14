@@ -17,7 +17,6 @@ export default function Hero() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-
   const [mantra, setMantra] = useState<any>(null);
   const [audioPlaying, setAudioPlaying] = useState(false);
   const [audioError, setAudioError] = useState(false);
