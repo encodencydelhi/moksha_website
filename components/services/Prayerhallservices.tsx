@@ -64,6 +64,7 @@ import {
   MdAcUnit,
   MdSelfImprovement,
   MdSpa,
+  MdLocationOn,
 } from "react-icons/md";
 import { PiFlowerLotus } from "react-icons/pi";
 import {
@@ -77,7 +78,7 @@ import {
   BsSun,
 } from "react-icons/bs";
 import { TbMessageCircle, TbPhoneCall, TbCrown } from "react-icons/tb";
-import { RiCustomerService2Fill } from "react-icons/ri";
+import { RiCustomerService2Fill, RiBuildingLine } from "react-icons/ri";
 import { IoCall, IoLeaf } from "react-icons/io5";
 
 function PrayerHallServices() {
@@ -89,245 +90,295 @@ function PrayerHallServices() {
   const prayerHallServices = [
     {
       id: 1,
-      name: "Main Meditation Hall",
-      icon: GiMeditationIcon,
+      name: "Main Prayer Hall",
+      icon: GiTempleDoor,
       description:
-        "Spacious meditation hall for group sessions, yoga, and spiritual gatherings with peaceful ambiance.",
+        "Spacious main prayer hall for community prayers, gatherings, and religious ceremonies.",
       longDescription:
-        "Our main meditation hall offers a serene environment for group meditation, yoga sessions, and spiritual gatherings. Features high ceilings, natural light, and sound-proofing for complete tranquility. Perfect for retreats and daily practice.",
+        "Our main prayer hall offers a sacred space for community prayers, religious ceremonies, and spiritual gatherings. Features traditional architecture, peaceful ambiance, and all necessary facilities for group worship.",
       location: "Main Complex",
-      price: "2,999",
+      price: "3,999",
       rating: 4.9,
       reviews: 234,
       image:
         "https://images.pexels.com/photos/3618557/pexels-photo-3618557.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Silent Zone",
-        "Natural Light",
-        "Acoustic Design",
-        "Meditation Cushions",
+        "Sacred Space",
+        "Traditional Design",
+        "Seating Area",
+        "Prayer Mats",
       ],
-      coordinatorName: "Anand Sharma",
-      experience: "15+ years",
+      coordinatorName: "Ram Prakash",
+      experience: "18+ years",
       responseTime: "2 hours",
       contactNumber: "+91 98765 43210",
       whatsappNumber: "+91 98765 43210",
       alternateNumber: "+91 99887 66554",
-      capacity: "100 people",
+      capacity: "150 people",
       amenities: [
-        "Meditation Mats",
-        "Cushions",
-        "Altar",
-        "Peaceful Music System",
+        "Prayer Mats",
+        "Sound System",
+        "Air Conditioning",
+        "Washrooms",
+        "Parking",
       ],
+      hallSize: "1200 sq ft",
+      rentalDuration: "2 hours minimum",
     },
     {
       id: 2,
-      name: "Silent Retreat Hall",
+      name: "Small Prayer Room",
       icon: GiSBrick,
       description:
-        "Private hall for silent meditation, personal retreats, and deep spiritual practice.",
+        "Intimate prayer room for small groups, family prayers, and personal worship.",
       longDescription:
-        "Individual meditation hall designed for complete silence and solitude. Perfect for personal retreats, Vipassana practice, or deep contemplation. Located in a secluded garden area.",
+        "A quiet and intimate prayer room ideal for small groups, family prayers, or personal worship sessions. Provides a peaceful environment for focused prayer and devotion.",
       location: "Garden Area",
       price: "999",
-      rating: 4.9,
+      rating: 4.8,
       reviews: 156,
       image:
         "https://images.pexels.com/photos/6605287/pexels-photo-6605287.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Complete Privacy",
+        "Private Space",
         "Garden View",
-        "Sound-proof",
+        "Quiet Environment",
         "Basic Amenities",
       ],
-      coordinatorName: "Rajiv Menon",
-      experience: "10+ years",
+      coordinatorName: "Suresh Kumar",
+      experience: "12+ years",
       responseTime: "1 hour",
       contactNumber: "+91 98765 43212",
       whatsappNumber: "+91 98765 43212",
       alternateNumber: "+91 99887 66552",
-      capacity: "1-2 persons",
-      amenities: [
-        "Meditation Cushion",
-        "Tea Setup",
-        "Writing Desk",
-        "Garden Access",
-      ],
+      capacity: "15 people",
+      amenities: ["Prayer Mats", "Small Altar", "Washroom", "Garden Access"],
+      hallSize: "300 sq ft",
+      rentalDuration: "1 hour minimum",
     },
     {
       id: 3,
-      name: "Group Retreat Hall",
+      name: "Community Prayer Hall",
       icon: FaUsers,
       description:
-        "Spacious hall for group retreats, workshops, and spiritual discourses.",
+        "Large community hall for congregational prayers, religious events, and community gatherings.",
       longDescription:
-        "Complete retreat facility with main hall for sessions. Ideal for multi-day retreats and spiritual workshops. Peaceful environment for group practice.",
-      location: "Retreat Center",
-      price: "4,999",
+        "Spacious community prayer hall designed for large congregational prayers, religious festivals, and community events. Equipped with all necessary facilities for group worship and gatherings.",
+      location: "Community Center",
+      price: "5,999",
       rating: 4.9,
       reviews: 278,
       image:
         "https://images.pexels.com/photos/4650705/pexels-photo-4650705.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: ["Main Hall", "Discussion Rooms", "Garden", "Breakout Areas"],
-      coordinatorName: "Swami Anand",
+      features: [
+        "Large Capacity",
+        "Stage Area",
+        "Separate Sections",
+        "Event Ready",
+      ],
+      coordinatorName: "Mohammad Rizwan",
       experience: "20+ years",
       responseTime: "4 hours",
       contactNumber: "+91 98765 43213",
       whatsappNumber: "+91 98765 43213",
       alternateNumber: "+91 99887 66551",
-      capacity: "50 people",
-      amenities: ["Floor Seating", "Discussion Rooms", "Meditation Garden"],
+      capacity: "300 people",
+      amenities: [
+        "Prayer Mats",
+        "Sound System",
+        "AC Hall",
+        "Separate Entrances",
+        "Parking",
+        "Washrooms",
+      ],
+      hallSize: "2500 sq ft",
+      rentalDuration: "3 hours minimum",
     },
     {
       id: 4,
-      name: "Sunrise Meditation Hall",
+      name: "Open Air Prayer Pavilion",
       icon: BsSun,
       description:
-        "Open-air hall overlooking nature for sunrise and sunset meditation sessions.",
+        "Open-air pavilion for prayers in natural surroundings, suitable for all-weather protection.",
       longDescription:
-        "Beautiful open-air hall situated with views of the surrounding nature. Perfect for sunrise meditation, evening chanting, and connecting with natural elements. Protected from weather while remaining open to elements.",
-      location: "Hilltop",
-      price: "799",
-      rating: 4.8,
+        "Beautiful open-air prayer pavilion that allows connection with nature while providing protection from weather elements. Ideal for prayers, spiritual gatherings, and meditation sessions in natural surroundings.",
+      location: "Garden Complex",
+      price: "2,499",
+      rating: 4.7,
       reviews: 145,
       image:
         "https://images.pexels.com/photos/4492129/pexels-photo-4492129.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
         "Open Air",
         "Nature View",
-        "Sunrise/Sunset",
         "Weather Protected",
+        "Garden Setting",
       ],
-      coordinatorName: "Meera Nair",
-      experience: "8+ years",
+      coordinatorName: "Anita Sharma",
+      experience: "10+ years",
       responseTime: "2 hours",
       contactNumber: "+91 98765 43214",
       whatsappNumber: "+91 98765 43214",
       alternateNumber: "+91 99887 66550",
-      capacity: "30 people",
+      capacity: "50 people",
       amenities: [
-        "Floor Cushions",
-        "Wind Protection",
+        "Floor Seating",
+        "Shade Cover",
+        "Garden View",
         "Water Station",
-        "Nature Trails",
+        "Walking Path",
       ],
+      hallSize: "800 sq ft",
+      rentalDuration: "2 hours minimum",
     },
     {
       id: 5,
-      name: "Sacred Circle Hall",
+      name: "Traditional Prayer Hall",
       icon: GiLotus,
       description:
-        "Circular hall designed for sacred ceremonies, chanting circles, and group healing sessions.",
+        "Classically designed prayer hall with traditional architecture and sacred ambiance.",
       longDescription:
-        "Unique circular hall designed to enhance group energy and connection. Perfect for chanting circles, sound healing sessions, sacred ceremonies, and group meditations. Excellent acoustics.",
-      location: "Tranquility Zone",
+        "A prayer hall built with traditional architectural elements, featuring high ceilings, sacred symbols, and an atmosphere that enhances devotion and prayer. Perfect for those seeking an authentic prayer experience.",
+      location: "Heritage Wing",
       price: "3,499",
-      rating: 4.7,
-      reviews: 98,
+      rating: 4.9,
+      reviews: 198,
       image:
         "https://images.pexels.com/photos/3768914/pexels-photo-3768914.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Circular Design",
-        "Perfect Acoustics",
-        "Center Altar",
-        "Soft Lighting",
+        "Traditional Design",
+        "Sacred Architecture",
+        "High Ceilings",
+        "Ornate Details",
       ],
-      coordinatorName: "David Chen",
-      experience: "12+ years",
-      responseTime: "6 hours",
+      coordinatorName: "Venkatesh Iyer",
+      experience: "25+ years",
+      responseTime: "3 hours",
       contactNumber: "+91 98765 43215",
       whatsappNumber: "+91 98765 43215",
       alternateNumber: "+91 99887 66549",
-      capacity: "60 people",
+      capacity: "80 people",
       amenities: [
+        "Traditional Seating",
+        "Sacred Decor",
         "Sound System",
-        "Altar",
-        "Floor Seating",
-        "Acoustic Treatment",
+        "Washrooms",
+        "Parking",
       ],
+      hallSize: "1000 sq ft",
+      rentalDuration: "2 hours minimum",
     },
     {
       id: 6,
-      name: "Personal Contemplation Hall",
-      icon: GiPeaceDove,
+      name: "Private Family Prayer Hall",
+      icon: FaUserFriends,
       description:
-        "Private halls for personal meditation, journaling, and one-on-one spiritual guidance.",
+        "Private hall for family prayers, small religious ceremonies, and intimate gatherings.",
       longDescription:
-        "Small private halls designed for individual contemplation, personal meditation practice, or confidential spiritual guidance sessions. Quiet, peaceful, and completely private.",
+        "A cozy and private prayer hall designed specifically for family use. Perfect for family prayers, small religious ceremonies, and intimate spiritual gatherings with loved ones.",
       location: "Quiet Zone",
-      price: "499",
+      price: "1,499",
       rating: 4.8,
       reviews: 112,
       image:
         "https://images.pexels.com/photos/5428010/pexels-photo-5428010.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Complete Privacy",
-        "Sound-proof",
-        "Simple Design",
-        "Natural Light",
+        "Family Privacy",
+        "Cozy Setting",
+        "Home-like Atmosphere",
+        "Personal Space",
       ],
-      coordinatorName: "Lakshmi Krishnan",
+      coordinatorName: "Lakshmi Devi",
       experience: "15+ years",
-      responseTime: "30 minutes",
+      responseTime: "1 hour",
       contactNumber: "+91 98765 43216",
       whatsappNumber: "+91 98765 43216",
       alternateNumber: "+91 99887 66548",
-      capacity: "1-2 persons",
-      amenities: ["Cushion", "Small Altar", "Journal Desk", "Tea Service"],
+      capacity: "25 people",
+      amenities: [
+        "Prayer Mats",
+        "Small Kitchenette",
+        "Family Room",
+        "Private Entrance",
+        "Washroom",
+      ],
+      hallSize: "500 sq ft",
+      rentalDuration: "2 hours minimum",
     },
     {
       id: 7,
-      name: "Evening Satsang Hall",
+      name: "Evening Prayer Hall",
       icon: BsMoon,
       description:
-        "Evening gathering space for satsang, spiritual discourse, and community singing.",
+        "Specially designed hall for evening prayers with soft lighting and peaceful ambiance.",
       longDescription:
-        "Warm and inviting hall specifically for evening satsangs, spiritual discourses, kirtan, and community gatherings. Features comfortable seating and excellent acoustics for singing.",
-      location: "Community Area",
-      price: "2,499",
-      rating: 4.9,
-      reviews: 345,
+        "A prayer hall optimized for evening prayers and night worship. Features warm, soft lighting and an atmosphere conducive to peaceful evening devotion. Quiet and serene location.",
+      location: "Tranquility Wing",
+      price: "1,999",
+      rating: 4.8,
+      reviews: 167,
       image:
         "https://images.pexels.com/photos/3618557/pexels-photo-3618557.jpeg?auto=compress&cs=tinysrgb&w=600",
       features: [
-        "Evening Only",
-        "Warm Lighting",
-        "Community Feel",
-        "Musical Focus",
+        "Evening Focus",
+        "Soft Lighting",
+        "Quiet Location",
+        "Peaceful Vibes",
       ],
-      coordinatorName: "Krishna Das",
-      experience: "18+ years",
-      responseTime: "3 hours",
+      coordinatorName: "Rajesh Kumar",
+      experience: "14+ years",
+      responseTime: "2 hours",
       contactNumber: "+91 98765 43217",
       whatsappNumber: "+91 98765 43217",
       alternateNumber: "+91 99887 66547",
-      capacity: "80 people",
-      amenities: ["Harmonium", "Tabla", "Cushions", "Tea Service"],
+      capacity: "40 people",
+      amenities: [
+        "Dim Lights",
+        "Prayer Mats",
+        "Cooling System",
+        "Washroom",
+        "Parking",
+      ],
+      hallSize: "600 sq ft",
+      rentalDuration: "2 hours minimum",
     },
     {
       id: 8,
-      name: "Yoga & Wellness Hall",
-      icon: GiYinYang,
+      name: "Multi-faith Prayer Hall",
+      icon: GiPrayer,
       description:
-        "Dedicated yoga hall with wooden flooring, mirrors, and all equipment for yoga and wellness practices.",
+        "Universal prayer hall designed to accommodate people of all faiths for interfaith gatherings.",
       longDescription:
-        "Fully equipped yoga hall with professional flooring, wall mirrors, and all necessary props. Suitable for Hatha, Vinyasa, and other yoga styles.",
-      location: "Wellness Wing",
-      price: "1,999",
-      rating: 4.8,
-      reviews: 189,
+        "A neutral, universal prayer space designed to accommodate people from all faith traditions. Features simple, respectful design suitable for interfaith prayers, dialogues, and gatherings.",
+      location: "Unity Center",
+      price: "2,999",
+      rating: 4.7,
+      reviews: 89,
       image:
         "https://images.pexels.com/photos/4056535/pexels-photo-4056535.jpeg?auto=compress&cs=tinysrgb&w=600",
-      features: ["Wooden Floor", "Mirrors", "Props Available", "Showers"],
-      coordinatorName: "Priya Patel",
-      experience: "12+ years",
+      features: [
+        "Universal Design",
+        "All Faiths Welcome",
+        "Neutral Space",
+        "Interfaith Focus",
+      ],
+      coordinatorName: "David Abraham",
+      experience: "16+ years",
       responseTime: "3 hours",
-      contactNumber: "+91 98765 43211",
-      whatsappNumber: "+91 98765 43211",
-      alternateNumber: "+91 99887 66553",
-      capacity: "50 people",
-      amenities: ["Yoga Mats", "Blocks", "Straps", "Bolsters", "Showers"],
+      contactNumber: "+91 98765 43218",
+      whatsappNumber: "+91 98765 43218",
+      alternateNumber: "+91 99887 66546",
+      capacity: "60 people",
+      amenities: [
+        "Flexible Seating",
+        "Sound System",
+        "AC",
+        "Washrooms",
+        "Parking",
+        "Refreshment Area",
+      ],
+      hallSize: "900 sq ft",
+      rentalDuration: "2 hours minimum",
     },
   ];
 
@@ -386,44 +437,44 @@ function PrayerHallServices() {
           <div className="max-w-3xl mx-auto text-center">
             {/* Sacred Symbol */}
             <div className="flex items-center justify-center gap-2 text-[#F5E9D9] mb-4">
-              <GiPrayer className="text-2xl" />
+              <GiTempleDoor className="text-2xl" />
               <span className="text-sm tracking-widest">ॐ PRAYER HALLS ॐ</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-serif text-white mb-4 leading-tight">
-              Prayer Halls
+              Prayer Halls for Rent
               <span className="block text-xl md:text-2xl font-light text-[#F5E9D9] mt-3">
-                Sacred Spaces for Inner Peace & Spiritual Practice
+                Sacred Spaces for Worship & Religious Gatherings
               </span>
             </h1>
 
             <p className="text-base md:text-lg text-white mb-6 max-w-2xl mx-auto">
-              Well-maintained prayer and meditation halls for individual
-              practice, group sessions, and spiritual gatherings. Peaceful,
-              clean, and spiritually uplifting environments.
+              Well-maintained prayer halls for rent. Perfect for daily prayers,
+              religious ceremonies, community gatherings, and spiritual events.
+              Clean, peaceful, and spiritually uplifting environments.
             </p>
 
             {/* Emergency Contact */}
             <div className="inline-flex items-center gap-4 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6">
               <FaPhoneAlt className="text-white text-xl animate-pulse" />
               <span className="text-white font-bold text-xl">
-                24/7 Booking: +91 1800 123 4567
+                24/7 Hall Booking: +91 1800 123 4567
               </span>
             </div>
 
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-6">
               <div>
-                <div className="text-2xl text-white">15+</div>
-                <div className="text-sm text-[#F5E9D9]">Meditation Halls</div>
+                <div className="text-2xl text-white">12+</div>
+                <div className="text-sm text-[#F5E9D9]">Prayer Halls</div>
               </div>
               <div>
-                <div className="text-2xl text-white">10K+</div>
-                <div className="text-sm text-[#F5E9D9]">Seekers Served</div>
+                <div className="text-2xl text-white">5K+</div>
+                <div className="text-sm text-[#F5E9D9]">Prayer Gatherings</div>
               </div>
               <div>
                 <div className="text-2xl text-white">24/7</div>
-                <div className="text-sm text-[#F5E9D9]">Quiet Hours</div>
+                <div className="text-sm text-[#F5E9D9]">Hall Access</div>
               </div>
             </div>
           </div>
@@ -444,7 +495,7 @@ function PrayerHallServices() {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Prayer Halls Section */}
       <section className="py-4 px-6 max-w-7xl mx-auto">
         {/* Section Header with Decorative Lines */}
         <div className="text-center mb-12 relative">
@@ -455,13 +506,13 @@ function PrayerHallServices() {
 
           <div className="relative">
             <span className="text-[#C89B6D] tracking-widest text-sm">
-              ॐ PRAYER & MEDITATION HALLS ॐ
+              ॐ PRAYER HALLS FOR RENT ॐ
             </span>
 
             <h2 className="text-3xl md:text-4xl font-serif text-[#5A3E2B] mt-3 mb-4">
-              Sacred Spaces for Every Practice
+              Available Prayer Halls
               <span className="block text-[#8B5E3C]">
-                Individual & Group Meditation
+                For Worship & Religious Gatherings
               </span>
             </h2>
 
@@ -473,9 +524,8 @@ function PrayerHallServices() {
             </div>
 
             <p className="text-sm text-[#7B5E47] max-w-2xl mx-auto">
-              From individual contemplation to group gatherings, our prayer
-              halls provide peaceful and dignified spaces for all spiritual
-              practices.
+              Choose from our selection of well-maintained prayer halls for your
+              worship needs. Available for hourly or daily rental.
             </p>
           </div>
         </div>
@@ -583,12 +633,12 @@ function PrayerHallServices() {
                     </div>
                   </div>
 
-                  {/* Location and Price */}
+                  {/* Hall Size and Price */}
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-1 text-[10px] text-[#7B5E47]">
-                      <FaClock className="text-[#C89B6D] text-[10px]" />
+                      <RiBuildingLine className="text-[#C89B6D] text-[10px]" />
                       <span className="truncate max-w-[90px]">
-                        {service.responseTime}
+                        {service.hallSize}
                       </span>
                     </div>
                     <div className="text-sm text-[#8B5E3C]">
@@ -670,17 +720,17 @@ function PrayerHallServices() {
               {
                 icon: FaClock,
                 title: "Flexible Hours",
-                desc: "Open for all practice times",
+                desc: "Rent by hour or full day",
               },
               {
                 icon: FaPeace,
                 title: "Peaceful Environment",
-                desc: "Calm and meditative atmosphere",
+                desc: "Calm and devotional atmosphere",
               },
               {
-                icon: FaLeaf,
-                title: "Nature Connected",
-                desc: "Surrounded by natural beauty",
+                icon: MdLocationOn,
+                title: "Easy Access",
+                desc: "Centrally located with parking",
               },
             ].map((item, idx) => {
               const Icon = item.icon;
@@ -705,11 +755,11 @@ function PrayerHallServices() {
       <section className="py-12 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            How to Book a Prayer Hall
+            How to Rent a Prayer Hall
           </h2>
           <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full mb-4"></div>
           <p className="text-sm text-[#7B5E47] max-w-2xl mx-auto">
-            Simple process to reserve a meditation space for your practice
+            Simple process to reserve a prayer hall for your worship needs
           </p>
         </div>
 
@@ -718,7 +768,7 @@ function PrayerHallServices() {
             {
               step: "01",
               title: "Select Hall",
-              desc: "Choose hall type and location",
+              desc: "Choose hall type and capacity",
               icon: GiTempleDoor,
             },
             {
@@ -730,14 +780,14 @@ function PrayerHallServices() {
             {
               step: "03",
               title: "Make Booking",
-              desc: "Confirm reservation",
+              desc: "Confirm hall reservation",
               icon: FaPhoneAlt,
             },
             {
               step: "04",
-              title: "Begin Practice",
-              desc: "Use the space for meditation",
-              icon: GiMeditation,
+              title: "Use Hall",
+              desc: "Conduct your prayers",
+              icon: GiPrayer,
             },
           ].map((item, idx) => {
             const Icon = item.icon;
@@ -764,11 +814,11 @@ function PrayerHallServices() {
         </div>
       </section>
 
-      {/* Hall Features Section */}
+      {/* Hall Amenities Section */}
       <section className="py-12 px-6 max-w-7xl mx-auto bg-white rounded-lg shadow-sm">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            Hall Features & Amenities
+            Prayer Hall Amenities
           </h2>
           <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
         </div>
@@ -783,29 +833,33 @@ function PrayerHallServices() {
             {
               icon: MdVolumeUp,
               name: "Sound System",
-              desc: "Clear audio for guidance",
+              desc: "Clear audio for prayers",
             },
             {
-              icon: MdSelfImprovement,
-              name: "Meditation Props",
-              desc: "Cushions & mats",
+              icon: FaPray,
+              name: "Prayer Mats",
+              desc: "Clean & comfortable",
             },
-            { icon: FaLeaf, name: "Natural Light", desc: "Peaceful ambiance" },
+            { icon: FaLeaf, name: "Peaceful", desc: "Calm ambiance" },
             {
               icon: FaUsers,
               name: "Group Seating",
               desc: "Flexible arrangements",
             },
-            { icon: FaPray, name: "Altar Space", desc: "Sacred focal point" },
             {
               icon: FaMapMarkerAlt,
-              name: "Quiet Location",
-              desc: "No disturbances",
+              name: "Parking",
+              desc: "Ample vehicle space",
             },
             {
-              icon: BsMoon,
-              name: "Evening Sessions",
-              desc: "Special ambiance",
+              icon: MdWifi,
+              name: "WiFi Available",
+              desc: "Internet connectivity",
+            },
+            {
+              icon: BsDoorOpen,
+              name: "Separate Entrances",
+              desc: "Privacy options",
             },
           ].map((item, idx) => {
             const Icon = item.icon;
@@ -826,7 +880,7 @@ function PrayerHallServices() {
       <section className="py-12 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-serif text-[#5A3E2B] mb-3">
-            What Seekers Say
+            What Our Clients Say
           </h2>
           <div className="w-16 h-0.5 bg-[#C89B6D] mx-auto rounded-full"></div>
         </div>
@@ -834,21 +888,21 @@ function PrayerHallServices() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
             {
-              name: "Arjun Mehta",
+              name: "Rajesh Sharma",
               location: "Delhi",
-              text: "The main meditation hall is incredibly peaceful. Perfect for my daily practice. The ambiance helps me go deeper in meditation.",
+              text: "The main prayer hall is perfect for our weekly congregation. Clean, spacious, and peaceful environment for worship.",
               rating: 5,
             },
             {
-              name: "Sarah Johnson",
+              name: "Fatima Khan",
               location: "Mumbai",
-              text: "Used the silent retreat hall for a week-long personal retreat. Complete silence and beautiful garden views. Exactly what I needed.",
+              text: "Used the family prayer hall for our daughter's religious ceremony. Perfect size and very well maintained.",
               rating: 5,
             },
             {
-              name: "Priya Sharma",
+              name: "Priya Patel",
               location: "Bangalore",
-              text: "The sunrise meditation hall is magical. Watching the sun rise while meditating is an experience I'll never forget.",
+              text: "The open air pavilion is beautiful for early morning prayers. Connecting with nature while praying is special.",
               rating: 5,
             },
           ].map((testimonial, idx) => (
@@ -881,13 +935,14 @@ function PrayerHallServices() {
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center px-6">
-          <GiPrayer className="text-5xl mx-auto mb-4 opacity-50" />
+          <GiTempleDoor className="text-5xl mx-auto mb-4 opacity-50" />
           <h2 className="text-3xl md:text-4xl font-serif text-white mb-4">
-            Ready for Deeper Practice?
+            Need a Prayer Hall?
           </h2>
           <p className="text-base md:text-lg text-white mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed">
-            Whether for daily meditation, group practice, or personal retreats,
-            we have the perfect sacred space for your spiritual journey.
+            Whether for daily prayers, religious ceremonies, or community
+            gatherings, we have the perfect prayer hall for your needs. Clean,
+            peaceful, and spiritually uplifting.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <button
@@ -895,7 +950,7 @@ function PrayerHallServices() {
               className="px-8 py-3 bg-white text-[#8B5E3C] rounded-lg font-medium text-base hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
             >
               <FaPhoneAlt />
-              Book Now
+              Book a Hall Now
             </button>
             <button
               onClick={() => handleWhatsApp("+919876543210")}
@@ -909,15 +964,15 @@ function PrayerHallServices() {
           {/* Contact Numbers */}
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <p className="text-[#F5E9D9]">Main Center</p>
+              <p className="text-[#F5E9D9]">Main Complex</p>
               <p className="font-bold">+91 98765 43210</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <p className="text-[#F5E9D9]">Retreat Office</p>
+              <p className="text-[#F5E9D9]">Community Center</p>
               <p className="font-bold">+91 98765 43213</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <p className="text-[#F5E9D9]">24/7 Support</p>
+              <p className="text-[#F5E9D9]">24/7 Booking</p>
               <p className="font-bold">+91 1800 123 4567</p>
             </div>
           </div>
