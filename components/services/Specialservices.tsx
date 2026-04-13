@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getAllServices, resolveImagePath } from "@/lib/apiClient";
 import Topbar from "../topbar/Topbar";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -46,11 +47,47 @@ import { RiPassportLine } from "react-icons/ri";
 function SpecialServices() {
   const [selectedService, setSelectedService] = useState(null);
   const [showBookingForm, setShowBookingForm] = useState(false);
-  const [selectedServiceForBooking, setSelectedServiceForBooking] =
-    useState(null);
+  const [selectedServiceForBooking, setSelectedServiceForBooking] = useState<any>(null);
+  const [fetchedServices, setFetchedServices] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await getAllServices({ pageCategory: "special-services" });
+        const data = response.data;
+        if (data.success && data.data && data.data.length > 0) {
+          setFetchedServices(
+            data.data.map((srv: any) => ({
+              ...srv,
+              id: srv._id,
+              name: srv.name,
+              description: srv.description,
+              image: srv.image || "/assets/bodytransport.jpeg",
+              price: srv.price,
+              features: srv.features || [],
+              icon: GiAirplane,
+              rating: 5.0,
+              reviews: "N/A",
+              contactNumber: "+91 1800 123 4567",
+              coordinatorName: "Moksha Voyage",
+              experience: "Trusted Provider",
+              responseTime: "24 hours",
+              countries: "Global",
+            }))
+          );
+        }
+      } catch (error) {
+        console.error("Error fetching services:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchServices();
+  }, []);
 
   // Local UK image path
-  const ukImagePath = "/assets/downloadd.webp";
+  const ukImagePath = "/assets/bodytransport.jpeg";
 
   const specialServices = [
     {
@@ -402,8 +439,11 @@ function SpecialServices() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {specialServices.map((service) => {
-            const Icon = service.icon;
+          {loading ? (
+             <div className="col-span-full text-center py-10 text-[#7B5E47]">Loading services...</div>
+          ) : fetchedServices.length > 0 ? (
+            fetchedServices.map((service: any) => {
+            const Icon = service.icon || GiAirplane;
 
             return (
               <div
@@ -412,7 +452,7 @@ function SpecialServices() {
               >
                 <div className="relative h-36 overflow-hidden">
                   <Image
-                    src={service.image}
+                    src={resolveImagePath(service.image)}
                     alt={service.name}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -457,7 +497,7 @@ function SpecialServices() {
 
                   {/* Features */}
                   <div className="flex flex-wrap justify-center gap-1 mb-2">
-                    {service.features.slice(0, 2).map((feature, idx) => (
+                    {(service.features || []).slice(0, 2).map((feature: any, idx: number) => (
                       <span
                         key={idx}
                         className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full"
@@ -465,9 +505,9 @@ function SpecialServices() {
                         {feature}
                       </span>
                     ))}
-                    <span className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full">
-                      +{service.features.length - 2}
-                    </span>
+                    {(service.features?.length || 0) > 2 && <span className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full">
+                      +{(service.features?.length || 0) - 2}
+                    </span>}
                   </div>
 
                   {/* Coordinator Info */}
@@ -524,7 +564,12 @@ function SpecialServices() {
                 <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-[#C89B6D]/20 to-transparent rounded-bl-lg"></div>
               </div>
             );
-          })}
+          })
+          ) : (
+            <div className="col-span-full text-center py-10 text-[#7B5E47]">
+              No special services available currently.
+            </div>
+          )}
         </div>
       </section>
 

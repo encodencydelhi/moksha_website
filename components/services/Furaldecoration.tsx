@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Topbar from "../topbar/Topbar";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -100,13 +100,51 @@ import {
 } from "react-icons/tb";
 import { RiCustomerService2Fill, RiOilFill } from "react-icons/ri";
 import { IoCall, IoFlower, IoWater } from "react-icons/io5";
+import { getAllServices, resolveImagePath } from "@/lib/apiClient";
 
 function FuneralDecorationServices() {
-  const [selectedService, setSelectedService] = useState(null);
+  const [selectedService, setSelectedService] = useState<any>(null);
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [selectedServiceForBooking, setSelectedServiceForBooking] =
-    useState(null);
+    useState<any>(null);
+  const [services, setServices] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await getAllServices({ pageCategory: "funeral-decoration" });
+        const data = response.data;
+        if (data.success && data.data) {
+          setServices(
+            data.data.map((srv: any) => ({
+              ...srv,
+              id: srv._id,
+              name: srv.name,
+              description: srv.description,
+              image: srv.image || "/assets/funeraldecoration.jpeg",
+              price: srv.price,
+              features: srv.features || [],
+              icon: GiFlowerHat,
+              rating: 5.0,
+              reviews: "N/A",
+              contactNumber: "+91 1800 123 4567",
+              whatsappNumber: "+91 1800 123 4567",
+              coordinatorName: "Moksha Voyage",
+              experience: "Trusted Provider",
+              responseTime: "Immediate",
+            }))
+          );
+        }
+      } catch (error) {
+        console.error("Error fetching services:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchServices();
+  }, []);
+  const furaldecoration = "/assets/funeraldecoration.jpeg";
   const flowerDecorationServices = [
     {
       id: 1,
@@ -120,8 +158,7 @@ function FuneralDecorationServices() {
       price: "2,499",
       rating: 4.9,
       reviews: 234,
-      image:
-        "https://images.pexels.com/photos/931170/pexels-photo-931170.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: furaldecoration,
       features: [
         "Fresh Flowers Only",
         "Traditional Designs",
@@ -157,8 +194,7 @@ function FuneralDecorationServices() {
       price: "3,499",
       rating: 4.9,
       reviews: 189,
-      image:
-        "https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: furaldecoration,
       features: [
         "Pyre Coverage",
         "Sacred Flowers",
@@ -194,8 +230,7 @@ function FuneralDecorationServices() {
       price: "999",
       rating: 4.8,
       reviews: 156,
-      image:
-        "https://images.pexels.com/photos/5857525/pexels-photo-5857525.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: furaldecoration,
       features: [
         "Fresh Flowers",
         "Hand-Strung",
@@ -229,8 +264,7 @@ function FuneralDecorationServices() {
       price: "799",
       rating: 4.7,
       reviews: 98,
-      image:
-        "https://images.pexels.com/photos/5857529/pexels-photo-5857529.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: furaldecoration,
       features: [
         "Fresh Petals",
         "Bulk Quantity",
@@ -264,8 +298,7 @@ function FuneralDecorationServices() {
       price: "1,999",
       rating: 4.8,
       reviews: 134,
-      image:
-        "https://images.pexels.com/photos/931171/pexels-photo-931171.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: furaldecoration,
       features: [
         "Flower Petal Path",
         "Traditional Patterns",
@@ -300,8 +333,7 @@ function FuneralDecorationServices() {
       price: "5,999",
       rating: 4.9,
       reviews: 67,
-      image:
-        "https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: furaldecoration,
       features: [
         "Exotic Flowers",
         "Premium Designs",
@@ -336,8 +368,7 @@ function FuneralDecorationServices() {
       price: "8,999",
       rating: 4.9,
       reviews: 189,
-      image:
-        "https://images.pexels.com/photos/931170/pexels-photo-931170.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: furaldecoration,
       features: [
         "Complete Floral",
         "Premium Flowers",
@@ -375,8 +406,7 @@ function FuneralDecorationServices() {
       price: "2,499",
       rating: 4.8,
       reviews: 89,
-      image:
-        "https://images.pexels.com/photos/5857525/pexels-photo-5857525.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: furaldecoration,
       features: [
         "Sacred Flowers",
         "Ritual Appropriate",
@@ -556,7 +586,10 @@ function FuneralDecorationServices() {
 
         {/* Services Grid - Flower Decoration Only */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-          {flowerDecorationServices.map((service) => {
+        {loading ? (
+             <div className="col-span-full text-center py-10 text-[#7B5E47]">Loading services...</div>
+        ) : services.length > 0 ? (
+            services.map((service: any) => {
             const Icon = service.icon;
 
             return (
@@ -568,7 +601,7 @@ function FuneralDecorationServices() {
                 <div className="relative h-36 overflow-hidden">
                   {/* Actual Image */}
                   <Image
-                    src={service.image}
+                    src={resolveImagePath(service.image)}
                     alt={service.name}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -616,7 +649,7 @@ function FuneralDecorationServices() {
 
                   {/* Flower Types */}
                   <div className="flex flex-wrap justify-center gap-1 mb-2">
-                    {service.flowerTypes?.slice(0, 3).map((flower, idx) => (
+                    {service.flowerTypes?.slice(0, 3).map((flower: any, idx: number) => (
                       <span
                         key={idx}
                         className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full flex items-center gap-0.5"
@@ -673,7 +706,7 @@ function FuneralDecorationServices() {
 
                   {/* Includes Preview */}
                   <div className="flex flex-wrap gap-1 mb-2">
-                    {service.includes?.slice(0, 2).map((item, idx) => (
+                    {service.includes?.slice(0, 2).map((item: any, idx: number) => (
                       <span
                         key={idx}
                         className="text-[8px] px-1 py-0.5 bg-[#C89B6D]/10 text-[#8B5E3C] rounded"
@@ -712,7 +745,12 @@ function FuneralDecorationServices() {
                 <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-[#C89B6D]/20 to-transparent rounded-bl-lg"></div>
               </div>
             );
-          })}
+          })
+          ) : (
+            <div className="col-span-full text-center py-10 text-[#7B5E47]">
+              No flower decoration services available currently.
+            </div>
+          )}
         </div>
       </section>
 

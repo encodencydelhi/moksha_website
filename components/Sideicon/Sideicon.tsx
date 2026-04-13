@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useEffect } from "react";
 import {
   FaWhatsapp,
   FaTelegram,
@@ -12,11 +13,18 @@ import {
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa";
+import { getSettingsBySection } from "@/lib/apiClient";
 import { PiFlowerLotus } from "react-icons/pi";
 import { MdEmail } from "react-icons/md";
 
 const SocialSidebar = () => {
   const [showTooltip, setShowTooltip] = useState<string | null>(null);
+  const [dynamicLinks, setDynamicLinks] = useState<any>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const socialLinks = [
     {
@@ -83,17 +91,60 @@ const SocialSidebar = () => {
     color: "#8B6A3E",
   };
 
+  useEffect(() => {
+    const loadSideIcons = async () => {
+      try {
+        const { getSideIconsComponent } = await import("@/lib/apiClient");
+        const response = await getSideIconsComponent();
+        const data = response.data;
+        if (data.success && data.data) {
+          const component = data.data;
+          
+          // Map backend icons string to React components
+          const iconMap: any = {
+            whatsapp: <FaWhatsapp size={20} />,
+            telegram: <FaTelegram size={20} />,
+            facebook: <FaFacebook size={20} />,
+            linkedin: <FaLinkedin size={20} />,
+            youtube: <FaYoutube size={20} />,
+            instagram: <FaInstagram size={20} />,
+            twitter: <FaTwitter size={20} />,
+            email: <MdEmail size={20} />,
+            phone: <FaPhone size={20} />
+          };
+
+          const mappedIcons = (component.sideIcons || []).map((icon: any) => ({
+            ...icon,
+            icon: iconMap[icon.platform.toLowerCase()] || <PiFlowerLotus size={20} />
+          }));
+
+          setDynamicLinks({
+            sideIcons: mappedIcons,
+            phoneLink: component.phoneLink ? { url: component.phoneLink, color: "#4CAF50", label: "Call Us 24/7" } : null,
+            emailLink: component.emailLink ? { url: component.emailLink, color: "#8B6A3E", label: "Email Us", icon: <MdEmail size={20} /> } : null
+          });
+        }
+      } catch (err) {
+        console.warn("Could not load sideicon data:", err);
+      }
+    };
+    loadSideIcons();
+  }, []);
+
+  const resolvedSocialLinks = dynamicLinks?.sideIcons || socialLinks;
+  const resolvedPhone = dynamicLinks?.customData?.phoneLink || phoneLink;
+  const resolvedEmail = dynamicLinks?.customData?.emailLink || emailLink;
+
+  if (!mounted) return null;
+
   return (
     <>
-      {/* Desktop View */}
       <div className="fixed inset-0 pointer-events-none z-50 hidden md:block">
-        {/* Left Side - Enquiry and Emergency stacked */}
         <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-auto">
           <div className="flex flex-col gap-3">
-            {/* Enquiry Button */}
             <div className="group relative">
               <a
-                href="mailto:info@mokshavoyage.com"
+                href={resolvedEmail.url}
                 className="block"
                 onMouseEnter={() => setShowTooltip("enquiry")}
                 onMouseLeave={() => setShowTooltip(null)}
@@ -111,7 +162,7 @@ const SocialSidebar = () => {
                   </span>
                 </div>
               </a>
-              {/* Tooltip */}
+
               {showTooltip === "enquiry" && (
                 <div className="absolute left-full top-1/2 -translate-y-1/2 ml-2 px-3 py-1.5 bg-[#2C1810] text-white text-xs rounded whitespace-nowrap shadow-lg">
                   Send us an email
@@ -119,7 +170,6 @@ const SocialSidebar = () => {
               )}
             </div>
 
-            {/* Emergency Button */}
             <div className="group relative">
               <a
                 href="tel:+919310219283"
@@ -153,7 +203,7 @@ const SocialSidebar = () => {
         {/* Right Side - Social Icons */}
         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-auto">
           <div className="flex flex-col gap-3">
-            {socialLinks.map((social, index) => (
+            {resolvedSocialLinks.map((social: any, index: number) => (
               <div key={index} className="group relative">
                 <a
                   href={social.url}
@@ -185,7 +235,7 @@ const SocialSidebar = () => {
         <div className="absolute left-4 bottom-4 pointer-events-auto">
           <div className="group relative">
             <a
-              href={socialLinks[0].url}
+              href={resolvedSocialLinks[0]?.url || socialLinks[0].url}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
@@ -194,7 +244,9 @@ const SocialSidebar = () => {
             >
               <div
                 className="w-14 h-14 rounded-full flex items-center justify-center bg-white shadow-xl border border-gray-200 group-hover:shadow-2xl"
-                style={{ color: socialLinks[0].color }}
+                style={{
+                  color: resolvedSocialLinks[0]?.color || socialLinks[0].color,
+                }}
               >
                 <FaWhatsapp size={24} />
               </div>
@@ -212,14 +264,14 @@ const SocialSidebar = () => {
         <div className="absolute right-4 bottom-4 pointer-events-auto">
           <div className="group relative">
             <a
-              href={phoneLink.url}
-              aria-label={phoneLink.label}
+              href={resolvedPhone.url}
+              aria-label={resolvedPhone.label}
               onMouseEnter={() => setShowTooltip("phone")}
               onMouseLeave={() => setShowTooltip(null)}
             >
               <div
                 className="w-14 h-14 rounded-full flex items-center justify-center bg-white shadow-xl border border-gray-200 group-hover:shadow-2xl"
-                style={{ color: phoneLink.color }}
+                style={{ color: resolvedPhone.color }}
               >
                 <FaPhone size={24} />
               </div>
@@ -278,7 +330,7 @@ const SocialSidebar = () => {
 
           {/* WhatsApp */}
           <a
-            href={socialLinks[0].url}
+            href={resolvedSocialLinks[0]?.url || socialLinks[0].url}
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center gap-1 group"
@@ -322,20 +374,22 @@ const SocialSidebar = () => {
             {/* Social Menu Dropdown */}
             <div className="absolute bottom-full right-0 mb-2 hidden group-hover:block">
               <div className="bg-white rounded-lg shadow-xl border border-[#8B6A3E]/20 p-2 min-w-[120px]">
-                {socialLinks.slice(1).map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 px-3 py-2 hover:bg-[#F5E9D9] rounded-lg"
-                  >
-                    <div style={{ color: social.color }}>{social.icon}</div>
-                    <span className="text-xs text-[#5A3E2B]">
-                      {social.label}
-                    </span>
-                  </a>
-                ))}
+                {resolvedSocialLinks
+                  .slice(1)
+                  .map((social: any, index: number) => (
+                    <a
+                      key={index}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 px-3 py-2 hover:bg-[#F5E9D9] rounded-lg"
+                    >
+                      <div style={{ color: social.color }}>{social.icon}</div>
+                      <span className="text-xs text-[#5A3E2B]">
+                        {social.label}
+                      </span>
+                    </a>
+                  ))}
               </div>
             </div>
           </div>

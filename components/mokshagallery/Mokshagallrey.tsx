@@ -4,258 +4,76 @@ import Topbar from "@/components/topbar/Topbar";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import Image from "next/image";
-import {
-  FiHeart,
-  FiUser,
-  FiCalendar,
-  FiShare2,
-  FiDownload,
-  FiX,
-  FiEye,
-} from "react-icons/fi";
+import { FiHeart, FiCalendar, FiDownload, FiX, FiEye } from "react-icons/fi";
 import { PiFlowerLotus } from "react-icons/pi";
 import { FaFacebook, FaTwitter, FaPinterest, FaLinkedin } from "react-icons/fa";
 
 interface GalleryImage {
-  id: number;
-  src: string;
-  alt: string;
-  category: string;
+  _id: string;
+  url: string;
   title: string;
   description: string;
-  photographer: string;
-  likes: number;
-  date: string;
-  height: number;
+  type: "image" | "video";
+  tags: string[];
+  category?: string;
+  createdAt: string;
+  likes?: number;
 }
 
-function MokshaGallery() {
-  const [images] = useState<GalleryImage[]>([
-    {
-      id: 1,
-      src: "/assets/downloadd.webp",
-      alt: "Corporate Event",
-      category: "events",
-      title: "Tech Innovation Summit 2024",
-      description: "Annual technology conference with industry leaders",
-      photographer: "John Smith",
-      likes: 234,
-      date: "2024",
-      height: 380,
-    },
-    {
-      id: 2,
-      src: "/assets/ambulance.avif",
-      alt: "Modern Office",
-      category: "workspace",
-      title: "Minimalist Executive Suite",
-      description: "Contemporary office design with natural lighting",
-      photographer: "Sarah Johnson",
-      likes: 567,
-      date: "2024",
-      height: 520,
-    },
-    {
-      id: 3,
-      src: "/assets/grahpravesh.jpg",
-      alt: "Business Meeting",
-      category: "meetings",
-      title: "Strategic Planning Session",
-      description: "Executive team brainstorming new initiatives",
-      photographer: "Michael Chen",
-      likes: 189,
-      date: "2024",
-      height: 420,
-    },
-    {
-      id: 4,
-      src: "/assets/chatgpt.png",
-      alt: "Product Launch",
-      category: "events",
-      title: "Next-Gen Product Reveal",
-      description: "Flagship product launch with live demonstrations",
-      photographer: "Emma Davis",
-      likes: 892,
-      date: "2023",
-      height: 480,
-    },
-    {
-      id: 5,
-      src: "/assets/b.jpg",
-      alt: "Creative Studio",
-      category: "workspace",
-      title: "Design Innovation Lab",
-      description: "Creative workspace for digital designers",
-      photographer: "David Kim",
-      likes: 445,
-      date: "2024",
-      height: 350,
-    },
-    {
-      id: 6,
-      src: "/assets/c.jpg",
-      alt: "Client Presentation",
-      category: "meetings",
-      title: "Investor Pitch Meeting",
-      description: "Presenting quarterly results to stakeholders",
-      photographer: "Lisa Wang",
-      likes: 278,
-      date: "2024",
-      height: 560,
-    },
-    {
-      id: 7,
-      src: "/assets/girl.jpg",
-      alt: "Networking Event",
-      category: "events",
-      title: "Industry Networking Gala",
-      description: "Annual networking mixer for professionals",
-      photographer: "James Wilson",
-      likes: 623,
-      date: "2023",
-      height: 400,
-    },
-    {
-      id: 8,
-      src: "/assets/four.jpg",
-      alt: "Executive Office",
-      category: "workspace",
-      title: "CEO Corner Office",
-      description: "Luxurious executive workspace with city views",
-      photographer: "Robert Brown",
-      likes: 734,
-      date: "2024",
-      height: 520,
-    },
-    {
-      id: 9,
-      src: "/assets/old.png",
-      alt: "Corporate Workshop",
-      category: "events",
-      title: "Leadership Development Workshop",
-      description: "Interactive session for emerging leaders",
-      photographer: "Amanda Lee",
-      likes: 345,
-      date: "2024",
-      height: 390,
-    },
-    // Note: You have 9 images in your list, so I've used all of them
-    // You can duplicate or add more images if needed, but here's a suggestion
-    // to create more variety with your existing images:
-    {
-      id: 10,
-      src: "/assets/downloadd.webp",
-      alt: "Team Collaboration",
-      category: "workspace",
-      title: "Cross-functional Team Meeting",
-      description: "Collaborative session across departments",
-      photographer: "Thomas Anderson",
-      likes: 412,
-      date: "2024",
-      height: 440,
-    },
-    {
-      id: 11,
-      src: "/assets/ambulance.avif",
-      alt: "Business Strategy",
-      category: "meetings",
-      title: "Strategic Planning Retreat",
-      description: "Off-site strategy session for leadership",
-      photographer: "Jennifer Martinez",
-      likes: 567,
-      date: "2023",
-      height: 580,
-    },
-    {
-      id: 12,
-      src: "/assets/grahpravesh.jpg",
-      alt: "Award Ceremony",
-      category: "events",
-      title: "Industry Excellence Awards",
-      description: "Annual awards celebrating achievements",
-      photographer: "Christopher Taylor",
-      likes: 891,
-      date: "2024",
-      height: 420,
-    },
-    {
-      id: 13,
-      src: "/assets/chatgpt.png",
-      alt: "Modern Workspace",
-      category: "workspace",
-      title: "Open Concept Office",
-      description: "Modern workspace with collaborative areas",
-      photographer: "Patricia White",
-      likes: 678,
-      date: "2024",
-      height: 460,
-    },
-    {
-      id: 14,
-      src: "/assets/b.jpg",
-      alt: "Business Discussion",
-      category: "meetings",
-      title: "Client Negotiation Meeting",
-      description: "High-stakes business discussion",
-      photographer: "Daniel Garcia",
-      likes: 234,
-      date: "2024",
-      height: 370,
-    },
-    {
-      id: 15,
-      src: "/assets/c.jpg",
-      alt: "Team Building",
-      category: "events",
-      title: "Annual Company Retreat",
-      description: "Team building activities and workshops",
-      photographer: "Michelle Rodriguez",
-      likes: 723,
-      date: "2023",
-      height: 500,
-    },
-    {
-      id: 16,
-      src: "/assets/girl.jpg",
-      alt: "Creative Office",
-      category: "workspace",
-      title: "Startup Office Space",
-      description: "Vibrant workspace for tech startup",
-      photographer: "Kevin Zhang",
-      likes: 556,
-      date: "2024",
-      height: 410,
-    },
-    {
-      id: 17,
-      src: "/assets/four.jpg",
-      alt: "Business Workshop",
-      category: "meetings",
-      title: "Professional Development Seminar",
-      description: "Skills enhancement workshop for professionals",
-      photographer: "Rachel Green",
-      likes: 389,
-      date: "2024",
-      height: 540,
-    },
-    {
-      id: 18,
-      src: "/assets/old.png",
-      alt: "Corporate Training",
-      category: "events",
-      title: "Corporate Training Session",
-      description: "Interactive training for employee development",
-      photographer: "William Turner",
-      likes: 445,
-      date: "2024",
-      height: 430,
-    },
-  ]);
+import { getAllGallery } from "@/lib/apiClient";
 
+function MokshaGallery() {
+  const [galleryData, setGalleryData] = useState<GalleryImage[]>([]);
+  const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const [columns, setColumns] = useState(4);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Fetch gallery from API
+  useEffect(() => {
+    const fetchGalleryData = async () => {
+      try {
+        const response = await getAllGallery();
+        const data = response.data;
+        if (data.success && data.data) {
+          setGalleryData(
+            data.data.map((item: any) => ({
+              _id: item._id,
+              url: item.url || item.thumbnail || "/assets/placeholder.jpg",
+              title: item.title || "Untitled",
+              description: item.description || "",
+              type: item.type || "image",
+              tags: item.tags || [],
+              category: item.category?.name || "Gallery",
+              createdAt: item.createdAt,
+              likes: Math.floor(Math.random() * 300),
+            })),
+          );
+        }
+      } catch (error) {
+        console.error("Error fetching gallery:", error);
+        // Fallback to default images
+        setGalleryData([
+          {
+            _id: "1",
+            url: "/assets/bodytransport.jpeg",
+            title: "Dignified Body Transport",
+            description: "Respectful body transport services",
+            type: "image",
+            tags: ["services"],
+            category: "Services",
+            createdAt: new Date().toISOString(),
+            likes: 189,
+          },
+        ]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGalleryData();
+  }, []);
 
   // Update columns based on screen size
   useEffect(() => {
@@ -276,10 +94,12 @@ function MokshaGallery() {
 
   const filteredImages =
     selectedCategory === "all"
-      ? images
-      : images.filter((img) => img.category === selectedCategory);
+      ? galleryData.filter((img) => img.type === "image")
+      : galleryData.filter(
+          (img) => img.category === selectedCategory && img.type === "image",
+        );
 
-  // Distribute images into columns for masonry layout
+  // Distribute images into columns
   const getMasonryColumns = () => {
     const columnHeights = new Array(columns).fill(0);
     const columnImages: GalleryImage[][] = Array.from(
@@ -288,26 +108,39 @@ function MokshaGallery() {
     );
 
     filteredImages.forEach((image) => {
+      const height = 350;
       const shortestColumn = columnHeights.indexOf(Math.min(...columnHeights));
       columnImages[shortestColumn].push(image);
-      columnHeights[shortestColumn] += image.height;
+      columnHeights[shortestColumn] += height;
     });
 
     return columnImages;
   };
 
-  const categories = [
-    { id: "all", name: "All Projects" },
-    { id: "events", name: "Corporate Events" },
-    { id: "workspace", name: "Workspace Design" },
-    { id: "meetings", name: "Business Meetings" },
+  const categories: Array<{ id: string; name: string }> = [
+    { id: "all", name: "All Gallery" },
+    ...(Array.from(
+      new Map(
+        galleryData.map((item) => [
+          item.category,
+          { id: item.category || "all", name: item.category || "Gallery" },
+        ]),
+      ).values(),
+    ) as Array<{ id: string; name: string }>),
   ];
 
   const masonryColumns = getMasonryColumns();
 
-  const themeColor = "#8B6A3E";
-  const themeColorLight = "#F5E9D9";
-  const themeColorDark = "#5A3E2B";
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-[#FAF7F2] to-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-12 h-12 border-4 border-[#8B6A3E] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-[#5A3E2B]">Loading gallery...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#FAF7F2] to-white">
@@ -316,7 +149,6 @@ function MokshaGallery() {
 
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
-        {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#8B6A3E] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#5A3E2B] rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
@@ -338,8 +170,8 @@ function MokshaGallery() {
           </h1>
 
           <p className="text-base text-[#5A3E2B]/70 max-w-2xl mx-auto">
-            Curated collection of premium photography capturing moments that
-            define modern business excellence and spiritual journeys.
+            A glimpse into our compassionate services and sacred facilities
+            dedicated to dignified farewells.
           </p>
         </div>
       </section>
@@ -363,117 +195,89 @@ function MokshaGallery() {
         </div>
       </div>
 
-      {/* Pinterest-style masonry grid */}
+      {/* Masonry Grid */}
       <div className="max-w-7xl mx-auto px-6 pb-16">
-        <div
-          ref={containerRef}
-          className="grid gap-4"
-          style={{
-            gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
-          }}
-        >
-          {masonryColumns.map((column, colIndex) => (
-            <div key={colIndex} className="flex flex-col gap-4">
-              {column.map((image) => (
-                <div
-                  key={image.id}
-                  className="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 bg-white cursor-pointer hover:-translate-y-1"
-                  onClick={() => setSelectedImage(image)}
-                  style={{
-                    height: `${image.height}px`,
-                  }}
-                >
-                  <div className="relative w-full h-full overflow-hidden">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
-                      sizes={`(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw`}
-                    />
+        {filteredImages.length > 0 ? (
+          <div
+            ref={containerRef}
+            className="grid gap-4"
+            style={{
+              gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
+            }}
+          >
+            {masonryColumns.map((column, colIndex) => (
+              <div key={colIndex} className="flex flex-col gap-4">
+                {column.map((image) => (
+                  <div
+                    key={image._id}
+                    className="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 bg-white cursor-pointer hover:-translate-y-1 h-[350px]"
+                    onClick={() => setSelectedImage(image)}
+                  >
+                    <div className="relative w-full h-full overflow-hidden">
+                      <Image
+                        src={image.url}
+                        alt={image.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        sizes={`(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw`}
+                      />
 
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                    {/* Category tag */}
-                    <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <span className="px-2 py-1 bg-[#8B6A3E] text-white rounded-full text-[10px] font-medium shadow-lg">
-                        {image.category.charAt(0).toUpperCase() +
-                          image.category.slice(1)}
-                      </span>
-                    </div>
+                      <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <span className="px-2 py-1 bg-[#8B6A3E] text-white rounded-full text-[10px] font-medium shadow-lg">
+                          {image.category || "Gallery"}
+                        </span>
+                      </div>
 
-                    {/* Hover overlay with detailed info */}
-                    <div className="absolute inset-x-0 bottom-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                      <div className="space-y-2">
-                        {/* Title and description */}
-                        <div>
-                          <h3 className="text-sm font-serif text-white mb-1 line-clamp-1">
-                            {image.title}
-                          </h3>
-                          <p className="text-white/80 text-[10px] line-clamp-2 mb-2">
-                            {image.description}
-                          </p>
+                      <div className="absolute inset-x-0 bottom-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                        <div className="space-y-2">
+                          <div>
+                            <h3 className="text-sm font-serif text-white mb-1 line-clamp-1">
+                              {image.title}
+                            </h3>
+                            <p className="text-white/80 text-[10px] line-clamp-2 mb-2">
+                              {image.description}
+                            </p>
+                          </div>
+
+                          <div className="flex items-center justify-between pt-2 border-t border-white/20">
+                            <span className="text-white/70 text-[9px] flex items-center gap-1">
+                              <FiHeart className="w-2.5 h-2.5" />
+                              {image.likes || 0}
+                            </span>
+                            <span className="text-white/70 text-[9px] flex items-center gap-1">
+                              <FiCalendar className="w-2.5 h-2.5" />
+                              {new Date(image.createdAt).getFullYear()}
+                            </span>
+                          </div>
+
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedImage(image);
+                            }}
+                            className="w-full mt-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-[9px] font-medium py-1.5 rounded-lg transition-all duration-200 flex items-center justify-center gap-1 border border-white/30"
+                          >
+                            <FiEye className="w-3 h-3" />
+                            View
+                          </button>
                         </div>
-
-                        {/* Photographer and likes */}
-                        <div className="flex items-center justify-between pt-2 border-t border-white/20">
-                          <span className="text-white/70 text-[9px] flex items-center gap-1">
-                            <FiUser className="w-2.5 h-2.5" />
-                            {image.photographer}
-                          </span>
-                          <span className="text-white/70 text-[9px] flex items-center gap-1">
-                            <FiHeart className="w-2.5 h-2.5" />
-                            {image.likes}
-                          </span>
-                          <span className="text-white/70 text-[9px] flex items-center gap-1">
-                            <FiCalendar className="w-2.5 h-2.5" />
-                            {image.date}
-                          </span>
-                        </div>
-
-                        {/* View button */}
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setSelectedImage(image);
-                          }}
-                          className="w-full mt-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-[9px] font-medium py-1.5 rounded-lg transition-all duration-200 flex items-center justify-center gap-1 border border-white/30"
-                        >
-                          <FiEye className="w-3 h-3" />
-                          View Details
-                        </button>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-
-        {/* View More Button */}
-        <div className="text-center mt-12">
-          <button className="inline-flex items-center gap-2 px-6 py-3 bg-[#8B6A3E] text-white rounded-lg text-sm font-medium hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-            <span>View Complete Portfolio</span>
-            <svg
-              className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </button>
-        </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="bg-white rounded-lg border border-[#E7D5C2] p-12 text-center">
+            <p className="text-[#5A3E2B]">No gallery images available.</p>
+          </div>
+        )}
       </div>
 
-      {/* Enhanced Modal with more information */}
+      {/* Modal */}
       {selectedImage && (
         <div
           className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-2 sm:p-4"
@@ -492,11 +296,10 @@ function MokshaGallery() {
             </button>
 
             <div className="flex flex-col lg:flex-row h-full">
-              {/* Image section */}
               <div className="relative lg:w-3/5 h-[40vh] lg:h-[80vh] bg-black/5">
                 <Image
-                  src={selectedImage.src}
-                  alt={selectedImage.alt}
+                  src={selectedImage.url}
+                  alt={selectedImage.title}
                   fill
                   className="object-contain"
                   sizes="60vw"
@@ -504,13 +307,11 @@ function MokshaGallery() {
                 />
               </div>
 
-              {/* Details section */}
               <div className="lg:w-2/5 p-6 lg:p-8 bg-white overflow-y-auto">
                 <div className="space-y-6">
                   <div>
                     <span className="inline-block px-3 py-1 bg-[#8B6A3E] text-white rounded-full text-xs font-medium mb-3">
-                      {selectedImage.category.charAt(0).toUpperCase() +
-                        selectedImage.category.slice(1)}
+                      {selectedImage.category || "Gallery"}
                     </span>
                     <h2 className="text-2xl lg:text-3xl font-serif text-[#2C1810] mb-2">
                       {selectedImage.title}
@@ -523,40 +324,26 @@ function MokshaGallery() {
                   <div className="grid grid-cols-2 gap-4 py-4 border-y border-[#F5E9D9]">
                     <div>
                       <p className="text-[10px] text-[#5A3E2B]/60 mb-1">
-                        Photographer
-                      </p>
-                      <p className="text-sm font-medium text-[#2C1810]">
-                        {selectedImage.photographer}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-[10px] text-[#5A3E2B]/60 mb-1">Year</p>
-                      <p className="text-sm font-medium text-[#2C1810]">
-                        {selectedImage.date}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-[10px] text-[#5A3E2B]/60 mb-1">
                         Likes
                       </p>
                       <p className="text-sm font-medium text-[#2C1810] flex items-center gap-1">
                         <FiHeart className="w-4 h-4 text-red-500" />
-                        {selectedImage.likes.toLocaleString()}
+                        {(selectedImage.likes || 0).toLocaleString()}
                       </p>
                     </div>
                     <div>
                       <p className="text-[10px] text-[#5A3E2B]/60 mb-1">
-                        Category
+                        Added
                       </p>
                       <p className="text-sm font-medium text-[#2C1810]">
-                        Corporate {selectedImage.category}
+                        {new Date(selectedImage.createdAt).toLocaleDateString()}
                       </p>
                     </div>
                   </div>
 
                   <div>
                     <h3 className="text-sm font-serif text-[#2C1810] mb-3">
-                      Share this image
+                      Share
                     </h3>
                     <div className="flex gap-2">
                       {[
@@ -581,7 +368,7 @@ function MokshaGallery() {
 
                   <button className="w-full py-3 bg-[#8B6A3E] text-white rounded-lg hover:bg-[#5A3E2B] transition-colors duration-200 font-medium text-sm flex items-center justify-center gap-2">
                     <FiDownload className="w-4 h-4" />
-                    Download High Resolution
+                    Download
                   </button>
                 </div>
               </div>

@@ -1,34 +1,62 @@
 "use client";
-
 import { useEffect, useState, useCallback, useMemo, useRef } from "react";
 import { ChevronLeft, ChevronRight, Play, Pause, Shield } from "lucide-react";
-import shlokas from "@/types/shlokas.json";
-
+import { getHeroComponent, resolveImagePath } from "@/lib/apiClient";
 export default function Hero() {
-  const images = useMemo(
-    () => [
-      "/assets/three.jpg",
-      "/assets/one.jpg",
-      "/assets/two.jpg",
-      "/assets/four.jpg",
-    ],
-    [],
-  );
-
+  const [heroSlides, setHeroSlides] = useState<any[]>([]);
+  const [heroHeading, setHeroHeading] = useState("A Journey Guided");
+  const [heroSubheading, setHeroSubheading] = useState();
+  const [heroTrustBadge, setHeroTrustBadge] = useState("TRUSTED SINCE 2005");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [mantra, setMantra] = useState<any>(null);
   const [audioPlaying, setAudioPlaying] = useState(false);
   const [audioError, setAudioError] = useState(false);
   const [audioLoading, setAudioLoading] = useState(false);
+  const [hasAudio, setHasAudio] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const slideMantras = useMemo(() => {
-    return [shlokas[0], shlokas[1], shlokas[2], shlokas[3]];
-  }, []);
   useEffect(() => {
-    setMantra(slideMantras[currentIndex] || shlokas[0]);
-  }, [currentIndex, slideMantras]);
+    const loadHero = async () => {
+      try {
+        const response = await getHeroComponent();
+        const data = response.data;
+        if (data.success && data.data) {
+          const hero = data.data;
+          setHeroSlides(hero.heroSlides || []);
+          if (hero.heroHeading) setHeroHeading(hero.heroHeading);
+          if (hero.heroSubheading) setHeroSubheading(hero.heroSubheading);
+          if (hero.heroTrustBadge) setHeroTrustBadge(hero.heroTrustBadge);
+        }
+      } catch (error) {
+        console.warn("Hero component load failed:", error);
+      }
+    };
+    loadHero();
+  }, []);
+
+  const images = useMemo(() => {
+    if (heroSlides.length > 0) {
+      return heroSlides.map((s) => resolveImagePath(s.image) || "/assets/image.webp");
+    }
+    return [
+      "/assets/image.webp",
+      "/assets/image3.png",
+      "/assets/im3.jpeg",
+    ];
+  }, [heroSlides]);
+
+  const mantra = useMemo(() => {
+    if (heroSlides.length > 0 && heroSlides[currentIndex]) {
+      const slide = heroSlides[currentIndex];
+      return {
+        title: slide.mantraTitle,
+        sanskrit: slide.mantraSanskrit,
+        hindi: slide.mantraHindi,
+        audio: slide.audio,
+      };
+    }
+    return null;
+  }, [heroSlides, currentIndex]);
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -49,7 +77,33 @@ export default function Hero() {
   }, [isPlaying, nextSlide]);
 
   useEffect(() => {
-    if (!mantra || !audioRef.current) return;
+    if (mantra && mantra.audio) {
+      const audio = new Audio();
+      audio.src = mantra.audio;
+
+      audio.oncanplaythrough = () => {
+        setHasAudio(true);
+        setAudioError(false);
+      };
+
+      audio.onerror = () => {
+        console.log(`Audio file not found: ${mantra.audio}`);
+        setHasAudio(false);
+        setAudioError(true);
+      };
+
+      return () => {
+        audio.oncanplaythrough = null;
+        audio.onerror = null;
+      };
+    } else {
+      setHasAudio(false);
+      setAudioError(true);
+    }
+  }, [mantra]);
+
+  useEffect(() => {
+    if (!mantra || !audioRef.current || !hasAudio) return;
 
     const audio = audioRef.current;
 
@@ -80,15 +134,11 @@ export default function Hero() {
 
     const handleError = (e: Event) => {
       const target = e.target as HTMLAudioElement;
-      console.error("Audio error details:", {
-        error: target.error,
-        src: target.src,
-        networkState: target.networkState,
-        readyState: target.readyState,
-      });
+      console.log("Audio unavailable for this mantra");
       setAudioError(true);
       setAudioLoading(false);
       setAudioPlaying(false);
+      setHasAudio(false);
     };
 
     const handleLoadedMetadata = () => {
@@ -103,13 +153,8 @@ export default function Hero() {
     audio.addEventListener("loadedmetadata", handleLoadedMetadata);
 
     // Set audio source
-    if (mantra.audio) {
-      audio.src = mantra.audio;
-      audio.load();
-    } else {
-      setAudioError(true);
-      setAudioLoading(false);
-    }
+    audio.src = mantra.audio;
+    audio.load();
 
     return () => {
       audio.removeEventListener("canplay", handleCanPlay);
@@ -119,25 +164,19 @@ export default function Hero() {
       audio.removeEventListener("error", handleError);
       audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
       audio.pause();
+      audio.src = "";
     };
-  }, [mantra]);
+  }, [mantra, hasAudio]);
 
   // ---------------- AUDIO CONTROL ----------------
   const toggleAudio = async () => {
-    if (!audioRef.current) return;
+    if (!audioRef.current || !hasAudio) return;
 
     const audio = audioRef.current;
 
     try {
       if (audio.paused) {
         setAudioLoading(true);
-
-        // Ensure audio is loaded
-        if (audio.readyState < 3) {
-          await audio.load();
-        }
-
-        // Play with user interaction
         const playPromise = audio.play();
         if (playPromise !== undefined) {
           playPromise
@@ -162,26 +201,31 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full min-h-[60vh] md:min-h-[70vh] overflow-hidden">
+    <section className="relative w-full h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden">
+      {/* Background Images */}
       <div className="absolute inset-0">
         {images.map((img, i) => (
           <div
             key={i}
-            className={`absolute inset-0 bg-cover bg-center ${
-              i === currentIndex ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${i === currentIndex ? "opacity-100" : "opacity-0"
+              }`}
             style={{ backgroundImage: `url(${img})` }}
           />
         ))}
+        {/* Dark Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Arrows */}
+      {/* Audio Element */}
+      <audio ref={audioRef} preload="metadata" />
+
+      {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/40 hover:bg-black/60 text-white transition-colors"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="w-5 h-5" />
+        <ChevronLeft className="w-6 h-6" />
       </button>
 
       <button
@@ -189,57 +233,64 @@ export default function Hero() {
         className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/40 hover:bg-black/60 text-white transition-colors"
         aria-label="Next slide"
       >
-        <ChevronRight className="w-5 h-5" />
+        <ChevronRight className="w-6 h-6" />
       </button>
 
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2 z-30">
+      {/* Slide Indicators */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-30">
         {images.map((_, i) => (
           <button
             key={i}
             onClick={() => goToSlide(i)}
-            className={`w-2 h-2 rounded-full transition-colors ${
-              i === currentIndex ? "bg-white" : "bg-white/40 hover:bg-white/60"
-            }`}
+            className={`w-2.5 h-2.5 rounded-full transition-all ${i === currentIndex
+              ? "bg-white w-8"
+              : "bg-white/50 hover:bg-white/80"
+              }`}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}
       </div>
 
-      <div className="relative h-full flex items-center justify-center px-6 py-24">
-        <div className="max-w-3xl text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/30 backdrop-blur-sm">
+      {/* Content */}
+      <div className="relative h-full flex items-center justify-center px-4 sm:px-6 lg:px-8 z-20">
+        <div className="max-w-4xl text-center space-y-6">
+          {/* Trust Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/30 backdrop-blur-sm">
             <Shield className="w-4 h-4 text-amber-200" />
-            <span className="text-xs text-white font-medium">
-              TRUSTED SINCE 2005
+            <span className="text-xs sm:text-sm text-white font-medium tracking-wider">
+              {heroTrustBadge}
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-serif font-bold text-yellow-900">
-            A Journey Guided{" "}
-            <span className="block text-yellow-300">by Love</span>
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white">
+            {heroHeading}
+            <span className="block text-amber-300 lg:text-5xl font-light ">{heroSubheading}</span>
           </h1>
 
           {mantra && (
-            <div className="mt-1 rounded-xl p-6">
-              <h3 className="text-amber-200 text-lg font-semibold mb-3 flex items-center justify-center gap-2">
+            <div className="mt-8 rounded-xl p-6 ">
+              {/* Mantra Title */}
+              <h3 className="text-amber-200 text-lg sm:text-xl font-semibold mb-4 flex items-center justify-center gap-3">
                 <span>🌼</span>
-                {currentIndex === 0
-                  ? "Morning Mantra"
-                  : currentIndex === 1
-                    ? "Evening Mantra"
-                    : currentIndex === 2
-                      ? "Peace Mantra"
-                      : "Blessing Mantra"}
+                {mantra.title || (
+                  currentIndex === 0 ? "Morning Mantra" :
+                    currentIndex === 1 ? "Evening Mantra" :
+                      currentIndex === 2 ? "Peace Mantra" : "Blessing Mantra"
+                )}
                 <span>🌼</span>
               </h3>
 
-              <p className="text-white text-2xl font-serif leading-relaxed">
+              {/* Sanskrit Mantra */}
+              <p className="text-white text-xl sm:text-2xl md:text-3xl font-serif leading-relaxed">
                 {mantra.sanskrit}
               </p>
 
-              <p className="text-white/80 text-sm mt-3 italic">
+              {/* Hindi Translation */}
+              <p className="text-white/80 text-sm sm:text-base mt-4 italic">
                 {mantra.hindi}
               </p>
+
+              {/* Audio Control Button - Only show if audio exists */}
             </div>
           )}
         </div>

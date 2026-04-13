@@ -1,5 +1,5 @@
 "use client";
-import { useState, ReactElement } from "react";
+import { useState, useEffect, ReactElement } from "react";
 import Mantra from "../Mantra/Mantra";
 
 interface CustomIconProps {
@@ -75,45 +75,86 @@ interface StatItem {
 
 export default function HowWeCanHelp() {
   const [activeCard, setActiveCard] = useState<number | null>(null);
+  const [cmsData, setCmsData] = useState<any>(null);
+  const [services, setServices] = useState<any[]>([]);
 
-  const cards: CardItem[] = [
-    {
-      icon: "FaFireAlt",
-      title: "Cremation Services",
-      desc: "End-to-end cremation coordination with verified providers, ritual materials, and cremation ground booking.",
-      color: "from-[#8B6A3E] to-[#A88B5E]",
-      features: [
-        "Cremation Ground Booking",
-        "Pandit Services",
-        "Ritual Materials",
-      ],
-    },
-    {
-      icon: "FaGlobeAsia",
-      title: "NRI Cross-Border",
-      desc: "Dedicated local representatives managing all logistics for families abroad with real-time updates.",
-      color: "from-[#5C4033] to-[#7A5B46]",
-      features: [
-        "Family Representative",
-        "Legal Documentation",
-        "Body/Ash Repatriation",
-      ],
-    },
-    {
-      icon: "FaPrayingHands",
-      title: "Grief Support",
-      desc: "Professional counselling, peer support communities, and post-funeral ritual guidance.",
-      color: "from-[#4A716C] to-[#5E8B83]",
-      features: ["Grief Counselling", "Peer Communities", "Ritual Continuity"],
-    },
-    {
-      icon: "FaVideo",
-      title: "Digital Legacy",
-      desc: "Permanent digital memorials, document vault, and video tributes to preserve memories.",
-      color: "from-[#6B7D6E] to-[#8A9B8C]",
-      features: ["Digital Memorials", "Document Vault", "Obituary Publishing"],
-    },
-  ];
+  useEffect(() => {
+    import("@/lib/apiClient").then(({ getComponentByKey, getAllServices }) => {
+      // Load general CMS data for the section (title, description, stats)
+      getComponentByKey("howwehelp")
+        .then((res) => {
+          if (res.data?.success && res.data?.data?.customData) {
+            setCmsData(res.data.data.customData);
+          }
+        })
+        .catch(() => { });
+
+      // Load specific services from the Services collection
+      getAllServices()
+        .then((res) => {
+          if (res.data?.success && res.data?.data) {
+            setServices(res.data.data);
+          }
+        })
+        .catch(() => { });
+    });
+  }, []);
+
+  const cards: CardItem[] = services.length > 0
+    ? services.map((s, i) => ({
+      icon: s.icon || "FaStar",
+      title: s.name,
+      desc: s.description,
+      color: ["from-[#8B6A3E] to-[#A88B5E]", "from-[#8B6A3E] to-[#A88B5E]", "from-[#8B6A3E] to-[#A88B5E]", "from-[#8B6A3E] to-[#A88B5E]"][i % 4],
+      features: s.features || [],
+    }))
+    : (cmsData?.cards?.length
+      ? cmsData.cards.map((c: any) => ({
+        icon: "FaStar",
+        emoji: c.icon || "✨",
+        title: c.title || "",
+        desc: c.desc || "",
+        color: "from-[#8B6A3E] to-[#A88B5E]",
+        features: c.features || [],
+      }))
+      : [
+        {
+          icon: "FaFireAlt",
+          title: "Cremation Services",
+          desc: "End-to-end cremation coordination with verified providers, ritual materials, and cremation ground booking.",
+          color: "from-[#8B6A3E] to-[#A88B5E]",
+          features: [
+            "Cremation Ground Booking",
+            "Pandit Services",
+            "Ritual Materials",
+          ],
+        },
+        {
+          icon: "FaGlobeAsia",
+          title: "NRI Cross-Border",
+          desc: "Dedicated local representatives managing all logistics for families abroad with real-time updates.",
+          color: "from-[#5C4033] to-[#7A5B46]",
+          features: [
+            "Family Representative",
+            "Legal Documentation",
+            "Body/Ash Repatriation",
+          ],
+        },
+        {
+          icon: "FaPrayingHands",
+          title: "Grief Support",
+          desc: "Professional counselling, peer support communities, and post-funeral ritual guidance.",
+          color: "from-[#4A716C] to-[#5E8B83]",
+          features: ["Grief Counselling", "Peer Communities", "Ritual Continuity"],
+        },
+        {
+          icon: "FaVideo",
+          title: "Digital Legacy",
+          desc: "Permanent digital memorials, document vault, and video tributes to preserve memories.",
+          color: "from-[#6B7D6E] to-[#8A9B8C]",
+          features: ["Digital Memorials", "Document Vault", "Obituary Publishing"],
+        },
+      ]);
 
   const stats: StatItem[] = [
     { icon: "FaClock", value: "24/7", label: "Care Coordinators" },
@@ -214,9 +255,9 @@ export default function HowWeCanHelp() {
           </div>
 
           <h2 className="text-3xl md:text-5xl lg:text-3xl font-light text-[#3A2A1F] leading-tight mb-4">
-            <span className="block">End-to-End Cremation &</span>
+            <span className="block">{cmsData?.title || "End-to-End Cremation &"}</span>
             <span className="relative inline-block">
-              Ritual Services
+              {cmsData?.titleHighlight || "Ritual Services"}
               <svg
                 className="absolute -bottom-2 left-0 w-full h-2.5 text-[#E8DBC5]/70"
                 viewBox="0 0 100 10"
@@ -233,8 +274,7 @@ export default function HowWeCanHelp() {
           </h2>
 
           <p className="text-lg md:text-sm text-[#6E4B3A]/80 max-w-3xl mx-auto font-light leading-relaxed">
-            Verified Service Network · NRI Cross-Border Coordination · Radical
-            Pricing Transparency
+            {cmsData?.subtitle || "Verified Service Network · NRI Cross-Border Coordination · Radical Pricing Transparency"}
           </p>
         </div>
 
@@ -290,13 +330,13 @@ export default function HowWeCanHelp() {
           ))}
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          {stats.map((stat, index) => (
+          {(cmsData?.stats?.length ? cmsData.stats : stats).map((stat: any, index: number) => (
             <div key={index} className="relative">
               <div className="bg-white/50 backdrop-blur-sm rounded-lg p-3 border border-[#E8DBC5]">
                 <div className="flex flex-col items-center justify-center space-y-2">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#E8DBC5] to-[#F8F4EC] flex items-center justify-center">
                     <div className="text-[#8B6A3E]">
-                      <CustomIcon name={stat.icon} className="w-4 h-4" />
+                      <CustomIcon name={stat.icon || "FaStar"} className="w-4 h-4" />
                     </div>
                   </div>
                   <div className="text-center">
@@ -318,7 +358,7 @@ export default function HowWeCanHelp() {
             <button className="relative px-6 py-3 md:px-8 md:py-3 bg-gradient-to-br from-[#8B6A3E] to-[#A88B5E] text-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="relative z-10 flex items-center justify-center space-x-2">
                 <span className="text-base font-medium">
-                  Explore All Services
+                  {cmsData?.ctaText || "Explore All Services"}
                 </span>
                 <CustomIcon name="FaArrowRight" className="w-3.5 h-3.5" />
               </div>
@@ -326,12 +366,12 @@ export default function HowWeCanHelp() {
           </div>
 
           <p className="text-[#6E4B3A] mt-6 text-sm md:text-base font-light">
-            Need immediate assistance?{" "}
+            {cmsData?.helplineText || "Need immediate assistance?"}{" "}
             <a
-              href="tel:+9118001234567"
+              href={`tel:${cmsData?.helplineNumber?.replace(/\s/g, "") || "+9118001234567"}`}
               className="text-[#8B6A3E] font-normal hover:underline"
             >
-              Call our 24/7 helpline
+              {cmsData?.helplineNumber || "Call our 24/7 helpline"}
             </a>
           </p>
         </div>

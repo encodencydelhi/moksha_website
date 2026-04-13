@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getAllServices, resolveImagePath } from "@/lib/apiClient";
 import Topbar from "../topbar/Topbar";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -64,9 +65,45 @@ import { IoCall } from "react-icons/io5";
 function HearseVanServices() {
   const [selectedService, setSelectedService] = useState(null);
   const [showBookingForm, setShowBookingForm] = useState(false);
-  const [selectedServiceForBooking, setSelectedServiceForBooking] =
-    useState(null);
+  const [selectedServiceForBooking, setSelectedServiceForBooking] = useState<any>(null);
+  const [fetchedServices, setFetchedServices] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await getAllServices({ pageCategory: "hearse-van" });
+        const data = response.data;
+        if (data.success && data.data && data.data.length > 0) {
+          setFetchedServices(
+            data.data.map((srv: any) => ({
+              ...srv,
+              id: srv._id,
+              name: srv.name,
+              description: srv.description,
+              image: srv.image || "/assets/normalharse.jpeg",
+              price: srv.price,
+              features: srv.features || [],
+              icon: GiCarWheel,
+              rating: 5.0,
+              reviews: "N/A",
+              contactNumber: "+91 1800 123 4567",
+              whatsappNumber: "+91 1800 123 4567",
+              coordinatorName: "Moksha Voyage",
+              experience: "Trusted Provider",
+              responseTime: "Immediate",
+            }))
+          );
+        }
+      } catch (error) {
+        console.error("Error fetching services:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchServices();
+  }, []);
+  const normalharse = "/assets/normalharse.jpeg";
   const hearseVanServices = [
     {
       id: 1,
@@ -80,8 +117,7 @@ function HearseVanServices() {
       price: "2,999",
       rating: 4.9,
       reviews: 210,
-      image:
-        "https://images.pexels.com/photos/667200/pexels-photo-667200.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: normalharse,
       features: [
         "Professional Driver",
         "Decorated Vehicle",
@@ -107,8 +143,7 @@ function HearseVanServices() {
       price: "4,999",
       rating: 4.8,
       reviews: 165,
-      image:
-        "https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: normalharse,
       features: [
         "Glass Viewing",
         "Floral Decoration",
@@ -134,8 +169,7 @@ function HearseVanServices() {
       price: "5,999",
       rating: 4.9,
       reviews: 132,
-      image:
-        "https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: normalharse,
       features: [
         "Freezer Box",
         "Long Distance Travel",
@@ -162,8 +196,7 @@ function HearseVanServices() {
       price: "7,999",
       rating: 4.9,
       reviews: 98,
-      image:
-        "https://images.pexels.com/photos/1036627/pexels-photo-1036627.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: normalharse,
       features: [
         "Luxury Interior",
         "Floral Decoration",
@@ -190,8 +223,7 @@ function HearseVanServices() {
       price: "8,999",
       rating: 4.7,
       reviews: 76,
-      image:
-        "https://images.pexels.com/photos/1052753/pexels-photo-1052753.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: normalharse,
       features: [
         "Family Seating",
         "AC Comfort",
@@ -218,8 +250,7 @@ function HearseVanServices() {
       price: "3,999",
       rating: 4.8,
       reviews: 145,
-      image:
-        "https://images.pexels.com/photos/931170/pexels-photo-931170.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: normalharse,
       features: [
         "Fresh Flowers",
         "Traditional Decor",
@@ -388,8 +419,11 @@ function HearseVanServices() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-          {hearseVanServices.map((service) => {
-            const Icon = service.icon;
+          {loading ? (
+             <div className="col-span-full text-center py-10 text-[#7B5E47]">Loading services...</div>
+          ) : fetchedServices.length > 0 ? (
+            fetchedServices.map((service: any) => {
+            const Icon = service.icon || GiCarWheel;
 
             return (
               <div
@@ -400,7 +434,7 @@ function HearseVanServices() {
                 <div className="relative h-36 overflow-hidden">
                   {/* Actual Image */}
                   <Image
-                    src={service.image}
+                    src={resolveImagePath(service.image)}
                     alt={service.name}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -440,7 +474,7 @@ function HearseVanServices() {
 
                   {/* Features */}
                   <div className="flex flex-wrap justify-center gap-1 mb-2">
-                    {service.features.slice(0, 2).map((feature, idx) => (
+                    {(service.features || []).slice(0, 2).map((feature: any, idx: number) => (
                       <span
                         key={idx}
                         className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full"
@@ -448,9 +482,9 @@ function HearseVanServices() {
                         {feature}
                       </span>
                     ))}
-                    <span className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full">
-                      +{service.features.length - 2}
-                    </span>
+                    {(service.features?.length || 0) > 2 && <span className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full">
+                      +{(service.features?.length || 0) - 2}
+                    </span>}
                   </div>
 
                   {/* Coordinator Info */}
@@ -526,7 +560,12 @@ function HearseVanServices() {
                 <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-[#C89B6D]/20 to-transparent rounded-bl-lg"></div>
               </div>
             );
-          })}
+          })
+          ) : (
+            <div className="col-span-full text-center py-10 text-[#7B5E47]">
+              No hearse van services available currently.
+            </div>
+          )}
         </div>
       </section>
 

@@ -4,7 +4,7 @@ import { Mail, Phone, User, Users, Shield } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Cinzel, Inter } from "next/font/google";
-
+import { getSettingsBySection } from "@/lib/apiClient";
 const cinzel = Cinzel({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
@@ -17,6 +17,11 @@ const inter = Inter({
 export default function TopInfoBar() {
   const [isMusicOn, setIsMusicOn] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [topbarEmail, setTopbarEmail] = useState("info@mokshayatra.org");
+  const [topbarPhone, setTopbarPhone] = useState("+91 96549 00525");
+  const [whatsappLink, setWhatsappLink] = useState(
+    "https://wa.me/919310219283",
+  );
 
   const playlist = [
     "/audio/om.mp3",
@@ -64,6 +69,29 @@ export default function TopInfoBar() {
   };
 
   useEffect(() => {
+    const fetchTopbarData = async () => {
+      try {
+        const { getTopbarComponent } = await import("@/lib/apiClient");
+        const response = await getTopbarComponent();
+        const data = response.data;
+        if (data.success && data.data) {
+          const topbarData = data.data;
+          setTopbarEmail(topbarData.email || "info@mokshayatra.org");
+          setTopbarPhone(topbarData.phone || "+91 96549 00525");
+          
+          if (topbarData.phone) {
+            const plain = topbarData.phone.replace(/\D/g, "");
+            if (plain.length > 0) {
+              setWhatsappLink(`https://wa.me/${plain}`);
+            }
+          }
+        }
+      } catch (error) {
+        console.error("Topbar data load failed:", error);
+      }
+    };
+    fetchTopbarData();
+
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
@@ -82,27 +110,25 @@ export default function TopInfoBar() {
           <div className="flex items-center gap-1.5 group">
             <Mail size={16} className="text-[#D4B996]" />
             <a
-              href="mailto:info@mokshayatra.org"
+              href={`mailto:${topbarEmail}`}
               className="sm:text-sm lg:text-[13px] text-white/90 hover:text-white transition-colors whitespace-nowrap"
             >
-              info@mokshayatra.org
+              {topbarEmail}
             </a>
           </div>
 
           <div className="hidden sm:flex items-center gap-1.5 group">
             <Phone size={16} className="text-[#D4B996]" />
             <a
-              href="tel:+919654900525"
+              href={`tel:${topbarPhone}`}
               className="text-xs lg:text-[13px] text-white/90 hover:text-white transition-colors whitespace-nowrap"
             >
-              +91 96549 00525
+              {topbarPhone}
             </a>
           </div>
         </div>
 
         <div className="flex items-center gap-2">
-          {/* Music Button */}
-
           <button
             onClick={toggleMusic}
             className="flex items-center justify-center w-8 h-8 rounded-full bg-[#8B6A3E] hover:bg-[#755735] transition-all duration-300"
@@ -151,8 +177,6 @@ export default function TopInfoBar() {
             )}
           </button>
 
-          {/* User Login */}
-
           <Link
             href="/login"
             className={`flex items-center justify-center w-7 h-7 md:w-auto md:h-auto md:px-1.5 md:py-0.5 rounded bg-[#8B6A3E] hover:bg-[#755735] text-white transition-colors ${cinzel.className}`}
@@ -162,8 +186,6 @@ export default function TopInfoBar() {
           </Link>
 
           <div className="hidden md:block w-px h-3 bg-white/20"></div>
-
-          {/* Vendor Login */}
 
           <Link
             href="/vendorlogin"
@@ -175,10 +197,8 @@ export default function TopInfoBar() {
 
           <div className="hidden md:block w-px h-3 bg-white/20"></div>
 
-          {/* Moksha Seva */}
-
           <Link
-            href="/login"
+            href={whatsappLink}
             className={`flex items-center justify-center w-7 h-7 md:w-auto md:h-auto md:px-1.5 md:py-0.5 rounded bg-[#8B6A3E] hover:bg-[#755735] text-white transition-colors ${cinzel.className}`}
           >
             <Shield size={14} className="md:hidden" />
@@ -186,8 +206,6 @@ export default function TopInfoBar() {
           </Link>
 
           <div className="hidden md:block w-px h-3 bg-white/20"></div>
-
-          {/* Mortal Records */}
 
           <Link
             href="/login"

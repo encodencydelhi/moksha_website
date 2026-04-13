@@ -1,24 +1,128 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { PiFlowerLotus, PiHeart, PiHandHeart, PiStar } from "react-icons/pi";
-import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
-import { FiClock, FiUsers, FiMapPin, FiAward } from "react-icons/fi";
-import { BsShieldCheck, BsHeart, BsHandThumbsUp } from "react-icons/bs";
+import * as PiIcons from "react-icons/pi";
+import * as BsIcons from "react-icons/bs";
+import * as FiIcons from "react-icons/fi";
+import * as FaIcons from "react-icons/fa";
+import { getComponentByKey, resolveImagePath } from "@/lib/apiClient";
+
+const DynamicIcon = ({
+  name,
+  className,
+}: {
+  name: string;
+  className?: string;
+}) => {
+  const Icon =
+    (PiIcons as any)[name] ||
+    (BsIcons as any)[name] ||
+    (FiIcons as any)[name] ||
+    (FaIcons as any)[name] ||
+    PiIcons.PiHeart;
+  return <Icon className={className} />;
+};
+
+const DEFAULT_DATA = {
+  tag: "Who We Serve",
+  title: "Serving Humanity",
+  titleHighlight: "Beyond Boundaries",
+  description:
+    "Families in India · Global NRI Community · Senior Citizens · Shelter Homes & NGO Partners",
+  image: "/assets/bodytransport.jpeg",
+  nriTitle: "NRI Community",
+  nriSubtitle: "Our Beachhead Market",
+  nriDescription:
+    "30M+ Indians living in the UK, USA, UAE, Canada, Australia, Singapore, and the Gulf. Distance transforms grief into paralysis. We become your eyes, hands, and voice in India.",
+  features: [
+    {
+      title: "Pain Point Intensity",
+      desc: "Managing sacred duties from thousands of miles away",
+      icon: "PiHandHeart",
+    },
+    {
+      title: "Financial Capacity",
+      desc: "3-5x average domestic transaction value",
+      icon: "BsShieldCheck",
+    },
+    {
+      title: "Community Referral",
+      desc: "Intensely community-networked diaspora",
+      icon: "PiHeart",
+    },
+    {
+      title: "Recurring Relationship",
+      desc: "Elder-care check-ins & pre-planning",
+      icon: "FiAward",
+    },
+  ],
+  testimonial: {
+    text: "Living in London when my father passed in Delhi, I was paralysed. Moksha Voyage became my eyes, my hands, and my voice in India. I never felt alone, not for a single moment.",
+    author: "Priya Sharma, London, UK",
+  },
+  ecosystemTags: [
+    "Professional Counselling",
+    "Peer Support Groups",
+    "Children & Grief Resources",
+    "Ritual Continuity Support",
+    "Crisis Intervention 24/7",
+  ],
+  stats: [
+    {
+      value: "24/7",
+      label: "Care Coordination",
+      desc: "365 days a year",
+      icon: "FiClock",
+    },
+    {
+      value: "50+",
+      label: "Cities Across India",
+      desc: "Verified provider network",
+      icon: "FiMapPin",
+    },
+    {
+      value: "30M+",
+      label: "NRI Community",
+      desc: "Global Indian diaspora",
+      icon: "FiUsers",
+    },
+    {
+      value: "100%",
+      label: "Transparency",
+      desc: "No hidden charges",
+      icon: "PiStar",
+    },
+  ],
+};
 
 export default function Serving() {
   const [isVisible, setIsVisible] = useState(false);
+  const [data, setData] = useState(DEFAULT_DATA);
 
   useEffect(() => {
     setIsVisible(true);
+    const load = async () => {
+      try {
+        const res = await getComponentByKey("serving");
+        if (res.data?.success && res.data?.data?.customData) {
+          const d = res.data.data.customData;
+          setData({
+            ...DEFAULT_DATA,
+            ...d,
+            features: d.features?.length ? d.features : DEFAULT_DATA.features,
+            stats: d.stats?.length ? d.stats : DEFAULT_DATA.stats,
+            ecosystemTags: d.ecosystemTags?.length
+              ? d.ecosystemTags
+              : DEFAULT_DATA.ecosystemTags,
+          });
+        }
+      } catch {}
+    };
+    load();
   }, []);
 
-  const themeColor = "#8B6A3E";
-  const themeColorLight = "#F5E9D9";
-  const themeColorDark = "#5A3E2B";
-
   return (
-    <section className="w-full relative overflow-hidden bg-gradient-to-b from-[#FAF7F2] to-white h-200 flex items-center">
+    <section className="w-full relative overflow-hidden bg-gradient-to-b from-[#FAF7F2] to-white h-220 flex items-center">
       {/* Background Patterns */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 -left-24 w-96 h-96 bg-[#8B6A3E]/5 rounded-full blur-3xl"></div>
@@ -32,26 +136,25 @@ export default function Serving() {
         </div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full py-12">
         {/* Section Header */}
         <div className="text-center mb-6">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#8B6A3E]/5 rounded-full border border-[#8B6A3E]/10 mb-3">
-            <PiFlowerLotus className="w-3.5 h-3.5 text-[#8B6A3E]" />
+            <PiIcons.PiFlowerLotus className="w-3.5 h-3.5 text-[#8B6A3E]" />
             <span className="text-[10px] tracking-[0.2em] uppercase text-[#8B6A3E]">
-              Who We Serve
+              {data.tag}
             </span>
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-3xl font-light text-[#2C1810] mb-2">
-            Serving Humanity
+            {data.title}
             <span className="block text-4xl md:text-4xl lg:text-4xl font-serif text-[#8B6A3E] mt-1">
-              Beyond Boundaries
+              {data.titleHighlight}
             </span>
           </h2>
 
           <p className="text-[#5A3E2B]/70 text-sm max-w-2xl mx-auto">
-            Families in India · Global NRI Community · Senior Citizens · Shelter
-            Homes & NGO Partners
+            {data.description}
           </p>
         </div>
 
@@ -66,8 +169,8 @@ export default function Serving() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <div className="relative h-[350px] md:h-[450px]">
                 <Image
-                  src="/assets/pandit.avif"
-                  alt="Serving with Compassion"
+                  src={resolveImagePath(data.image)}
+                  alt="Serving"
                   fill
                   className="object-cover"
                   priority
@@ -99,45 +202,20 @@ export default function Serving() {
             {/* Title */}
             <div className="mb-4">
               <h3 className="text-xl md:text-2xl font-serif text-[#2C1810] mb-2">
-                NRI Community
+                {data.nriTitle}
                 <span className="block text-[#8B6A3E] text-lg">
-                  Our Beachhead Market
+                  {data.nriSubtitle}
                 </span>
               </h3>
 
               <p className="text-[#5A3E2B]/70 text-xs leading-relaxed">
-                <span className="font-medium text-[#8B6A3E]">30M+ Indians</span>{" "}
-                living in the UK, USA, UAE, Canada, Australia, Singapore, and
-                the Gulf. Distance transforms grief into paralysis. We become
-                your eyes, hands, and voice in India.
+                {data.nriDescription}
               </p>
             </div>
 
             {/* Features Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
-              {[
-                {
-                  icon: PiHandHeart,
-                  title: "Pain Point Intensity",
-                  desc: "Managing sacred duties from thousands of miles away",
-                },
-                {
-                  icon: BsShieldCheck,
-                  title: "Financial Capacity",
-                  desc: "3-5x average domestic transaction value",
-                },
-                {
-                  icon: PiHeart,
-                  title: "Community Referral",
-                  desc: "Intensely community-networked diaspora",
-                },
-                {
-                  icon: FiAward,
-                  title: "Recurring Relationship",
-                  desc: "Elder-care check-ins & pre-planning",
-                },
-              ].map((feature, idx) => {
-                const Icon = feature.icon;
+              {data.features.map((feature, idx) => {
                 return (
                   <div
                     key={idx}
@@ -145,7 +223,10 @@ export default function Serving() {
                   >
                     <div className="flex items-start gap-1.5">
                       <div className="w-7 h-7 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center group-hover:bg-[#8B6A3E] transition-colors duration-300 flex-shrink-0">
-                        <Icon className="w-3.5 h-3.5 text-[#8B6A3E] group-hover:text-white transition-colors duration-300" />
+                        <DynamicIcon
+                          name={feature.icon}
+                          className="w-3.5 h-3.5 text-[#8B6A3E] group-hover:text-white transition-colors duration-300"
+                        />
                       </div>
                       <div>
                         <h4 className="text-xs font-medium text-[#2C1810] mb-0.5">
@@ -166,18 +247,15 @@ export default function Serving() {
               <div className="flex gap-2">
                 <div className="flex-shrink-0">
                   <div className="w-7 h-7 rounded-full bg-[#8B6A3E] flex items-center justify-center">
-                    <FaQuoteRight className="w-3.5 h-3.5 text-white" />
+                    <FaIcons.FaQuoteRight className="w-3.5 h-3.5 text-white" />
                   </div>
                 </div>
                 <div>
                   <p className="text-[10px] text-[#5A3E2B]/80 italic mb-1">
-                    "Living in London when my father passed in Delhi, I was
-                    paralysed. Moksha Voyage became my eyes, my hands, and my
-                    voice in India. I never felt alone, not for a single
-                    moment."
+                    "{data.testimonial.text}"
                   </p>
                   <p className="text-[9px] font-medium text-[#8B6A3E]">
-                    — Priya Sharma, London, UK
+                    — {data.testimonial.author}
                   </p>
                 </div>
               </div>
@@ -189,21 +267,14 @@ export default function Serving() {
                 Grief Support Ecosystem
               </h4>
               <div className="flex flex-wrap gap-1.5 font-bold ">
-                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5  text-[13px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
-                  Professional Counselling
-                </span>
-                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[13px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
-                  Peer Support Groups
-                </span>
-                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[13px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
-                  Children & Grief Resources
-                </span>
-                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[13px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
-                  Ritual Continuity Support
-                </span>
-                <span className="px-1.5 py-0.5 bg-[#8B6A3E]/5 text-[13px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10">
-                  Crisis Intervention 24/7
-                </span>
+                {data.ecosystemTags.map((tag, i) => (
+                  <span
+                    key={i}
+                    className="px-1.5 py-0.5 bg-[#8B6A3E]/5  text-[13px] text-[#5A3E2B] rounded-full border border-[#8B6A3E]/10"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
 
@@ -227,41 +298,15 @@ export default function Serving() {
               </button>
               <button className="flex-1 px-4 py-2 border border-[#8B6A3E] text-[#8B6A3E] rounded-lg text-xs font-medium hover:bg-[#F5E9D9] transition-all duration-300 flex items-center justify-center gap-2">
                 <span>Join Support Community</span>
-                <PiHandHeart className="w-3.5 h-3.5" />
+                <PiIcons.PiHandHeart className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
         </div>
 
-        {/* Bottom Stats - Updated with PDF numbers */}
+        {/* Bottom Stats */}
         <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
-          {[
-            {
-              icon: FiClock,
-              value: "24/7",
-              label: "Care Coordination",
-              desc: "365 days a year",
-            },
-            {
-              icon: FiMapPin,
-              value: "50+",
-              label: "Cities Across India",
-              desc: "Verified provider network",
-            },
-            {
-              icon: FiUsers,
-              value: "30M+",
-              label: "NRI Community",
-              desc: "Global Indian diaspora",
-            },
-            {
-              icon: PiStar,
-              value: "100%",
-              label: "Transparency",
-              desc: "No hidden charges",
-            },
-          ].map((stat, idx) => {
-            const Icon = stat.icon;
+          {data.stats.map((stat, idx) => {
             return (
               <div
                 key={idx}
@@ -270,7 +315,10 @@ export default function Serving() {
                 <div className="absolute inset-0 bg-gradient-to-br from-[#8B6A3E]/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="relative">
                   <div className="w-8 h-8 mx-auto mb-1 bg-[#8B6A3E]/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Icon className="w-4 h-4 text-[#8B6A3E]" />
+                    <DynamicIcon
+                      name={stat.icon}
+                      className="w-4 h-4 text-[#8B6A3E]"
+                    />
                   </div>
                   <div className="text-lg font-serif text-[#2C1810] mb-0.5">
                     {stat.value}

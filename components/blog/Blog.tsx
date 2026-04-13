@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Topbar from "@/components/topbar/Topbar";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import Image from "next/image";
 import Mantra from "../Mantra/Mantra";
 import Link from "next/link";
+import { getAllBlogs } from "@/lib/apiClient";
 import {
   FiSearch,
   FiCalendar,
@@ -19,106 +20,60 @@ import { BsEye, BsChat, BsBookmark, BsBookmarkFill } from "react-icons/bs";
 import { PiFlowerLotus } from "react-icons/pi";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
+interface BlogPost {
+  _id: string;
+  title: string;
+  excerpt: string;
+  author: string | { _id: string; name: string };
+  publishedAt: string;
+  readTime: string;
+  category: string;
+  coverImage: string;
+  views: number;
+  isFeatured: boolean;
+  comments?: number;
+  image?: string;
+  date?: string;
+}
+
 function Blog() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [savedPosts, setSavedPosts] = useState<number[]>([]);
+  const [savedPosts, setSavedPosts] = useState<string[]>([]);
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const blogPosts = [
-    {
-      id: 1,
-      title: "The Future of Web Development in 2024",
-      excerpt:
-        "Explore the latest trends and technologies shaping the future of web development, from AI integration to WebAssembly.",
-      author: "John Doe",
-      date: "Mar 15, 2024",
-      readTime: "6 min",
-      category: "Technology",
-      image: "/assets/two.jpg",
-      views: 1250,
-      comments: 24,
-      featured: true,
-    },
-    {
-      id: 2,
-      title: "Mastering React Performance Optimization",
-      excerpt:
-        "Learn advanced techniques to optimize your React applications for better performance and user experience.",
-      author: "Sarah Johnson",
-      date: "Mar 10, 2024",
-      readTime: "8 min",
-      category: "Web Development",
-      image: "/assets/one.jpg",
-      views: 890,
-      comments: 18,
-      featured: true,
-    },
-    {
-      id: 3,
-      title: "Building Scalable APIs with Next.js",
-      excerpt:
-        "A comprehensive guide to creating robust and scalable APIs using Next.js API routes and best practices.",
-      author: "Mike Chen",
-      date: "Mar 5, 2024",
-      readTime: "10 min",
-      category: "Backend",
-      image: "/assets/c.jpg",
-      views: 750,
-      comments: 12,
-      featured: false,
-    },
-    {
-      id: 4,
-      title: "UI/UX Design Principles for Developers",
-      excerpt:
-        "Essential design principles that every developer should know to create better user interfaces and experiences.",
-      author: "Emma Wilson",
-      date: "Feb 28, 2024",
-      readTime: "7 min",
-      category: "Design",
-      image: "/assets/two.jpg",
-      views: 1100,
-      comments: 31,
-      featured: false,
-    },
-    {
-      id: 5,
-      title: "Getting Started with TypeScript in 2024",
-      excerpt:
-        "A beginner-friendly introduction to TypeScript and why it's becoming essential for modern web development.",
-      author: "Alex Rivera",
-      date: "Feb 22, 2024",
-      readTime: "5 min",
-      category: "Programming",
-      image: "/assets/one.jpg",
-      views: 950,
-      comments: 15,
-      featured: false,
-    },
-    {
-      id: 6,
-      title: "The Complete Guide to SEO for Single Page Applications",
-      excerpt:
-        "Learn how to optimize your SPAs for search engines with practical techniques and tools.",
-      author: "David Kim",
-      date: "Feb 18, 2024",
-      readTime: "9 min",
-      category: "SEO",
-      image: "/assets/c.jpg",
-      views: 680,
-      comments: 9,
-      featured: false,
-    },
-  ];
+  useEffect(() => {
+    loadBlogs();
+  }, []);
 
+  const loadBlogs = async () => {
+    try {
+      setLoading(true);
+      setError("");
+      const response = await getAllBlogs();
+      const data = response.data;
+
+      if (data.success) {
+        setBlogPosts(data.data || []);
+      } else {
+        setError("Failed to load blogs");
+        setBlogPosts([]);
+      }
+    } catch (err) {
+      console.error("Error loading blogs:", err);
+      setError("Failed to load blogs");
+      setBlogPosts([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Get unique categories from loaded blogs
   const categories = [
     "All",
-    "Technology",
-    "Web Development",
-    "Design",
-    "Programming",
-    "Backend",
-    "SEO",
+    ...Array.from(new Set(blogPosts.map((post) => post.category))),
   ];
 
   const filteredPosts = blogPosts.filter((post) => {
@@ -133,9 +88,9 @@ function Blog() {
     return matchesSearch && matchesCategory;
   });
 
-  const featuredPosts = blogPosts.filter((post) => post.featured);
+  const featuredPosts = blogPosts.filter((post) => post.isFeatured);
 
-  const toggleSave = (postId: number) => {
+  const toggleSave = (postId: string) => {
     setSavedPosts((prev) =>
       prev.includes(postId)
         ? prev.filter((id) => id !== postId)
@@ -262,15 +217,15 @@ function Blog() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPosts.map((post) => (
               <article
-                key={post.id}
+                key={post._id}
                 className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
               >
                 <Link
-                  href={`/blog/${post.id}`}
+                  href={`/blog/${post._id}`}
                   className="block relative h-40 overflow-hidden"
                 >
                   <Image
-                    src={post.image}
+                    src={post.coverImage || post.image || "/placeholder.jpg"}
                     alt={post.title}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -288,7 +243,7 @@ function Blog() {
                 <div className="p-4">
                   <div className="flex items-center gap-2 text-[10px] text-[#5A3E2B]/60 mb-2">
                     <span className="flex items-center gap-1">
-                      <FiCalendar className="text-[10px]" /> {post.date}
+                      <FiCalendar className="text-[10px]" /> {new Date(post.publishedAt || post.date || "").toLocaleDateString()}
                     </span>
                     <span>•</span>
                     <span className="flex items-center gap-1">
@@ -298,7 +253,7 @@ function Blog() {
 
                   <h3 className="text-base font-serif text-[#2C1810] mb-2 line-clamp-2">
                     <Link
-                      href={`/blog/${post.id}`}
+                      href={`/blog/${post._id}`}
                       className="hover:text-[#8B6A3E] transition"
                     >
                       {post.title}
@@ -313,11 +268,11 @@ function Blog() {
                     <div className="flex items-center gap-1.5">
                       <div className="w-6 h-6 rounded-full bg-[#8B6A3E]/10 flex items-center justify-center">
                         <span className="text-[8px] font-bold text-[#8B6A3E]">
-                          {post.author.charAt(0)}
+                          {(typeof post.author === 'string' ? post.author : post.author?.name || 'A').charAt(0)}
                         </span>
                       </div>
                       <span className="text-[10px] font-medium text-[#2C1810]">
-                        {post.author}
+                        {typeof post.author === 'string' ? post.author : post.author?.name}
                       </span>
                     </div>
 
@@ -331,10 +286,10 @@ function Blog() {
                         <span>{post.comments}</span>
                       </div>
                       <button
-                        onClick={() => toggleSave(post.id)}
+                        onClick={() => toggleSave(post._id)}
                         className="p-1 hover:text-[#8B6A3E] transition"
                       >
-                        {savedPosts.includes(post.id) ? (
+                        {savedPosts.includes(post._id) ? (
                           <BsBookmarkFill className="text-[10px] text-[#8B6A3E]" />
                         ) : (
                           <BsBookmark className="text-[10px] text-[#5A3E2B]/40" />

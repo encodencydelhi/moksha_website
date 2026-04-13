@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Topbar from "../topbar/Topbar";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -8,9 +9,6 @@ import {
   GiAmbulance,
   GiHeartPlus,
   GiMedicalPack,
-  GiStethoscope,
-  GiMedicines,
-  GiHealthNormal,
   GiHealing,
   GiStarSwirl,
   GiHealthPotion,
@@ -38,198 +36,19 @@ import { TbAmbulance } from "react-icons/tb";
 import { BsSuitHeartFill, BsDroplet } from "react-icons/bs";
 import { IoMedkit } from "react-icons/io5";
 
+import { getAllServices, resolveImagePath } from "@/lib/apiClient";
+
 function AmbulanceServices() {
+  const router = useRouter();
   const [selectedService, setSelectedService] = useState(null);
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [selectedServiceForBooking, setSelectedServiceForBooking] =
     useState(null);
+  const [services, setServices] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // Local ambulance image path
-  const ambulanceImagePath = "/assets/ambulance.avif";
-
-  const ambulanceServices = [
-    {
-      id: 1,
-      name: "Basic Life Support (BLS)",
-      icon: GiAmbulance,
-      description:
-        "Fully equipped ambulance with basic life support equipment and trained staff",
-      longDescription:
-        "Basic Life Support ambulance equipped with essential medical equipment, oxygen cylinder, stretcher, and trained paramedics for non-emergency patient transport.",
-      location: "Available 24/7",
-      price: "1,999",
-      rating: 4.8,
-      reviews: 245,
-      image: ambulanceImagePath,
-      features: [
-        "Oxygen Cylinder",
-        "Stretcher",
-        "First Aid Kit",
-        "Trained Staff",
-      ],
-      driverName: "Rajesh Kumar",
-      experience: "8+ years",
-      responseTime: "30 mins",
-      contactNumber: "+91 98765 43210",
-    },
-    {
-      id: 2,
-      name: "Advanced Life Support (ALS)",
-      icon: GiHeartPlus,
-      description:
-        "ICU on wheels with ventilator, defibrillator, and emergency medications",
-      longDescription:
-        "Advanced Life Support ambulance equipped with ventilator, defibrillator, cardiac monitor, emergency medications, and critical care paramedics.",
-      location: "Available 24/7",
-      price: "3,999",
-      rating: 4.9,
-      reviews: 156,
-      image: ambulanceImagePath,
-      features: [
-        "Ventilator",
-        "Defibrillator",
-        "Cardiac Monitor",
-        "Emergency Meds",
-      ],
-      driverName: "Suresh Singh",
-      experience: "12+ years",
-      responseTime: "25 mins",
-      contactNumber: "+91 98765 43211",
-    },
-    {
-      id: 3,
-      name: "Patient Transport Vehicle",
-      icon: IoMedkit,
-      description:
-        "Comfortable transport for non-emergency patients with basic medical support",
-      longDescription:
-        "Comfortable vehicle designed for non-emergency patient transport, ideal for hospital discharges, check-ups, and routine medical visits.",
-      location: "Available 24/7",
-      price: "1,499",
-      rating: 4.7,
-      reviews: 189,
-      image: ambulanceImagePath,
-      features: ["Comfortable Seating", "AC", "Basic Medical Kit", "Attendant"],
-      driverName: "Mohan Das",
-      experience: "6+ years",
-      responseTime: "40 mins",
-      contactNumber: "+91 98765 43212",
-    },
-    {
-      id: 4,
-      name: "Cardiac Care Ambulance",
-      icon: FaHeartbeat,
-      description:
-        "Specialized ambulance for heart patients with cardiac monitoring equipment",
-      longDescription:
-        "Specialized cardiac care ambulance with ECG monitor, defibrillator, cardiac emergency medications, and trained cardiac care technicians.",
-      location: "Available 24/7",
-      price: "4,500",
-      rating: 4.9,
-      reviews: 112,
-      image: ambulanceImagePath,
-      features: [
-        "ECG Monitor",
-        "Defibrillator",
-        "Cardiac Meds",
-        "Oxygen Support",
-      ],
-      driverName: "Prakash Sharma",
-      experience: "10+ years",
-      responseTime: "20 mins",
-      contactNumber: "+91 98765 43213",
-    },
-    {
-      id: 5,
-      name: "Neonatal Ambulance",
-      icon: GiHealing,
-      description:
-        "Specialized ambulance for newborns with incubator and pediatric equipment",
-      longDescription:
-        "Specially designed ambulance for newborns with incubator, pediatric ventilator, and trained neonatal care specialists.",
-      location: "Available 24/7",
-      price: "5,999",
-      rating: 4.9,
-      reviews: 78,
-      image: ambulanceImagePath,
-      features: [
-        "Incubator",
-        "Pediatric Ventilator",
-        "Warmers",
-        "Neonatal Meds",
-      ],
-      driverName: "Anita Devi",
-      experience: "9+ years",
-      responseTime: "35 mins",
-      contactNumber: "+91 98765 43214",
-    },
-    {
-      id: 6,
-      name: "Air Ambulance",
-      icon: GiLifeSupport,
-      description:
-        "Emergency air transport with complete medical team and equipment",
-      longDescription:
-        "Air ambulance service for critical patients requiring immediate transport across cities or countries. Includes medical team and full ICU setup.",
-      location: "Pan India",
-      price: "Call for Quote",
-      rating: 4.8,
-      reviews: 45,
-      image: ambulanceImagePath,
-      features: [
-        "ICU Setup",
-        "Medical Team",
-        "Ventilator",
-        "International Transfer",
-      ],
-      driverName: "Captain Verma",
-      experience: "15+ years",
-      responseTime: "2 hours",
-      contactNumber: "+91 98765 43215",
-    },
-    {
-      id: 7,
-      name: "Dead Body Freezer Van",
-      icon: GiMedicalPack,
-      description:
-        "Respectful and dignified transport with proper preservation facilities",
-      longDescription:
-        "Specialized vehicle for dignified transport of deceased with proper cold preservation facilities and respectful handling.",
-      location: "Available 24/7",
-      price: "2,999",
-      rating: 4.7,
-      reviews: 98,
-      image: ambulanceImagePath,
-      features: [
-        "Cold Storage",
-        "Respectful Handling",
-        "Clean Vehicle",
-        "Documentation Help",
-      ],
-      driverName: "Gopal Singh",
-      experience: "7+ years",
-      responseTime: "45 mins",
-      contactNumber: "+91 98765 43216",
-    },
-    {
-      id: 8,
-      name: "Emergency Response Vehicle",
-      icon: TbAmbulance,
-      description: "Rapid response vehicle for immediate medical emergencies",
-      longDescription:
-        "Quick response vehicle for emergency situations with paramedics and essential life support equipment for immediate medical assistance.",
-      location: "Available 24/7",
-      price: "2,500",
-      rating: 4.9,
-      reviews: 234,
-      image: ambulanceImagePath,
-      features: ["Rapid Response", "Paramedics", "Emergency Meds", "First Aid"],
-      driverName: "Vikram Rathore",
-      experience: "11+ years",
-      responseTime: "15 mins",
-      contactNumber: "+91 98765 43217",
-    },
-  ];
+  // Local fallback images
+  const ambulanceImagePath = "/assets/ambulance.jpeg";
 
   const handleBookNow = (service: any) => {
     setSelectedServiceForBooking(service);
@@ -244,6 +63,40 @@ function AmbulanceServices() {
   const handleEmergencyCall = (contactNumber: string) => {
     window.location.href = `tel:${contactNumber}`;
   };
+
+  useEffect(() => {
+    const loadServices = async () => {
+      try {
+        const response = await getAllServices({ pageCategory: "ambulance" });
+        const data = response.data;
+        if (data.success && data.data && data.data.length > 0) {
+          setServices(
+            data.data.map((service: any, index: number) => ({
+              id: service._id || index,
+              name: service.name,
+              description: service.description,
+              longDescription: service.description,
+              price: service.price || "N/A",
+              rating: 4.5,
+              reviews: 120,
+              image: service.image || ambulanceImagePath,
+              features: service.features || [],
+              driverName: "Professional Driver",
+              experience: "10+ Years",
+              responseTime: "5-10 minutes",
+              contactNumber: "+91-XXXXXXXXXX",
+              icon: GiAmbulance,
+            })),
+          );
+        }
+      } catch (error) {
+        console.error("Failed to load ambulance services:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadServices();
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#FDF8F2]">
@@ -372,134 +225,145 @@ function AmbulanceServices() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {ambulanceServices.map((service) => {
-            const Icon = service.icon;
+          {loading ? (
+            <div className="col-span-full text-center py-10 text-[#7B5E47]">Loading services...</div>
+          ) : services.length > 0 ? (
+            services.map((service) => {
+              const Icon = service.icon || GiAmbulance;
 
-            return (
-              <div
-                key={service.id}
-                className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-1"
-              >
-                {/* Image Container with Actual Image */}
-                <div className="relative h-36 overflow-hidden">
-                  {/* Actual Image */}
-                  <Image
-                    src={service.image}
-                    alt={service.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#5A3E2B] via-transparent to-transparent z-10"></div>
+              return (
+                <div
+                  key={service.id}
+                  className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-1"
+                >
+                  {/* Image Container with Actual Image */}
+                  <div className="relative h-36 overflow-hidden">
+                    {/* Actual Image */}
+                    <Image
+                      src={resolveImagePath(service.image)}
+                      alt={service.name}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#5A3E2B] via-transparent to-transparent z-10"></div>
 
-                  {/* Service Icon as Overlay */}
-                  <div className="absolute top-2 left-2 z-20 bg-white/20 backdrop-blur-sm p-1.5 rounded-full">
-                    <Icon className="text-white text-lg" />
+                    {/* Service Icon as Overlay */}
+                    <div className="absolute top-2 left-2 z-20 bg-white/20 backdrop-blur-sm p-1.5 rounded-full">
+                      <Icon className="text-white text-lg" />
+                    </div>
+
+                    {/* Rating Badge */}
+                    <div className="absolute top-2 right-2 z-20 bg-white/90 backdrop-blur-sm px-1.5 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                      <FaStar className="text-yellow-500 text-[10px]" />
+                      <span className="text-[11px] text-[#5A3E2B]">
+                        {service.rating}
+                      </span>
+                      <span className="text-[9px] text-[#7B5E47]">
+                        ({service.reviews})
+                      </span>
+                    </div>
+
+                    {/* Response Time Badge */}
+                    <div className="absolute bottom-2 right-2 z-20 bg-[#8B5E3C]/90 backdrop-blur-sm px-2 py-0.5 rounded-full">
+                      <span className="text-white text-[10px] font-medium">
+                        {service.responseTime}
+                      </span>
+                    </div>
+
+                    {/* Service Name on Image */}
+                    <div className="absolute bottom-2 left-2 z-20">
+                      <h3 className="text-base font-serif text-white drop-shadow-lg">
+                        {service.name}
+                      </h3>
+                    </div>
                   </div>
 
-                  {/* Rating Badge */}
-                  <div className="absolute top-2 right-2 z-20 bg-white/90 backdrop-blur-sm px-1.5 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
-                    <FaStar className="text-yellow-500 text-[10px]" />
-                    <span className="text-[11px] text-[#5A3E2B]">
-                      {service.rating}
-                    </span>
-                    <span className="text-[9px] text-[#7B5E47]">
-                      ({service.reviews})
-                    </span>
-                  </div>
+                  {/* Content */}
+                  <div className="p-2.5">
+                    {/* Description */}
+                    <p className="text-sm text-[#7B5E47] mb-1.5 line-clamp-2 text-center leading-relaxed">
+                      {service.description}
+                    </p>
 
-                  {/* Response Time Badge */}
-                  <div className="absolute bottom-2 right-2 z-20 bg-[#8B5E3C]/90 backdrop-blur-sm px-2 py-0.5 rounded-full">
-                    <span className="text-white text-[10px] font-medium">
-                      {service.responseTime}
-                    </span>
-                  </div>
+                    {/* Features */}
+                    <div className="flex flex-wrap justify-center gap-1 mb-2">
+                      {service.features
+                        .slice(0, 2)
+                        .map((feature: string, idx: number) => (
+                          <span
+                            key={idx}
+                            className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full"
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                      <span className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full">
+                        +{service.features.length - 2}
+                      </span>
+                    </div>
 
-                  {/* Service Name on Image */}
-                  <div className="absolute bottom-2 left-2 z-20">
-                    <h3 className="text-base font-serif text-white drop-shadow-lg">
-                      {service.name}
-                    </h3>
-                  </div>
-                </div>
+                    {/* Driver Info */}
+                    <div className="flex items-center gap-1.5 mb-2 p-1.5 bg-[#FDF8F2] rounded-lg">
+                      <div className="w-7 h-7 rounded-full bg-[#C89B6D] flex items-center justify-center flex-shrink-0">
+                        <FaShieldAlt className="text-white text-sm" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-sm text-[#5A3E2B] truncate">
+                          {service.driverName}
+                        </p>
+                        <p className="text-[10px] text-[#7B5E47]">
+                          {service.experience} experience
+                        </p>
+                      </div>
+                      <MdVerified className="text-[#C89B6D] text-sm flex-shrink-0" />
+                    </div>
 
-                {/* Content */}
-                <div className="p-2.5">
-                  {/* Description */}
-                  <p className="text-sm text-[#7B5E47] mb-1.5 line-clamp-2 text-center leading-relaxed">
-                    {service.description}
-                  </p>
+                    {/* Location and Price */}
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-1 text-[10px] text-[#7B5E47]">
+                        <FaClock className="text-[#C89B6D] text-[10px]" />
+                        <span className="truncate max-w-[90px]">
+                          {service.location}
+                        </span>
+                      </div>
+                      <div className="text-sm text-[#8B5E3C]">
+                        ₹{service.price}
+                        <span className="text-[9px] text-[#7B5E47] ml-0.5">
+                          onwards
+                        </span>
+                      </div>
+                    </div>
 
-                  {/* Features */}
-                  <div className="flex flex-wrap justify-center gap-1 mb-2">
-                    {service.features.slice(0, 2).map((feature, idx) => (
-                      <span
-                        key={idx}
-                        className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full"
+                    {/* Buttons */}
+                    <div className="flex gap-1.5">
+                      <button
+                        onClick={() => handleViewDetails(service)}
+                        className="flex-1 px-1.5 py-1.5 border border-[#C89B6D] text-[#8B5E3C] rounded-lg text-[10px] hover:bg-[#F5E9D9] transition"
                       >
-                        {feature}
-                      </span>
-                    ))}
-                    <span className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full">
-                      +{service.features.length - 2}
-                    </span>
-                  </div>
-
-                  {/* Driver Info */}
-                  <div className="flex items-center gap-1.5 mb-2 p-1.5 bg-[#FDF8F2] rounded-lg">
-                    <div className="w-7 h-7 rounded-full bg-[#C89B6D] flex items-center justify-center flex-shrink-0">
-                      <FaShieldAlt className="text-white text-sm" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-sm text-[#5A3E2B] truncate">
-                        {service.driverName}
-                      </p>
-                      <p className="text-[10px] text-[#7B5E47]">
-                        {service.experience} experience
-                      </p>
-                    </div>
-                    <MdVerified className="text-[#C89B6D] text-sm flex-shrink-0" />
-                  </div>
-
-                  {/* Location and Price */}
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-1 text-[10px] text-[#7B5E47]">
-                      <FaClock className="text-[#C89B6D] text-[10px]" />
-                      <span className="truncate max-w-[90px]">
-                        {service.location}
-                      </span>
-                    </div>
-                    <div className="text-sm text-[#8B5E3C]">
-                      ₹{service.price}
-                      <span className="text-[9px] text-[#7B5E47] ml-0.5">
-                        onwards
-                      </span>
+                        Details
+                      </button>
+                      <button
+                        onClick={() =>
+                          router.push(`/checkout?serviceId=${service.id}`)
+                        }
+                        className="flex-1 px-1.5 py-1.5 bg-gradient-to-r from-[#8B5E3C] to-[#A9744F] text-white rounded-lg text-[10px] hover:shadow-sm transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-1"
+                      >
+                        अभी खरीदें
+                      </button>
                     </div>
                   </div>
 
-                  {/* Buttons */}
-                  <div className="flex gap-1.5">
-                    <button
-                      onClick={() => handleViewDetails(service)}
-                      className="flex-1 px-1.5 py-1.5 border border-[#C89B6D] text-[#8B5E3C] rounded-lg text-[10px] hover:bg-[#F5E9D9] transition"
-                    >
-                      Details
-                    </button>
-                    <button
-                      onClick={() => handleEmergencyCall(service.contactNumber)}
-                      className="flex-1 px-1.5 py-1.5 bg-gradient-to-r from-[#8B5E3C] to-[#A9744F] text-white rounded-lg text-[10px] hover:shadow-sm transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-1"
-                    >
-                      <FaPhoneAlt className="text-[8px]" />
-                      Call Now
-                    </button>
-                  </div>
+                  {/* Decorative Corner */}
+                  <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-[#C89B6D]/20 to-transparent rounded-bl-lg"></div>
                 </div>
-
-                {/* Decorative Corner */}
-                <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-[#C89B6D]/20 to-transparent rounded-bl-lg"></div>
-              </div>
-            );
-          })}
+              );
+            })
+          ) : (
+            <div className="col-span-full text-center py-10 text-[#7B5E47]">
+              No ambulance services available currently.
+            </div>
+          )}
         </div>
       </section>
 

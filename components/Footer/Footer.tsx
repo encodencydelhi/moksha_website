@@ -16,11 +16,59 @@ import {
   Twitter,
 } from "lucide-react";
 import { useState } from "react";
-import mokshalogo from "../../public/assets/logoreal.jpeg";
+import { useEffect } from "react";
+import { getComponentByKey, resolveImagePath } from "@/lib/apiClient";
+import defaultLogo from "../../public/assets/logoreal.jpeg";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const [footerData, setFooterData] = useState({
+    logo: defaultLogo,
+    brandName: "Moksha Voyage",
+    tagline: "Compassionate End-of-Life Guidance",
+    description: "Providing respectful guidance with dignity, tradition and care for every family.",
+    socialLinks: {
+      facebook: "#",
+      instagram: "#",
+      twitter: "#",
+      youtube: "#",
+    },
+    contactEmail: "info@mokshavoyage.com",
+    contactPhone: "+91 123 456 7890",
+    contactAddress: "Delhi NCR",
+  });
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const response = await getComponentByKey("footer");
+        const data = response.data;
+        if (data.success && data.data) {
+          const comp = data.data;
+          
+          setFooterData({
+            logo: comp.customData?.logo || defaultLogo,
+            brandName: comp.customData?.brandName || "Moksha Voyage",
+            tagline: comp.customData?.tagline || "Compassionate End-of-Life Guidance",
+            description: comp.customData?.description || "Providing respectful guidance with dignity, tradition and care for every family.",
+            socialLinks: {
+              facebook: comp.customData?.socialLinks?.facebook || "#",
+              instagram: comp.customData?.socialLinks?.instagram || "#",
+              twitter: comp.customData?.socialLinks?.twitter || "#",
+              youtube: comp.customData?.socialLinks?.youtube || "#",
+            },
+            contactEmail: comp.customData?.email || "info@moksha.com",
+            contactPhone: comp.customData?.phone || "+91-XXXXXXXXXX",
+            contactAddress: comp.customData?.address || "Address not set",
+          });
+        }
+      } catch (error) {
+        console.error("Footer settings load failed:", error);
+      }
+    };
+    load();
+  }, []);
 
   const handleSubscribe = (e: any) => {
     e.preventDefault();
@@ -37,54 +85,64 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row gap-8 mb-10">
           <div className="lg:w-2/5">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="relative w-14 h-14  overflow-hidden">
+              <div className="relative w-14 h-14 overflow-hidden">
                 <Image
-                  src={mokshalogo}
-                  alt="Moksha Voyage"
+                  src={typeof footerData.logo === "string" ? resolveImagePath(footerData.logo) : footerData.logo}
+                  alt={footerData.brandName}
                   className="w-full h-full object-cover rounded"
+                  width={100}
+                  height={100}
                   priority
                 />
               </div>
               <div>
-                <h2 className="text-lg text-white">Moksha Voyage</h2>
+                <h2 className="text-lg text-white">{footerData.brandName}</h2>
                 <p className="text-xs text-white/70">
-                  Compassionate End-of-Life Guidance
+                  {footerData.tagline}
                 </p>
               </div>
             </div>
 
             <p className="text-sm text-white/80 leading-relaxed mb-4 max-w-md">
-              Providing respectful guidance with dignity, tradition and care for
-              every family.
+              {footerData.description}
             </p>
 
             <div className="flex space-x-3">
               <a
-                href="#"
+                href={footerData.socialLinks.facebook}
                 className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition"
+                target="_blank"
+                rel="noreferrer"
               >
                 <Facebook size={16} />
               </a>
               <a
-                href="#"
+                href={footerData.socialLinks.instagram}
                 className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition"
+                target="_blank"
+                rel="noreferrer"
               >
                 <Instagram size={16} />
               </a>
               <a
-                href="#"
+                href={footerData.socialLinks.twitter}
                 className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition"
+                target="_blank"
+                rel="noreferrer"
               >
                 <Twitter size={16} />
               </a>
               <a
-                href="#"
+                href={footerData.socialLinks.youtube}
                 className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition"
+                target="_blank"
+                rel="noreferrer"
               >
                 <Youtube size={16} />
               </a>
             </div>
-          </div>
+
+            </div>
 
           <div className="lg:w-3/5">
             <div className="bg-white/10 rounded-xl p-5 backdrop-blur-sm">
@@ -151,15 +209,15 @@ export default function Footer() {
             <div className="space-y-2 text-white/80">
               <div className="flex items-center gap-2">
                 <MapPin size={14} className="text-[#E8DBC5]" />
-                <span>Delhi NCR</span>
+                <span>{footerData.contactAddress}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={14} className="text-[#E8DBC5]" />
-                <span>info@mokshavoyage.com</span>
+                <span>{footerData.contactEmail}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone size={14} className="text-[#E8DBC5]" />
-                <span>+91 123 456 7890</span>
+                <span>{footerData.contactPhone}</span>
               </div>
             </div>
           </div>
@@ -182,6 +240,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+
 
         <div className="text-center text-xs text-white/60 pt-6 border-t border-white/10">
           © {new Date().getFullYear()} Moksha Voyage • All rights reserved

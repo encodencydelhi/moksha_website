@@ -1,4 +1,5 @@
 import "./globals.css";
+import Script from "next/script";
 import Sideicon from "@/components/Sideicon/Sideicon";
 
 export default function RootLayout({
@@ -8,8 +9,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          src="https://checkout.razorpay.com/v1/checkout.js"
+          strategy="lazyOnload"
+        />
+      </head>
       <body suppressHydrationWarning>
-        <Sideicon />
+
         {children}
       </body>
     </html>

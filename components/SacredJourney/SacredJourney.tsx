@@ -2,16 +2,47 @@
 import {
   FaPhoneAlt,
   FaEnvelope,
-  FaCalendarAlt,
   FaWhatsapp,
 } from "react-icons/fa";
 import { useState, useEffect } from "react";
+import { getComponentByKey } from "@/lib/apiClient";
+
+const DEFAULT_DATA = {
+  tag: "24/7 Care Coordination",
+  title: "A Journey Guided by Love",
+  description: "One trusted contact. Complete care. First response within 15 minutes, 24 hours a day, 365 days a year.",
+  buttons: [
+    { label: "Get Immediate Support", type: "phone", value: "+9118001234567" },
+    { label: "WhatsApp Chat", type: "whatsapp", value: "+9118001234567" },
+    { label: "Plan Ahead", type: "email", value: "support@mokshavoyage.com" },
+  ],
+  footerText: "Toll-free 24/7 Helpline • Real-Time Family Tracking • Radical Pricing Transparency",
+  benefits: ["Response Time SLA: 15 min", "Verified Network", "No Hidden Charges"],
+  quote: "You should not have to navigate this alone, and with Moksha Voyage, you never will.",
+  quoteAuthor: "From our Empathy Section",
+};
 
 export default function SacredJourney() {
   const [isVisible, setIsVisible] = useState(false);
+  const [data, setData] = useState(DEFAULT_DATA);
 
   useEffect(() => {
     setIsVisible(true);
+    const load = async () => {
+      try {
+        const res = await getComponentByKey("sacredjourney");
+        if (res.data?.success && res.data?.data?.customData) {
+          const d = res.data.data.customData;
+          setData({
+            ...DEFAULT_DATA,
+            ...d,
+            buttons: d.buttons?.length ? d.buttons : DEFAULT_DATA.buttons,
+            benefits: d.benefits?.length ? d.benefits : DEFAULT_DATA.benefits,
+          });
+        }
+      } catch {}
+    };
+    load();
   }, []);
 
   const circleStyles = [
@@ -41,16 +72,15 @@ export default function SacredJourney() {
           className={`text-center mb-8 transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
         >
           <span className="text-[#8B6A3E] tracking-widest uppercase text-[11px] font-medium">
-            24/7 Care Coordination
+            {data.tag}
           </span>
 
           <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-[#3A2A1F] leading-snug mt-2 mb-2">
-            A Journey Guided by Love
+            {data.title}
           </h2>
 
           <p className="text-xs sm:text-sm text-[#6E4B3A]/90 max-w-xl mx-auto font-light leading-relaxed">
-            One trusted contact. Complete care. First response within 15
-            minutes, 24 hours a day, 365 days a year.
+            {data.description}
           </p>
         </div>
 
@@ -58,39 +88,44 @@ export default function SacredJourney() {
           className={`transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
         >
           <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <button className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[#8B6A3E] text-white text-sm hover:bg-[#7A5A2E] transition shadow-md hover:shadow-lg">
-              <FaPhoneAlt className="text-xs" />
-              Get Immediate Support
-            </button>
-
-            <button className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[#25D366] text-white text-sm hover:bg-[#128C7E] transition shadow-md hover:shadow-lg">
-              <FaWhatsapp className="text-sm" />
-              WhatsApp Chat
-            </button>
-
-            <button className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-md border border-[#8B6A3E] text-[#8B6A3E] text-sm hover:bg-[#F8F4EC] transition">
-              <FaEnvelope className="text-xs" />
-              Plan Ahead for Your Family
-            </button>
+            {data.buttons.map((btn, i) => {
+              if (btn.type === "phone") {
+                return (
+                  <a key={i} href={`tel:${btn.value}`} className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[#8B6A3E] text-white text-sm hover:bg-[#7A5A2E] transition shadow-md hover:shadow-lg">
+                    <FaPhoneAlt className="text-xs" />
+                    {btn.label}
+                  </a>
+                );
+              }
+              if (btn.type === "whatsapp") {
+                return (
+                  <a key={i} href={`https://wa.me/${btn.value}`} className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[#25D366] text-white text-sm hover:bg-[#128C7E] transition shadow-md hover:shadow-lg">
+                    <FaWhatsapp className="text-sm" />
+                    {btn.label}
+                  </a>
+                );
+              }
+              return (
+                <a key={i} href={`mailto:${btn.value}`} className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-md border border-[#8B6A3E] text-[#8B6A3E] text-sm hover:bg-[#F8F4EC] transition">
+                  <FaEnvelope className="text-xs" />
+                  {btn.label}
+                </a>
+              );
+            })}
           </div>
 
           <div className="text-center mt-6">
             <p className="text-[12px] text-[#6E4B3A] font-light">
-              Toll-free 24/7 Helpline • Real-Time Family Tracking • Radical
-              Pricing Transparency
+              {data.footerText}
             </p>
           </div>
 
           <div className="flex justify-center gap-6 mt-4">
-            <span className="text-xs text-[#8B6A3E] font-medium">
-              ✓ Response Time SLA: 15 min
-            </span>
-            <span className="text-xs text-[#8B6A3E] font-medium">
-              ✓ Verified Network
-            </span>
-            <span className="text-xs text-[#8B6A3E] font-medium">
-              ✓ No Hidden Charges
-            </span>
+            {data.benefits.map((benefit, i) => (
+              <span key={i} className="text-xs text-[#8B6A3E] font-medium">
+                ✓ {benefit}
+              </span>
+            ))}
           </div>
         </div>
 
@@ -98,11 +133,10 @@ export default function SacredJourney() {
           className={`text-center mt-8 transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
         >
           <p className="text-sm sm:text-base font-light italic text-[#5A4030] px-4 max-w-lg mx-auto border-l-2 border-[#8B6A3E] pl-4">
-            "You should not have to navigate this alone, and with Moksha Voyage,
-            you never will."
+            "{data.quote}"
           </p>
           <p className="text-[10px] text-[#8B6A3E] mt-2">
-            — From our Empathy Section
+            — {data.quoteAuthor}
           </p>
         </div>
       </div>

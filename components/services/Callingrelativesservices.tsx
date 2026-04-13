@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getAllServices, resolveImagePath } from "@/lib/apiClient";
 import Topbar from "../topbar/Topbar";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -54,9 +55,45 @@ import { IoCall } from "react-icons/io5";
 function CallingRelativesServices() {
   const [selectedService, setSelectedService] = useState(null);
   const [showBookingForm, setShowBookingForm] = useState(false);
-  const [selectedServiceForBooking, setSelectedServiceForBooking] =
-    useState(null);
+  const [selectedServiceForBooking, setSelectedServiceForBooking] = useState(null);
+  const [fetchedServices, setFetchedServices] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await getAllServices({ pageCategory: "calling-relatives" });
+        const data = response.data;
+        if (data.success && data.data) {
+          setFetchedServices(
+            data.data.map((srv: any) => ({
+              ...srv,
+              id: srv._id,
+              name: srv.name,
+              description: srv.description,
+              image: srv.image || "/assets/callingrelative.jpeg",
+              price: srv.price,
+              features: srv.features || [],
+              icon: GiSoundOn,
+              rating: 5.0,
+              reviews: "N/A",
+              contactNumber: "+91 1800 123 4567",
+              whatsappNumber: "+91 1800 123 4567",
+              coordinatorName: "Moksha Voyage",
+              experience: "Trusted Provider",
+              responseTime: "Immediate",
+            }))
+          );
+        }
+      } catch (error) {
+        console.error("Error fetching services:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchServices();
+  }, []);
+  const callingrelative = "/assets/callingrelative.jpeg";
   const callingServices = [
     {
       id: 1,
@@ -70,8 +107,7 @@ function CallingRelativesServices() {
       price: "999",
       rating: 4.9,
       reviews: 234,
-      image:
-        "https://images.pexels.com/photos/7659560/pexels-photo-7659560.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: callingrelative,
       features: [
         "24/7 Availability",
         "Multi-language",
@@ -97,8 +133,7 @@ function CallingRelativesServices() {
       price: "2,499",
       rating: 4.8,
       reviews: 156,
-      image:
-        "https://images.pexels.com/photos/4611040/pexels-photo-4611040.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: callingrelative,
       features: [
         "International Calling",
         "Time Zone Management",
@@ -124,8 +159,7 @@ function CallingRelativesServices() {
       price: "1,999",
       rating: 4.7,
       reviews: 189,
-      image:
-        "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: callingrelative,
       features: ["Bulk SMS", "Voice Broadcast", "WhatsApp Groups", "Email"],
       coordinatorName: "Anita Desai",
       experience: "6+ years",
@@ -146,8 +180,7 @@ function CallingRelativesServices() {
       price: "499",
       rating: 4.9,
       reviews: 312,
-      image:
-        "https://images.pexels.com/photos/4492129/pexels-photo-4492129.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: callingrelative,
       features: [
         "Video Setup",
         "Platform Support",
@@ -173,8 +206,7 @@ function CallingRelativesServices() {
       price: "2,999",
       rating: 4.9,
       reviews: 278,
-      image:
-        "https://images.pexels.com/photos/6605287/pexels-photo-6605287.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: callingrelative,
       features: [
         "Personalized Calls",
         "RSVP Tracking",
@@ -200,8 +232,7 @@ function CallingRelativesServices() {
       price: "3,999",
       rating: 4.8,
       reviews: 445,
-      image:
-        "https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: callingrelative,
       features: [
         "Personalized Script",
         "RSVP Collection",
@@ -227,8 +258,7 @@ function CallingRelativesServices() {
       price: "4,999",
       rating: 4.6,
       reviews: 98,
-      image:
-        "https://images.pexels.com/photos/5668480/pexels-photo-5668480.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: callingrelative,
       features: [
         "Tracing Service",
         "Address Verification",
@@ -254,8 +284,7 @@ function CallingRelativesServices() {
       price: "999/month",
       rating: 4.9,
       reviews: 567,
-      image:
-        "https://images.pexels.com/photos/7659560/pexels-photo-7659560.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: callingrelative,
       features: [
         "24/7 Availability",
         "Emergency Protocols",
@@ -418,8 +447,11 @@ function CallingRelativesServices() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {callingServices.map((service) => {
-            const Icon = service.icon;
+          {loading ? (
+             <div className="col-span-full text-center py-10 text-[#7B5E47]">Loading services...</div>
+          ) : fetchedServices.length > 0 ? (
+            fetchedServices.map((service: any) => {
+            const Icon = service.icon || GiSoundOn;
 
             return (
               <div
@@ -430,7 +462,7 @@ function CallingRelativesServices() {
                 <div className="relative h-36 overflow-hidden">
                   {/* Actual Image */}
                   <Image
-                    src={service.image}
+                    src={resolveImagePath(service.image)}
                     alt={service.name}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -478,7 +510,7 @@ function CallingRelativesServices() {
 
                   {/* Features */}
                   <div className="flex flex-wrap justify-center gap-1 mb-2">
-                    {service.features.slice(0, 2).map((feature, idx) => (
+                    {(service.features || []).slice(0, 2).map((feature: any, idx: number) => (
                       <span
                         key={idx}
                         className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full"
@@ -486,9 +518,9 @@ function CallingRelativesServices() {
                         {feature}
                       </span>
                     ))}
-                    <span className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full">
-                      +{service.features.length - 2}
-                    </span>
+                    {(service.features?.length || 0) > 2 && <span className="text-[10px] px-1.5 py-0.5 bg-[#F5E9D9] text-[#8B5E3C] rounded-full">
+                      +{(service.features?.length || 0) - 2}
+                    </span>}
                   </div>
 
                   {/* Coordinator Info */}
@@ -564,11 +596,16 @@ function CallingRelativesServices() {
                   </div>
                 </div>
 
-                {/* Decorative Corner */}
-                <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-[#C89B6D]/20 to-transparent rounded-bl-lg"></div>
-              </div>
-            );
-          })}
+                  {/* Decorative Corner */}
+                  <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-[#C89B6D]/20 to-transparent rounded-bl-lg"></div>
+                </div>
+              );
+            })
+          ) : (
+            <div className="col-span-full text-center py-10 text-[#7B5E47]">
+              No calling services available currently.
+            </div>
+          )}
         </div>
       </section>
 
