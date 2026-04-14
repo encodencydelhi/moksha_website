@@ -43,8 +43,10 @@ function Blog() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     loadBlogs();
   }, []);
 
@@ -149,9 +151,8 @@ function Blog() {
             </div>
           </div>
 
-          {/* Categories */}
           <div className="flex flex-wrap justify-center gap-2 mt-6">
-            {categories.map((category) => (
+            {mounted && categories.map((category) => (
               <button
                 key={category}
                 className={`px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-300 ${
@@ -215,9 +216,9 @@ function Blog() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPosts.map((post) => (
+            {filteredPosts.map((post, index) => (
               <article
-                key={post._id}
+                key={post._id || index}
                 className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
               >
                 <Link
@@ -243,7 +244,7 @@ function Blog() {
                 <div className="p-4">
                   <div className="flex items-center gap-2 text-[10px] text-[#5A3E2B]/60 mb-2">
                     <span className="flex items-center gap-1">
-                      <FiCalendar className="text-[10px]" /> {new Date(post.publishedAt || post.date || "").toLocaleDateString()}
+                      <FiCalendar className="text-[10px]" /> {mounted && ((post.publishedAt || post.date) ? new Date(post.publishedAt || post.date || "").toLocaleDateString() : "No Date")}
                     </span>
                     <span>•</span>
                     <span className="flex items-center gap-1">
@@ -276,26 +277,28 @@ function Blog() {
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-2">
-                      <div className="flex items-center gap-1 text-[#5A3E2B]/40 text-[8px]">
-                        <BsEye className="text-[8px]" />
-                        <span>{post.views.toLocaleString()}</span>
+                    {mounted && (
+                      <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1 text-[#5A3E2B]/40 text-[8px]">
+                          <BsEye className="text-[8px]" />
+                          <span>{(post.views || 0).toLocaleString()}</span>
+                        </div>
+                        <div className="flex items-center gap-1 text-[#5A3E2B]/40 text-[8px]">
+                          <BsChat className="text-[8px]" />
+                          <span>{post.comments || 0}</span>
+                        </div>
+                        <button
+                          onClick={() => toggleSave(post._id)}
+                          className="p-1 hover:text-[#8B6A3E] transition"
+                        >
+                          {savedPosts.includes(post._id) ? (
+                            <BsBookmarkFill className="text-[10px] text-[#8B6A3E]" />
+                          ) : (
+                            <BsBookmark className="text-[10px] text-[#5A3E2B]/40" />
+                          )}
+                        </button>
                       </div>
-                      <div className="flex items-center gap-1 text-[#5A3E2B]/40 text-[8px]">
-                        <BsChat className="text-[8px]" />
-                        <span>{post.comments}</span>
-                      </div>
-                      <button
-                        onClick={() => toggleSave(post._id)}
-                        className="p-1 hover:text-[#8B6A3E] transition"
-                      >
-                        {savedPosts.includes(post._id) ? (
-                          <BsBookmarkFill className="text-[10px] text-[#8B6A3E]" />
-                        ) : (
-                          <BsBookmark className="text-[10px] text-[#5A3E2B]/40" />
-                        )}
-                      </button>
-                    </div>
+                    )}
                   </div>
                 </div>
               </article>

@@ -42,7 +42,8 @@ export default function TopInfoBar() {
     return diffDays % playlist.length;
   };
 
-  const [currentTrack, setCurrentTrack] = useState(getTodayTrack());
+  const [currentTrack, setCurrentTrack] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
   const toggleMusic = async () => {
     try {
@@ -69,6 +70,9 @@ export default function TopInfoBar() {
   };
 
   useEffect(() => {
+    setMounted(true);
+    setCurrentTrack(getTodayTrack());
+
     const fetchTopbarData = async () => {
       try {
         const { getTopbarComponent } = await import("@/lib/apiClient");
