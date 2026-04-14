@@ -45,6 +45,7 @@ export default function Navbar() {
     logo: "/assets/logoreal-removebg-preview.png",
     brandName: "Moksha Voyage",
   });
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     let lastScroll = 0;
@@ -114,6 +115,7 @@ export default function Navbar() {
         console.error("Navbar data fetch failed:", err);
       }
     };
+    setMounted(true);
     fetchData();
   }, []);
 
@@ -175,7 +177,10 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center h-12">
             <div className="absolute top-1 left-4 sm:left-30 z-10">
-              <button onClick={() => handleNavigation("/", "home")}>
+              <button 
+                onClick={() => handleNavigation("/", "home")}
+                suppressHydrationWarning
+              >
                 <div className="w-14 h-14 sm:w-30 sm:h-30 overflow-hidden rounded-md bg-white">
                   <img
                     src={resolveImagePath(branding.logo)}
@@ -194,6 +199,7 @@ export default function Navbar() {
                   {item.dropdown && item.dropdown.length > 0 ? (
                     <button
                       onClick={() => toggleDropdown(item.name)}
+                      suppressHydrationWarning
                       className={`px-4 py-2 transition-colors duration-200 flex items-center gap-1 h-full ${
                         activeLink === item.name.toLowerCase()
                           ? "text-[#8B6A3E]"
@@ -208,6 +214,7 @@ export default function Navbar() {
                   ) : (
                     <button
                       onClick={() => handleNavigation(item.path, item.name)}
+                      suppressHydrationWarning
                       className={`px-4 py-2 transition-colors duration-200 flex items-center gap-1 h-full ${
                         activeLink === item.name.toLowerCase()
                           ? "text-[#8B6A3E]"
@@ -233,6 +240,7 @@ export default function Navbar() {
                             onClick={() =>
                               handleNavigation(subItem.path, subItem.name)
                             }
+                            suppressHydrationWarning
                             className={`flex items-center space-x-2 w-full px-4 py-2 text-[#5A4030] hover:bg-gray-50 transition-all duration-150 ${cinzel.className}`}
                           >
                             <span className="text-[#5A4030]/80 w-5">
@@ -276,6 +284,7 @@ export default function Navbar() {
                 {item.dropdown && item.dropdown.length > 0 ? (
                   <button
                     onClick={() => toggleDropdown(item.name)}
+                    suppressHydrationWarning
                     className={`flex items-center justify-between w-full px-3 py-2 rounded-lg text-[#5A4030] hover:bg-gray-50 ${cinzel.className}`}
                   >
                     <div className="flex items-center space-x-2">
@@ -293,6 +302,7 @@ export default function Navbar() {
                 ) : (
                   <button
                     onClick={() => handleNavigation(item.path, item.name)}
+                    suppressHydrationWarning
                     className={`flex items-center space-x-2 w-full px-3 py-2 rounded-lg text-[#5A4030] hover:bg-gray-50 ${cinzel.className}`}
                   >
                     <span className="text-base">{item.icon}</span>
@@ -309,6 +319,7 @@ export default function Navbar() {
                           handleNavigation(subItem.path, subItem.name);
                           setOpen(false);
                         }}
+                        suppressHydrationWarning
                         className={`flex items-center space-x-2 w-full px-3 py-1.5 rounded-md text-[#5A4030] hover:bg-gray-100 transition-all duration-150 ${cinzel.className}`}
                       >
                         <span className="text-[#5A4030]/70">

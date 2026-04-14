@@ -137,8 +137,9 @@ export default function TopInfoBar() {
             onClick={toggleMusic}
             className="flex items-center justify-center w-8 h-8 rounded-full bg-[#8B6A3E] hover:bg-[#755735] transition-all duration-300"
             aria-label="Toggle Music"
+            suppressHydrationWarning
           >
-            {isMusicOn ? (
+            {mounted && (isMusicOn ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-4 h-4 text-white"
@@ -146,6 +147,7 @@ export default function TopInfoBar() {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 strokeWidth={2}
+                suppressHydrationWarning
               >
                 <path
                   strokeLinecap="round"
@@ -166,6 +168,7 @@ export default function TopInfoBar() {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 strokeWidth={2}
+                suppressHydrationWarning
               >
                 <path
                   strokeLinecap="round"
@@ -178,12 +181,13 @@ export default function TopInfoBar() {
                   d="M15 9a3 3 0 010 6m3-8a7 7 0 010 10"
                 />
               </svg>
-            )}
+            ))}
           </button>
 
           <Link
             href="/login"
             className={`flex items-center justify-center w-7 h-7 md:w-auto md:h-auto md:px-1.5 md:py-0.5 rounded bg-[#8B6A3E] hover:bg-[#755735] text-white transition-colors ${cinzel.className}`}
+            suppressHydrationWarning
           >
             <User size={14} className="md:hidden" />
             <span className="hidden md:inline text-[11px]">User Login</span>
@@ -194,6 +198,7 @@ export default function TopInfoBar() {
           <Link
             href="/vendorlogin"
             className={`flex items-center justify-center w-7 h-7 md:w-auto md:h-auto md:px-1.5 md:py-0.5 rounded bg-[#8B6A3E] hover:bg-[#755735] text-white transition-colors ${cinzel.className}`}
+            suppressHydrationWarning
           >
             <Users size={14} className="md:hidden" />
             <span className="hidden md:inline text-[11px]">Vendor Login</span>

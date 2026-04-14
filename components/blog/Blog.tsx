@@ -147,14 +147,16 @@ function Blog() {
                 className="w-full pl-10 pr-4 py-3 text-sm bg-white rounded-xl border border-[#E7D5C2] focus:border-[#8B6A3E] focus:ring-2 focus:ring-[#8B6A3E]/20 outline-none transition"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                suppressHydrationWarning
               />
             </div>
           </div>
 
           <div className="flex flex-wrap justify-center gap-2 mt-6">
-            {mounted && categories.map((category) => (
+            {categories.map((category) => (
               <button
                 key={category}
+                suppressHydrationWarning
                 className={`px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-300 ${
                   selectedCategory === category
                     ? "text-white shadow-md"
@@ -206,6 +208,7 @@ function Blog() {
             </p>
             <button
               className="px-4 py-2 bg-[#8B6A3E] text-white text-sm rounded-lg hover:bg-[#5A3E2B] transition"
+              suppressHydrationWarning
               onClick={() => {
                 setSearchQuery("");
                 setSelectedCategory("All");
@@ -218,7 +221,7 @@ function Blog() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPosts.map((post, index) => (
               <article
-                key={post._id || index}
+                key={`${post._id}-${index}`}
                 className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
               >
                 <Link
@@ -226,10 +229,14 @@ function Blog() {
                   className="block relative h-40 overflow-hidden"
                 >
                   <Image
-                    src={post.coverImage || post.image || "/placeholder.jpg"}
+                    src={post.coverImage || post.image || "/assets/mokshalogo.jpg"}
                     alt={post.title}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading={index < 3 ? "eager" : "lazy"}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = "/assets/mokshalogo.jpg";
+                    }}
                   />
                   <div className="absolute top-3 right-3">
                     <span
@@ -341,7 +348,7 @@ function Blog() {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-[#2C1810] to-[#8B6A3E]"></div>
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-full h-full bg-[url('/assets/pattern.png')] bg-repeat"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-[url('/assets/om.png')] bg-repeat opacity-20"></div>
           </div>
         </div>
 
@@ -381,7 +388,10 @@ function Blog() {
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
             </div>
-            <button className="px-6 py-3 bg-white text-[#8B6A3E] text-sm font-medium rounded-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <button 
+              className="px-6 py-3 bg-white text-[#8B6A3E] text-sm font-medium rounded-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              suppressHydrationWarning
+            >
               Subscribe
             </button>
           </div>
