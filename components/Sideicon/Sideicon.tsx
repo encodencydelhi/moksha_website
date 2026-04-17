@@ -13,7 +13,7 @@ import {
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa";
-import { getSettingsBySection } from "@/lib/apiClient";
+import { getSettingsBySection, recordClickAnalytics } from "@/lib/apiClient";
 import { PiFlowerLotus } from "react-icons/pi";
 import { MdEmail } from "react-icons/md";
 
@@ -99,7 +99,7 @@ const SocialSidebar = () => {
         const data = response.data;
         if (data.success && data.data) {
           const component = data.data;
-          
+
           // Map backend icons string to React components
           const iconMap: any = {
             whatsapp: <FaWhatsapp size={20} />,
@@ -146,6 +146,7 @@ const SocialSidebar = () => {
               <a
                 href={resolvedEmail.url}
                 className="block"
+                onClick={() => recordClickAnalytics("Enquiry")}
                 onMouseEnter={() => setShowTooltip("enquiry")}
                 onMouseLeave={() => setShowTooltip(null)}
               >
@@ -174,6 +175,7 @@ const SocialSidebar = () => {
               <a
                 href="tel:+919310219283"
                 className="block"
+                onClick={() => recordClickAnalytics("Emergency")}
                 onMouseEnter={() => setShowTooltip("emergency")}
                 onMouseLeave={() => setShowTooltip(null)}
               >
@@ -210,6 +212,7 @@ const SocialSidebar = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
+                  onClick={() => recordClickAnalytics(social.label)}
                   onMouseEnter={() => setShowTooltip(social.label)}
                   onMouseLeave={() => setShowTooltip(null)}
                 >
@@ -239,6 +242,7 @@ const SocialSidebar = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
+              onClick={() => recordClickAnalytics("WhatsApp")}
               onMouseEnter={() => setShowTooltip("whatsapp")}
               onMouseLeave={() => setShowTooltip(null)}
             >
@@ -266,6 +270,7 @@ const SocialSidebar = () => {
             <a
               href={resolvedPhone.url}
               aria-label={resolvedPhone.label}
+              onClick={() => recordClickAnalytics("Call")}
               onMouseEnter={() => setShowTooltip("phone")}
               onMouseLeave={() => setShowTooltip(null)}
             >
@@ -349,6 +354,7 @@ const SocialSidebar = () => {
           {/* Phone */}
           <a
             href={phoneLink.url}
+            onClick={() => recordClickAnalytics("Call")}
             className="flex flex-col items-center gap-1 group"
           >
             <div className="w-10 h-10 rounded-full bg-[#4CAF50]/10 flex items-center justify-center group-hover:bg-[#4CAF50]">

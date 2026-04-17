@@ -10,7 +10,6 @@ const api = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
-  withCredentials: true,
 });
 
 api.interceptors.request.use((config) => {
@@ -122,6 +121,10 @@ export const getVisits = (params?: any) =>
 // --- Social Clicks APIs ---
 export const trackSocialClick = (platform: string) =>
   api.post("/social-clicks/track", { platform });
+
+export const recordClickAnalytics = (iconName: string) =>
+  api.post("/click-analytics/create", { iconName });
+
 export const getSocialClicks = (params?: any) =>
   api.get("/social-clicks", { params });
 

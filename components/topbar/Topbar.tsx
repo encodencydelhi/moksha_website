@@ -4,7 +4,7 @@ import { Mail, Phone, User, Users, Shield } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Cinzel, Inter } from "next/font/google";
-import { getSettingsBySection } from "@/lib/apiClient";
+import { getSettingsBySection, recordClickAnalytics } from "@/lib/apiClient";
 const cinzel = Cinzel({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
@@ -115,6 +115,7 @@ export default function TopInfoBar() {
             <Mail size={16} className="text-[#D4B996]" />
             <a
               href={`mailto:${topbarEmail}`}
+              onClick={() => recordClickAnalytics("Email")}
               className="sm:text-sm lg:text-[13px] text-white/90 hover:text-white transition-colors whitespace-nowrap"
             >
               {topbarEmail}
@@ -125,6 +126,7 @@ export default function TopInfoBar() {
             <Phone size={16} className="text-[#D4B996]" />
             <a
               href={`tel:${topbarPhone}`}
+              onClick={() => recordClickAnalytics("Call")}
               className="text-xs lg:text-[13px] text-white/90 hover:text-white transition-colors whitespace-nowrap"
             >
               {topbarPhone}
@@ -208,6 +210,7 @@ export default function TopInfoBar() {
 
           <Link
             href={whatsappLink}
+            onClick={() => recordClickAnalytics("WhatsApp")}
             className={`flex items-center justify-center w-7 h-7 md:w-auto md:h-auto md:px-1.5 md:py-0.5 rounded bg-[#8B6A3E] hover:bg-[#755735] text-white transition-colors ${cinzel.className}`}
           >
             <Shield size={14} className="md:hidden" />
